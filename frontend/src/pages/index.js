@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 
 import BookPage from './BookPage/BookPage'
+import LoginPage from './LoginPage/LoginPage'
 
 const PrivateRoute = props => {
   const [isLoggedIn] = useState(true /* TODO */)
@@ -19,7 +20,8 @@ const PrivateRoute = props => {
 
 const Pages = () => {
   return <Router>
-    <PrivateRoute path='/' component={BookPage} />
+    <PrivateRoute path='/' exact component={BookPage} />
+    <Route path='/login' exact component={LoginPage} />
   </Router>
 }
 
