@@ -14,15 +14,17 @@ const PrivateRoute = props => {
   return isLoggedIn ? (
     <Route {...props} />
   ) : (
-    <Redirect to={{ pathname: '/login', state: { from: props.location }}} />
+    <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
   )
 }
 
 const Pages = () => {
-  return <Router>
-    <PrivateRoute path='/' exact component={BookPage} />
-    <Route path='/login' exact component={LoginPage} />
-  </Router>
+  return (
+    <Router>
+      <PrivateRoute path="/" exact component={BookPage} />
+      <Route path="/login" exact component={LoginPage} />
+    </Router>
+  )
 }
 
 export default Pages
