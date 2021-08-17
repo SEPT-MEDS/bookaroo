@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 
 import BookPage from './BookPage/BookPage'
 import LoginPage from './LoginPage/LoginPage'
+import ContactPage from './ContactPage/ContactPage'
 
 const PrivateRoute = props => {
   const [isLoggedIn] = useState(true /* TODO */)
@@ -23,6 +24,7 @@ const Pages = () => {
     <Router>
       <PrivateRoute path="/" exact component={BookPage} />
       <Route path="/login" exact component={LoginPage} />
+      <Route path="/contact" exact component={ContactPage} />
     </Router>
   )
 }

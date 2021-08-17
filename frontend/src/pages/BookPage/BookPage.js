@@ -11,7 +11,7 @@ const BookPage = () => {
   })
 
   return <Container>
-  { books.map(book => <BookCard />) }
+    { books.map(book => <BookCard key={book?.title} />) }
   </Container>
 }
 
