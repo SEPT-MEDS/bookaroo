@@ -1,7 +1,11 @@
 import React from 'react'
 
+import Pages from './pages'
+
 const App = () => {
-  return <div>Hello World!</div>
+  return <main>
+    <Pages />
+  </main>
 }
 
 export default App
