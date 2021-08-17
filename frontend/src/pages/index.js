@@ -7,7 +7,7 @@ import ContactPage from './ContactPage/ContactPage'
 import AboutPage from './AboutPage/AboutPage'
 
 const PrivateRoute = props => {
-  const [isLoggedIn] = useState(true /* TODO: For now we assume you are logged in*/)
+  const [isLoggedIn] = useState(false /* TODO: For now we assume you are logged in*/)
 
   useEffect(() => {
     // some auth observer that calls setIsLoggedIn()
