@@ -12,14 +12,12 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react'],
-  react: {
-    'react/prop-types': 0
-  },
   rules: {
     indent: ['error', 2],
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
     semi: ['error', 'never'],
-    'arrow-parens': ['error', 'as-needed']
+    'arrow-parens': ['error', 'as-needed'],
+    'react/prop-types': 0
   },
 }
