@@ -31,4 +31,6 @@ const api = {
   delete: instance.delete
 }
 
+export * from './user'
+
 export default api
