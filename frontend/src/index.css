@@ -1,5 +1,13 @@
 * {
   margin: 0px;
   padding: 0px;
+  box-sizing: border-box;
 }
 
+body, #root, #root > main {
+  min-height: 100vh;
+  font-family: 'Lato', san-serif;
+}
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
