@@ -8,7 +8,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 import {
   Container,
-  ContactPoint,
+  ContactPointOld,
   EmailForm,
   Field,
   RequiredLabel,
@@ -16,6 +16,8 @@ import {
   ContactInfoContainer,
   ContactPointsContainer,
 } from './contactPageStyle'
+
+// import { ContactPoint } from 'components'
 
 const ContactPage = () => {
   return (
@@ -73,26 +75,26 @@ const ContactInfo = () =>
 
 const ContactPoints = () =>
   <ContactPointsContainer>
-    <ContactPoint>
+    <ContactPointOld>
       <FontAwesomeIcon icon={faEnvelope} />
       <span>contact@bookaroo.com</span>
-    </ContactPoint>
-    <ContactPoint>
+    </ContactPointOld>
+    <ContactPointOld>
       <FontAwesomeIcon icon={faPhoneAlt} />
       <span>+61 1234 567 890</span>
-    </ContactPoint>
-    <ContactPoint>
+    </ContactPointOld>
+    <ContactPointOld>
       <FontAwesomeIcon icon={faFacebookF} />
       <span>facebook.com/bookaroo</span>
-    </ContactPoint>
-    <ContactPoint>
+    </ContactPointOld>
+    <ContactPointOld>
       <FontAwesomeIcon icon={faTwitter} />
       <span>@bookaroo</span>
-    </ContactPoint>
-    <ContactPoint>
+    </ContactPointOld>
+    <ContactPointOld>
       <FontAwesomeIcon icon={faInstagram} />
       <span>@bookaroo</span>
-    </ContactPoint>
+    </ContactPointOld>
   </ContactPointsContainer>
 
 export default ContactPage
