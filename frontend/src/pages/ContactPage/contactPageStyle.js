@@ -1,74 +1,75 @@
 import styled from 'styled-components'
 
-export const ContactPageStyle = styled.div`
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-  margin-top: 8%;
+export const Container = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 2em;
+  gap: 2em;
 
-  // variables won't work
-  :root {
-    --white: #f4f4f4;
-    --black: #666666;
-  }
-
-  * {
-    font-family: 'Roboto', sans-serif;
-    /* background: var(--white); */
-    /* color: var(--black); */
-    // does not cover entire page
-    background: #f4f4f4;
-    color: #222222;
-  }
-
-  p {
-    font-size: 1.2rem;
-  }
-
-  .divider {
-    /* display: flexbox; */
-    /* float: middle; */
-    height: 400px;
-    width: 2px;
-    background: #aaaaaa;
-    margin: 0 auto;
+  > :first-child {
+    border-right: 2px solid black;
   }
 `
 
-export const EmailForm = styled.div`
-  float: left;
-  margin-left: 5%;
-  width: 40%;
-
-  input {
-    background: #ffffff;
-    width: 60%;
-    height: 1.3rem;
-  }
-
-  #message {
-    height: 5rem;
-  }
+export const EmailForm = styled.form`
+  display: grid;
+  width: 100%;
+  height: 100%;
+  padding: 2em;
+  padding-top: 0;
+  padding-bottom: .5em;
+  gap: .7em;
+  grid-row: 1 / 3;
 `
 
 export const Field = styled.div`
-  margin-bottom: 1rem;
-`
-export const ContactPoint = styled.div`
-  display: flexbox;
-  margin-top: 1rem;
-  p {
-    margin-left: 2rem;
-    font-weight: 600;
+  display: grid;
+  gap: .1em;
+
+  textarea {
+    height: 7em;
   }
 
-  .icon {
-    width: 1.1rem;
-    height: 1.1rem;
-    vertical-align: middle;
+  textarea, input {
+    padding: .4em;
+    border-radius: .2rem;
+    border: 1px solid black;
   }
+`
+
+export const FieldGroup = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+`
+
+export const RequiredLabel = styled.label`
+  ::after {
+    display: inline-block;
+    color: red;
+    content: '*';
+  }
+`
+
+export const ContactPoint = styled.div`
+  display: grid;
+  grid-template-columns: 2.5em max-content;
+  font-weight: bold;
 `
 
 export const ContactUs = styled.div`
   display: inline;
   float: right;
   width: 40%;
+`
+
+export const ContactInfoContainer = styled.div`
+  grid-column: 2;
+`
+
+export const ContactPointsContainer = styled.div`
+  grid-column: 2;
+  grid-template-columns: 1fr;
+  gap: .5em;
+  height: max-content;
 `
