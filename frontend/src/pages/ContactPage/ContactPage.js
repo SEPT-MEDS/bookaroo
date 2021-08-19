@@ -2,7 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPhoneAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faInstagram, faFacebookF } from '@fortawesome/free-brands-svg-icons'
-import { ContactPageStyle, ContactPoint, EmailForm, Field } from './contactPageStyle'
+import { ContactPageStyle, ContactPoint, EmailForm, Field, ContactUs } from './contactPageStyle'
 
 const ContactPage = () => {
   return (
@@ -64,31 +64,33 @@ const ContactPage = () => {
       <div className='divider'></div>
 
       <div className='right'>
-        <h1>Contact Us</h1>
-        <p>
-          Have a problem, suggestion, or query? Simply fill out the form below to send us an email, or use our other
-          points of contact and we&apos;ll be happy to help!
-        </p>
-        <ContactPoint>
-          <FontAwesomeIcon className='icon' icon={faEnvelope} />
-          <p>contact@bookaroo.com</p>
-        </ContactPoint>
-        <ContactPoint>
-          <FontAwesomeIcon className='icon' icon={faPhoneAlt} />
-          <p>+61 1234 567 890</p>
-        </ContactPoint>
-        <ContactPoint>
-          <FontAwesomeIcon className='icon' icon={faFacebookF} />
-          <p>facebook.com/bookaroo</p>
-        </ContactPoint>
-        <ContactPoint>
-          <FontAwesomeIcon className='icon' icon={faTwitter} />
-          <p>@bookaroo</p>
-        </ContactPoint>
-        <ContactPoint>
-          <FontAwesomeIcon className='icon' icon={faInstagram} />
-          <p>@bookaroo</p>
-        </ContactPoint>
+        <ContactUs>
+          <h1>Contact Us</h1>
+          <p>
+            Have a problem, suggestion, or query? Simply fill out the form below to send us an email, or use our other
+            points of contact and we&apos;ll be happy to help!
+          </p>
+          <ContactPoint>
+            <FontAwesomeIcon className='icon' icon={faEnvelope} />
+            <p>contact@bookaroo.com</p>
+          </ContactPoint>
+          <ContactPoint>
+            <FontAwesomeIcon className='icon' icon={faPhoneAlt} />
+            <p>+61 1234 567 890</p>
+          </ContactPoint>
+          <ContactPoint>
+            <FontAwesomeIcon className='icon' icon={faFacebookF} />
+            <p>facebook.com/bookaroo</p>
+          </ContactPoint>
+          <ContactPoint>
+            <FontAwesomeIcon className='icon' icon={faTwitter} />
+            <p>@bookaroo</p>
+          </ContactPoint>
+          <ContactPoint>
+            <FontAwesomeIcon className='icon' icon={faInstagram} />
+            <p>@bookaroo</p>
+          </ContactPoint>
+        </ContactUs>
       </div>
     </ContactPageStyle>
   )

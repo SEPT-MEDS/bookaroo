@@ -24,10 +24,12 @@ export const ContactPageStyle = styled.div`
   }
 
   .divider {
-    display: flexbox;
+    /* display: flexbox; */
+    /* float: middle; */
     height: 400px;
     width: 2px;
     background: #aaaaaa;
+    margin: 0 auto;
   }
 `
 
@@ -55,8 +57,7 @@ export const ContactPoint = styled.div`
   margin-top: 1rem;
   p {
     margin-left: 2rem;
-    // doesn't work but should be slightly thicker
-    font-weight: 400;
+    font-weight: 600;
   }
 
   .icon {
@@ -64,4 +65,10 @@ export const ContactPoint = styled.div`
     height: 1.1rem;
     vertical-align: middle;
   }
+`
+
+export const ContactUs = styled.div`
+  display: inline;
+  float: right;
+  width: 40%;
 `
