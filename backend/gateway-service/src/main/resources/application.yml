@@ -4,3 +4,25 @@ server:
 spring:
   application:
     name: GATEWAY-SERVICE
+  cloud:
+    gateway:
+      routes:
+        - id: USER-SERVICE-SIGNUP
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/api/user/signup
+        - id: USER-SERVICE
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/api/user/**
+          filters:
+            - name: JwtAuth
+        - id: AUTH-SERVICE
+          uri: lb://AUTH-SERVICE
+          predicates:
+            - Path=/api/auth/**
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true

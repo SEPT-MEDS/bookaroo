@@ -1,24 +1,11 @@
 package meds.bookaroo.userservice.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+import lombok.*;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.Objects;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-
-enum Status {
-    ACTIVE,
-    PENDING_APPROVAL,
-    DISABLED
-}
 
 enum Type {
     CUSTOMER,
@@ -30,16 +17,18 @@ enum Type {
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Data
-public class User implements UserDetails {
+@Getter
+@Setter
+public class User {
     private @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    private Status status;
-    private Type type;
+    @Email(message = "Email needs to be a valid email")
+    @NotBlank(message = "Email is required")
+    @Column(unique = true)
+    private String email;
 
-    @Email(message = "Username needs to be an email")
     @NotBlank(message = "username is required")
     @Column(unique = true)
     private String username;
@@ -47,40 +36,8 @@ public class User implements UserDetails {
     @NotBlank(message = "Password field is required")
     private String password;
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
-    }
-
-    @Override
-    public String getPassword() {
-        return null;
-    }
-
-    @Override
-    public String getUsername() {
-        return null;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return false;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return false;
-    }
+    private boolean isEnabled;
+    private Type type;
 
     @NotBlank(message = "First name is required")
     private String firstName;
@@ -92,9 +49,20 @@ public class User implements UserDetails {
     private String address;
     private String ABN;
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    // TODO confirm password
     @Transient
     private String confirmPassword;
 
+    // TODO status of user account
+    public boolean isEnabled() {
+        return isEnabled;
+    }
 }
-
-
