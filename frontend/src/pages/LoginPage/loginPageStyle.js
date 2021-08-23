@@ -65,3 +65,12 @@ export const InputContainer = styled.div`
 export const Heading = styled.h2`
   text-align: center;
 `
+
+export const ErrorNotification = styled.div`
+  padding: 1em;
+  width: 100%;
+  color: ${p => p.theme.error};
+  background: ${p => p.theme.errorBackground};
+  border-radius: .5rem;
+  border: 2px solid red;
+`

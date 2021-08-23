@@ -6,7 +6,7 @@ import {
   useLocation,
 } from 'react-router-dom'
 
-import { useToken } from '../hooks'
+import { useAuth } from '../hooks'
 import { Navigation } from '../components'
 import BookPage from './BookPage/BookPage'
 import LoginPage from './LoginPage/LoginPage'
@@ -14,7 +14,7 @@ import ContactPage from './ContactPage/ContactPage'
 import AboutPage from './AboutPage/AboutPage'
 
 const PrivateRoute = props => {
-  const { isLoggedIn } = useToken()
+  const { isLoggedIn } = useAuth()
 
   useEffect(() => {
     // some auth observer that calls setIsLoggedIn()

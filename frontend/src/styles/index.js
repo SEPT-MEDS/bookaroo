@@ -1,5 +1,6 @@
 const styles = {
   error: '#E60028',
+  errorBackground: '#ffe7eb',
 
   light: {
     primary: '#4000D0',
