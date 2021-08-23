@@ -1,4 +1,6 @@
 import React from 'react'
+import { ContactPointsContainer } from './aboutPageStyle'
+import { ContactPoint } from '../../components'
 
 const AboutPage = () => {
   return <div className = "aboutPage">
@@ -12,8 +14,15 @@ const AboutPage = () => {
     </p>
     <br/>
     <h3>Check out our socials below!</h3>
-    <p>Facebook, Twitter and Instagram here...</p>
+    <ContactPoints></ContactPoints>
   </div>
 }
+
+const ContactPoints = () =>
+  <ContactPointsContainer>
+    <ContactPoint contactType = 'facebook'></ContactPoint>
+    <ContactPoint contactType = 'twitter'></ContactPoint>
+    <ContactPoint contactType = 'instagram'></ContactPoint>
+  </ContactPointsContainer>
 
 export default AboutPage
