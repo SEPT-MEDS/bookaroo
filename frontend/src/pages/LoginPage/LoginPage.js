@@ -1,12 +1,21 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { useHistory } from 'react-router'
 
+import { useToken } from '../../hooks'
 import { Container, Form, InputContainer, Heading, FieldsContainer } from './loginPageStyle'
 
 const LoginPage = () => {
-  const {register, handleSubmit, formState: { errors } } = useForm()
+  const history = useHistory()
+  const { setToken } = useToken()
+  const { register, handleSubmit, formState: { errors } } = useForm()
 
-  const onSubmit = data => console.log('formd', data)
+  const onSubmit = data => {
+    // TODO: fetch that shit!
+    console.log(data)
+    setToken('haha')
+    history.push('/')
+  }
 
   return <Container>
     <Form onSubmit={handleSubmit(onSubmit)}>

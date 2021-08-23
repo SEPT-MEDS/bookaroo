@@ -1,2 +1,2 @@
-export { default as useProfile } from './useProfile'
+export { default as useToken } from './useToken'
 export { default as useIsDarkScheme } from './useIsDarkScheme'

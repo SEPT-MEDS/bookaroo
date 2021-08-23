@@ -1,16 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 
+import { useToken } from '../hooks'
 import BookPage from './BookPage/BookPage'
 import LoginPage from './LoginPage/LoginPage'
 import ContactPage from './ContactPage/ContactPage'
 import AboutPage from './AboutPage/AboutPage'
 
 const PrivateRoute = props => {
-  const [isLoggedIn] = useState(false /* TODO: For now we assume you are logged in*/)
+  const {isLoggedIn} = useToken()
 
   useEffect(() => {
     // some auth observer that calls setIsLoggedIn()
+
   })
 
   return isLoggedIn ? (
