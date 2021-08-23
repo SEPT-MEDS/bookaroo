@@ -1,23 +1,16 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPhoneAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons'
-import {
-  faTwitter,
-  faInstagram,
-  faFacebookF,
-} from '@fortawesome/free-brands-svg-icons'
+
 import {
   Container,
-  ContactPointOld,
   EmailForm,
   Field,
   RequiredLabel,
   FieldGroup,
   ContactInfoContainer,
-  ContactPointsContainer,
+  ContactPointsContainer
 } from './contactPageStyle'
 
-// import { ContactPoint } from 'components'
+import { ContactPoint } from '../../components'
 
 const ContactPage = () => {
   return (
@@ -75,26 +68,13 @@ const ContactInfo = () =>
 
 const ContactPoints = () =>
   <ContactPointsContainer>
-    <ContactPointOld>
-      <FontAwesomeIcon icon={faEnvelope} />
-      <span>contact@bookaroo.com</span>
-    </ContactPointOld>
-    <ContactPointOld>
-      <FontAwesomeIcon icon={faPhoneAlt} />
-      <span>+61 1234 567 890</span>
-    </ContactPointOld>
-    <ContactPointOld>
-      <FontAwesomeIcon icon={faFacebookF} />
-      <span>facebook.com/bookaroo</span>
-    </ContactPointOld>
-    <ContactPointOld>
-      <FontAwesomeIcon icon={faTwitter} />
-      <span>@bookaroo</span>
-    </ContactPointOld>
-    <ContactPointOld>
-      <FontAwesomeIcon icon={faInstagram} />
-      <span>@bookaroo</span>
-    </ContactPointOld>
+    <ContactPoint contactType = 'envelope'></ContactPoint>
+    <ContactPoint contactType = 'phone'></ContactPoint>
+    <ContactPoint contactType = 'facebook'></ContactPoint>
+    <ContactPoint contactType = 'twitter'></ContactPoint>
+    <ContactPoint contactType = 'instagram'></ContactPoint>
   </ContactPointsContainer>
+
+
 
 export default ContactPage

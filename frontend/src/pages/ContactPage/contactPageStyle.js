@@ -51,12 +51,6 @@ export const RequiredLabel = styled.label`
   }
 `
 
-export const ContactPointOld = styled.div`
-  display: grid;
-  grid-template-columns: 2.5em max-content;
-  font-weight: bold;
-`
-
 export const ContactUs = styled.div`
   display: inline;
   float: right;
