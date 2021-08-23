@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, { ThemeProvider } from 'styled-components'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 import styles from './styles'
 import Pages from './pages'
@@ -15,13 +16,15 @@ const App = () => {
 
   return (
     <>
-      <ThemeProvider
-        theme={{ ...styles, ...styles[isDarkTheme ? 'dark' : 'light'] }}
-      >
-        <Main>
-          <Pages />
-        </Main>
-      </ThemeProvider>
+      <Router>
+        <ThemeProvider
+          theme={{ ...styles, ...styles[isDarkTheme ? 'dark' : 'light'] }}
+        >
+          <Main>
+            <Pages />
+          </Main>
+        </ThemeProvider>
+      </Router>
     </>
   )
 }

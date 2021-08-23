@@ -8,6 +8,7 @@ const styles = {
     backgroundSecondary: '#EEEEEE',
 
     text: '#222222',
+    invertedText: '#EEEEEE',
     greyText: '#636363',
 
     buttonInactive: '#E1E1E1',
@@ -22,6 +23,7 @@ const styles = {
     backgroundSecondary: '#333333',
 
     text: '#EEEEEE',
+    invertedText: '#222222',
     greyText: '#BBBBBB',
 
     buttonInactive: '#3F3F3F',
