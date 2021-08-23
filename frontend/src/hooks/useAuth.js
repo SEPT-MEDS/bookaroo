@@ -2,8 +2,8 @@ import { useEffect } from 'react'
 import create from 'zustand'
 
 const useTokenStore = create(set => ({
-  token: window.sessionStorage.token,
-  userId: window.sessionStorage.userId,
+  token: window.localStorage.token,
+  userId: window.localStorage.userId,
   setUserId: userId => set({ userId }),
   setToken: token => set({ token }),
   clearToken: () => set({ token: null }),
@@ -15,24 +15,24 @@ const useAuth = () => {
 
   useEffect(() => {
     if (!token) {
-      if (window.sessionStorage.token) {
-        setStoredToken(window.sessionStorage.token)
+      if (window.localStorage.token) {
+        setStoredToken(window.localStorage.token)
       }
     }
     if (!userId) {
-      if (window.sessionStorage.userId) {
-        setStoredId(window.sessionStorage.userId)
+      if (window.localStorage.userId) {
+        setStoredId(window.localStorage.userId)
       }
     }
   })
 
   const setToken = token => {
-    window.sessionStorage.token = token
+    window.localStorage.token = token
     setStoredToken(token)
   }
 
   const setUserId = userId => {
-    window.sessionStorage.userId = userId
+    window.localStorage.userId = userId
     setStoredId(userId)
   }
 
