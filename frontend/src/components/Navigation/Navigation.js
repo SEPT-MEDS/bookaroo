@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-import { Logo } from './navigationStyle'
+import { Logo } from '../'
+import { NavBar } from './navigationStyle'
 
 const Navigation = () => {
+  const [user] = useState(null /* TODO */)
   const [isAdmin] = useState(false /* TODO */)
 
   return <NavBar>
     <Logo />
-    { user && (admin ? <AdminFields /> : <CustomerFields />) }
-    { user && !admin && <ShoppingCart /> }
+    { user && (isAdmin ? <AdminFields /> : <CustomerFields />) }
+    { user && !isAdmin && <ShoppingCart /> }
     { user
       ? <SignedInFields />
       : <SignedOutFields />
