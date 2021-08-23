@@ -11,7 +11,7 @@ const LoginPage = () => {
   const { register, handleSubmit, formState: { errors } } = useForm()
 
   const onSubmit = data => {
-    // TODO: fetch that shit!
+    // TODO: fetch that stuff!
     console.log(data)
     setToken('haha')
     history.push('/')
