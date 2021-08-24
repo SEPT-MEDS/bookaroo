@@ -80,8 +80,19 @@
 			<plugin>
 				<groupId>com.google.cloud.tools</groupId>
 				<artifactId>jib-maven-plugin</artifactId>
-				<version>0.9.0</version>
 				<configuration>
+					<container>
+						<ports>
+							<port>9003</port>
+							<port>9002</port>
+							<port>8761</port>
+							<port>9191</port>
+							<port>3306</port>
+						</ports>
+						<environment>
+							<SPRING_PROFILES_ACTIVE>prod</SPRING_PROFILES_ACTIVE>
+						</environment>
+					</container>
 				</configuration>
 			</plugin>
 			<plugin>
