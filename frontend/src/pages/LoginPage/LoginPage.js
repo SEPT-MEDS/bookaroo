@@ -48,9 +48,9 @@ const LoginPage = () => {
         {error && <ErrorNotification>{error}</ErrorNotification>}
         <FieldsContainer>
           <InputContainer>
-            <label>Email</label>
-            <input type="email" {...register('email', { required: true })} />
-            {errors.email && 'This field is required'}
+            <label>Username</label>
+            <input type="username" {...register('username', { required: true })} />
+            {errors.username && 'This field is required'}
           </InputContainer>
           <InputContainer>
             <label>Password</label>
