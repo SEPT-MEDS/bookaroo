@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+(cd gateway-service && mvn compile jib:dockerBuild) &
+(cd auth-service && mvn compile jib:dockerBuild) &
+(cd user-service && mvn compile jib:dockerBuild) &
+(cd discovery-service && mvn compile jib:dockerBuild) &
+wait
