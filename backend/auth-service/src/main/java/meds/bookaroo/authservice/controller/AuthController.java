@@ -1,6 +1,7 @@
 package meds.bookaroo.authservice.controller;
 
-import meds.bookaroo.authservice.payload.JWTLoginSucessReponse;
+import meds.bookaroo.authservice.feignClients.UserClient;
+import meds.bookaroo.authservice.payload.JWTLoginResponse;
 import meds.bookaroo.authservice.payload.LoginRequest;
 import meds.bookaroo.authservice.security.JwtTokenProvider;
 import meds.bookaroo.authservice.services.MapValidationErrorService;
@@ -31,6 +32,9 @@ public class AuthController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
+    @Autowired
+    private UserClient userClient;
+
     // Login a user with a provided token
     @PostMapping("/login")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest, BindingResult result){
@@ -39,6 +43,7 @@ public class AuthController {
             return errorMap;
         }
 
+        // Authenticate using password and manager
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         loginRequest.getUsername(),
@@ -46,9 +51,13 @@ public class AuthController {
                 )
         );
 
+        // Get user id using user client
+        Long userId = userClient.getUserByUsername(loginRequest.getUsername()).orElseThrow().getId();
+
+        // Set authentication and return successful response
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = TOKEN_PREFIX + tokenProvider.generateToken(authentication);
-        return ResponseEntity.ok(new JWTLoginSucessReponse(true, jwt));
+        return ResponseEntity.ok(new JWTLoginResponse(jwt, userId));
     }
 
 }
