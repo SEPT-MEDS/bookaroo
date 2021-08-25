@@ -43,7 +43,7 @@ public class UserController {
     @PostMapping("/signup")
     public ResponseEntity<?> signupUser(@RequestBody @Valid User user) {
         userService.create(user);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(true);
     }
 
     // Get a user by a given username
