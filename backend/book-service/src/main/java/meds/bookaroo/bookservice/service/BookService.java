@@ -11,9 +11,6 @@ public class BookService {
     @Autowired
     private BookRepository bookRepository;
 
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
-
     public Book getByIsbn(Long isbn) {
         return bookRepository.findByIsbn(isbn);
     }

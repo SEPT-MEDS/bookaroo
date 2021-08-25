@@ -14,9 +14,4 @@ public class BookServiceApplication {
 		SpringApplication.run(BookServiceApplication.class, args);
 	}
 
-	@Bean
-	public BCryptPasswordEncoder bCryptPasswordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
-
 }
