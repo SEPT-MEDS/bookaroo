@@ -18,3 +18,8 @@ services:
     image: user-service:0.0.1-SNAPSHOT
     depends_on:
       - discovery
+
+  book:
+    image: book-service:0.0.1-SNAPSHOT
+    depends_on:
+      - discovery
