@@ -45,7 +45,14 @@ const useAuth = () => {
     )
   }
 
-  return { token, userId, setToken, setUserId, isLoggedIn: !!token, subscribeToLoggedIn }
+  const logout = () => {
+    setStoredToken(null)
+    setStoredId(null)
+    window.localStorage.removeItem('token')
+    window.localStorage.removeItem('userId')
+  }
+
+  return { token, logout, userId, setToken, setUserId, isLoggedIn: !!token, subscribeToLoggedIn }
 }
 
 export default useAuth
