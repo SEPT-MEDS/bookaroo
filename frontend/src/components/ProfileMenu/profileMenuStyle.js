@@ -8,18 +8,56 @@ export const Container = styled.div`
   align-items: center;
   cursor: pointer;
   position: relative;
+  user-select: none;
 `
 
 export const MenuBox = styled.div`
+  display: grid;
+  gap: .6em;
+
   position: absolute;
   top: 180%;
   right: -2%;
   background: ${p => p.theme.background};
   color: ${p => p.theme.text};
   width: 10em;
-  padding: .5em;
-  border: 2px solid grey;
-  border-radius: .5rem;
+  padding: .8em;
+  border: 2px solid ${p => p.theme.primary};
+  border-radius: 1.5rem;
+  border-top-right-radius: 0;
+  box-shadow: 0px 1px 4px #4d4d4dad;
+
+  /* Animations */
+  transition: opacity .1s;
+
+  &.closed {
+    opacity: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+`
+
+export const SiteInfoContainer = styled.div`
+  width: 100%;
+  font-size: .8rem;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  color: ${p => p.theme.greyText};
+  margin-top: .5em;
+`
+
+export const LogoutButton = styled.a`
+  width: 100%;
+  background: ${p => p.theme.primary};
+  color: ${p => p.theme.invertedText} !important;
+  padding: .2em;
+  border-radius: 1em;
+  text-align: center;
+  margin-top: 1em;
 `
 
 export const Icon = styled.div`
