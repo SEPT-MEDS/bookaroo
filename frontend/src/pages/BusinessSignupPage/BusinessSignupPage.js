@@ -3,8 +3,7 @@ import { useForm } from 'react-hook-form'
 import { useHistory } from 'react-router'
 
 import { signup } from '../../services'
-// import { useAuth } from '../../hooks'
-// import {} from './businessSignupPageStyle'
+
 import {
   Container,
   Form,
@@ -12,7 +11,7 @@ import {
   Heading,
   FieldsContainer,
   ErrorNotification,
-} from '../LoginPage/loginPageStyle'
+} from '../businessSignupPageStyle'
 
 
 const LoginPage = () => {
