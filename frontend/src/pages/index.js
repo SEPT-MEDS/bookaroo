@@ -12,6 +12,7 @@ import BookPage from './BookPage/BookPage'
 import LoginPage from './LoginPage/LoginPage'
 import ContactPage from './ContactPage/ContactPage'
 import AboutPage from './AboutPage/AboutPage'
+import BusinessSignupPage from './BusinessSignupPage/BusinessSignupPage'
 import CustomerSignupPage from './CustomerSignupPage/CustomerSignupPage'
 
 const PrivateRoute = props => {
@@ -43,6 +44,7 @@ const Pages = () => {
         <Route path="/login" exact component={LoginPage} />
         <Route path="/contact" exact component={ContactPage} />
         <Route path="/about" exact component={AboutPage} />
+        <Route path="/signup/business" exact component={BusinessSignupPage} />
         <Route path="/signup/customer" exact component={CustomerSignupPage} />
       </Switch>
     </>
