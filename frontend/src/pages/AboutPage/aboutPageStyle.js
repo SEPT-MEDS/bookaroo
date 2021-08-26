@@ -6,3 +6,6 @@ export const ContactPointsContainer = styled.div`
   gap: .5em;
   height: max-content;
 `
+export const AboutInfoContainer = styled.div`
+  margin-bottom: 20px;
+`
