@@ -7,6 +7,6 @@ export const login = async (username, password) => {
 
 export const signup = async fields => {
   // TODO: validate fields
-  const response = await api.post('/user/signup', { ...fields })
-  return response.data.success
+  const response = await api.post('/user/signup', fields)
+  return response.data
 }

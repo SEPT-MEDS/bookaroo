@@ -1,18 +1,19 @@
 import React, { useState } from 'react'
 
-import { Logo } from '../'
+import { Logo, ProfileMenu } from '../'
 import { NavBar } from './navigationStyle'
+import { useCurrentProfile } from '../../hooks'
 
 const Navigation = () => {
-  const [user] = useState(null /* TODO */)
+  const profile = useCurrentProfile()
   const [isAdmin] = useState(false /* TODO */)
 
   return <NavBar>
     <Logo />
-    { user && (isAdmin ? <AdminFields /> : <CustomerFields />) }
-    { user && !isAdmin && <ShoppingCart /> }
-    { user
-      ? <SignedInFields />
+    { profile && (isAdmin ? <AdminFields /> : <CustomerFields />) }
+    { profile && !isAdmin && <ShoppingCart /> }
+    { profile
+      ? <SignedInFields profile={profile}/>
       : <SignedOutFields />
     }
   </NavBar>
@@ -22,7 +23,9 @@ const ShoppingCart = () => <></>
 
 const AdminFields = () => <></>
 const CustomerFields = () => <></>
-const SignedInFields = () => <></>
+const SignedInFields = ({ profile }) => <>
+  <ProfileMenu profile={profile} />
+</>
 const SignedOutFields = () => <></>
 
 export default Navigation
