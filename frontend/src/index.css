@@ -6,8 +6,9 @@
 
 body, #root, #root > main {
   min-height: 100vh;
-  font-family: 'Lato', san-serif;
+  font-family: 'Inter', san-serif;
 }
 
 /* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
