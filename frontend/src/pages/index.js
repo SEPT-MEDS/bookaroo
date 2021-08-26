@@ -43,7 +43,7 @@ const Pages = () => {
         <Route path="/login" exact component={LoginPage} />
         <Route path="/contact" exact component={ContactPage} />
         <Route path="/about" exact component={AboutPage} />
-        <Route path="/businessSignup" exact component={BusinessSignupPage} />
+        <Route path="/signup/business" exact component={BusinessSignupPage} />
       </Switch>
     </>
   )
