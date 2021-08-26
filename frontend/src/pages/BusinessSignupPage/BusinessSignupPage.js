@@ -11,7 +11,7 @@ import {
   Heading,
   FieldsContainer,
   ErrorNotification,
-} from '../businessSignupPageStyle'
+} from './businessSignupPageStyle'
 
 
 const LoginPage = () => {
