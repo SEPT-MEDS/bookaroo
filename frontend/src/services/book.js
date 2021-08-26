@@ -1,4 +1,4 @@
-import api from './'
+//import api from './'
 
 // TODO: remove
 const testBooks = [
@@ -31,6 +31,6 @@ const testBooks = [
 
 export const getAllBooks = async filter => {
   console.log('Should have hit the api using', filter)
-  const {data} = testBooks // TODO: await api.get('/book', { filter })
-  return data.data
+  const {data} = {data: testBooks} // TODO: await api.get('/book', { filter })
+  return data
 }

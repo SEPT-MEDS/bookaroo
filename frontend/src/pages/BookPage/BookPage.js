@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react'
 
-import { Container } from './bookPageStyle'
-import { BookCard } from '../../components'
+import { BookGrid } from '../../components'
+import { getAllBooks } from '../../services'
 
 const BookPage = () => {
-  const [books, ] = useState([{}, {}])
+  const [books, setBooks] = useState()
 
   useEffect(() => {
-    // fetch books from backend and then call setBooks()
+    getAllBooks()
+      .then(books => setBooks(books))
   })
 
-  return <Container>
-    { books.map(book => <BookCard key={book?.title} />) }
-  </Container>
+  return <BookGrid books={books}/>
 }
 
 export default BookPage
