@@ -32,5 +32,6 @@ const api = {
 }
 
 export * from './user'
+export * from './book'
 
 export default api
