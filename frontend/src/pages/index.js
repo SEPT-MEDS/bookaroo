@@ -1,13 +1,20 @@
-import React, { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import {
+  Switch,
+  Route,
+  Redirect,
+  useLocation,
+} from 'react-router-dom'
 
+import { useAuth } from '../hooks'
+import { Navigation } from '../components'
 import BookPage from './BookPage/BookPage'
 import LoginPage from './LoginPage/LoginPage'
 import ContactPage from './ContactPage/ContactPage'
 import AboutPage from './AboutPage/AboutPage'
 
 const PrivateRoute = props => {
-  const [isLoggedIn] = useState(true /* TODO: For now we assume you are logged in*/)
+  const { isLoggedIn } = useAuth()
 
   useEffect(() => {
     // some auth observer that calls setIsLoggedIn()
@@ -21,13 +28,22 @@ const PrivateRoute = props => {
 }
 
 const Pages = () => {
+  const location = useLocation()
+  const pagesWithoutNav = ['login', 'signup']
   return (
-    <Router>
-      <PrivateRoute path="/" exact component={BookPage} />
-      <Route path="/login" exact component={LoginPage} />
-      <Route path="/contact" exact component={ContactPage} />
-      <Route path="/about" exact component={AboutPage} />
-    </Router>
+    <>
+      {/* Only show nav on some pages */}
+      {!pagesWithoutNav.includes(
+        location.pathname.split('/').filter(x => x)[0]
+      ) && <Navigation />}
+
+      <Switch>
+        <PrivateRoute path="/" exact component={BookPage} />
+        <Route path="/login" exact component={LoginPage} />
+        <Route path="/contact" exact component={ContactPage} />
+        <Route path="/about" exact component={AboutPage} />
+      </Switch>
+    </>
   )
 }
 

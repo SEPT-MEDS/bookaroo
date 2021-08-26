@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  discovery:
+    image: discovery-service:0.0.1-SNAPSHOT
+    ports:
+      - 8761:8761
+  gateway:
+    image: gateway-service:0.0.1-SNAPSHOT
+    ports:
+      - 9191:9191
+    depends_on:
+      - discovery
+  auth:
+    image: auth-service:0.0.1-SNAPSHOT
+    depends_on:
+      - discovery
+  user:
+    image: user-service:0.0.1-SNAPSHOT
+    depends_on:
+      - discovery
+
+  book:
+    image: book-service:0.0.1-SNAPSHOT
+    depends_on:
+      - discovery
