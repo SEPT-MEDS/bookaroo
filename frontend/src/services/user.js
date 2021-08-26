@@ -7,7 +7,5 @@ export const login = async (username, password) => {
 
 export const signup = async fields => {
   const response = await api.post('/user/signup', fields)
-  console.log('Response ' + response)
-  console.log(JSON.stringify(response))
   return response.data
 }
