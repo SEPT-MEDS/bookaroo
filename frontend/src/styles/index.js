@@ -3,7 +3,7 @@ const styles = {
   errorBackground: '#ffe7eb',
 
   light: {
-    primary: '#4000D0',
+    primary: '#3552B7',
 
     background: '#FFFFFF',
     backgroundSecondary: '#EEEEEE',
@@ -18,7 +18,7 @@ const styles = {
   },
 
   dark: {
-    primary: '#B99BFF',
+    primary: '#5d7ef7',
 
     background: '#222222',
     backgroundSecondary: '#333333',
