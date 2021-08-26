@@ -13,7 +13,7 @@ import {
 const ProfileMenu = ({ profile }) => {
   const openRef = useRef(null)
   const menuRef = useRef(null)
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
   const {logout} = useAuth()
   const history = useHistory()
 
