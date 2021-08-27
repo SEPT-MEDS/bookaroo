@@ -2,12 +2,12 @@ package meds.bookaroo.bookservice.model;
 
 import lombok.*;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.persistence.Column;
 
 @Entity
 @AllArgsConstructor
@@ -17,29 +17,29 @@ import javax.persistence.Column;
 @Setter
 public class Book {
 
-    @NotNull(message = "ISBN is required")
-    @Min(value = 1000000000, message = "ISBN must be 10 or more digits")
-    @Column(unique = true)
-    private @Id
-    Long isbn;
+  @NotNull(message = "ISBN is required")
+  @Min(value = 1000000000, message = "ISBN must be 10 or more digits")
+  @Column(unique = true)
+  private @Id
+  Long isbn;
 
-    @NotBlank(message = "Title is required")
-    private String title;
+  @NotBlank(message = "Title is required")
+  private String title;
 
-    @NotBlank(message = "Author is required")
-    private String author;
+  @NotBlank(message = "Author is required")
+  private String author;
 
-    private String blurb;
-    private int numPages;
-    private String url;
-    private int rating;
+  private String blurb;
+  private int numPages;
+  private String url;
+  private int rating;
 
-    public int getRating() {
-        return rating;
-    }
+  public int getRating() {
+    return rating;
+  }
 
-    public void setRating(int rating) {
-        this.rating = rating;
-    }
+  public void setRating(int rating) {
+    this.rating = rating;
+  }
 
 }

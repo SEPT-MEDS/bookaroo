@@ -6,12 +6,7 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-
-enum Type {
-    CUSTOMER,
-    STORE,
-    ADMIN
-}
+import javax.validation.constraints.NotNull;
 
 @Entity
 @AllArgsConstructor
@@ -19,6 +14,7 @@ enum Type {
 @Builder
 @Getter
 @Setter
+@Data
 public class User {
     private @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,8 +32,10 @@ public class User {
     @NotBlank(message = "Password field is required")
     private String password;
 
-    private boolean isEnabled;
-    private Type type;
+    @NotNull
+    private Boolean isEnabled;
+    @NotNull
+    private String type;
 
     @NotBlank(message = "First name is required")
     private String firstName;
@@ -48,21 +46,4 @@ public class User {
     private String phoneNumber;
     private String address;
     private String ABN;
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    // TODO confirm password
-    @Transient
-    private String confirmPassword;
-
-    // TODO status of user account
-    public boolean isEnabled() {
-        return isEnabled;
-    }
 }

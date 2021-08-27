@@ -10,12 +10,12 @@ import org.springframework.context.annotation.Bean;
 @EnableEurekaClient
 public class GatewayServiceApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(GatewayServiceApplication.class, args);
-	}
+  public static void main(String[] args) {
+    SpringApplication.run(GatewayServiceApplication.class, args);
+  }
 
-	@Bean
-	public JwtAuthGatewayFilterFactory jwtAuthGatewayFilterFactory() {
-		return new JwtAuthGatewayFilterFactory();
-	}
+  @Bean
+  public JwtAuthGatewayFilterFactory jwtAuthGatewayFilterFactory() {
+    return new JwtAuthGatewayFilterFactory();
+  }
 }
