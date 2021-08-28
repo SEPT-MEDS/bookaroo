@@ -33,4 +33,5 @@ public class Book {
   private int numPages;
   private String url;
   private int rating;
+  private String category;
 }
