@@ -10,24 +10,24 @@ import org.springframework.web.reactive.config.WebFluxConfigurer;
 
 @Configuration
 public class CORSConfiguration implements WebFluxConfigurer {
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
-            .allowCredentials(true)
-            .allowedOriginPatterns("*")
-            .allowedHeaders("*")
-            .allowedMethods("*");
-    }
+  @Override
+  public void addCorsMappings(CorsRegistry registry) {
+    registry.addMapping("/**")
+        .allowCredentials(true)
+        .allowedOriginPatterns("*")
+        .allowedHeaders("*")
+        .allowedMethods("*");
+  }
 
-    @Bean
-    public CorsWebFilter corsWebFilter() {
-        CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.setAllowCredentials(true);
-        corsConfiguration.addAllowedHeader("*");
-        corsConfiguration.addAllowedMethod("*");
-        corsConfiguration.addAllowedOriginPattern("*");
-        UrlBasedCorsConfigurationSource corsConfigurationSource = new UrlBasedCorsConfigurationSource();
-        corsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
-        return new CorsWebFilter(corsConfigurationSource);
-    }
+  @Bean
+  public CorsWebFilter corsWebFilter() {
+    CorsConfiguration corsConfiguration = new CorsConfiguration();
+    corsConfiguration.setAllowCredentials(true);
+    corsConfiguration.addAllowedHeader("*");
+    corsConfiguration.addAllowedMethod("*");
+    corsConfiguration.addAllowedOriginPattern("*");
+    UrlBasedCorsConfigurationSource corsConfigurationSource = new UrlBasedCorsConfigurationSource();
+    corsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
+    return new CorsWebFilter(corsConfigurationSource);
+  }
 }
