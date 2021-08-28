@@ -1,4 +1,4 @@
-package meds.bookaroo.userservice.ResponseDTO;
+package meds.bookaroo.userservice.responseDTO;
 
 import lombok.Data;
 

@@ -33,13 +33,4 @@ public class Book {
   private int numPages;
   private String url;
   private int rating;
-
-  public int getRating() {
-    return rating;
-  }
-
-  public void setRating(int rating) {
-    this.rating = rating;
-  }
-
 }

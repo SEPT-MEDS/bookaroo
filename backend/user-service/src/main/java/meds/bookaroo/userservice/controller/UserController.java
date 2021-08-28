@@ -1,8 +1,9 @@
 package meds.bookaroo.userservice.controller;
 
-import meds.bookaroo.userservice.ResponseDTO.CreateUserResponseDTO;
-import meds.bookaroo.userservice.ResponseDTO.GetUserResponseDTO;
 import meds.bookaroo.userservice.model.User;
+import meds.bookaroo.userservice.responseDTO.CreateUserResponseDTO;
+import meds.bookaroo.userservice.responseDTO.DeleteUserResponseDTO;
+import meds.bookaroo.userservice.responseDTO.GetUserResponseDTO;
 import meds.bookaroo.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -50,15 +51,14 @@ public class UserController {
     // Ensure user exists
     if (user != null) {
       userService.deleteById(id);
-      return ResponseEntity.ok().build();
+      return ResponseEntity.ok(new DeleteUserResponseDTO(true, ""));
     } else {
-      return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new GetUserResponseDTO(false, null, "No user with id " + id + " exists"));
+      return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new DeleteUserResponseDTO(false, "No user with id " + id + " exists"));
     }
   }
 
   @PostMapping("/signup")
   public ResponseEntity<?> signupUser(@RequestBody User user) {
-
     // Ensure user doesnt already exist
     if (userService.getByUsername(user.getUsername()) != null) {
       return ResponseEntity.status(HttpStatus.CONFLICT).body(new CreateUserResponseDTO(false, "User with that username already exists"));

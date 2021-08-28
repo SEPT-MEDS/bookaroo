@@ -1,4 +1,4 @@
-package meds.bookaroo.userservice.ResponseDTO;
+package meds.bookaroo.bookservice.responseDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -6,6 +6,7 @@ import lombok.Data;
 @AllArgsConstructor
 @Data
 public class StdResponseDTO {
-    boolean isSuccess;
-    String error;
+  boolean isSuccess;
+  String error;
 }
+
