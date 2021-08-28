@@ -32,32 +32,32 @@ public class UserServiceTest {
   public void getValidUserByUsername() {
     User user = new User(1L, "test", "username", "password", true, UserType.CUSTOMER, "firstName", "lastName", "", "", "");
     when(userRepository.findByUsername("username")).thenReturn(java.util.Optional.of(user));
-    assertThat(userService.getByUsername("username") != null);
+    assertThat(userService.getByUsername("username")).isNotNull();
   }
 
   @Test
   public void getValidUserById() {
     User user = new User(1L, "test", "username", "password", true, UserType.CUSTOMER, "firstName", "lastName", "", "", "");
     when(userRepository.findById(1L)).thenReturn(java.util.Optional.of(user));
-    assertThat(userService.getById(1L) != null);
+    assertThat(userService.getById(1L)).isNotNull();
   }
 
   @Test
   public void getInvalidUserById() {
     when(userRepository.findById(1L)).thenReturn(java.util.Optional.empty());
-    assertThat(userService.getById(1L) == null);
+    assertThat(userService.getById(1L)).isNull();
   }
 
   @Test
   public void getInvalidUserByUsername() {
     when(userRepository.findByUsername("username")).thenReturn(java.util.Optional.empty());
-    assertThat(userService.getByUsername("username") == null);
+    assertThat(userService.getByUsername("username")).isNull();
   }
 
   @Test
   public void createUser() {
     User user = new User(1L, "test", "username", "password", true, UserType.CUSTOMER, "firstName", "lastName", "", "", "");
     when(userRepository.save(user)).thenReturn(user);
-    assertThat(userService.create(user) == user);
+    assertThat(userService.create(user)).isEqualTo(user);
   }
 }
