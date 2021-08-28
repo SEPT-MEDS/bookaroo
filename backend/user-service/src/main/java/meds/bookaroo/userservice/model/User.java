@@ -7,12 +7,6 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
-enum Type {
-    CUSTOMER,
-    STORE,
-    ADMIN
-}
-
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,49 +14,33 @@ enum Type {
 @Getter
 @Setter
 public class User {
-    private @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+  private @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  Long id;
 
-    @Email(message = "Email needs to be a valid email")
-    @NotBlank(message = "Email is required")
-    @Column(unique = true)
-    private String email;
 
-    @NotBlank(message = "username is required")
-    @Column(unique = true)
-    private String username;
+  @Email(message = "Email needs to be a valid email")
+  @NotBlank(message = "Email is required")
+  @Column(unique = true)
+  private String email;
 
-    @NotBlank(message = "Password field is required")
-    private String password;
+  @NotBlank(message = "username is required")
+  @Column(unique = true)
+  private String username;
 
-    private boolean isEnabled;
-    private Type type;
+  @NotBlank(message = "Password field is required")
+  private String password;
 
-    @NotBlank(message = "First name is required")
-    private String firstName;
+  private boolean isEnabled;
+  private UserType type;
 
-    @NotBlank(message = "Last name is required")
-    private String lastName;
+  @NotBlank(message = "First name is required")
+  private String firstName;
 
-    private String phoneNumber;
-    private String address;
-    private String ABN;
+  @NotBlank(message = "Last name is required")
+  private String lastName;
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    // TODO confirm password
-    @Transient
-    private String confirmPassword;
-
-    // TODO status of user account
-    public boolean isEnabled() {
-        return isEnabled;
-    }
+  private String phoneNumber;
+  private String address;
+  private String ABN;
 }
