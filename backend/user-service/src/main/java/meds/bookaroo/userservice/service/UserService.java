@@ -28,11 +28,16 @@ public class UserService {
     return userRepository.save(user);
   }
 
+
   public void deleteById(Long id) {
     userRepository.deleteById(id);
   }
 
   public User getByUsername(String username) {
     return userRepository.findByUsername(username).orElse(null);
+  }
+
+  public User getByEmail(String email) {
+    return userRepository.findByEmail(email).orElse(null);
   }
 }

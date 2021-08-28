@@ -13,11 +13,11 @@ import javax.validation.constraints.NotBlank;
 @Builder
 @Getter
 @Setter
+@Data
 public class User {
   private @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   Long id;
-
 
   @Email(message = "Email needs to be a valid email")
   @NotBlank(message = "Email is required")

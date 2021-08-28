@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import meds.bookaroo.userservice.controller.UserController;
 import meds.bookaroo.userservice.model.User;
 import meds.bookaroo.userservice.model.UserType;
+import meds.bookaroo.userservice.responseDTO.CreateUserResponseDTO;
+import meds.bookaroo.userservice.responseDTO.GetUserResponseDTO;
 import meds.bookaroo.userservice.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +46,7 @@ public class UserControllerTest {
             .accept(MediaType.APPLICATION_JSON)
     )
         .andExpect(status().isOk())
-        .andExpect(content().string("true"));
+        .andExpect(content().string(asJsonString(new CreateUserResponseDTO(true, ""))));
   }
 
   @Test
@@ -55,7 +57,7 @@ public class UserControllerTest {
         MockMvcRequestBuilders.get("/api/user/1")
     )
         .andExpect(status().isOk())
-        .andExpect(content().string(asJsonString(user)));
+        .andExpect(content().string(asJsonString(new GetUserResponseDTO(true, user, ""))));
   }
 
   @Test
@@ -75,7 +77,8 @@ public class UserControllerTest {
     mockMvc.perform(
         MockMvcRequestBuilders.get("/api/user/byUsername/notusername")
     )
-        .andExpect(status().isNotFound());
+        .andExpect(status().isNotFound())
+        .andExpect(content().string(""));
   }
 
   @Test
@@ -85,5 +88,6 @@ public class UserControllerTest {
         MockMvcRequestBuilders.get("/api/user/2")
     )
         .andExpect(status().isNotFound())
+        .andExpect(content().string(asJsonString(new GetUserResponseDTO(false, null, "No user with id 2 exists"))));
   }
 }

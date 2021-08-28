@@ -21,14 +21,14 @@ const CustomerSignupPage = () => {
     formState: { errors },
   } = useForm()
   
-  const onSubmit = ({ firstName, lastName, email, phoneNumber, username, password, confirmPassword, address, type, status }) => {
+  const onSubmit = ({ firstName, lastName, email, phoneNumber, username, password, confirmPassword, address, type, isEnabled }) => {
     // Clear error
     setError()
 
     // Ensure confirm password is the same as password
     if (password == confirmPassword) {
       // Signup
-      signup({firstName, lastName, email, phoneNumber, username, password, address, type, status} )
+      signup({firstName, lastName, email, phoneNumber, username, password, address, type, isEnabled} )
         .then(success => {
           if (success) {
             history.push('/login')
@@ -96,7 +96,7 @@ const CustomerSignupPage = () => {
             {errors.confirmPassword && 'This field is required'}
           </InputContainer>
           <input type="hidden" {...register('type')} value="CUSTOMER"/>
-          <input type="hidden" {...register('status')} value="ENABLED"/>
+          <input type="hidden" {...register('isEnabled')} value="true"/>
         </FieldsContainer>
         <input type="submit" value="Signup" />
       </Form>
