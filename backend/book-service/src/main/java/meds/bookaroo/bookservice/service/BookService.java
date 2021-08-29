@@ -12,6 +12,11 @@ public class BookService {
   @Autowired
   private BookRepository bookRepository;
 
+  public BookService(BookRepository bookRepository) {
+    this.bookRepository = bookRepository;
+  }
+
+
   public Book getByIsbn(Long isbn) {
     return bookRepository.findByIsbn(isbn);
   }
@@ -32,8 +37,8 @@ public class BookService {
     return bookRepository.findAll();
   }
 
-  public void create(Book book) {
-    bookRepository.save(book);
+  public Book create(Book book) {
+    return bookRepository.save(book);
   }
 
   public void deleteByIsbn(Long isbn) {
