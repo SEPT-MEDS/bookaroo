@@ -24,9 +24,12 @@ public class BookService {
     return bookRepository.findByAuthorContaining(author);
   }
 
-  public List<Book> getByContainingCategory(String category) {
-    return bookRepository.findByCategoryContaining(category);
+  public List<Book> getByCategory(String category) {
+    return bookRepository.findByCategory(category);
+  }
 
+  public List<Book> getAll() {
+    return bookRepository.findAll();
   }
 
   public void create(Book book) {

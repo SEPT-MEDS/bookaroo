@@ -22,6 +22,25 @@ public class BookController {
   @Autowired
   private BookService bookService;
 
+  // Upload a book with required details
+  @PostMapping("")
+  public ResponseEntity<?> addBook(@RequestBody @Valid Book book) {
+    // Ensure book doesn't already exist with same ISBN
+    if (bookService.getByIsbn(book.getIsbn()) != null) {
+      return ResponseEntity.status(HttpStatus.CONFLICT).body(new CreateBookResponseDTO(false, "Book with that ISBN already exists"));
+    } else {
+      bookService.create(book);
+      return ResponseEntity.ok(new CreateBookResponseDTO(true, ""));
+    }
+  }
+
+  // Get all books
+  @GetMapping("")
+  public ResponseEntity<?> getBooks() {
+    List<Book> books = bookService.getAll();
+    return ResponseEntity.ok(new GetBooksResponseDTO(books));
+  }
+
   // Get book with a given ISBN
   @GetMapping("/{isbn}")
   public ResponseEntity<?> getBookWithIsbn(@PathVariable Long isbn) {
@@ -33,18 +52,6 @@ public class BookController {
       return ResponseEntity.ok(new GetBookResponseDTO(true, book, ""));
     } else {
       return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new GetBookResponseDTO(false, null, "No book with isbn " + isbn + " exists"));
-    }
-  }
-
-  // Upload a book with required details
-  @PostMapping("")
-  public ResponseEntity<?> addBook(@RequestBody @Valid Book book) {
-    // Ensure book doesn't already exist with same ISBN
-    if (bookService.getByIsbn(book.getIsbn()) != null) {
-      return ResponseEntity.status(HttpStatus.CONFLICT).body(new CreateBookResponseDTO(false, "Book with that ISBN already exists"));
-    } else {
-      bookService.create(book);
-      return ResponseEntity.ok(new CreateBookResponseDTO(true, ""));
     }
   }
 
@@ -73,6 +80,13 @@ public class BookController {
   @GetMapping("/containingAuthor/{author}")
   public ResponseEntity<?> getBookContainingAuthor(@PathVariable String author) {
     List<Book> books = bookService.getByContainingAuthor(author);
+    return ResponseEntity.ok(new GetBooksResponseDTO(books));
+  }
+
+  // Get books with category
+  @GetMapping("/byCategory/{category}")
+  public ResponseEntity<?> getBookByCategory(@PathVariable String category) {
+    List<Book> books = bookService.getByCategory(category);
     return ResponseEntity.ok(new GetBooksResponseDTO(books));
   }
 }
