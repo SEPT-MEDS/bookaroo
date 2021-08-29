@@ -9,86 +9,79 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import static org.assertj.core.api.Java6Assertions.assertThat;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class BookServiceTest {
 
-   BookService bookService;
-   BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+  BookService bookService;
 
-   @Mock
-   BookRepository bookRepository;
+  @Mock
+  BookRepository bookRepository;
 
-   @BeforeEach
-   void initUseCase() {
-      bookService = new BookService();
-   }
+  @BeforeEach
+  void initUseCase() {
+    bookService = new BookService(bookRepository);
+  }
 
-   @Test
-   public void getValidBookByFullIsbn() {
-      // isbn, title, author, blurb, numPages, url, rating
-      Book book = new Book(12345678900L, "Book Title", "John Doe", "Very short blurb of the book.", 314, "https://www.booksite.com", 5, "Comedy");
-      when(bookRepository.findByIsbn(12345678900L)).thenReturn(book); // not sure if the .thenReturn() part is correct
-      assertThat(bookService.getByIsbn(12345678900L) != null);
-   }
+  @Test
+  public void getValidBookByIsbn() {
+    Book book = new Book(12345678900L, "Book Title", "John Doe", "Very short blurb of the book.", 314, "https://www.booksite.com", 5, "Comedy");
+    when(bookRepository.findByIsbn(12345678900L)).thenReturn(book);
+    assertEquals(book, bookService.getByIsbn(12345678900L));
+  }
 
-   @Test
-   public void getValidBookByPartialIsbn() {
-      // isbn, title, author, blurb, numPages, url, rating
-      Book book = new Book(12345678900L, "Book Title", "John Doe", "Very short blurb of the book.", 314, "https://www.booksite.com", 5, "Comedy");
-      when(bookRepository.findByIsbn(12345L)).thenReturn(book); // not sure if the .thenReturn() part is correct
-      assertThat(bookService.getByIsbn(12345L) != null);
-   }
+  @Test
+  public void getInvalidBookByIsbn() {
+    when(bookRepository.findByIsbn(1L)).thenReturn(null);
+    assertNull(bookService.getByIsbn(1L));
+  }
 
-   @Test
-   public void getValidBookByFullTitle() {
-      // isbn, title, author, blurb, numPages, url, rating
-      Book book = new Book(12345678900L, "Book Title", "John Doe", "Very short blurb of the book.", 314, "https://www.booksite.com", 5, "Comedy");
-      when(bookRepository.findByTitle("Book Title")).thenReturn(book); // not sure if the .thenReturn() part is correct
-      assertThat(bookService.getByTitle("Book Title") != null);
-   }
+  @Test
+  public void getValidBookByPartialTitle() {
+    List<Book> books = new ArrayList<>();
+    books.add(new Book(12345678900L, "Book Title", "John Doe", "Very short blurb of the book.", 314, "https://www.booksite.com", 5, "Comedy"));
+    when(bookRepository.findByTitleContaining("Book")).thenReturn(books);
+    assertEquals(books, bookService.getByContainingTitle("Book"));
+  }
 
-   @Test
-   public void getValidBookByPartialTitle() {
-      // isbn, title, author, blurb, numPages, url, rating
-      Book book = new Book(12345678900L, "Book Title", "John Doe", "Very short blurb of the book.", 314, "https://www.booksite.com", 5, "Comedy");
-      when(bookRepository.findByTitle("Book")).thenReturn(book); // not sure if the .thenReturn() part is correct
-      assertThat(bookService.getByTitle("Book") != null);
-   }
+  @Test
+  public void getInvalidBookByPartialTitle() {
+    when(bookRepository.findByTitleContaining("test")).thenReturn(null);
+    assertNull(bookService.getByContainingTitle("test"));
+  }
 
-   @Test
-   public void getValidBookByFullAuthor() {
-      // isbn, title, author, blurb, numPages, url, rating
-      Book book = new Book(12345678900L, "Book Title", "John Doe", "Very short blurb of the book.", 314, "https://www.booksite.com", 5, "Comedy");
-      when(bookRepository.findByAuthor("John Doe")).thenReturn(book); // not sure if the .thenReturn() part is correct
-      assertThat(bookService.getByJohn("John Doe") != null);
-   }
+  @Test
+  public void getValidBookByPartialAuthor() {
+    List<Book> books = new ArrayList<>();
+    books.add(new Book(12345678900L, "Book Title", "John Doe", "Very short blurb of the book.", 314, "https://www.booksite.com", 5, "Comedy"));
+    when(bookRepository.findByAuthorContaining("John")).thenReturn(books); // not sure if the .thenReturn() part is correct
+    assertEquals(books, bookService.getByContainingAuthor("John"));
+  }
 
-   @Test
-   public void getValidBookByPartialAuthor() {
-      // isbn, title, author, blurb, numPages, url, rating
-      Book book = new Book(12345678900L, "Book Title", "John Doe", "Very short blurb of the book.", 314, "https://www.booksite.com", 5, "Comedy");
-      when(bookRepository.findByAuthor("John")).thenReturn(book); // not sure if the .thenReturn() part is correct
-      assertThat(bookService.getByAuthor("John") != null);
-   }
+  @Test
+  public void getInvalidBookByPartialAuthor() {
+    when(bookRepository.findByAuthorContaining("test")).thenReturn(null);
+    assertNull(bookService.getByContainingAuthor("test"));
+  }
 
-   @Test
-   public void getValidBookByFullCategory() {
-      // isbn, title, author, blurb, numPages, url, rating
-      Book book = new Book(12345678900L, "Book Title", "John Doe", "Very short blurb of the book.", 314, "https://www.booksite.com", 5, "Comedy");
-      when(bookRepository.findByCategory("Comedy")).thenReturn(book); // not sure if the .thenReturn() part is correct
-      assertThat(bookService.getByCategory("Comedy") != null);
-   }
-   @Test
-   public void getValidBookByPartialCategory() {
-      // isbn, title, author, blurb, numPages, url, rating
-      Book book = new Book(12345678900L, "Book Title", "John Doe", "Very short blurb of the book.", 314, "https://www.booksite.com", 5, "Comedy");
-      when(bookRepository.findByCategory("Com")).thenReturn(book); // not sure if the .thenReturn() part is correct
-      assertThat(bookService.getByCategory("Com") != null);
-   }
+  @Test
+  public void getValidBookByCategory() {
+    List<Book> books = new ArrayList<>();
+    books.add(new Book(12345678900L, "Book Title", "John Doe", "Very short blurb of the book.", 314, "https://www.booksite.com", 5, "Comedy"));
+    when(bookRepository.findByCategory("Comedy")).thenReturn(books); // not sure if the .thenReturn() part is correct
+    assertEquals(books, bookService.getByCategory("Comedy"));
+  }
 
+  @Test
+  public void getInvalidBookByCategory() {
+    when(bookRepository.findByCategory("test")).thenReturn(null);
+    assertNull(bookService.getByCategory("test"));
+  }
 }

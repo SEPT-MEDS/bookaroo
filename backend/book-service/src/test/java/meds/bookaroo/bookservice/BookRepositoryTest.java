@@ -16,7 +16,7 @@ import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 import java.util.Set;
 
-import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(MockitoExtension.class)
 @DataJpaTest
@@ -40,57 +40,64 @@ public class BookRepositoryTest {
 
   @Test
   void saveValidBook() {
-    Book book = new Book(1000000000L, "Test Book", "Author", "Blurb", 1, "http://url.com", 0);
+    Book book = new Book(1000000000L, "Title", "Author", "Blurb", 1, "http://url.com", 0, "category");
     Set<ConstraintViolation<Book>> violations = validator.validate(book);
-    assertThat(violations.size()).isEqualTo(0);
+    assertEquals(0, violations.size());
   }
 
   @Test
   void saveBookBlankISBN() {
-    Book book = new Book(null, "Test Book", "Author", "Blurb", 1, "http://url.com", 0);
+    Book book = new Book(null, "Title", "Author", "Blurb", 1, "http://url.com", 0, "category");
     Set<ConstraintViolation<Book>> violations = validator.validate(book);
-    assertThat(violations.size()).isEqualTo(1);
+    assertEquals(1, violations.size());
   }
 
   @Test
   void saveBookInvalidISBN() {
-    Book book = new Book(1L, "Test Book", "Author", "Blurb", 1, "http://url.com", 0);
+    Book book = new Book(1L, "Title", "Author", "Blurb", 1, "http://url.com", 0, "category");
     Set<ConstraintViolation<Book>> violations = validator.validate(book);
-    assertThat(violations.size()).isEqualTo(1);
+    assertEquals(1, violations.size());
   }
 
   @Test
   void saveBookBlankTitle() {
-    Book book = new Book(1000000000L, "", "Author", "Blurb", 1, "http://url.com", 0);
+    Book book = new Book(1L, "", "Author", "Blurb", 1, "http://url.com", 0, "category");
     Set<ConstraintViolation<Book>> violations = validator.validate(book);
-    assertThat(violations.size()).isEqualTo(1);
+    assertEquals(1, violations.size());
   }
 
   @Test
   void saveBookBlankAuthor() {
-    Book book = new Book(1000000000L, "title", "", "Blurb", 1, "http://url.com", 0);
+    Book book = new Book(1L, "Title", "", "Blurb", 1, "http://url.com", 0, "category");
     Set<ConstraintViolation<Book>> violations = validator.validate(book);
-    assertThat(violations.size()).isEqualTo(1);
+    assertEquals(1, violations.size());
   }
 
   @Test
   void saveBookBlankBlurb() {
-    Book book = new Book(1000000000L, "title", "Author", "", 1, "http://url.com", 0);
+    Book book = new Book(1L, "Title", "Author", "", 1, "http://url.com", 0, "category");
     Set<ConstraintViolation<Book>> violations = validator.validate(book);
-    assertThat(violations.size()).isEqualTo(1);
+    assertEquals(1, violations.size());
   }
 
   @Test
   void saveBookNegativePages() {
-    Book book = new Book(1000000000L, "title", "Author", "blurb", -1, "http://url.com", 0);
+    Book book = new Book(1L, "Title", "Author", "Blurb", -1, "http://url.com", 0, "category");
     Set<ConstraintViolation<Book>> violations = validator.validate(book);
-    assertThat(violations.size()).isEqualTo(1);
+    assertEquals(1, violations.size());
   }
 
   @Test
   void saveBookBlankUrl() {
-    Book book = new Book(1000000000L, "title", "Author", "blurb", 1, "", 0);
+    Book book = new Book(1L, "Title", "Author", "Blurb", 1, "", 0, "category");
     Set<ConstraintViolation<Book>> violations = validator.validate(book);
-    assertThat(violations.size()).isEqualTo(1);
+    assertEquals(1, violations.size());
+  }
+
+  @Test
+  void saveBookBlankCategory() {
+    Book book = new Book(1L, "Title", "Author", "Blurb", 1, "", 0, "category");
+    Set<ConstraintViolation<Book>> violations = validator.validate(book);
+    assertEquals(1, violations.size());
   }
 }
