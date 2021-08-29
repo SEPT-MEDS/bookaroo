@@ -40,4 +40,5 @@ public class Book {
   private String url;
 
   private int rating;
+  private String category;
 }

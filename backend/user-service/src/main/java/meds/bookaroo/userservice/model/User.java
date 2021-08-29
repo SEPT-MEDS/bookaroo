@@ -31,7 +31,7 @@ public class User {
   @NotBlank(message = "Password field is required")
   private String password;
 
-  private boolean isEnabled;
+  private Boolean isEnabled;
   private UserType type;
 
   @NotBlank(message = "First name is required")
