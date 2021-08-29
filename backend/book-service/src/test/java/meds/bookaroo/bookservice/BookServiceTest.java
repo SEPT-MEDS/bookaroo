@@ -61,7 +61,7 @@ public class BookServiceTest {
   public void getValidBookByPartialAuthor() {
     List<Book> books = new ArrayList<>();
     books.add(new Book(12345678900L, "Book Title", "John Doe", "Very short blurb of the book.", 314, "https://www.booksite.com", 5, "Comedy"));
-    when(bookRepository.findByAuthorContaining("John")).thenReturn(books); // not sure if the .thenReturn() part is correct
+    when(bookRepository.findByAuthorContaining("John")).thenReturn(books);
     assertEquals(books, bookService.getByContainingAuthor("John"));
   }
 
@@ -75,7 +75,7 @@ public class BookServiceTest {
   public void getValidBookByCategory() {
     List<Book> books = new ArrayList<>();
     books.add(new Book(12345678900L, "Book Title", "John Doe", "Very short blurb of the book.", 314, "https://www.booksite.com", 5, "Comedy"));
-    when(bookRepository.findByCategory("Comedy")).thenReturn(books); // not sure if the .thenReturn() part is correct
+    when(bookRepository.findByCategory("Comedy")).thenReturn(books);
     assertEquals(books, bookService.getByCategory("Comedy"));
   }
 

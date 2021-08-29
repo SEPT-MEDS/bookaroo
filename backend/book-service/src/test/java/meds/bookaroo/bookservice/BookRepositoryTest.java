@@ -100,4 +100,12 @@ public class BookRepositoryTest {
     Set<ConstraintViolation<Book>> violations = validator.validate(book);
     assertEquals(1, violations.size());
   }
+
+  @Test
+  void deleteBook() {
+    Book book = new Book(1L, "Title", "Author", "Blurb", 1, "", 0, "category");
+    bookRepository.save(book);
+    bookRepository.deleteById(1L);
+    assertEquals(0, bookRepository.findAll().size());
+  }
 }

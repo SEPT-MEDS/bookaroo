@@ -37,8 +37,8 @@ public class BookService {
     return bookRepository.findAll();
   }
 
-  public void create(Book book) {
-    bookRepository.save(book);
+  public Book create(Book book) {
+    return bookRepository.save(book);
   }
 
   public void deleteByIsbn(Long isbn) {
