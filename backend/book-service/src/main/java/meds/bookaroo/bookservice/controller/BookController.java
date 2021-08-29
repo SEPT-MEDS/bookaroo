@@ -62,29 +62,17 @@ public class BookController {
     }
   }
 
-  @GetMapping("/containingIsbn/{isbn}")
-  public ResponseEntity<?> getBookContainingIsbn(@PathVariable Long isbn) {
-    List<Book> books = bookService.getByContainingIsbn(isbn);
-    return ResponseEntity.ok(new GetBooksResponseDTO(books));
-  }
-
+  // Get books with partial title
   @GetMapping("/containingTitle/{title}")
   public ResponseEntity<?> getBookContainingTitle(@PathVariable String title) {
     List<Book> books = bookService.getByContainingTitle(title);
     return ResponseEntity.ok(new GetBooksResponseDTO(books));
   }
 
+  // Get books with partial author
   @GetMapping("/containingAuthor/{author}")
   public ResponseEntity<?> getBookContainingAuthor(@PathVariable String author) {
     List<Book> books = bookService.getByContainingAuthor(author);
     return ResponseEntity.ok(new GetBooksResponseDTO(books));
   }
-
-  @GetMapping("/containingCategory/{category}")
-  public ResponseEntity<?> getBookContainingCategory(@PathVariable String category) {
-    List<Book> books = bookService.getByContainingCategory(category);
-    return ResponseEntity.ok(new GetBooksResponseDTO(books));
-  }
-
-
 }

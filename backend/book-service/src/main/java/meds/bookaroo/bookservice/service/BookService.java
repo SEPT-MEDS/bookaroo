@@ -16,23 +16,15 @@ public class BookService {
     return bookRepository.findByIsbn(isbn);
   }
 
-  public List<Book> getByContainingIsbn(Long isbn)
-  {
-    return bookRepository.findByIsbnContaining(isbn);
-  }
-
-  public List<Book> getByContainingTitle(String title)
-  {
+  public List<Book> getByContainingTitle(String title) {
     return bookRepository.findByTitleContaining(title);
   }
 
-  public List<Book> getByContainingAuthor(String author)
-  {
+  public List<Book> getByContainingAuthor(String author) {
     return bookRepository.findByAuthorContaining(author);
   }
 
-  public List<Book> getByContainingCategory(String category)
-  {
+  public List<Book> getByContainingCategory(String category) {
     return bookRepository.findByCategoryContaining(category);
 
   }
