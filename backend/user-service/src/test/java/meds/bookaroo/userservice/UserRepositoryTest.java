@@ -17,7 +17,7 @@ import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 import java.util.Set;
 
-import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(MockitoExtension.class)
 @DataJpaTest
@@ -44,7 +44,7 @@ public class UserRepositoryTest {
   void saveValidUser() {
     User user = new User(1L, "test", "username", "password", true, UserType.CUSTOMER, "firstName", "lastName", "", "", "");
     Set<ConstraintViolation<User>> violations = validator.validate(user);
-    assertThat(violations.isEmpty());
+    assertEquals(1, violations.size());
   }
 
 
@@ -52,42 +52,42 @@ public class UserRepositoryTest {
   void saveUserInvalidEmail() {
     User user = new User(1L, "email", "username", "password", true, UserType.CUSTOMER, "firstName", "lastName", "", "", "");
     Set<ConstraintViolation<User>> violations = validator.validate(user);
-    assertThat(violations.isEmpty());
+    assertEquals(1, violations.size());
   }
 
   @Test
   void saveUserInvalidBlankEmail() {
     User user = new User(1L, "", "username", "password", true, UserType.CUSTOMER, "firstName", "lastName", "", "", "");
     Set<ConstraintViolation<User>> violations = validator.validate(user);
-    assertThat(violations.isEmpty());
+    assertEquals(1, violations.size());
   }
 
   @Test
   void saveUserInvalidBlankUsername() {
     User user = new User(1L, "test@me.com", "", "password", true, UserType.CUSTOMER, "firstName", "lastName", "", "", "");
     Set<ConstraintViolation<User>> violations = validator.validate(user);
-    assertThat(violations.isEmpty());
+    assertEquals(1, violations.size());
   }
 
   @Test
   void saveUserInvalidBlankPassword() {
     User user = new User(1L, "test@me.com", "username", "", true, UserType.CUSTOMER, "firstName", "lastName", "", "", "");
     Set<ConstraintViolation<User>> violations = validator.validate(user);
-    assertThat(violations.isEmpty());
+    assertEquals(1, violations.size());
   }
 
   @Test
   void saveUserInvalidBlankFirstName() {
     User user = new User(1L, "test@me.com", "username", "password", true, UserType.CUSTOMER, "", "lastName", "", "", "");
     Set<ConstraintViolation<User>> violations = validator.validate(user);
-    assertThat(violations.isEmpty());
+    assertEquals(1, violations.size());
   }
 
   @Test
   void saveUserInvalidBlankLastName() {
     User user = new User(1L, "test@me.com", "username", "password", true, UserType.CUSTOMER, "firstName", "", "", "", "");
     Set<ConstraintViolation<User>> violations = validator.validate(user);
-    assertThat(violations.isEmpty());
+    assertEquals(1, violations.size());
   }
 
   @Test
@@ -95,6 +95,6 @@ public class UserRepositoryTest {
     User user = new User(1L, "test@me.com", "username", "password", true, UserType.CUSTOMER, "firstName", "lastName", "0438156612", "", "");
     userRepository.save(user);
     userRepository.deleteById(1L);
-    assertThat(userRepository.findAll().size() == 0);
+    assertEquals(0, userRepository.findAll().size());
   }
 }
