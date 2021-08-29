@@ -84,4 +84,11 @@ public class BookServiceTest {
     when(bookRepository.findByCategory("test")).thenReturn(null);
     assertNull(bookService.getByCategory("test"));
   }
+
+  @Test
+  public void createBook() {
+    Book book = new Book(12345678900L, "Book Title", "John Doe", "Very short blurb of the book.", 314, "https://www.booksite.com", 5, "Comedy");
+    when(bookRepository.save(book)).thenReturn(book);
+    assertEquals(book, bookService.create(book));
+  }
 }
