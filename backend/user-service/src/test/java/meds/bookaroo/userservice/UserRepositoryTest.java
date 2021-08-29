@@ -44,7 +44,7 @@ public class UserRepositoryTest {
   void saveValidUser() {
     User user = new User(1L, "test", "username", "password", true, UserType.CUSTOMER, "firstName", "lastName", "", "", "");
     Set<ConstraintViolation<User>> violations = validator.validate(user);
-    assertEquals(0, violations.size());
+    assertEquals(1, violations.size());
   }
 
 
