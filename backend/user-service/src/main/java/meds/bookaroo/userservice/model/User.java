@@ -6,7 +6,6 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @AllArgsConstructor
@@ -16,34 +15,32 @@ import javax.validation.constraints.NotNull;
 @Setter
 @Data
 public class User {
-    private @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+  private @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  Long id;
 
-    @Email(message = "Email needs to be a valid email")
-    @NotBlank(message = "Email is required")
-    @Column(unique = true)
-    private String email;
+  @Email(message = "Email needs to be a valid email")
+  @NotBlank(message = "Email is required")
+  @Column(unique = true)
+  private String email;
 
-    @NotBlank(message = "username is required")
-    @Column(unique = true)
-    private String username;
+  @NotBlank(message = "username is required")
+  @Column(unique = true)
+  private String username;
 
-    @NotBlank(message = "Password field is required")
-    private String password;
+  @NotBlank(message = "Password field is required")
+  private String password;
 
-    @NotNull
-    private Boolean isEnabled;
-    @NotNull
-    private String type;
+  private boolean isEnabled;
+  private UserType type;
 
-    @NotBlank(message = "First name is required")
-    private String firstName;
+  @NotBlank(message = "First name is required")
+  private String firstName;
 
-    @NotBlank(message = "Last name is required")
-    private String lastName;
+  @NotBlank(message = "Last name is required")
+  private String lastName;
 
-    private String phoneNumber;
-    private String address;
-    private String ABN;
+  private String phoneNumber;
+  private String address;
+  private String ABN;
 }
