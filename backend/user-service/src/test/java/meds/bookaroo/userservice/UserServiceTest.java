@@ -11,7 +11,9 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -32,32 +34,32 @@ public class UserServiceTest {
   public void getValidUserByUsername() {
     User user = new User(1L, "test", "username", "password", true, UserType.CUSTOMER, "firstName", "lastName", "", "", "");
     when(userRepository.findByUsername("username")).thenReturn(java.util.Optional.of(user));
-    assertThat(userService.getByUsername("username")).isNotNull();
+    assertNotNull(userService.getByUsername("username"));
   }
 
   @Test
   public void getValidUserById() {
     User user = new User(1L, "test", "username", "password", true, UserType.CUSTOMER, "firstName", "lastName", "", "", "");
     when(userRepository.findById(1L)).thenReturn(java.util.Optional.of(user));
-    assertThat(userService.getById(1L)).isNotNull();
+    assertNotNull(userService.getById(1L));
   }
 
   @Test
   public void getInvalidUserById() {
     when(userRepository.findById(1L)).thenReturn(java.util.Optional.empty());
-    assertThat(userService.getById(1L)).isNull();
+    assertNull(userService.getById(1L));
   }
 
   @Test
   public void getInvalidUserByUsername() {
     when(userRepository.findByUsername("username")).thenReturn(java.util.Optional.empty());
-    assertThat(userService.getByUsername("username")).isNull();
+    assertNull(userService.getByUsername("username"));
   }
 
   @Test
   public void createUser() {
     User user = new User(1L, "test", "username", "password", true, UserType.CUSTOMER, "firstName", "lastName", "", "", "");
     when(userRepository.save(user)).thenReturn(user);
-    assertThat(userService.create(user)).isEqualTo(user);
+    assertEquals(user, userService.create(user));
   }
 }
