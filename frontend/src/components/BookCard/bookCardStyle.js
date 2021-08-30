@@ -27,7 +27,3 @@ export const Cover = styled.img`
   width: 100%;
   height: 25em;
 `
-
-export const RatingText = styled.span`
-  color: ${p => p.theme.greyText};
-`

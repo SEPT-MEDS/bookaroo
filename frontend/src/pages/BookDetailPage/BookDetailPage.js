@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
-import { Spinner, Notification } from '../../components'
+import { Rating, Spinner, Notification } from '../../components'
 import { getBook } from '../../services'
 
 import {
@@ -59,10 +59,7 @@ const BookInfo = ({ book }) => {
         <BookInfoCover />
         <h1>{book.title}</h1>
         <BookInfoAuthor>{book.author}</BookInfoAuthor>
-        <span>
-          {book.rating}
-          {/* wip */}
-        </span>
+        <Rating rating={book.rating} />
       </div>
       <div>
         <h2>Blurb</h2>
