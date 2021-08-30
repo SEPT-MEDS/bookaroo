@@ -27,6 +27,12 @@ spring:
             - Path=/api/book/**
           filters:
             - name: JwtAuth
+        - id: LISTING-SERVICE
+          uri: lb://LISTING-SERVICE
+          predicates:
+            - Path=/api/listing/**
+          filters:
+            - name: JwtAuth
 
 eureka:
   client:
