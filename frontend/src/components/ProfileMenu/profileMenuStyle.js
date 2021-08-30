@@ -27,11 +27,16 @@ export const MenuBox = styled.div`
   border-top-right-radius: 0;
   box-shadow: 0px 1px 4px #4d4d4dad;
 
-  /* Animations */
-  transition: opacity .1s;
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s, 0s;
 
   &.closed {
+    visibility: hidden;
     opacity: 0;
+    transition-property: opacity, visibility;
+    transition-duration: .4s, 0s;
+    transition-delay: 0s, .4s;
   }
 
   a {
