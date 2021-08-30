@@ -22,9 +22,6 @@ export const getAllBooks = async (filter, category) => {
       filteredBooks = unionBy(filtered, b => b.isbn)
     }
 
-    console.log(filteredBooks)
-    console.log(allBooks)
-
     return intersectionBy([...allBooks, ...filteredBooks], b => b.isbn)
   } catch (e) {
     console.warn(e)
