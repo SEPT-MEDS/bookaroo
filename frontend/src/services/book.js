@@ -2,6 +2,11 @@ import intersectionBy from 'lodash.intersectionby'
 import unionBy from 'lodash.unionby'
 import api from './'
 
+export const getBook = async isbn => {
+  const {data: {book}} = await api.get(`/book/${isbn}`)
+  return book
+}
+
 export const getAllBooks = async (filter, category) => {
   try {
     const {data: {books: allBooks}} = await (category
