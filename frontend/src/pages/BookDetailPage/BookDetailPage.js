@@ -1,38 +1,76 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
-import { Spinner } from '../../components'
+import { Spinner, Notification } from '../../components'
 import { getBook } from '../../services'
+
+import {
+  Container,
+  BookInfoContainer,
+  BookSellersContainer,
+  BookInfoPara,
+  BookInfoCover,
+  BookInfoAuthor
+} from './bookDetailPageStyle'
 
 const BookDetailPage = () => {
   const { isbn } = useParams()
   const [isLoading, setIsLoading] = useState(false)
   const [book, setBook] = useState()
+  const [error, setError] = useState()
 
   useEffect(() => {
     setIsLoading(true)
     getBook(isbn)
       .then(book => setBook(book))
       .then(() => setIsLoading(false))
-      .catch(() => setIsLoading(false))
+      .catch(err => {
+        setIsLoading(false)
+        setError(err.message)
+      })
   }, [isbn])
 
-  return <div>
-    {isLoading
-      ? <Spinner />
-      : (book ? <BookInfo book={book} /> : <span>{'problemo :{'}</span>)
-    }
-  </div>
+  return (
+    <Container>
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <>
+          {error && <Notification isError={true}>{error}</Notification>}
+          {book && <BookInfo book={book} />}
+          {book && <BookSellers book={book}/>}
+        </>
+      )}
+    </Container>
+  )
+}
+
+const BookSellers = ({ book }) => {
+  return <BookSellersContainer>
+    <h2>Sellers of <em>{book.title}</em></h2>
+  </BookSellersContainer>
 }
 
 const BookInfo = ({ book }) => {
-  return <div>
-    <h2>title: {book.title}</h2>
-    <h3>author: {book.author}</h3>
-    <code>
-      {JSON.stringify(book, null, '\n')}
-    </code>
-  </div>
+  return (
+    <BookInfoContainer>
+      <div>
+        <BookInfoCover />
+        <h1>{book.title}</h1>
+        <BookInfoAuthor>{book.author}</BookInfoAuthor>
+        <span>
+          {book.rating}
+          {/* wip */}
+        </span>
+      </div>
+      <div>
+        <h2>Blurb</h2>
+        <BookInfoPara>{book.blurb}</BookInfoPara>
+        <h2>Number of Pages</h2>
+        <BookInfoPara>{book.numPages}</BookInfoPara>
+      </div>
+    </BookInfoContainer>
+  )
 }
 
 export default BookDetailPage
