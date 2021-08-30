@@ -1,6 +1,8 @@
 import React from 'react'
 
+import {LogoHeader} from './logoStyle'
+
 const Logo = () =>
-  <h2>Bookaroo</h2>
+  <LogoHeader>Bookaroo</LogoHeader>
 
 export default Logo
