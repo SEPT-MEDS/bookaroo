@@ -10,7 +10,8 @@ import {
   BookSellersContainer,
   BookInfoPara,
   BookInfoCover,
-  BookInfoAuthor
+  BookInfoAuthor,
+  BookInfoDetails
 } from './bookDetailPageStyle'
 
 const BookDetailPage = () => {
@@ -65,9 +66,17 @@ const BookInfo = ({ book }) => {
       </div>
       <div>
         <h2>Blurb</h2>
-        <BookInfoPara>{book.blurb}</BookInfoPara>
-        <h2>Number of Pages</h2>
-        <BookInfoPara>{book.numPages}</BookInfoPara>
+        <BookInfoPara>{book.blurb || <em>No Blurb Provided</em>}</BookInfoPara>
+        <BookInfoDetails>
+          <div>
+            <h2>Number of Pages</h2>
+            <BookInfoPara>{book.numPages}</BookInfoPara>
+          </div>
+          <div>
+            <h2>Category</h2>
+            <BookInfoPara>{book.category || <em>No Category</em>}</BookInfoPara>
+          </div>
+        </BookInfoDetails>
       </div>
     </BookInfoContainer>
   )

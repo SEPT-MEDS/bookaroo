@@ -24,6 +24,12 @@ export const BookInfoAuthor = styled.h3`
   color: ${p => p.theme.greyText};
 `
 
+export const BookInfoDetails = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2em;
+`
+
 export const BookInfoCover = styled.div`
   width: 100%;
   height: 100%;
