@@ -9,6 +9,11 @@ export const instance = axios.create({
   }
 })
 
+instance.interceptors.request.use(async config => {
+  config.headers.Authorization = localStorage.token
+  return config
+})
+
 const api = {
   get: (endpoint, data) =>
     instance.get(endpoint, { params: data }),

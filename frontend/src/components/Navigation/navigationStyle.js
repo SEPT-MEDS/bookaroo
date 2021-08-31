@@ -11,6 +11,11 @@ export const NavBar = styled.nav`
   background: ${p => p.theme.primary};
   padding-left: .5em;
   padding-right: .5em;
+
+  > a {
+    text-decoration: none;
+    color: inherit;
+  }
 `
 
 export const Logo = styled.img``

@@ -9,9 +9,9 @@ import {
   Form,
   InputContainer,
   Heading,
-  FieldsContainer,
-  ErrorNotification,
+  FieldsContainer
 } from './loginPageStyle'
+import { Notification } from '../../components'
 
 const LoginPage = () => {
   const history = useHistory()
@@ -45,7 +45,7 @@ const LoginPage = () => {
     <Container>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Heading>Login</Heading>
-        {error && <ErrorNotification>{error}</ErrorNotification>}
+        {error && <Notification isError={true}>{error}</Notification>}
         <FieldsContainer>
           <InputContainer>
             <label>Username</label>

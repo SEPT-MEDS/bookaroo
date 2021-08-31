@@ -1,36 +1,30 @@
-//import api from './'
+import intersectionBy from 'lodash.intersectionby'
+import unionBy from 'lodash.unionby'
+import api from './'
 
-// TODO: remove
-const testBooks = [
-  {
-    title: 'My Cool Book',
-    author: 'Ewan Breakey',
-    rating: 4
-  },
-  {
-    title: 'Another Great Book',
-    author: 'Maxwell Reid',
-    rating: 1
-  },
-  {
-    title: 'Something I Found On The Floor',
-    author: 'Thomas Dib',
-    rating: 3
-  },
-  {
-    title: 'Nuclear War: A Threat to Us All',
-    author: 'Sefanur Erciyas',
-    rating: 5
-  },
-  {
-    title: 'The Weather Today: An Intro to C',
-    author: 'Dale Stanbrough',
-    rating: 5,
+export const getBook = async isbn => {
+  const {data: {book}} = await api.get(`/book/${isbn}`)
+  return book
+}
+
+export const getAllBooks = async (filter, category) => {
+  try {
+    const {data: {books: allBooks}} = await (category
+      ? api.get(`/book/byCategory/${category}`)
+      : api.get('/book'))
+
+    let filteredBooks = allBooks
+    if (filter) {
+      const filtered = (await Promise.all([
+        api.get(`/book/containingTitle/${filter}`),
+        api.get(`/book/containingAuthor/${filter}`),
+      ])).map(r => r.data.books)
+      filteredBooks = unionBy(filtered, b => b.isbn)
+    }
+
+    return intersectionBy([...allBooks, ...filteredBooks], b => b.isbn)
+  } catch (e) {
+    console.warn(e)
+    return []
   }
-]
-
-export const getAllBooks = async filter => {
-  console.log('Should have hit the api using', filter)
-  const {data} = {data: testBooks} // TODO: await api.get('/book', { filter })
-  return data
 }
