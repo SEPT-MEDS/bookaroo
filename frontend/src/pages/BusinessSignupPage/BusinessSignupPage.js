@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useHistory } from 'react-router'
+import { Link, useHistory } from 'react-router-dom'
 
 import { signup } from '../../services'
 
@@ -10,8 +10,9 @@ import {
   InputContainer,
   Heading,
   FieldsContainer,
-  ErrorNotification,
 } from './businessSignupPageStyle'
+
+import { Notification } from '../../components'
 
 
 const LoginPage = () => {
@@ -50,7 +51,11 @@ const LoginPage = () => {
     <Container>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Heading>Signup</Heading>
-        {error && <ErrorNotification>{error}</ErrorNotification>}
+        {error && <Notification isError={true}>{error}</Notification>}
+        <Notification>
+          Not a business owner?
+          <Link to='/signup/customer'>Signup Here Instead</Link>
+        </Notification>
         <FieldsContainer>
           <InputContainer>
             <label>First Name</label>

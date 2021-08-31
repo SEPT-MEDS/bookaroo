@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useHistory } from 'react-router'
+import { Link, useHistory } from 'react-router-dom'
 
 import { signup } from '../../services'
 import {
@@ -9,8 +9,9 @@ import {
   InputContainer,
   Heading,
   FieldsContainer,
-  ErrorNotification,
+  InputGroup
 } from './customerSignupPageStyle'
+import { Notification } from '../../components'
   
 const CustomerSignupPage = () => {
   const history = useHistory()
@@ -46,20 +47,25 @@ const CustomerSignupPage = () => {
     <Container>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Heading>Customer Signup</Heading>
-        {error && <ErrorNotification>{error}</ErrorNotification>}
+        {error && <Notification isError={true}>{error}</Notification>}
+        <Notification>
+          Are you a business owner?
+          <Link to='/signup/business'>Signup Here Instead</Link>
+        </Notification>
         <FieldsContainer>
-          <InputContainer>
-            <label>First Name</label>
-            <input type="text" {...register('firstName', { required: true })} />
-            {errors.firstName && 'This field is required'}
-          </InputContainer>
+          <InputGroup>
+            <InputContainer>
+              <label>First Name</label>
+              <input type="text" {...register('firstName', { required: true })} />
+              {errors.firstName && 'This field is required'}
+            </InputContainer>
 
-          <InputContainer>
-            <label>Last Name</label>
-            <input type="text" {...register('lastName', { required: true })} />
-            {errors.lastName && 'This field is required'}
-          </InputContainer>
-
+            <InputContainer>
+              <label>Last Name</label>
+              <input type="text" {...register('lastName', { required: true })} />
+              {errors.lastName && 'This field is required'}
+            </InputContainer>
+          </InputGroup>
           <InputContainer>
             <label>Email</label>
             <input type="email" {...register('email', { required: true })} />
@@ -78,23 +84,25 @@ const CustomerSignupPage = () => {
             {errors.username && 'This field is required'}
           </InputContainer>
 
-          <InputContainer>
-            <label>Password</label>
-            <input
-              type="password"
-              {...register('password', { required: true })}
-            />
-            {errors.password && 'This field is required'}
-          </InputContainer>
+          <InputGroup>
+            <InputContainer>
+              <label>Password</label>
+              <input
+                type="password"
+                {...register('password', { required: true })}
+              />
+              {errors.password && 'This field is required'}
+            </InputContainer>
 
-          <InputContainer>
-            <label>Confirm Password</label>
-            <input
-              type="password"
-              {...register('confirmPassword', { required: true })}
-            />
-            {errors.confirmPassword && 'This field is required'}
-          </InputContainer>
+            <InputContainer>
+              <label>Confirm Password</label>
+              <input
+                type="password"
+                {...register('confirmPassword', { required: true })}
+              />
+              {errors.confirmPassword && 'This field is required'}
+            </InputContainer>
+          </InputGroup>
           <input type="hidden" {...register('type')} value="CUSTOMER"/>
           <input type="hidden" {...register('isEnabled')} value="true"/>
         </FieldsContainer>

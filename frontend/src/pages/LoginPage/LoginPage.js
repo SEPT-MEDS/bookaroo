@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useHistory } from 'react-router'
+import { Redirect, Link, useHistory } from 'react-router-dom'
 
 import { login } from '../../services'
 import { useAuth } from '../../hooks'
@@ -9,14 +9,15 @@ import {
   Form,
   InputContainer,
   Heading,
-  FieldsContainer
+  FieldsContainer,
+  LinkContainer
 } from './loginPageStyle'
 import { Notification } from '../../components'
 
 const LoginPage = () => {
   const history = useHistory()
   const [error, setError] = useState(null)
-  const { setToken, setUserId } = useAuth()
+  const { isLoggedIn, setToken, setUserId } = useAuth()
   const {
     register,
     handleSubmit,
@@ -43,6 +44,7 @@ const LoginPage = () => {
 
   return (
     <Container>
+      {isLoggedIn && <Redirect to='/' />}
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Heading>Login</Heading>
         {error && <Notification isError={true}>{error}</Notification>}
@@ -60,6 +62,10 @@ const LoginPage = () => {
             />
             {errors.password && 'This field is required'}
           </InputContainer>
+          <LinkContainer>
+            {'Don\'t have an account? '}
+            <Link to='/signup/customer'>signup here</Link>
+          </LinkContainer>
         </FieldsContainer>
         <input type="submit" value="Login" />
       </Form>

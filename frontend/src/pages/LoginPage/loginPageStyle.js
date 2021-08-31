@@ -65,3 +65,13 @@ export const InputContainer = styled.div`
 export const Heading = styled.h2`
   text-align: center;
 `
+
+export const LinkContainer = styled.div`
+  color: ${p => p.theme.greyText};
+  display: flex;
+  gap: .5em;
+
+  a {
+    color: inherit;
+  }
+`
