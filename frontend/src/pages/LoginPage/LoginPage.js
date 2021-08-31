@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useHistory } from 'react-router'
+import { Link, useHistory } from 'react-router-dom'
 
 import { login } from '../../services'
 import { useAuth } from '../../hooks'
@@ -9,7 +9,8 @@ import {
   Form,
   InputContainer,
   Heading,
-  FieldsContainer
+  FieldsContainer,
+  LinkContainer
 } from './loginPageStyle'
 import { Notification } from '../../components'
 
@@ -60,6 +61,10 @@ const LoginPage = () => {
             />
             {errors.password && 'This field is required'}
           </InputContainer>
+          <LinkContainer>
+            {'Don\'t have an account? '}
+            <Link to='/signup/customer'>signup here</Link>
+          </LinkContainer>
         </FieldsContainer>
         <input type="submit" value="Login" />
       </Form>
