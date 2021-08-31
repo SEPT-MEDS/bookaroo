@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { Link, useHistory } from 'react-router-dom'
+import { Redirect, Link, useHistory } from 'react-router-dom'
 
 import { login } from '../../services'
 import { useAuth } from '../../hooks'
@@ -17,7 +17,7 @@ import { Notification } from '../../components'
 const LoginPage = () => {
   const history = useHistory()
   const [error, setError] = useState(null)
-  const { setToken, setUserId } = useAuth()
+  const { isLoggedIn, setToken, setUserId } = useAuth()
   const {
     register,
     handleSubmit,
@@ -44,6 +44,7 @@ const LoginPage = () => {
 
   return (
     <Container>
+      {isLoggedIn && <Redirect to='/' />}
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Heading>Login</Heading>
         {error && <Notification isError={true}>{error}</Notification>}
