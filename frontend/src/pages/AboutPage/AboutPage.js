@@ -20,7 +20,7 @@ const AboutPage = () => {
         </p>
       </AboutInfoContainer>
       <h3>Check out our socials below!</h3>
-      <ContactPoints></ContactPoints>
+      <ContactPoints />
     </Container>
   )
 }

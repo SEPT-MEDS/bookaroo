@@ -12,6 +12,8 @@ export const ContactPointsContainer = styled.div`
   grid-template-columns: 1fr;
   gap: .5em;
   height: max-content;
+  margin-top: .5em;
+  margin-left: .5em;
 `
 export const AboutInfoContainer = styled.div`
   margin-bottom: 2em;
