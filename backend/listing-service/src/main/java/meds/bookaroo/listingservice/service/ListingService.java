@@ -17,7 +17,7 @@ public class ListingService {
   }
 
   public Listing getByListingId(Long listingId) {
-    return listingRepository.getById(listingId);
+    return listingRepository.findById(listingId).orElse(null);
   }
 
   public List<Listing> getBySellerId(Long sellerId) {

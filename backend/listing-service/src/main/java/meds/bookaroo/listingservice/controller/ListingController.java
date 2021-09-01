@@ -14,21 +14,20 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/listing")
 public class ListingController {
 
   @Autowired
   private ListingService listingService;
 
   // Upload a listing
-  @PostMapping("")
+  @PostMapping("/api/listing")
   public ResponseEntity<?> addListing(@RequestBody @Valid Listing listing) {
     listingService.create(listing);
     return ResponseEntity.ok(new CreateListingResponseDTO(true, ""));
   }
 
-  // Get listing by isbn
-  @GetMapping("/{listingid}")
+  // Get listing by listing id
+  @GetMapping("/api/listing/{listingid}")
   public ResponseEntity<?> getListingById(@PathVariable Long listingid) {
     Listing listing = listingService.getByListingId(listingid);
 
@@ -39,17 +38,17 @@ public class ListingController {
     }
   }
 
-  // Get all listings by an author
-  @GetMapping("/byAuthor/{sellerid}")
+  // Get all listings by an seller id
+  @GetMapping("/api/user/{sellerid}/listings")
   public ResponseEntity<?> getListingBySellerId(@PathVariable Long sellerid) {
     List<Listing> listings = listingService.getBySellerId(sellerid);
     return ResponseEntity.ok(new GetListingsResponseDTO(listings));
   }
 
   // Get all listings by an isbn
-  @GetMapping("/byBookIsbn/{isbn}")
+  @GetMapping("/api/book/{isbn}/listings")
   public ResponseEntity<?> getListingByBookIsbn(@PathVariable Long isbn) {
-    List<Listing> listings = listingService.getBySellerId(isbn);
+    List<Listing> listings = listingService.getByBookIsbn(isbn);
     return ResponseEntity.ok(new GetListingsResponseDTO(listings));
   }
 }

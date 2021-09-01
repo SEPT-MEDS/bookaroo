@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @AllArgsConstructor
@@ -19,19 +20,18 @@ public class Listing {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   Long id;
 
-  @NotBlank(message = "Book isbn is required")
+  @NotNull(message = "Book isbn is required")
   private Long bookIsbn;
 
-  @NotBlank(message = "Seller id is required")
+  @NotNull(message = "Seller id is required")
   private Long sellerId;
 
-  @NotBlank(message = "Price is required")
   private double price;
 
-  @NotBlank(message = "isSwap is required")
+  @NotNull(message = "isSwap is required")
   private Boolean isSwap;
 
-  @NotBlank(message = "isVisible is required")
+  @NotNull(message = "isVisible is required")
   private Boolean isVisible;
 
   @NotBlank(message = "Image URL is required")
