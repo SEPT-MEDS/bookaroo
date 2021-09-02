@@ -83,7 +83,6 @@
                         <ports>
                             <port>9005</port>
                             <port>9004</port>
-                            author
                             <port>9003</port>
                             <port>9002</port>
                             <port>8761</port>
