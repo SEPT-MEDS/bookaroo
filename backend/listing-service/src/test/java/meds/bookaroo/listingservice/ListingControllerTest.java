@@ -112,7 +112,7 @@ public class ListingControllerTest {
 
   @Test
   public void createInvalidListingNullIsPreowned() throws Exception {
-    Listing listing = new Listing(1L, 1000000000L, 1L, 50, true, true, false, "url");
+    Listing listing = new Listing(1L, 1000000000L, 1L, 50, true, true, null, "url");
     when(listingService.create(any())).thenReturn(listing);
     System.out.println(asJsonString(listing));
     mockMvc.perform(
