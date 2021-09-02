@@ -36,7 +36,7 @@ public class ListingControllerTest {
 
   @Test
   public void getListingWithId() throws Exception {
-    Listing listing = new Listing(1L, 1000000000L, 1L, 50, false, true, "url");
+    Listing listing = new Listing(1L, 1000000000L, 1L, 50, false, true, true, "url");
     when(listingService.getByListingId(any())).thenReturn(listing);
     mockMvc.perform(
         MockMvcRequestBuilders.get("/api/listing/1")
@@ -57,7 +57,7 @@ public class ListingControllerTest {
 
   @Test
   public void createInvalidListingBlankISBN() throws Exception {
-    Listing listing = new Listing(1L, null, 1L, 50, false, true, "url");
+    Listing listing = new Listing(1L, null, 1L, 50, false, true, true, "url");
     when(listingService.create(any())).thenReturn(listing);
     System.out.println(asJsonString(listing));
     mockMvc.perform(
@@ -68,7 +68,7 @@ public class ListingControllerTest {
 
   @Test
   public void createInvalidListingShortISBN() throws Exception {
-    Listing listing = new Listing(1L, 1L, 1L, 50, false, true, "url");
+    Listing listing = new Listing(1L, 1L, 1L, 50, false, true, true, "url");
     when(listingService.create(any())).thenReturn(listing);
     System.out.println(asJsonString(listing));
     mockMvc.perform(
@@ -79,7 +79,7 @@ public class ListingControllerTest {
 
   @Test
   public void createInvalidListingNullSellerId() throws Exception {
-    Listing listing = new Listing(1L, 1000000000L, null, 50, false, true, "url");
+    Listing listing = new Listing(1L, 1000000000L, null, 50, false, true, true, "url");
     when(listingService.create(any())).thenReturn(listing);
     System.out.println(asJsonString(listing));
     mockMvc.perform(
@@ -90,7 +90,7 @@ public class ListingControllerTest {
 
   @Test
   public void createInvalidListingNullIsSwap() throws Exception {
-    Listing listing = new Listing(1L, 1000000000L, 1L, 50, null, true, "url");
+    Listing listing = new Listing(1L, 1000000000L, 1L, 50, null, true, true, "url");
     when(listingService.create(any())).thenReturn(listing);
     System.out.println(asJsonString(listing));
     mockMvc.perform(
@@ -101,7 +101,18 @@ public class ListingControllerTest {
 
   @Test
   public void createInvalidListingNullIsVisible() throws Exception {
-    Listing listing = new Listing(1L, 1000000000L, 1L, 50, true, null, "url");
+    Listing listing = new Listing(1L, 1000000000L, 1L, 50, true, null, true, "url");
+    when(listingService.create(any())).thenReturn(listing);
+    System.out.println(asJsonString(listing));
+    mockMvc.perform(
+        MockMvcRequestBuilders.post("/api/listing").content(asJsonString(listing)).contentType("application/json")
+    )
+        .andExpect(status().isBadRequest());
+  }
+
+  @Test
+  public void createInvalidListingNullIsPreowned() throws Exception {
+    Listing listing = new Listing(1L, 1000000000L, 1L, 50, true, true, false, "url");
     when(listingService.create(any())).thenReturn(listing);
     System.out.println(asJsonString(listing));
     mockMvc.perform(
@@ -112,7 +123,7 @@ public class ListingControllerTest {
 
   @Test
   public void createInvalidListingBlankUrl() throws Exception {
-    Listing listing = new Listing(1L, 1000000000L, 1L, 50, true, true, "");
+    Listing listing = new Listing(1L, 1000000000L, 1L, 50, true, true, true, "");
     when(listingService.create(any())).thenReturn(listing);
     System.out.println(asJsonString(listing));
     mockMvc.perform(
@@ -123,7 +134,7 @@ public class ListingControllerTest {
 
   @Test
   public void createInvalidListingNullUrl() throws Exception {
-    Listing listing = new Listing(1L, 1000000000L, 1L, 50, true, true, null);
+    Listing listing = new Listing(1L, 1000000000L, 1L, 50, true, true, true, null);
     when(listingService.create(any())).thenReturn(listing);
     System.out.println(asJsonString(listing));
     mockMvc.perform(
@@ -134,7 +145,7 @@ public class ListingControllerTest {
 
   @Test
   public void createValidListing() throws Exception {
-    Listing listing = new Listing(1L, 1000000000L, 1L, 50, true, true, "url");
+    Listing listing = new Listing(1L, 1000000000L, 1L, 50, true, true, true, "url");
     when(listingService.create(any())).thenReturn(listing);
     mockMvc.perform(
         MockMvcRequestBuilders.post("/api/listing").content(asJsonString(listing)).contentType("application/json")

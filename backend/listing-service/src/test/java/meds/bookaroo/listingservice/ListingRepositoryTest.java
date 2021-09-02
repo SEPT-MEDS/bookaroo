@@ -42,42 +42,42 @@ public class ListingRepositoryTest {
 
   @Test
   void saveValidListing() {
-    Listing listing = new Listing(1L, 1000000000L, 1L, 50, false, true, "url");
+    Listing listing = new Listing(1L, 1000000000L, 1L, 50, false, true, false, "url");
     Set<ConstraintViolation<Listing>> violations = validator.validate(listing);
     assertEquals(0, violations.size());
   }
 
   @Test
   void saveListingBlankId() {
-    Listing listing = new Listing(null, 1000000000L, 1L, 50, false, true, "url");
+    Listing listing = new Listing(null, 1000000000L, 1L, 50, false, true, false, "url");
     Set<ConstraintViolation<Listing>> violations = validator.validate(listing);
     assertEquals(0, violations.size());
   }
 
   @Test
   void saveListingInvalidISBN() {
-    Listing listing = new Listing(1L, 1L, 1L, 50, false, true, "url");
+    Listing listing = new Listing(1L, 1L, 1L, 50, false, true, false, "url");
     Set<ConstraintViolation<Listing>> violations = validator.validate(listing);
     assertEquals(1, violations.size());
   }
 
   @Test
   void saveListingBlankISBN() {
-    Listing listing = new Listing(1L, null, 1L, 50, false, true, "url");
+    Listing listing = new Listing(1L, null, 1L, 50, false, true, false, "url");
     Set<ConstraintViolation<Listing>> violations = validator.validate(listing);
     assertEquals(2, violations.size());
   }
 
   @Test
   void saveListingBlankSellerId() {
-    Listing listing = new Listing(1L, 1000000000L, null, 50, false, true, "url");
+    Listing listing = new Listing(1L, 1000000000L, null, 50, false, true, false, "url");
     Set<ConstraintViolation<Listing>> violations = validator.validate(listing);
     assertEquals(1, violations.size());
   }
 
   @Test
   void saveListingBlankImageUrl() {
-    Listing listing = new Listing(1L, 1000000000L, 1L, 50, false, true, "");
+    Listing listing = new Listing(1L, 1000000000L, 1L, 50, false, true, false, "");
     Set<ConstraintViolation<Listing>> violations = validator.validate(listing);
     assertEquals(1, violations.size());
   }

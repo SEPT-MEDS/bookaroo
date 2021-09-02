@@ -31,7 +31,7 @@ public class ListingServiceTest {
 
   @Test
   public void getValidListingByListingId() {
-    Listing listing = new Listing(1L, 1000000000L, 1L, 50, false, true, "url");
+    Listing listing = new Listing(1L, 1000000000L, 1L, 50, false, true, false, "url");
     when(listingRepository.findById(1L)).thenReturn(java.util.Optional.of(listing));
     assertEquals(listing, listingService.getByListingId(1L));
   }
@@ -45,7 +45,7 @@ public class ListingServiceTest {
   @Test
   public void getValidListingByBookIsbn() {
     List<Listing> listings = new ArrayList<>();
-    listings.add(new Listing(1L, 1000000000L, 1L, 50, false, true, "url"));
+    listings.add(new Listing(1L, 1000000000L, 1L, 50, false, true, false, "url"));
     when(listingRepository.findByBookIsbn(1000000000L)).thenReturn(listings);
     assertEquals(listings, listingService.getByBookIsbn(1000000000L));
   }
@@ -59,7 +59,7 @@ public class ListingServiceTest {
   @Test
   public void getValidListingBySellerId() {
     List<Listing> listings = new ArrayList<>();
-    listings.add(new Listing(1L, 1000000000L, 1L, 50, false, true, "url"));
+    listings.add(new Listing(1L, 1000000000L, 1L, 50, false, true, false, "url"));
     when(listingRepository.findBySellerId(1L)).thenReturn(listings);
     assertEquals(listings, listingService.getBySellerId(1L));
   }

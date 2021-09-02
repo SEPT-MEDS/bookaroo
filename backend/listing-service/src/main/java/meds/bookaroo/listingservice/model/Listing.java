@@ -35,6 +35,9 @@ public class Listing {
   @NotNull(message = "isVisible is required")
   private Boolean isVisible;
 
+  @NotNull(message = "isPreowned is required")
+  private Boolean isPreowned;
+
   @NotBlank(message = "Image URL is required")
   private String imageUrl;
 }
