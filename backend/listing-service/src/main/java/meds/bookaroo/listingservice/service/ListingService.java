@@ -16,8 +16,8 @@ public class ListingService {
     this.listingRepository = listingRepository;
   }
 
-  public void create(Listing listing) {
-    listingRepository.save(listing);
+  public Listing create(Listing listing) {
+    return listingRepository.save(listing);
   }
 
   public Listing getByListingId(Long listingId) {
