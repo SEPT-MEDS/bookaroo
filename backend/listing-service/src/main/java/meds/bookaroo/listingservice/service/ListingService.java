@@ -12,6 +12,10 @@ public class ListingService {
   @Autowired
   private ListingRepository listingRepository;
 
+  public ListingService(ListingRepository listingRepository) {
+    this.listingRepository = listingRepository;
+  }
+
   public void create(Listing listing) {
     listingRepository.save(listing);
   }

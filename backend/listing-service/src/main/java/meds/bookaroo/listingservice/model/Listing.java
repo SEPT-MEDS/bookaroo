@@ -2,10 +2,8 @@ package meds.bookaroo.listingservice.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -20,6 +18,9 @@ public class Listing {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   Long id;
 
+  @NotNull(message = "ISBN is required")
+  @Min(value = 1000000000, message = "ISBN must be 10 or more digits")
+  @Column(unique = true)
   @NotNull(message = "Book isbn is required")
   private Long bookIsbn;
 
