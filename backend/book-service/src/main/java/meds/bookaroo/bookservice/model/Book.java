@@ -29,14 +29,14 @@ public class Book {
   @NotBlank(message = "Author is required")
   private String author;
 
-  @NotBlank(message = "blurb is required")
+  @NotBlank(message = "Blurb is required")
   private String blurb;
 
   @NotNull
   @Min(value = 0, message = "Number of pages must be greater than 0")
   private int numPages;
 
-  @NotBlank(message = "url is required")
+  @NotBlank(message = "URL is required")
   private String url;
 
   private int rating;
