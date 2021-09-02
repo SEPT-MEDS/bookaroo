@@ -23,9 +23,6 @@ const useAuth = () => {
   const { token, userId, loginTime, login, logout } = useTokenStore()
 
   const isLoggedIn = token && userId && Date.now() - loginTime <= TOKEN_EXP_TIME
-  console.log({
-    isLoggedIn, token, userId, loginTime
-  })
 
   return {
     token,
