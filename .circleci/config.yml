@@ -1,0 +1,137 @@
+version: 2.1
+
+parameters:
+  # This parameter is used to trigger the main workflow
+  trigger:
+    type: boolean
+    default: true
+
+  # A parameter per package
+  discovery:
+    type: boolean
+    default: false
+  gateway:
+    type: boolean
+    default: false
+  auth:
+    type: boolean
+    default: false
+  user:
+    type: boolean
+    default: false
+  book:
+    type: boolean
+    default: false
+  listing:
+    type: boolean
+    default: false
+  review:
+    type: boolean
+    default: false
+
+executors:
+  node:
+    docker:
+      - image: circleci/node
+
+jobs:
+  trigger-workflows:
+    executor: node
+    steps:
+      - checkout
+      - run:
+          name: Trigger workflows
+          command: chmod +x .circleci/circle_trigger.sh && .circleci/circle_trigger.sh
+
+  build:
+    parameters:
+      package_name:
+        type: string
+    docker:
+      - image: circleci/openjdk:16.0.1-jdk-buster
+
+    executor: node
+    working_directory: ~/project/backend/<< parameters.package_name >>
+
+    steps:
+      - checkout:
+          path: ~/project
+      # This step is added only to show that we are in the package directory
+      - run:
+          name: Login to DockerHub
+          command: docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - restore_cache:
+          keys:
+          - << parameters.package_name >>-{{ checksum "pom.xml" }}
+      - run: mvn dependency:go-offline
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: << parameters.package_name >>-{{ checksum "pom.xml" }}
+      - run: mvn clean package
+      - run: mvn clean compile jib:build -Dimage=bookaroo/<< parameters.package_name >>-service:$CIRCLE_BUILD_NUM
+      - store_artifacts:
+          path: target/classes
+          destination: << parameters.package_name >>-service
+
+workflows:
+  version: 2
+
+  # The main workflow responsible for triggering all other workflows
+  # in which changes are detected.
+  ci:
+    when: << pipeline.parameters.trigger >>
+    jobs:
+      - trigger-workflows
+
+
+  # Workflows defined for each package.
+
+  discovery:
+    when: << pipeline.parameters.discovery >>
+    jobs:
+      - build:
+          name: discovery-build
+          package_name: discovery
+
+  gateway:
+    when: << pipeline.parameters.gateway >>
+    jobs:
+      - build:
+          name: gateway-build
+          package_name: gateway
+
+  auth:
+    when: << pipeline.parameters.auth >>
+    jobs:
+      - build:
+          name: auth-build
+          package_name: auth
+
+  user:
+    when: << pipeline.parameters.user >>
+    jobs:
+      - build:
+          name: user-build
+          package_name: user
+
+  book:
+    when: << pipeline.parameters.book >>
+    jobs:
+      - build:
+          name: book-build
+          package_name: book
+
+  listing:
+    when: << pipeline.parameters.listing >>
+    jobs:
+      - build:
+          name: listing-build
+          package_name: listing
+
+  review:
+    when: << pipeline.parameters.review >>
+    jobs:
+      - build:
+          name: review-build
+          package_name: review
