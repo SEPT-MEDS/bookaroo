@@ -92,12 +92,12 @@ workflows:
           name: discovery-service-build
           package_name: discovery-service
 
-  gateway:
-    when: << pipeline.parameters.gateway >>
+  gateway-service:
+    when: << pipeline.parameters.gateway-service >>
     jobs:
       - build:
-          name: gateway-build
-          package_name: gateway
+          name: gateway-service-build
+          package_name: gateway-service
 
   auth:
     when: << pipeline.parameters.auth >>
