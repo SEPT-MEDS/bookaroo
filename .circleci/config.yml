@@ -13,19 +13,19 @@ parameters:
   gateway-service:
     type: boolean
     default: false
-  auth:
+  auth-service:
     type: boolean
     default: false
-  user:
+  user-service:
     type: boolean
     default: false
-  book:
+  book-service:
     type: boolean
     default: false
-  listing:
+  listing-service:
     type: boolean
     default: false
-  review:
+  review-service:
     type: boolean
     default: false
 
@@ -99,37 +99,37 @@ workflows:
           name: gateway-service-build
           package_name: gateway-service
 
-  auth:
-    when: << pipeline.parameters.auth >>
+  auth-service:
+    when: << pipeline.parameters.auth-service >>
     jobs:
       - build:
-          name: auth-build
-          package_name: auth
+          name: auth-service-build
+          package_name: auth-service
 
-  user:
-    when: << pipeline.parameters.user >>
+  user-service:
+    when: << pipeline.parameters.user-service >>
     jobs:
       - build:
-          name: user-build
-          package_name: user
+          name: user-service-build
+          package_name: user-service
 
-  book:
-    when: << pipeline.parameters.book >>
+  book-service:
+    when: << pipeline.parameters.book-service >>
     jobs:
       - build:
-          name: book-build
-          package_name: book
+          name: book-service-build
+          package_name: book-service
 
-  listing:
-    when: << pipeline.parameters.listing >>
+  listing-service:
+    when: << pipeline.parameters.listing-service >>
     jobs:
       - build:
-          name: listing-build
-          package_name: listing
+          name: listing-service-build
+          package_name: listing-service
 
-  review:
-    when: << pipeline.parameters.review >>
+  review-service:
+    when: << pipeline.parameters.review-service >>
     jobs:
       - build:
-          name: review-build
-          package_name: review
+          name: review-service-build
+          package_name: review-service
