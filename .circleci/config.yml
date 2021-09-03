@@ -30,13 +30,13 @@ parameters:
     default: false
 
 executors:
-  node:
+  jdk:
     docker:
-      - image: circleci/node
+      - image: circleci/openjdk:16.0.1-jdk-buster
 
 jobs:
   trigger-workflows:
-    executor: node
+    executor: jdk
     steps:
       - checkout
       - run:
@@ -47,10 +47,8 @@ jobs:
     parameters:
       package_name:
         type: string
-      docker:
-        - image: circleci/openjdk:16.0.1-jdk-buster
 
-    executor: node
+    executor: jdk
     working_directory: ~/project/backend/<< parameters.package_name >>
 
     steps:
