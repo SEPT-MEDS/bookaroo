@@ -7,4 +7,5 @@ export const Container = styled.div`
   gap: 1em;
   row-gap: 2em;
   font-size: .8rem;
+  width: 100%;
 `
