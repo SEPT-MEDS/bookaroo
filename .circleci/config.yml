@@ -49,7 +49,7 @@ jobs:
         type: string
 
     executor: jdk
-    working_directory: ~/project/backend/<< parameters.package_name >>
+    working_directory: ~/project/backend/<< parameters.package_name >>-service
 
     steps:
       - checkout:
