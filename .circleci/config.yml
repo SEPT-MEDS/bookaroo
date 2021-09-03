@@ -10,7 +10,7 @@ parameters:
   discovery-service:
     type: boolean
     default: false
-  gateway:
+  gateway-service:
     type: boolean
     default: false
   auth:
