@@ -1,4 +1,5 @@
 import React from 'react'
+import { useForm } from 'react-hook-form'
 
 import {
   Container,
@@ -13,9 +14,19 @@ import {
 import { ContactPoint } from '../../components'
 
 const ContactPage = () => {
+  const {
+    register,
+    handleSubmit
+  } = useForm()
+
+  const onSubmit = ({ subject, message }) => {
+    console.log(subject, message)
+    window.location.assign(`mailto:contact@bookaroo.com?subject=${subject}&body=${message}`)
+  }
+
   return (
     <Container>
-      <EmailForm>
+      <EmailForm onSubmit={handleSubmit(onSubmit)}>
         <FieldGroup>
           <Field>
             <RequiredLabel htmlFor="fname">First Name</RequiredLabel>
@@ -42,13 +53,14 @@ const ContactPage = () => {
             id="subject"
             name="subject"
             placeholder="How do I refund this book?"
+            {...register('subject')}
           ></input>
         </Field>
         <Field>
           <RequiredLabel htmlFor="message">Message</RequiredLabel>
-          <textarea type="text" id="message" name="message" resize="false"></textarea>
+          <textarea type="text" id="message" name="message" resize="false" {...register('message')}></textarea>
         </Field>
-        <input type="button" id="send" name="send" value="Send Email"></input>
+        <input type="submit" id="send" name="send" value="Send Email"></input>
       </EmailForm>
       <ContactInfo />
       <ContactPoints />
