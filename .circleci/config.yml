@@ -47,8 +47,8 @@ jobs:
     parameters:
       package_name:
         type: string
-    docker:
-      - image: circleci/openjdk:16.0.1-jdk-buster
+      docker:
+        - image: circleci/openjdk:16.0.1-jdk-buster
 
     executor: node
     working_directory: ~/project/backend/<< parameters.package_name >>
