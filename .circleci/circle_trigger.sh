@@ -88,7 +88,7 @@ do
     do
       if [[ "$PACKAGE" == "$FAILED_BUILD" ]]; then
         INCLUDED=1
-        PARAMETERS+=", \"$PACKAGE\":true"
+        PARAMETERS+=", \"$PACKAGE\":false"
         COUNT=$((COUNT + 1))
         echo -e "\e[36m  [+] ${PACKAGE} \e[21m (included because failed since last build)\e[0m"
         break
