@@ -7,7 +7,7 @@ parameters:
     default: true
 
   # A parameter per package
-  discovery:
+  discovery-service:
     type: boolean
     default: false
   gateway:
@@ -85,12 +85,12 @@ workflows:
 
   # Workflows defined for each package.
 
-  discovery:
-    when: << pipeline.parameters.discovery >>
+  discovery-service:
+    when: << pipeline.parameters.discovery-service >>
     jobs:
       - build:
-          name: discovery-build
-          package_name: discovery
+          name: discovery-service-build
+          package_name: discovery-service
 
   gateway:
     when: << pipeline.parameters.gateway >>
