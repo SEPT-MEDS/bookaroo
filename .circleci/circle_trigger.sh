@@ -77,41 +77,6 @@ FAILED_WORKFLOWS=$(cat circle.json \
 
 echo "Workflows currently in failed status: (${FAILED_WORKFLOWS[@]})."
 
-for PACKAGE in ${PACKAGES[@]}
-do
-  PACKAGE_PATH=${ROOT#.}/$PACKAGE
-  LATEST_COMMIT_SINCE_LAST_BUILD=$(git log -1 $LAST_COMPLETED_BUILD_SHA..$CIRCLE_SHA1 --format=format:%H --full-diff ${PACKAGE_PATH#/})
-
-  if [[ -z "$LATEST_COMMIT_SINCE_LAST_BUILD" ]]; then
-    INCLUDED=0
-    for FAILED_BUILD in ${FAILED_WORKFLOWS[@]}
-    do
-      if [[ "$PACKAGE" == "$FAILED_BUILD" ]]; then
-        INCLUDED=1
-        PARAMETERS+=", \"$PACKAGE\":false"
-        COUNT=$((COUNT + 1))
-        echo -e "\e[36m  [+] ${PACKAGE} \e[21m (included because failed since last build)\e[0m"
-        break
-      fi
-    done
-
-    if [[ "$INCLUDED" == "0" ]]; then
-      echo -e "\e[90m  [-] $PACKAGE \e[0m"
-    fi
-  else
-    PARAMETERS+=", \"$PACKAGE\":true"
-    COUNT=$((COUNT + 1))
-    echo -e "\e[36m  [+] ${PACKAGE} \e[21m (changed in [${LATEST_COMMIT_SINCE_LAST_BUILD:0:7}])\e[0m"
-  fi
-done
-
-if [[ $COUNT -eq 0 ]]; then
-  echo -e "\e[93mNo changes detected in packages. Skip triggering workflows.\e[0m"
-  exit 0
-fi
-
-echo "Changes detected in ${COUNT} package(s)."
-
 ############################################
 ## 3. CicleCI REST API call
 ############################################

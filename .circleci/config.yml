@@ -9,25 +9,25 @@ parameters:
   # A parameter per package
   discovery-service:
     type: boolean
-    default: false
+    default: true
   gateway-service:
     type: boolean
-    default: false
+    default: true
   auth-service:
     type: boolean
-    default: false
+    default: true
   user-service:
     type: boolean
-    default: false
+    default: true
   book-service:
     type: boolean
-    default: false
+    default: true
   listing-service:
     type: boolean
-    default: false
+    default: true
   review-service:
     type: boolean
-    default: false
+    default: true
 
 executors:
   jdk:
