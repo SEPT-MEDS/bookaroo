@@ -16,14 +16,13 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 @RestController
-@RequestMapping("/api/book")
 public class BookController {
 
   @Autowired
   private BookService bookService;
 
   // Upload a book with required details
-  @PostMapping("")
+  @PostMapping("/api/book")
   public ResponseEntity<?> addBook(@RequestBody @Valid Book book) {
     // Ensure book doesn't already exist with same ISBN
     if (bookService.getByIsbn(book.getIsbn()) != null) {
@@ -35,14 +34,14 @@ public class BookController {
   }
 
   // Get all books
-  @GetMapping("")
+  @GetMapping("/api/book")
   public ResponseEntity<?> getBooks() {
     List<Book> books = bookService.getAll();
     return ResponseEntity.ok(new GetBooksResponseDTO(books));
   }
 
   // Get book with a given ISBN
-  @GetMapping("/{isbn}")
+  @GetMapping("/api/book/{isbn}")
   public ResponseEntity<?> getBookWithIsbn(@PathVariable Long isbn) {
     Book book = bookService.getByIsbn(isbn);
 
@@ -56,7 +55,7 @@ public class BookController {
   }
 
   // Delete book with a given ISBN
-  @DeleteMapping("/{isbn}")
+  @DeleteMapping("/api/book/{isbn}")
   public ResponseEntity<?> deleteBookWithIsbn(@PathVariable Long isbn) {
     Book book = bookService.getByIsbn(isbn);
 
@@ -70,21 +69,21 @@ public class BookController {
   }
 
   // Get books with partial title
-  @GetMapping("/containingTitle/{title}")
+  @GetMapping("/api/book/containingTitle/{title}")
   public ResponseEntity<?> getBookContainingTitle(@PathVariable String title) {
     List<Book> books = bookService.getByContainingTitle(title);
     return ResponseEntity.ok(new GetBooksResponseDTO(books));
   }
 
   // Get books with partial author
-  @GetMapping("/containingAuthor/{author}")
+  @GetMapping("/api/book/containingAuthor/{author}")
   public ResponseEntity<?> getBookContainingAuthor(@PathVariable String author) {
     List<Book> books = bookService.getByContainingAuthor(author);
     return ResponseEntity.ok(new GetBooksResponseDTO(books));
   }
 
   // Get books with category
-  @GetMapping("/byCategory/{category}")
+  @GetMapping("/api/book/byCategory/{category}")
   public ResponseEntity<?> getBookByCategory(@PathVariable String category) {
     List<Book> books = bookService.getByCategory(category);
     return ResponseEntity.ok(new GetBooksResponseDTO(books));

@@ -11,14 +11,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/user")
 public class UserController {
 
   @Autowired
   private UserService userService;
 
   // Get users with a given user ID
-  @GetMapping("/{id}")
+  @GetMapping("/api/user/{id}")
   public ResponseEntity<?> getUserWithId(@PathVariable Long id) {
     User user = userService.getById(id);
 
@@ -31,7 +30,7 @@ public class UserController {
   }
 
   // Get a user by a given username
-  @GetMapping("/byUsername/{username}")
+  @GetMapping("/api/user/byUsername/{username}")
   public ResponseEntity<?> getUserWithUsername(@PathVariable String username) {
     User user = userService.getByUsername(username);
 
@@ -44,7 +43,7 @@ public class UserController {
   }
 
   // Delete users with a given user ID
-  @DeleteMapping("/{id}")
+  @DeleteMapping("/api/user/{id}")
   public ResponseEntity<?> deleteUserWithId(@PathVariable Long id) {
     User user = userService.getById(id);
 
@@ -57,7 +56,7 @@ public class UserController {
     }
   }
 
-  @PostMapping("/signup")
+  @PostMapping("/api/user/signup")
   public ResponseEntity<?> signupUser(@RequestBody User user) {
     // Ensure user doesnt already exist
     if (userService.getByUsername(user.getUsername()) != null) {

@@ -16,7 +16,6 @@ public class BookService {
     this.bookRepository = bookRepository;
   }
 
-
   public Book getByIsbn(Long isbn) {
     return bookRepository.findByIsbn(isbn);
   }

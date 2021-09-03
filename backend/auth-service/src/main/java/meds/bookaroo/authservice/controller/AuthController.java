@@ -14,13 +14,11 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import static meds.bookaroo.authservice.security.SecurityConstant.TOKEN_PREFIX;
 
 @RestController
-@RequestMapping("/api/auth")
 public class AuthController {
 
   @Autowired
@@ -36,7 +34,7 @@ public class AuthController {
   private UserClient userClient;
 
   // Login a user with a provided token
-  @PostMapping("/login")
+  @PostMapping("/api/auth/login")
   public ResponseEntity<?> authenticateUser(@RequestBody LoginRequest loginRequest, BindingResult result) {
     ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
     if (errorMap != null) {

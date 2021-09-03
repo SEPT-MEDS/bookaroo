@@ -17,7 +17,7 @@ import { Notification } from '../../components'
 const LoginPage = () => {
   const history = useHistory()
   const [error, setError] = useState(null)
-  const { isLoggedIn, setToken, setUserId } = useAuth()
+  const { isLoggedIn, authLogin } = useAuth()
   const {
     register,
     handleSubmit,
@@ -32,8 +32,7 @@ const LoginPage = () => {
     login(username, password)
       .then(({ token, userId }) => {
         if (token && userId) {
-          setToken(token)
-          setUserId(userId)
+          authLogin(token, userId)
           history.push('/')
         } else {
           setError('Something went wrong logging you in')

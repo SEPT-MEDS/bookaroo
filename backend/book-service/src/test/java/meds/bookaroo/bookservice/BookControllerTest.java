@@ -108,7 +108,6 @@ public class BookControllerTest {
   public void createBook() throws Exception {
     Book book = new Book(1000000000L, "Title", "Author", "Blurb", 1, "Test", 1, "category");
     when(bookService.create(any())).thenReturn(book);
-    System.out.println(asJsonString(book));
     mockMvc.perform(
         MockMvcRequestBuilders.post("/api/book").content(asJsonString(book)).contentType("application/json")
     )
