@@ -61,51 +61,51 @@ public class BookRepositoryTest {
 
   @Test
   void saveBookBlankTitle() {
-    Book book = new Book(1L, "", "Author", "Blurb", 1, "http://url.com", 0, "category");
+    Book book = new Book(1000000000L, "", "Author", "Blurb", 1, "http://url.com", 0, "category");
     Set<ConstraintViolation<Book>> violations = validator.validate(book);
     assertEquals(1, violations.size());
   }
 
   @Test
   void saveBookBlankAuthor() {
-    Book book = new Book(1L, "Title", "", "Blurb", 1, "http://url.com", 0, "category");
+    Book book = new Book(1000000000L, "Title", "", "Blurb", 1, "http://url.com", 0, "category");
     Set<ConstraintViolation<Book>> violations = validator.validate(book);
     assertEquals(1, violations.size());
   }
 
   @Test
   void saveBookBlankBlurb() {
-    Book book = new Book(1L, "Title", "Author", "", 1, "http://url.com", 0, "category");
+    Book book = new Book(1000000000L, "Title", "Author", "", 1, "http://url.com", 0, "category");
     Set<ConstraintViolation<Book>> violations = validator.validate(book);
     assertEquals(1, violations.size());
   }
 
   @Test
   void saveBookNegativePages() {
-    Book book = new Book(1L, "Title", "Author", "Blurb", -1, "http://url.com", 0, "category");
+    Book book = new Book(1000000000L, "Title", "Author", "Blurb", -1, "http://url.com", 0, "category");
     Set<ConstraintViolation<Book>> violations = validator.validate(book);
     assertEquals(1, violations.size());
   }
 
   @Test
   void saveBookBlankUrl() {
-    Book book = new Book(1L, "Title", "Author", "Blurb", 1, "", 0, "category");
+    Book book = new Book(1000000000L, "Title", "Author", "Blurb", 1, "", 0, "category");
     Set<ConstraintViolation<Book>> violations = validator.validate(book);
     assertEquals(1, violations.size());
   }
 
   @Test
   void saveBookBlankCategory() {
-    Book book = new Book(1L, "Title", "Author", "Blurb", 1, "", 0, "category");
+    Book book = new Book(1000000000L, "Title", "Author", "Blurb", 1, "url", 0, "");
     Set<ConstraintViolation<Book>> violations = validator.validate(book);
     assertEquals(1, violations.size());
   }
 
   @Test
   void deleteBook() {
-    Book book = new Book(1L, "Title", "Author", "Blurb", 1, "", 0, "category");
+    Book book = new Book(1000000000L, "Title", "Author", "Blurb", 1, "url", 0, "category");
     bookRepository.save(book);
-    bookRepository.deleteById(1L);
+    bookRepository.deleteById(1000000000L);
     assertEquals(0, bookRepository.findAll().size());
   }
 }
