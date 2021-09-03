@@ -67,10 +67,10 @@ jobs:
             - ~/.m2
           key: << parameters.package_name >>-{{ checksum "pom.xml" }}
       - run: mvn clean package
-      - run: mvn clean compile jib:build -Dimage=bookaroo/<< parameters.package_name >>-service:$CIRCLE_BUILD_NUM
+      - run: mvn clean compile jib:build -Dimage=bookaroo/<< parameters.package_name >>:$CIRCLE_BUILD_NUM
       - store_artifacts:
           path: target/classes
-          destination: << parameters.package_name >>-service
+          destination: << parameters.package_name >>
 
 workflows:
   version: 2
