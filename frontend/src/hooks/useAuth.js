@@ -2,6 +2,7 @@ import create from 'zustand'
 import { persist } from 'zustand/middleware'
 
 const TOKEN_EXP_TIME = 86400000
+const STORAGE_KEY = 'bookaroo-auth'
 
 const useTokenStore = create(
   persist(
@@ -32,5 +33,8 @@ const useAuth = () => {
     authLogin: login,
   }
 }
+
+export const getTokenRaw = () =>
+  JSON.parse(window.localStorage[STORAGE_KEY])?.state?.token
 
 export default useAuth
