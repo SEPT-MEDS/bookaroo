@@ -12,7 +12,6 @@ export const instance = axios.create({
 
 instance.interceptors.request.use(async config => {
   config.headers.Authorization = getTokenRaw()
-  console.log('using token', config.headers.Authorization)
   return config
 })
 
