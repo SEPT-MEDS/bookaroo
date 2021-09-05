@@ -1,4 +1,4 @@
-const env = 'development'
+const env = process.env.REACT_APP_BUILD_ENV || 'development'
 
 const config = {
   development: {
