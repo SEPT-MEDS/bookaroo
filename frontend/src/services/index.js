@@ -1,5 +1,6 @@
 import axios from 'axios'
 import config from '../config'
+import { getTokenRaw } from 'hooks/useAuth'
 
 export const instance = axios.create({
   baseURL: config.apiAddress,
@@ -10,7 +11,7 @@ export const instance = axios.create({
 })
 
 instance.interceptors.request.use(async config => {
-  config.headers.Authorization = localStorage.token
+  config.headers.Authorization = getTokenRaw()
   return config
 })
 
