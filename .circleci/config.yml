@@ -6,29 +6,6 @@ parameters:
     type: boolean
     default: true
 
-  # A parameter per package
-  discovery-service:
-    type: boolean
-    default: true
-  gateway-service:
-    type: boolean
-    default: true
-  auth-service:
-    type: boolean
-    default: true
-  user-service:
-    type: boolean
-    default: true
-  book-service:
-    type: boolean
-    default: true
-  listing-service:
-    type: boolean
-    default: true
-  review-service:
-    type: boolean
-    default: true
-
 executors:
   jdk:
     docker:
@@ -74,7 +51,6 @@ workflows:
     when: << pipeline.parameters.trigger >>
     jobs:
       - trigger-workflows
-
 
   # Workflows defined for each package.
 
