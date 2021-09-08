@@ -6,8 +6,8 @@ const config = {
     apiAddress: 'http://localhost:9191/api',
   },
   production: {
-    baseURL: 'http://develop.d1byy9xadzuk7b.amplifyapp.com',
-    apiAddress: 'http://13.238.218.243:9191/api'
+    baseURL: 'https://develop.d1byy9xadzuk7b.amplifyapp.com',
+    apiAddress: 'https://cors-everywhere.herokuapp.com/http://13.238.218.243:9191/api'
   }
 }
 
