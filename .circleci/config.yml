@@ -30,9 +30,6 @@ parameters:
   listing-service:
     type: boolean
     default: true
-  review-service:
-    type: boolean
-    default: true
 
 executors:
   jdk:
@@ -124,10 +121,3 @@ workflows:
       - build:
           name: listing-service-build
           package_name: listing-service
-
-  review-service:
-    when: << pipeline.parameters.review-service >>
-    jobs:
-      - build:
-          name: review-service-build
-          package_name: review-service
