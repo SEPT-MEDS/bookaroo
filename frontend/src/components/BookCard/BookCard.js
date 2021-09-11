@@ -5,10 +5,9 @@ import { CardContainer, Cover, Details, Author } from './bookCardStyle'
 import { Rating } from '../../components'
 
 const BookCard = ({ title, author, rating, isbn }) => {
-  const coverId = Math.floor(Math.random() * 100)
   return (
     <CardContainer as={Link} to={`/book/${isbn}`}>
-      <Cover src={`https://covers.openlibrary.org/b/id/${coverId}-L.jpg`} />
+      <Cover src={`https://covers.openlibrary.org/b/isbn/${isbn}-L.jpg`} />
       <Details>
         <h2>{title}</h2>
         <Author>{author}</Author>
