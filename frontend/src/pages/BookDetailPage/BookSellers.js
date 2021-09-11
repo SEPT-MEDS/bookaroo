@@ -1,10 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import { useAsync } from 'hooks'
 import { getUser } from 'services'
 import { Rating, Spinner, Notification } from 'components'
 import { getBookListings } from 'services'
-import { BookSellersContainer } from './bookDetailPageStyle'
+import { BookSellersContainer, ListingContainer } from './bookDetailPageStyle'
 
 const BookSellers = ({ book }) => {
   const { response: listings, error, isLoading } = useAsync(() =>
@@ -33,15 +34,22 @@ const BookSellers = ({ book }) => {
   )
 }
 
-const Listing = ({ sellerId, price }) => {
+const Listing = ({ id, sellerId, price, imageUrl }) => {
   const { response: vendor } = useAsync(() => getUser(sellerId))
 
   return (
-    <div>
-      {vendor && `${vendor.firstName} ${vendor.lastName}`}
-      <Rating rating={3 /* TO DO */} />
-      {`$${price}`}
-    </div>
+    <ListingContainer>
+      <div style={{ backgroundImage: `url(${imageUrl})` }} />
+      <div>
+        <h3>
+          <Link to={`/listing/${id}`}>
+            {vendor ? `${vendor.firstName} ${vendor.lastName}` : 'Vendor'}
+          </Link>
+        </h3>
+        <Rating rating={3 /* TO DO */} />
+        <div>{`$${price}`}</div>
+      </div>
+    </ListingContainer>
   )
 }
 
