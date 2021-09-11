@@ -37,6 +37,13 @@ executors:
       - image: circleci/openjdk:16.0.1-jdk-buster
 
 jobs:
+  trigger-workflows:
+    executor: jdk
+    steps:
+      - checkout
+      - run:
+          name: Trigger workflows
+          command: chmod +x .circleci/circle_trigger.sh && .circleci/circle_trigger.sh
 
   build:
     parameters:
@@ -62,15 +69,6 @@ jobs:
 
 workflows:
   version: 2
-
-  # The main workflow responsible for triggering all other workflows
-  # in which changes are detected.
-  ci:
-    when: << pipeline.parameters.trigger >>
-    jobs:
-      - trigger-workflows
-
-
   # Workflows defined for each package.
 
   discovery-service:
