@@ -1,0 +1,123 @@
+version: 2.1
+
+general:
+  branches:
+    only:
+     - develop
+
+parameters:
+  # This parameter is used to trigger the main workflow
+  trigger:
+    type: boolean
+    default: true
+
+  # A parameter per package
+  discovery-service:
+    type: boolean
+    default: true
+  gateway-service:
+    type: boolean
+    default: true
+  auth-service:
+    type: boolean
+    default: true
+  user-service:
+    type: boolean
+    default: true
+  book-service:
+    type: boolean
+    default: true
+  listing-service:
+    type: boolean
+    default: true
+
+executors:
+  jdk:
+    docker:
+      - image: circleci/openjdk:16.0.1-jdk-buster
+
+jobs:
+  trigger-workflows:
+    executor: jdk
+    steps:
+      - checkout
+      - run:
+          name: Trigger workflows
+          command: chmod +x .circleci/circle_trigger.sh && .circleci/circle_trigger.sh
+
+  build:
+    parameters:
+      package_name:
+        type: string
+
+    executor: jdk
+    working_directory: ~/project/backend/<< parameters.package_name >>
+
+    steps:
+      - checkout:
+          path: ~/project
+      # This step is added only to show that we are in the package directory
+      - run:
+          name: Login to DockerHub
+          command: docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - run: mvn dependency:go-offline
+      - run: mvn clean package
+      - run: mvn clean compile jib:build -Dimage=bookaroo/<< parameters.package_name >>:latest
+      - store_artifacts:
+          path: target/classes
+          destination: << parameters.package_name >>
+
+workflows:
+  version: 2
+
+  # The main workflow responsible for triggering all other workflows
+  # in which changes are detected.
+  ci:
+    when: << pipeline.parameters.trigger >>
+    jobs:
+      - trigger-workflows
+
+
+  # Workflows defined for each package.
+
+  discovery-service:
+    when: << pipeline.parameters.discovery-service >>
+    jobs:
+      - build:
+          name: discovery-service-build
+          package_name: discovery-service
+
+  gateway-service:
+    when: << pipeline.parameters.gateway-service >>
+    jobs:
+      - build:
+          name: gateway-service-build
+          package_name: gateway-service
+
+  auth-service:
+    when: << pipeline.parameters.auth-service >>
+    jobs:
+      - build:
+          name: auth-service-build
+          package_name: auth-service
+
+  user-service:
+    when: << pipeline.parameters.user-service >>
+    jobs:
+      - build:
+          name: user-service-build
+          package_name: user-service
+
+  book-service:
+    when: << pipeline.parameters.book-service >>
+    jobs:
+      - build:
+          name: book-service-build
+          package_name: book-service
+
+  listing-service:
+    when: << pipeline.parameters.listing-service >>
+    jobs:
+      - build:
+          name: listing-service-build
+          package_name: listing-service
