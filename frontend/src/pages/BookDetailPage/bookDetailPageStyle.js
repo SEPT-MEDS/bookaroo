@@ -59,6 +59,10 @@ export const ListingContainer = styled.div`
   min-height: 15em;
   overflow: hidden;
 
+  a {
+    color: inherit;
+  }
+
   > div:first-child {
     background-size: cover;
   }
