@@ -30,12 +30,6 @@ export const BookInfoDetails = styled.div`
   column-gap: 2em;
 `
 
-export const BookInfoCover = styled.div`
-  width: 100%;
-  height: 100%;
-  background: ${p => p.theme.backgroundSecondary};
-`
-
 export const BookInfoPara = styled.p`
   background: ${p => p.theme.backgroundSecondary};
   min-height: .5em;

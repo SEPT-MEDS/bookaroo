@@ -1,10 +1,14 @@
 import intersectionBy from 'lodash.intersectionby'
-//import unionBy from 'lodash.unionby'
 import api from './'
 
 export const getBook = async isbn => {
   const {data: {book}} = await api.get(`/book/${isbn}`)
   return book
+}
+
+export const getBookListings = async isbn => {
+  const { data } = await api.get(`/book/${isbn}/listings`)
+  return data.listings
 }
 
 export const getAllBooks = async (filter, category) => {
