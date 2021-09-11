@@ -37,13 +37,6 @@ executors:
       - image: circleci/openjdk:16.0.1-jdk-buster
 
 jobs:
-  trigger-workflows:
-    executor: jdk
-    steps:
-      - checkout
-      - run:
-          name: Trigger workflows
-          command: chmod +x .circleci/circle_trigger.sh && .circleci/circle_trigger.sh
 
   build:
     parameters:
