@@ -39,7 +39,13 @@ const LoginPage = () => {
           setError('Something went wrong logging you in')
         }
       })
-      .catch(err => setError(err.message))
+      .catch(err => {
+        if (err?.response?.status == 403 || err?.response?.status == 401) {
+          setError('Incorrect username or password')
+        } else {
+          setError(err.message)
+        }
+      })
   }
 
   return (
