@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { Redirect, Link, useHistory } from 'react-router-dom'
+import { Redirect, Link, useHistory, useLocation } from 'react-router-dom'
 
 import { login } from '../../services'
 import { useAuth } from '../../hooks'
@@ -15,6 +15,7 @@ import {
 import { Notification } from '../../components'
 
 const LoginPage = () => {
+  const location = useLocation()
   const history = useHistory()
   const [error, setError] = useState(null)
   const { isLoggedIn, authLogin } = useAuth()
@@ -33,7 +34,7 @@ const LoginPage = () => {
       .then(({ token, userId }) => {
         if (token && userId) {
           authLogin(token, userId)
-          history.push('/')
+          history.push(location?.state?.from?.pathname || '/')
         } else {
           setError('Something went wrong logging you in')
         }
