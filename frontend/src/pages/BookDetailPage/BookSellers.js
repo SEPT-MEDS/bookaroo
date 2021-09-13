@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 
 import { useAsync } from 'hooks'
@@ -12,6 +12,11 @@ const BookSellers = ({ book }) => {
     getBookListings(book.isbn)
   )
 
+  const sortedListings = useMemo(
+    () => listings?.sort((a, b) => +a.isPreowned - +b.isPreowned),
+    [listings]
+  )
+
   return (
     <BookSellersContainer>
       <h2>
@@ -23,9 +28,13 @@ const BookSellers = ({ book }) => {
         ) : (
           <>
             {error && <Notification isError={true}>{error}</Notification>}
-            {!listings?.length && <h3><em>No current sellers</em></h3>}
+            {!listings?.length && (
+              <h3>
+                <em>No current sellers</em>
+              </h3>
+            )}
             {listings?.length > 0 &&
-              listings.map(listing => (
+              sortedListings.map(listing => (
                 <Listing {...listing} key={listing.id} />
               ))}
           </>
@@ -35,7 +44,7 @@ const BookSellers = ({ book }) => {
   )
 }
 
-const Listing = ({ id, sellerId, price, imageUrl }) => {
+const Listing = ({ id, sellerId, price, imageUrl, isPreowned }) => {
   const { response: vendor } = useAsync(() => getUser(sellerId))
 
   return (
@@ -48,7 +57,7 @@ const Listing = ({ id, sellerId, price, imageUrl }) => {
           </Link>
         </h3>
         <Rating rating={3 /* TO DO */} />
-        <div>{`$${price}`}</div>
+        <div>{`$${price}`} {isPreowned && <em> (preowned)</em>}</div>
       </div>
     </ListingContainer>
   )
