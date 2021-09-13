@@ -23,7 +23,8 @@ const BookSellers = ({ book }) => {
         ) : (
           <>
             {error && <Notification isError={true}>{error}</Notification>}
-            {listings &&
+            {!listings?.length && <h3><em>No current sellers</em></h3>}
+            {listings?.length > 0 &&
               listings.map(listing => (
                 <Listing {...listing} key={listing.id} />
               ))}
