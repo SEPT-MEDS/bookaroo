@@ -16,6 +16,10 @@ import BusinessSignupPage from './BusinessSignupPage/BusinessSignupPage'
 import CustomerSignupPage from './CustomerSignupPage/CustomerSignupPage'
 import BookDetailPage from './BookDetailPage/BookDetailPage'
 import AdminPage from './AdminPage/AdminPage'
+import ManageUsersPage from './ManageUsersPage/ManageUsersPage'
+import TransactionsPage from './TransactionsPage/TransactionsPage'
+import ManageBooksPage from './ManageBooksPage/ManageBooksPage'
+import ReportsPage from './ReportsPage/ReportsPage'
 
 const PrivateRoute = props => {
   const { isLoggedIn } = useAuth()
@@ -44,12 +48,16 @@ const Pages = () => {
       <Switch>
         <PrivateRoute path="/" exact component={BookPage} />
         <PrivateRoute path="/book/:isbn" exact component={BookDetailPage} />
+        <PrivateRoute path="/admin" exact component={AdminPage} />
+        <PrivateRoute path="/admin/manage-users" exact component={ManageUsersPage} />
+        <PrivateRoute path="/admin/transactions" exact component={TransactionsPage} />
+        <PrivateRoute path="/admin/manage-books" exact component={ManageBooksPage} />
+        <PrivateRoute path="/admin/reports" exact component={ReportsPage} />
         <Route path="/login" exact component={LoginPage} />
         <Route path="/contact" exact component={ContactPage} />
         <Route path="/about" exact component={AboutPage} />
         <Route path="/signup/business" exact component={BusinessSignupPage} />
         <Route path="/signup/customer" exact component={CustomerSignupPage} />
-        <Route path="/admin" exact component={AdminPage} />
       </Switch>
     </>
   )
