@@ -27,7 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "tidy": "eslint --fix --ext .js .",
+    "tidy": "eslint --fix --ext .js ."
   },
   "eslintConfig": {
     "extends": [
