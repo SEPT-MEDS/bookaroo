@@ -8,11 +8,11 @@ import {
   BookInfoDetails
 } from './bookInfoStyle'
 
-const BookInfo = ({ book }) => {
+const BookInfo = ({ book, imageUrl }) => {
   return (
     <BookInfoContainer>
       <div>
-        <BookCover isbn={book.isbn} />
+        { <BookCover isbn={book.isbn} imageUrl={imageUrl} /> }
         <h1>{book.title}</h1>
         <BookInfoAuthor>{book.author}</BookInfoAuthor>
         <Rating rating={book.rating} />
