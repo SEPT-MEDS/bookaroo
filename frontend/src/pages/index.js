@@ -20,6 +20,7 @@ import ManageUsersPage from './ManageUsersPage/ManageUsersPage'
 import TransactionsPage from './TransactionsPage/TransactionsPage'
 import ManageBooksPage from './ManageBooksPage/ManageBooksPage'
 import ReportsPage from './ReportsPage/ReportsPage'
+import ListingDetailPage from './ListingDetailPage/ListingDetailPage'
 
 const PrivateRoute = props => {
   const { isLoggedIn } = useAuth()
@@ -53,6 +54,7 @@ const Pages = () => {
         <PrivateRoute path="/admin/transactions" exact component={TransactionsPage} />
         <PrivateRoute path="/admin/manage-books" exact component={ManageBooksPage} />
         <PrivateRoute path="/admin/reports" exact component={ReportsPage} />
+        <PrivateRoute path="/listing/:id" exact component={ListingDetailPage} />
         <Route path="/login" exact component={LoginPage} />
         <Route path="/contact" exact component={ContactPage} />
         <Route path="/about" exact component={AboutPage} />
