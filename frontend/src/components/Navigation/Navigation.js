@@ -23,11 +23,11 @@ const Navigation = () => {
 }
 
 const AdminFields = () => <>
-  <NavLink to='/create-listing'>Add a Listing</NavLink>
+  <NavLink to='/listing/new'>Add a Listing</NavLink>
 </>
 
 const CustomerFields = () => <>
-  <NavLink to='/create-listing'>Sell a Book</NavLink>
+  <NavLink to='/listing/new'>Sell a Book</NavLink>
 </>
 
 const SignedInFields = ({ profile }) => <>
