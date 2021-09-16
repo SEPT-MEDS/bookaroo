@@ -47,7 +47,6 @@ public class BookController {
 
     // Ensure book was able to be retrieved
     if (book != null) {
-      book.setRating(ThreadLocalRandom.current().nextInt(0, 6));
       return ResponseEntity.ok(new GetBookResponseDTO(true, book, ""));
     } else {
       return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new GetBookResponseDTO(false, null, "No book with isbn " + isbn + " exists"));
