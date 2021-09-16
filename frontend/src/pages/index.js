@@ -15,6 +15,11 @@ import AboutPage from './AboutPage/AboutPage'
 import BusinessSignupPage from './BusinessSignupPage/BusinessSignupPage'
 import CustomerSignupPage from './CustomerSignupPage/CustomerSignupPage'
 import BookDetailPage from './BookDetailPage/BookDetailPage'
+import AdminPage from './AdminPage/AdminPage'
+import ManageUsersPage from './ManageUsersPage/ManageUsersPage'
+import TransactionsPage from './TransactionsPage/TransactionsPage'
+import ManageBooksPage from './ManageBooksPage/ManageBooksPage'
+import ReportsPage from './ReportsPage/ReportsPage'
 import ListingDetailPage from './ListingDetailPage/ListingDetailPage'
 import CreateListingPage from './CreateListingPage/CreateListingPage'
 import FinaliseListingPage from './FinaliseListingPage/FinaliseListingPage'
@@ -50,6 +55,11 @@ const Pages = () => {
         <PrivateRoute path="/book/new/:isbn" exact component={CreateBookPage} />
         <PrivateRoute path="/listing/new/:isbn" exact component={FinaliseListingPage} />
         <PrivateRoute path="/listing/new" exact component={CreateListingPage} />
+        <PrivateRoute path="/admin" exact component={AdminPage} />
+        <PrivateRoute path="/admin/manage-users" exact component={ManageUsersPage} />
+        <PrivateRoute path="/admin/transactions" exact component={TransactionsPage} />
+        <PrivateRoute path="/admin/manage-books" exact component={ManageBooksPage} />
+        <PrivateRoute path="/admin/reports" exact component={ReportsPage} />
         <PrivateRoute path="/listing/:id" exact component={ListingDetailPage} />
         <Route path="/login" exact component={LoginPage} />
         <Route path="/contact" exact component={ContactPage} />
