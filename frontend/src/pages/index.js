@@ -17,6 +17,8 @@ import CustomerSignupPage from './CustomerSignupPage/CustomerSignupPage'
 import BookDetailPage from './BookDetailPage/BookDetailPage'
 import ListingDetailPage from './ListingDetailPage/ListingDetailPage'
 import CreateListingPage from './CreateListingPage/CreateListingPage'
+import FinaliseListingPage from './FinaliseListingPage/FinaliseListingPage'
+import CreateBookPage from './CreateBookPage/CreateBookPage'
 
 const PrivateRoute = props => {
   const { isLoggedIn } = useAuth()
@@ -45,6 +47,8 @@ const Pages = () => {
       <Switch>
         <PrivateRoute path="/" exact component={BookPage} />
         <PrivateRoute path="/book/:isbn" exact component={BookDetailPage} />
+        <PrivateRoute path="/book/new/:isbn" exact component={CreateBookPage} />
+        <PrivateRoute path="/listing/new/:isbn" exact component={FinaliseListingPage} />
         <PrivateRoute path="/listing/new" exact component={CreateListingPage} />
         <PrivateRoute path="/listing/:id" exact component={ListingDetailPage} />
         <Route path="/login" exact component={LoginPage} />
