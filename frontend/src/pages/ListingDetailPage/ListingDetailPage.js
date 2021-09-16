@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom'
 
 import { useAsync } from 'hooks'
 import { getListing, getBook, getUser } from 'services'
-import { Notification, Spinner, BookSummary, Rating } from 'components'
-import { Container, ListingInfoContainer } from './listingDetailPageStyle'
+import { Notification, Spinner, BookSummary, Rating, Button } from 'components'
+import { Container, ListingInfoContainer, ActionBox } from './listingDetailPageStyle'
 
 const ListingDetailPage = () => {
   const { id } = useParams()
@@ -36,11 +36,13 @@ const ListingInfo = ({ id, sellerId, price, imageUrl, isPreowned, bookIsbn }) =>
   return <ListingInfoContainer>
     <BookSummary book={book} imageUrl={imageUrl} />
     <div>
-      <h2>{ vendor?.username || 'Vendor' }</h2>
-      <h3>${ price }</h3>
-      {vendor && <Rating rating={vendor.rating} />}
-      <h3>{isPreowned ? 'Preowned' : 'Brand New'}</h3>
-      <button onClick={handleAddToCart}>Add to Cart</button>
+      <h4><em>Listing by</em></h4>
+      <h1>{ vendor?.username || 'Vendor' }</h1>
+      <Rating rating={vendor?.rating || 0} />
+      <ActionBox>
+        <h3>Buy {isPreowned ? 'preowned' : 'brand new'} for ${ price }</h3>
+        <Button onClick={handleAddToCart}>Add to Cart</Button>
+      </ActionBox>
     </div>
   </ListingInfoContainer>
 }
