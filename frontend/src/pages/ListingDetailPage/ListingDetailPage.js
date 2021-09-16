@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 
 import { useAsync } from 'hooks'
 import { getListing, getBook, getUser } from 'services'
-import { Notification, Spinner, BookInfo, Rating } from 'components'
+import { Notification, Spinner, BookSummary, Rating } from 'components'
 import { Container, ListingInfoContainer } from './listingDetailPageStyle'
 
 const ListingDetailPage = () => {
@@ -34,7 +34,7 @@ const ListingInfo = ({ id, sellerId, price, imageUrl, isPreowned, bookIsbn }) =>
   }
 
   return <ListingInfoContainer>
-    {book && <BookInfo book={book} imageUrl={imageUrl} />}
+    <BookSummary book={book} imageUrl={imageUrl} />
     <div>
       <h2>{ vendor?.username || 'Vendor' }</h2>
       <h3>${ price }</h3>
