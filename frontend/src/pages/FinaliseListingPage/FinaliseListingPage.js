@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useParams } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 
 import { createListing } from 'services'
 import { Spinner } from 'components'
@@ -13,20 +13,23 @@ const HELP_MESSAGE =
 
 const FinaliseListingPage = () => {
   const { isbn } = useParams()
+  const history = useHistory()
   const profile = useCurrentProfile()
   const [loading, setLoading] = useState(false)
   const { register, handleSubmit, watch } = useForm()
   const watchIsSwap = watch('swap', false)
 
-  const onSubmit = ({ swap, price, condition }) => {
+  const onSubmit = ({ swap, price, condition, imageUrl }) => {
     setLoading(true)
     createListing({
-      isbn,
-      swap,
+      bookIsbn: isbn,
+      isSwap: swap,
       price,
-      condition,
-      sellerId: profile.id
-    })
+      imageUrl,
+      isPreowned: condition == 'preowned',
+      sellerId: profile.id,
+      isVisible: true,
+    }).then(() => history.push(`/book/${isbn}`))
   }
 
   return (
@@ -47,10 +50,14 @@ const FinaliseListingPage = () => {
               <input type='number' disabled={watchIsSwap} {...register('price')} />
             </InputContainer>
             <InputContainer>
+              <label htmlFor='imageUrl'>Image URL</label>
+              <input type='text' {...register('imageUrl')} />
+            </InputContainer>
+            <InputContainer>
               <label htmlFor='condition'>Condition</label>
               <select {...register('condition', { required: true })}>
-                <option>Brand New</option>
-                <option>Preowned</option>
+                <option value={'new'}>Brand New</option>
+                <option value={'preowned'}>Preowned</option>
               </select>
             </InputContainer>
           </Inputs>
