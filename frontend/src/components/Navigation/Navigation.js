@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
-import { Logo, ProfileMenu } from '../'
-import { NavBar } from './navigationStyle'
-import { useCurrentProfile } from '../../hooks'
+import { Logo, ProfileMenu } from 'components'
+import { useCurrentProfile } from 'hooks'
+import { NavBar, NavItems } from './navigationStyle'
 
 const Navigation = () => {
   const profile = useCurrentProfile()
@@ -14,22 +14,26 @@ const Navigation = () => {
       <NavLink to="/">
         <Logo />
       </NavLink>
-      {profile && (isAdmin ? <AdminFields /> : <CustomerFields />)}
-      {profile && !isAdmin && <ShoppingCart />}
-      {profile ? <SignedInFields profile={profile} /> : <SignedOutFields />}
+      <NavItems>
+        {profile && (isAdmin ? <AdminFields /> : <CustomerFields />)}
+        {profile ? <SignedInFields profile={profile} /> : <SignedOutFields />}
+      </NavItems>
     </NavBar>
   )
 }
 
-const ShoppingCart = () => <></>
+const AdminFields = () => <>
+  <NavLink to='/listing/new'>Add a Listing</NavLink>
+</>
 
-const AdminFields = () => <></>
-const CustomerFields = () => <></>
-const SignedInFields = ({ profile }) => (
-  <>
-    <ProfileMenu profile={profile} />
-  </>
-)
+const CustomerFields = () => <>
+  <NavLink to='/listing/new'>Sell a Book</NavLink>
+</>
+
+const SignedInFields = ({ profile }) => <>
+  <ProfileMenu profile={profile} />
+</>
+
 const SignedOutFields = () => <></>
 
 export default Navigation
