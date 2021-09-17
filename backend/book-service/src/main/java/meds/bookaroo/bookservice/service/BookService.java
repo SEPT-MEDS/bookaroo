@@ -28,6 +28,10 @@ public class BookService {
     return bookRepository.findByAuthorContaining(author);
   }
 
+  public List<Book> getByContainingIsbn(Long isbn) {
+    return bookRepository.findByIsbnContaining(isbn);
+  }
+
   public List<Book> getByCategory(String category) {
     return bookRepository.findByCategory(category);
   }

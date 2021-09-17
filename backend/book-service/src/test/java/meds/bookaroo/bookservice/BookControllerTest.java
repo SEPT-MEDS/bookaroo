@@ -105,6 +105,28 @@ public class BookControllerTest {
   }
 
   @Test
+  public void getBookWithPartialIsbn() throws Exception {
+    List<Book> books = new ArrayList<>();
+    books.add(new Book(1000000000L, "Title", "Author", "Blurb", 1, "", 0, "category"));
+    when(bookService.getByContainingIsbn(any())).thenReturn(books);
+    mockMvc.perform(
+        MockMvcRequestBuilders.get("/api/book/containingIsbn/100")
+    )
+        .andExpect(status().isOk())
+        .andExpect(content().string(asJsonString(new GetBooksResponseDTO(books))));
+  }
+
+  @Test
+  public void getInvalidBookWithPartialIsbn() throws Exception {
+    when(bookService.getByContainingTitle(any())).thenReturn(null);
+    mockMvc.perform(
+        MockMvcRequestBuilders.get("/api/book/containingIsbn/1091230")
+    )
+        .andExpect(status().isOk())
+        .andExpect(content().string(asJsonString(new GetBooksResponseDTO(new ArrayList<>()))));
+  }
+
+  @Test
   public void createBook() throws Exception {
     Book book = new Book(1000000000L, "Title", "Author", "Blurb", 1, "Test", 1, "category");
     when(bookService.create(any())).thenReturn(book);

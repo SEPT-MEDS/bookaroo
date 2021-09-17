@@ -82,6 +82,13 @@ public class BookController {
     return ResponseEntity.ok(new GetBooksResponseDTO(books));
   }
 
+  // Get books with partial ISBN
+  @GetMapping("/api/book/containingIsbn/{isbn}")
+  public ResponseEntity<?> getBookContainingIsbn(@PathVariable Long isbn) {
+    List<Book> books = bookService.getByContainingIsbn(isbn);
+    return ResponseEntity.ok(new GetBooksResponseDTO(books));
+  }
+
   // Get books with category
   @GetMapping("/api/book/byCategory/{category}")
   public ResponseEntity<?> getBookByCategory(@PathVariable String category) {
