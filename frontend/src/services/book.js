@@ -6,16 +6,6 @@ export const getBook = async isbn => {
   return book
 }
 
-export const getListing = async id => {
-  const {data: {listing}} = await api.get(`/listing/${id}`)
-  return listing
-}
-
-export const getBookListings = async isbn => {
-  const { data } = await api.get(`/book/${isbn}/listings`)
-  return data.listings
-}
-
 export const getAllBooks = async (filter, category) => {
   try {
     const {data: {books: allBooks}} = await (category

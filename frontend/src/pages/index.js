@@ -21,6 +21,9 @@ import TransactionsPage from './TransactionsPage/TransactionsPage'
 import ManageBooksPage from './ManageBooksPage/ManageBooksPage'
 import ReportsPage from './ReportsPage/ReportsPage'
 import ListingDetailPage from './ListingDetailPage/ListingDetailPage'
+import CreateListingPage from './CreateListingPage/CreateListingPage'
+import FinaliseListingPage from './FinaliseListingPage/FinaliseListingPage'
+import CreateBookPage from './CreateBookPage/CreateBookPage'
 
 const PrivateRoute = props => {
   const { isLoggedIn } = useAuth()
@@ -49,6 +52,9 @@ const Pages = () => {
       <Switch>
         <PrivateRoute path="/" exact component={BookPage} />
         <PrivateRoute path="/book/:isbn" exact component={BookDetailPage} />
+        <PrivateRoute path="/book/new/:isbn" exact component={CreateBookPage} />
+        <PrivateRoute path="/listing/new/:isbn" exact component={FinaliseListingPage} />
+        <PrivateRoute path="/listing/new" exact component={CreateListingPage} />
         <PrivateRoute path="/admin" exact component={AdminPage} />
         <PrivateRoute path="/admin/manage-users" exact component={ManageUsersPage} />
         <PrivateRoute path="/admin/transactions" exact component={TransactionsPage} />
