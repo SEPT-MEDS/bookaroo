@@ -40,5 +40,6 @@ const api = {
 export * from './user'
 export * from './book'
 export * from './listing'
+export * from './openlibrary'
 
 export default api
