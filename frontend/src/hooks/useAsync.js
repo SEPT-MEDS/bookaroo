@@ -8,7 +8,7 @@ const useAsync = (promise, dependencies = []) => {
 
   useEffect(() => {
     setIsLoading(true)
-    if (promise && promise?.then) {
+    if (promise) {
       promise()
         .then(response => isMounted && setResponse(response))
         .then(() => setIsLoading(false))
