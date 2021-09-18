@@ -7,7 +7,7 @@ const config = {
   },
   production: {
     baseURL: 'https://develop.d1byy9xadzuk7b.amplifyapp.com',
-    apiAddress: 'https://cors-everywhere.herokuapp.com/http://13.238.218.243:9191/api'
+    apiAddress: 'https://cors-everywhere.herokuapp.com/http://54.252.129.50:9191/api'
   }
 }
 
