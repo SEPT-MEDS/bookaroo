@@ -10,9 +10,9 @@ const useAsync = (promise, dependencies = []) => {
     if (promise) {
       setIsLoading(true)
       promise()
-        .then(response => isMounted && setResponse(response))
-        .then(() => setIsLoading(false))
-        .catch(err => {
+        ?.then(response => isMounted && setResponse(response))
+        ?.then(() => setIsLoading(false))
+        ?.catch(err => {
           setIsLoading(false)
           setError(err.message)
         })
