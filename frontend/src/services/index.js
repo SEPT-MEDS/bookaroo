@@ -1,5 +1,6 @@
 import axios from 'axios'
 import config from '../config'
+import { getTokenRaw } from 'hooks/useAuth'
 
 export const instance = axios.create({
   baseURL: config.apiAddress,
@@ -7,6 +8,11 @@ export const instance = axios.create({
   headers: {
     'Content-Type': 'application/json'
   }
+})
+
+instance.interceptors.request.use(async config => {
+  config.headers.Authorization = getTokenRaw()
+  return config
 })
 
 const api = {
@@ -33,5 +39,7 @@ const api = {
 
 export * from './user'
 export * from './book'
+export * from './listing'
+export * from './openlibrary'
 
 export default api

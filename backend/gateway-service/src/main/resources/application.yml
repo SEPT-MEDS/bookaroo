@@ -11,6 +11,18 @@ spring:
           uri: lb://USER-SERVICE
           predicates:
             - Path=/api/user/signup
+        - id: USER-LISTINGS
+          uri: lb://LISTING-SERVICE
+          predicates:
+            - Path=/api/user/*/listings
+          filters:
+            - name: JwtAuth
+        - id: BOOK-LISTINGS
+          uri: lb://LISTING-SERVICE
+          predicates:
+            - Path=/api/book/*/listings
+          filters:
+            - name: JwtAuth
         - id: USER-SERVICE
           uri: lb://USER-SERVICE
           predicates:
@@ -25,6 +37,12 @@ spring:
           uri: lb://BOOK-SERVICE
           predicates:
             - Path=/api/book/**
+          filters:
+            - name: JwtAuth
+        - id: LISTING-SERVICE
+          uri: lb://LISTING-SERVICE
+          predicates:
+            - Path=/api/listing/**
           filters:
             - name: JwtAuth
 

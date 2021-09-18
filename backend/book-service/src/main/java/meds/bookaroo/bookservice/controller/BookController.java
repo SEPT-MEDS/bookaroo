@@ -1,49 +1,96 @@
 package meds.bookaroo.bookservice.controller;
 
 import meds.bookaroo.bookservice.model.Book;
+import meds.bookaroo.bookservice.responseDTO.CreateBookResponseDTO;
+import meds.bookaroo.bookservice.responseDTO.DeleteBookResponseDTO;
+import meds.bookaroo.bookservice.responseDTO.GetBookResponseDTO;
+import meds.bookaroo.bookservice.responseDTO.GetBooksResponseDTO;
 import meds.bookaroo.bookservice.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import java.util.concurrent.ThreadLocalRandom;
+import org.springframework.web.bind.annotation.*;
+
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
-@RequestMapping("/api/book")
 public class BookController {
 
-    @Autowired
-    private BookService bookService;
+  @Autowired
+  private BookService bookService;
 
-    // Get book with a given ISBN
-    @GetMapping("/{isbn}")
-    public ResponseEntity<?> getBookWithIsbn(@PathVariable Long isbn) {
-        Book book = bookService.getByIsbn(isbn);
-        if(book != null) {
-            book.setRating(ThreadLocalRandom.current().nextInt(0, 6));
-            return ResponseEntity.ok(book);
-        }else{
-            return ResponseEntity.notFound().build();
-        }
+  // Upload a book with required details
+  @PostMapping("/api/book")
+  public ResponseEntity<?> addBook(@RequestBody @Valid Book book) {
+    // Ensure book doesn't already exist with same ISBN
+    if (bookService.getByIsbn(book.getIsbn()) != null) {
+      return ResponseEntity.status(HttpStatus.CONFLICT).body(new CreateBookResponseDTO(false, "Book with that ISBN already exists"));
+    } else {
+      bookService.create(book);
+      return ResponseEntity.ok(new CreateBookResponseDTO(true, ""));
     }
+  }
 
-    // Upload a book with required details
-    @PostMapping("")
-    public ResponseEntity<?> addBook(@RequestBody @Valid Book book) {
-        bookService.create(book);
-        return ResponseEntity.ok().build();
+  // Get all books
+  @GetMapping("/api/book")
+  public ResponseEntity<?> getBooks() {
+    List<Book> books = bookService.getAll();
+    return ResponseEntity.ok(new GetBooksResponseDTO(books));
+  }
+
+  // Get book with a given ISBN
+  @GetMapping("/api/book/{isbn}")
+  public ResponseEntity<?> getBookWithIsbn(@PathVariable Long isbn) {
+    Book book = bookService.getByIsbn(isbn);
+
+    // Ensure book was able to be retrieved
+    if (book != null) {
+      return ResponseEntity.ok(new GetBookResponseDTO(true, book, ""));
+    } else {
+      return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new GetBookResponseDTO(false, null, "No book with isbn " + isbn + " exists"));
     }
+  }
 
-    // Delete book with a given ISBN
-    @DeleteMapping("/{isbn}")
-    public ResponseEntity<?> deleteBookWithIsbn(@PathVariable Long isbn) {
-        Book book = bookService.getByIsbn(isbn);
-        if (book != null) {
-            bookService.deleteByIsbn(isbn);
-            return ResponseEntity.ok().build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+  // Delete book with a given ISBN
+  @DeleteMapping("/api/book/{isbn}")
+  public ResponseEntity<?> deleteBookWithIsbn(@PathVariable Long isbn) {
+    Book book = bookService.getByIsbn(isbn);
+
+    // Ensure book was able to be found in database
+    if (book != null) {
+      bookService.deleteByIsbn(isbn);
+      return ResponseEntity.ok(new DeleteBookResponseDTO(true, ""));
+    } else {
+      return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new DeleteBookResponseDTO(false, "No book with ISBN " + isbn));
     }
+  }
 
+  // Get books with partial title
+  @GetMapping("/api/book/containingTitle/{title}")
+  public ResponseEntity<?> getBookContainingTitle(@PathVariable String title) {
+    List<Book> books = bookService.getByContainingTitle(title);
+    return ResponseEntity.ok(new GetBooksResponseDTO(books));
+  }
+
+  // Get books with partial author
+  @GetMapping("/api/book/containingAuthor/{author}")
+  public ResponseEntity<?> getBookContainingAuthor(@PathVariable String author) {
+    List<Book> books = bookService.getByContainingAuthor(author);
+    return ResponseEntity.ok(new GetBooksResponseDTO(books));
+  }
+
+  // Get books with partial ISBN
+  @GetMapping("/api/book/containingIsbn/{isbn}")
+  public ResponseEntity<?> getBookContainingIsbn(@PathVariable Long isbn) {
+    List<Book> books = bookService.getByContainingIsbn(isbn);
+    return ResponseEntity.ok(new GetBooksResponseDTO(books));
+  }
+
+  // Get books with category
+  @GetMapping("/api/book/byCategory/{category}")
+  public ResponseEntity<?> getBookByCategory(@PathVariable String category) {
+    List<Book> books = bookService.getByCategory(category);
+    return ResponseEntity.ok(new GetBooksResponseDTO(books));
+  }
 }

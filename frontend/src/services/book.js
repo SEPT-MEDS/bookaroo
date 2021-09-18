@@ -1,36 +1,43 @@
-//import api from './'
+import intersectionBy from 'lodash.intersectionby'
+import api from './'
 
-// TODO: remove
-const testBooks = [
-  {
-    title: 'My Cool Book',
-    author: 'Ewan Breakey',
-    rating: 4
-  },
-  {
-    title: 'Another Great Book',
-    author: 'Maxwell Reid',
-    rating: 1
-  },
-  {
-    title: 'Something I Found On The Floor',
-    author: 'Thomas Dib',
-    rating: 3
-  },
-  {
-    title: 'Nuclear War: A Threat to Us All',
-    author: 'Sefanur Erciyas',
-    rating: 5
-  },
-  {
-    title: 'The Weather Today: An Intro to C',
-    author: 'Dale Stanbrough',
-    rating: 5,
+export const createBook = async fields => {
+  const { data } = await api.post('/book', fields)
+  return data.book
+}
+
+export const getBook = async isbn => {
+  const {data: {book}} = await api.get(`/book/${isbn}`)
+  return book
+}
+
+export const getAllBooks = async (filter, category) => {
+  try {
+    const {data: {books: allBooks}} = await (category
+      ? api.get(`/book/byCategory/${category}`)
+      : api.get('/book'))
+
+    if (!filter)
+      return allBooks
+
+    // Search books by title, author and isbn
+    const filteredBooks = (await Promise.all([
+      api.get(`/book/containingTitle/${filter}`),
+      api.get(`/book/containingAuthor/${filter}`)
+    ])).map(r => r.data.books).reduce((a, b) => [...a, ...b], [])
+
+    let exactBookByISBN
+    try {
+      if (!isNaN(filter)) {
+        exactBookByISBN = await getBook(filter)
+      }
+    } catch (e) {
+      console.warn('')
+    }
+
+    return intersectionBy(allBooks, [...filteredBooks, exactBookByISBN], 'isbn')
+  } catch (e) {
+    console.warn(e)
+    return []
   }
-]
-
-export const getAllBooks = async filter => {
-  console.log('Should have hit the api using', filter)
-  const {data} = {data: testBooks} // TODO: await api.get('/book', { filter })
-  return data
 }

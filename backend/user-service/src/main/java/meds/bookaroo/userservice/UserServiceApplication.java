@@ -1,7 +1,5 @@
 package meds.bookaroo.userservice;
 
-import meds.bookaroo.userservice.model.User;
-import meds.bookaroo.userservice.repository.UserRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;

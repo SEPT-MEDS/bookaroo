@@ -14,11 +14,11 @@ const ProfileMenu = ({ profile }) => {
   const openRef = useRef(null)
   const menuRef = useRef(null)
   const [isOpen, setIsOpen] = useState(false)
-  const {logout} = useAuth()
+  const { authLogout } = useAuth()
   const history = useHistory()
 
   const handleLogout = () => {
-    logout()
+    authLogout()
     history.push('/login')
   }
 

@@ -1,18 +1,12 @@
-import { useState, useEffect } from 'react'
-import { useAuth } from './'
+import { useAuth, useAsync } from './'
+
+import { getUser } from 'services'
 
 const useCurrentProfile = () => {
-  const [ profile, setProfile ] = useState(null)
-  const { token } = useAuth()
+  const { isLoggedIn, userId } = useAuth()
+  const { response: user } = useAsync(() => isLoggedIn ? getUser(userId) : null, [isLoggedIn])
 
-  useEffect(() => {
-    if (token) {
-      // TODO: get user
-      setProfile({ username: 'myname' })
-    }
-  }, [token])
-
-  return profile
+  return user
 }
 
 export default useCurrentProfile

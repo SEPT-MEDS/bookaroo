@@ -74,3 +74,9 @@ export const ErrorNotification = styled.div`
   border-radius: .5rem;
   border: 2px solid red;
 `
+
+export const InputGroup = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+`

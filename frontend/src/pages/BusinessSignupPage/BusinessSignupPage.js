@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useHistory } from 'react-router'
+import { Link, useHistory } from 'react-router-dom'
 
 import { signup } from '../../services'
 
@@ -10,8 +10,9 @@ import {
   InputContainer,
   Heading,
   FieldsContainer,
-  ErrorNotification,
 } from './businessSignupPageStyle'
+
+import { Notification } from '../../components'
 
 
 const LoginPage = () => {
@@ -24,14 +25,14 @@ const LoginPage = () => {
   } = useForm()
 
    
-  const onSubmit = ({ firstName, lastName, email, phoneNumber, username, password, confirmPassword, address, abn, type, status}) => {
+  const onSubmit = ({ firstName, lastName, email, phoneNumber, username, password, confirmPassword, address, abn, type, isEnabled}) => {
     // Clear error
     setError()
 
     // Ensure confirm password is the same as password
     if (password == confirmPassword) {
       // Signup
-      signup({ firstName, lastName, email, phoneNumber, username, password, address, abn, type, status })
+      signup({ firstName, lastName, email, phoneNumber, username, password, address, abn, type, isEnabled })
         .then( success  => {
           if (success) {
             history.push('/login')
@@ -50,7 +51,11 @@ const LoginPage = () => {
     <Container>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Heading>Signup</Heading>
-        {error && <ErrorNotification>{error}</ErrorNotification>}
+        {error && <Notification isError={true}>{error}</Notification>}
+        <Notification>
+          Not a business owner?
+          <Link to='/signup/customer'>Signup Here Instead</Link>
+        </Notification>
         <FieldsContainer>
           <InputContainer>
             <label>First Name</label>
@@ -98,7 +103,7 @@ const LoginPage = () => {
             {errors.abn && 'This field is required'}
           </InputContainer>
           <input type="hidden" {...register('type')} value="BUSINESS" />
-          <input type="hidden" {...register('status')} value="ENABLED" />
+          <input type="hidden" {...register('isEnabled')} value="false"/>
 
         </FieldsContainer>
         <input type="submit" value="Signup" />

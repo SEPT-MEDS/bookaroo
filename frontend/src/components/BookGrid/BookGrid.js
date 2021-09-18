@@ -5,8 +5,8 @@ import { BookCard } from '../../components'
 
 const BookGrid = ({ books }) => (
   <Container>
-    {books ? (
-      books.map(book => <BookCard key={book?.title} {...book} />)
+    {books?.length ? (
+      books.map(book => <BookCard key={book?.isbn} {...book} />)
     ) : (
       <span>No Books</span>
     )}
