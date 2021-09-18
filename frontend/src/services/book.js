@@ -15,17 +15,14 @@ export const getAllBooks = async (filter, category) => {
     if (!filter)
       return allBooks
 
-    // Search books by title and author
+    // Search books by title, author and isbn
     const filteredBooks = (await Promise.all([
       api.get(`/book/containingTitle/${filter}`),
       api.get(`/book/containingAuthor/${filter}`),
+      api.get(`/book/containingIsbn/${filter}`),
     ])).map(r => r.data.books).reduce((a, b) => [...a, ...b], [])
 
-    // Search books by ISBN
-    const exactBook = await getBook(filter)
-      .catch(() => {console.clear() /* HACK*/})
-
-    return intersectionBy(allBooks, [...filteredBooks, exactBook], 'isbn')
+    return intersectionBy(allBooks, filteredBooks, 'isbn')
   } catch (e) {
     console.warn(e)
     return []
