@@ -3,7 +3,7 @@ version: 2.1
 general:
   branches:
     only:
-     - develop
+     - main
 
 parameters:
   # This parameter is used to trigger the main workflow
