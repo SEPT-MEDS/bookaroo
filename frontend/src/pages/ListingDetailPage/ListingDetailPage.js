@@ -24,7 +24,7 @@ const ListingDetailPage = () => {
   )
 }
 
-const ListingInfo = ({ id, sellerId, price, imageUrl, isPreowned, bookIsbn }) => {
+const ListingInfo = ({ id, sellerId, price, isSwap, imageUrl, isPreowned, bookIsbn }) => {
   const { response: vendor } = useAsync(() => getUser(sellerId))
   const { response: book } = useAsync(() => getBook(bookIsbn))
 
@@ -40,8 +40,9 @@ const ListingInfo = ({ id, sellerId, price, imageUrl, isPreowned, bookIsbn }) =>
       <h1>{ vendor?.username || 'Vendor' }</h1>
       <Rating rating={vendor?.rating || 0} />
       <ActionBox>
-        <h3>Buy {isPreowned ? 'preowned' : 'brand new'} for ${ price }</h3>
-        <Button onClick={handleAddToCart}>Add to Cart</Button>
+        {!isSwap && <h3>Buy {isPreowned ? 'preowned' : 'brand new'} for ${ price }</h3>}
+        {isSwap && <h3>Swap with <em>{vendor?.username}</em> for another book</h3>}
+        <Button onClick={handleAddToCart}>{isSwap ? `Contact ${vendor?.username || 'seller'}` : 'Buy Now'}</Button>
       </ActionBox>
     </div>
   </ListingInfoContainer>

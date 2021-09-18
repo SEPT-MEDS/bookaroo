@@ -44,7 +44,7 @@ const BookSellers = ({ book }) => {
   )
 }
 
-const Listing = ({ id, sellerId, price, imageUrl, isPreowned }) => {
+const Listing = ({ id, sellerId, price, imageUrl, isPreowned, isSwap }) => {
   const { response: vendor } = useAsync(() => getUser(sellerId))
 
   return (
@@ -57,7 +57,8 @@ const Listing = ({ id, sellerId, price, imageUrl, isPreowned }) => {
           </Link>
         </h3>
         <Rating rating={3 /* TO DO */} />
-        <div>{`$${price}`} {isPreowned && <em> (preowned)</em>}</div>
+        {isSwap && <div><em>This listing is a swap</em></div>}
+        {!isSwap && <div>{`$${price}`} {isPreowned && <em> (preowned)</em>}</div>}
       </div>
     </ListingContainer>
   )
