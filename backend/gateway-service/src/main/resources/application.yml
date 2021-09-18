@@ -45,6 +45,12 @@ spring:
             - Path=/api/listing/**
           filters:
             - name: JwtAuth
+        - id: ORDER-SERVICE
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/api/order/**
+          filters:
+            - name: JwtAuth
 
 eureka:
   client:
