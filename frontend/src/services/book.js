@@ -20,12 +20,22 @@ export const getAllBooks = async (filter, category) => {
     if (!filter)
       return allBooks
 
+    // Search books by title, author and isbn
     const filteredBooks = (await Promise.all([
       api.get(`/book/containingTitle/${filter}`),
-      api.get(`/book/containingAuthor/${filter}`),
+      api.get(`/book/containingAuthor/${filter}`)
     ])).map(r => r.data.books).reduce((a, b) => [...a, ...b], [])
 
-    return intersectionBy(allBooks, filteredBooks, 'isbn')
+    let exactBookByISBN
+    try {
+      if (!isNaN(filter)) {
+        exactBookByISBN = await getBook(filter)
+      }
+    } catch (e) {
+      console.warn('')
+    }
+
+    return intersectionBy(allBooks, [...filteredBooks, exactBookByISBN], 'isbn')
   } catch (e) {
     console.warn(e)
     return []

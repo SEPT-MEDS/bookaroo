@@ -4,7 +4,7 @@ import { getUser } from 'services'
 
 const useCurrentProfile = () => {
   const { isLoggedIn, userId } = useAuth()
-  const { response: user } = useAsync(() => isLoggedIn && getUser(userId), [isLoggedIn])
+  const { response: user } = useAsync(() => isLoggedIn ? getUser(userId) : null, [isLoggedIn])
 
   return user
 }
