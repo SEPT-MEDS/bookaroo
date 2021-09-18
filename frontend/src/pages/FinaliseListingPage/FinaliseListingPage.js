@@ -19,6 +19,8 @@ const FinaliseListingPage = () => {
   const { register, handleSubmit, watch } = useForm()
   const watchIsSwap = watch('swap', false)
 
+  const isCustomer = profile?.type == 'CUSTOMER'
+
   const onSubmit = ({ swap, price, condition, imageUrl }) => {
     setLoading(true)
     createListing({
@@ -56,8 +58,8 @@ const FinaliseListingPage = () => {
             <InputContainer>
               <label htmlFor='condition'>Condition</label>
               <select {...register('condition', { required: true })}>
-                <option value={'new'}>Brand New</option>
                 <option value={'preowned'}>Preowned</option>
+                {!isCustomer && <option value={'new'}>Brand New</option>}
               </select>
             </InputContainer>
           </Inputs>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 import { Logo, ProfileMenu } from 'components'
@@ -7,7 +7,7 @@ import { NavBar, NavItems } from './navigationStyle'
 
 const Navigation = () => {
   const profile = useCurrentProfile()
-  const [isAdmin] = useState(false /* TODO */)
+  const isAdmin = profile?.type == 'ADMIN'
 
   return (
     <NavBar>
@@ -22,9 +22,7 @@ const Navigation = () => {
   )
 }
 
-const AdminFields = () => <>
-  <NavLink to='/listing/new'>Add a Listing</NavLink>
-</>
+const AdminFields = () => <></>
 
 const CustomerFields = () => <>
   <NavLink to='/listing/new'>Sell a Book</NavLink>
