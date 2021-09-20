@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const CardContainer = styled.a`
   display: grid;
   width: 100%;
+  max-width: 300px;
   align-content: stretch;
 
   text-decoration: none;
@@ -22,8 +23,3 @@ export const Author = styled.h3`
   color: ${p => p.theme.greyText};
   font-style: italic;
 ` 
-
-export const Cover = styled.img`
-  width: 100%;
-  height: 25em;
-`

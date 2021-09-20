@@ -1,22 +1,24 @@
 import React from 'react'
-import { AboutInfoContainer, ContactPointsContainer } from './aboutPageStyle'
+import { 
+  Container, 
+  AboutInfoContainer, 
+  ContactPointsContainer 
+} from './aboutPageStyle'
 import { ContactPoint } from '../../components'
 
 const AboutPage = () => {
-  return <div className = "aboutPage">
-    <AboutInfoContainer>
-      <h1>About</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sodales 
-        risus sed tincidunt maximus. Donec ut sapien sollicitudin, consequat leo 
-        vitae, porta arcu. Morbi nec tincidunt ex, eu gravida sem. Curabitur 
-        vulputate, arcu sit amet ornare semper, ante purus placerat ante, sed 
-        pellentesque purus tellus id magna.
-      </p>
-    </AboutInfoContainer>
-    <h3>Check out our socials below!</h3>
-    <ContactPoints></ContactPoints>
-  </div>
+  return (
+    <Container>
+      <AboutInfoContainer>
+        <h1>About</h1>
+        <p>
+          Hi there! We are Bookaroo, a book sharing and shopping site. Our service will provide you with a way to sell, purchase, or swap books with other users or shop owners in the easiest way possible! Our mission is to help everyone to easily acquire books and read as much as possible. We are also available on various social medias as listed below. Enjoy shopping!
+        </p>
+      </AboutInfoContainer>
+      <h3>Check out our socials below!</h3>
+      <ContactPoints />
+    </Container>
+  )
 }
 
 const ContactPoints = () =>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { Redirect, Link, useHistory } from 'react-router-dom'
+import { Redirect, Link, useHistory, useLocation } from 'react-router-dom'
 
 import { login } from '../../services'
 import { useAuth } from '../../hooks'
@@ -15,9 +15,10 @@ import {
 import { Notification } from '../../components'
 
 const LoginPage = () => {
+  const location = useLocation()
   const history = useHistory()
   const [error, setError] = useState(null)
-  const { isLoggedIn, setToken, setUserId } = useAuth()
+  const { isLoggedIn, authLogin } = useAuth()
   const {
     register,
     handleSubmit,
@@ -32,14 +33,19 @@ const LoginPage = () => {
     login(username, password)
       .then(({ token, userId }) => {
         if (token && userId) {
-          setToken(token)
-          setUserId(userId)
-          history.push('/')
+          authLogin(token, userId)
+          history.push(location?.state?.from?.pathname || '/')
         } else {
           setError('Something went wrong logging you in')
         }
       })
-      .catch(err => setError(err.message))
+      .catch(err => {
+        if (err?.response?.status == 403 || err?.response?.status == 401) {
+          setError('Incorrect username or password')
+        } else {
+          setError(err.message)
+        }
+      })
   }
 
   return (

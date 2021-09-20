@@ -72,6 +72,20 @@ public class BookServiceTest {
   }
 
   @Test
+  public void getValidBookByPartialIsbn() {
+    List<Book> books = new ArrayList<>();
+    books.add(new Book(12345678900L, "Book Title", "John Doe", "Very short blurb of the book.", 314, "https://www.booksite.com", 5, "Comedy"));
+    when(bookRepository.findByIsbnContaining(123L)).thenReturn(books);
+    assertEquals(books, bookService.getByContainingIsbn(123L));
+  }
+
+  @Test
+  public void getInvalidBookByPartialIsbn() {
+    when(bookRepository.findByIsbnContaining(987L)).thenReturn(null);
+    assertNull(bookService.getByContainingIsbn(987L));
+  }
+
+  @Test
   public void getValidBookByCategory() {
     List<Book> books = new ArrayList<>();
     books.add(new Book(12345678900L, "Book Title", "John Doe", "Very short blurb of the book.", 314, "https://www.booksite.com", 5, "Comedy"));

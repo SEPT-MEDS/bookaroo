@@ -16,7 +16,6 @@ public class BookService {
     this.bookRepository = bookRepository;
   }
 
-
   public Book getByIsbn(Long isbn) {
     return bookRepository.findByIsbn(isbn);
   }
@@ -27,6 +26,10 @@ public class BookService {
 
   public List<Book> getByContainingAuthor(String author) {
     return bookRepository.findByAuthorContaining(author);
+  }
+
+  public List<Book> getByContainingIsbn(Long isbn) {
+    return bookRepository.findByIsbnContaining(isbn);
   }
 
   public List<Book> getByCategory(String category) {

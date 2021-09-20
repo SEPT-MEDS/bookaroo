@@ -1,58 +1,40 @@
-import { useEffect } from 'react'
 import create from 'zustand'
+import { persist } from 'zustand/middleware'
 
-const useTokenStore = create(set => ({
-  token: window.localStorage.token,
-  userId: window.localStorage.userId,
-  setUserId: userId => set({ userId }),
-  setToken: token => set({ token }),
-  clearToken: () => set({ token: null }),
-  clearUserId: () => set({ userId: null }),
-}))
+const TOKEN_EXP_TIME = 86400000
+const STORAGE_KEY = 'bookaroo-auth'
+
+const useTokenStore = create(
+  persist(
+    set => ({
+      token: null,
+      userId: null,
+      loginTime: null,
+      login: (token, userId) =>
+        set({ token, userId, loginTime: Date.now() }),
+      logout: () => set({ token: null, userId: null, loginTime: null }),
+    }),
+    {
+      name: 'bookaroo-auth',
+    }
+  )
+)
 
 const useAuth = () => {
-  const { token, userId, setToken: setStoredToken, setUserId: setStoredId } = useTokenStore()
+  const { token, userId, loginTime, login, logout } = useTokenStore()
 
-  useEffect(() => {
-    if (!token) {
-      if (window.localStorage.token) {
-        setStoredToken(window.localStorage.token)
-      }
-    }
-    if (!userId) {
-      if (window.localStorage.userId) {
-        setStoredId(window.localStorage.userId)
-      }
-    }
-  })
+  const isLoggedIn = token && userId && Date.now() - loginTime <= TOKEN_EXP_TIME
 
-  const setToken = token => {
-    window.localStorage.token = token
-    setStoredToken(token)
+  return {
+    token,
+    userId,
+    isLoggedIn,
+    authLogout: logout,
+    authLogin: login,
   }
-
-  const setUserId = userId => {
-    window.localStorage.userId = userId
-    setStoredId(userId)
-  }
-
-  const subscribeToLoggedIn = f => {
-    useTokenStore.subscribe(
-      t => {
-        f(!!t)
-      },
-      s => s.token
-    )
-  }
-
-  const logout = () => {
-    setStoredToken(null)
-    setStoredId(null)
-    window.localStorage.removeItem('token')
-    window.localStorage.removeItem('userId')
-  }
-
-  return { token, logout, userId, setToken, setUserId, isLoggedIn: !!token, subscribeToLoggedIn }
 }
+
+export const getTokenRaw = () =>
+  JSON.parse(window.localStorage[STORAGE_KEY])?.state?.token
 
 export default useAuth

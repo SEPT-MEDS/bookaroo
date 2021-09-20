@@ -1,35 +1,22 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { useParams } from 'react-router-dom'
 
-import { Rating, Spinner, Notification } from '../../components'
-import { getBook } from '../../services'
+import { Spinner, Notification, BookSummary } from 'components'
+import { getBook } from 'services'
+import { useAsync } from 'hooks'
+
+import BookSellers from './BookSellers'
 
 import {
   Container,
   BookInfoContainer,
-  BookSellersContainer,
   BookInfoPara,
-  BookInfoCover,
-  BookInfoAuthor,
   BookInfoDetails
 } from './bookDetailPageStyle'
 
 const BookDetailPage = () => {
   const { isbn } = useParams()
-  const [isLoading, setIsLoading] = useState(false)
-  const [book, setBook] = useState()
-  const [error, setError] = useState()
-
-  useEffect(() => {
-    setIsLoading(true)
-    getBook(isbn)
-      .then(book => setBook(book))
-      .then(() => setIsLoading(false))
-      .catch(err => {
-        setIsLoading(false)
-        setError(err.message)
-      })
-  }, [isbn])
+  const {response: book, error, isLoading} = useAsync(() => getBook(isbn), [isbn])
 
   return (
     <Container>
@@ -46,21 +33,10 @@ const BookDetailPage = () => {
   )
 }
 
-const BookSellers = ({ book }) => {
-  return <BookSellersContainer>
-    <h2>Sellers of <em>{book.title}</em></h2>
-  </BookSellersContainer>
-}
-
 const BookInfo = ({ book }) => {
   return (
     <BookInfoContainer>
-      <div>
-        <BookInfoCover />
-        <h1>{book.title}</h1>
-        <BookInfoAuthor>{book.author}</BookInfoAuthor>
-        <Rating rating={book.rating} />
-      </div>
+      <BookSummary book={book} />
       <div>
         <h2>Blurb</h2>
         <BookInfoPara>{book.blurb || <em>No Blurb Provided</em>}</BookInfoPara>
