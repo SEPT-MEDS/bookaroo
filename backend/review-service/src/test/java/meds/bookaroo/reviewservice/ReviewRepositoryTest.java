@@ -49,7 +49,7 @@ public class ReviewRepositoryTest {
   void saveReviewBlankId() {
     Review review = new Review(null, 1L, 1L, 5, "content");
     Set<ConstraintViolation<Review>> violations = validator.validate(review);
-    assertEquals(1, violations.size());
+    assertEquals(0, violations.size());
   }
 
   @Test

@@ -2,8 +2,9 @@ package meds.bookaroo.reviewservice.model;
 
 import lombok.*;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -17,8 +18,8 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 public class Review {
-  @Column(unique = true)
   private @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   Long id;
 
   @NotNull(message = "Entity id is required")
