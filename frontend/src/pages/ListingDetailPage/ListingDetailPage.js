@@ -4,9 +4,16 @@ import { useParams } from 'react-router-dom'
 
 import { useAsync } from 'hooks'
 import { getListing, getBook, getUser } from 'services'
-import { Notification, Spinner, BookSummary, Rating/*, Button*/} from 'components'
+import { Notification, Spinner, BookSummary, Rating, Button} from 'components'
 import { Container, ListingInfoContainer, ActionBox } from './listingDetailPageStyle'
 
+// not working
+window.paypal.Buttons({
+  style: {
+    color: 'black',
+    shape: 'pill'
+  }
+})
 const PayPalButton = window.paypal.Buttons.driver('react', { React, ReactDOM })
 
 const ListingDetailPage = () => {
@@ -67,14 +74,14 @@ const ListingInfo = ({ id, sellerId, price, isSwap, imageUrl, isPreowned, bookIs
   console.log(handleAddToCart)
 
 
-
   const createOrder = (data, actions) => {
     return actions.order.create({
       purchase_units: [
         {
           amount: {
             // Order total (use variable for price/cart total)
-            value: '15.30'
+            value: '15.30',
+            description: 'This is a book'
           }
         }
       ]
@@ -82,7 +89,8 @@ const ListingInfo = ({ id, sellerId, price, isSwap, imageUrl, isPreowned, bookIs
   }
 
   const onApprove = (data, actions) => {
-    return actions.order.capture()
+    // TODO: Redirect user to purhcase success page
+    return actions.order.capture().then(console.log('PURCHASE SUCCESS!'))
   }
 
   return <ListingInfoContainer>
@@ -94,10 +102,23 @@ const ListingInfo = ({ id, sellerId, price, isSwap, imageUrl, isPreowned, bookIs
       <ActionBox>
         {!isSwap && <h3>Buy {isPreowned ? 'preowned' : 'brand new'} for ${ price }</h3>}
         {isSwap && <h3>Swap with <em>{vendor?.username}</em> for another book</h3>}
-        <PayPalButton
-          createOrder={(data, actions) => createOrder(data, actions)}
-          onApprove={(data, actions) => onApprove(data, actions)}
-        />
+        <div className='paypal-button'>
+          <PayPalButton
+            createOrder={(data, actions) => createOrder(data, actions)}
+            onApprove={(data, actions) => onApprove(data, actions)}
+          />
+        </div>
+        <Button
+          onClick={(data, actions) => {
+            // { createOrder=(data, actions) => createOrder(data, actions)} 
+            // { onApprove=(data, actions) => onApprove(data, actions)} 
+            createOrder(data, actions)
+            onApprove(data, actions)
+          }
+          }
+        >{isSwap ? `Contact ${vendor?.username || 'seller'}` : 'Buy Now'}
+        </Button>
+
 
         {/* <Button onClick={handleAddToCart}>{isSwap ? `Contact ${vendor?.username || 'seller'}` : 'Buy Now'}</Button> */}
       </ActionBox>

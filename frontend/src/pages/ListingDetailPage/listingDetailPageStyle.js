@@ -9,6 +9,12 @@ export const ListingInfoContainer = styled.div`
   grid-template-columns: 1fr 2fr;
   column-gap: 2em;
   min-height: 30em;
+
+  .paypal-button {
+    margin-top: 1rem;
+    width: 40%;
+  }
+
 `
 
 export const ActionBox = styled.div`
