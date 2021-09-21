@@ -1,11 +1,12 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 
-import { Spinner, Notification, BookSummary, Review } from 'components'
+import { Spinner, Notification, BookSummary } from 'components'
 import { getBook } from 'services'
 import { useAsync } from 'hooks'
 
 import BookSellers from './BookSellers'
+import BookReviews from './BookReviews'
 
 import {
   Container,
@@ -18,7 +19,7 @@ const BookDetailPage = () => {
   const { isbn } = useParams()
   const {response: book, error, isLoading} = useAsync(() => getBook(isbn), [isbn])
   // const {response: reviews } = useAsync(() => getReviews(isbn), [isbn])
-  const { review } = 'This is an amazing book!'
+  // const { review } = 'This is an amazing book!'
 
   return (
     <Container>
@@ -29,7 +30,8 @@ const BookDetailPage = () => {
           {error && <Notification isError={true}>{error}</Notification>}
           {book && <BookInfo book={book} />}
           {book && <BookSellers book={book} />}
-          {book && <Review book={book} review={review}/>}
+
+          {book && <BookReviews book={book} />}
         </>
       )}
     </Container>

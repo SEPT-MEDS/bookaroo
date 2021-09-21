@@ -1,20 +1,23 @@
-import intersectionBy from 'lodash.intersectionby'
-import api from './'
+// import api from './'
 
-export const getAllReviews = async () => {
-  try {
-   // const {data: {reviews: allReviews} = await (api.get('/book/reviews'))}
-
-   //  const {data: {books: allBooks}} = await (category
-   //    ? api.get(`/book/byCategory/${category}`)
-   //    : api.get('/book'))
-
-    if (!filter)
-      return allBooks
-
-  } catch (e) {
-    console.warn(e)
-    return []
-  }
+export const getBookReviews = async isbn => {
+  console.log(isbn)
+  return [{
+    user: 0,
+    rating: 3,
+    text:'this is the coolest book ever!!!!'
+  },
+  {
+    user: 1,
+    rating: 5,
+    text: 'i love this book.. so much.... i sold all my belongings so i can buy 200 copies'
+  },
+  {
+    user: 2,
+    rating: 1,
+    text: 'worst book ever. DO NOT BUY'
+  }]
+  // const { data } = await api.get(`/book/${isbn}/reviews`)
+  // return data.reviews
 }
 
