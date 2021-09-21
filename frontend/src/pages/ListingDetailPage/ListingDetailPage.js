@@ -1,20 +1,12 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import { useParams } from 'react-router-dom'
 
 import { useAsync } from 'hooks'
 import { getListing, getBook, getUser } from 'services'
-import { Notification, Spinner, BookSummary, Rating, Button} from 'components'
+import { Notification, Spinner, BookSummary, Rating} from 'components'
 import { Container, ListingInfoContainer, ActionBox } from './listingDetailPageStyle'
 
-// not working
-window.paypal.Buttons({
-  style: {
-    color: 'black',
-    shape: 'pill'
-  }
-})
-const PayPalButton = window.paypal.Buttons.driver('react', { React, ReactDOM })
+import { PayPalScriptProvider, PayPalButtons} from '@paypal/react-paypal-js'
 
 const ListingDetailPage = () => {
   const { id } = useParams()
@@ -40,57 +32,27 @@ const ListingInfo = ({ id, sellerId, price, isSwap, imageUrl, isPreowned, bookIs
 
   const handleAddToCart = () => {
     // TODO
-    
-    // const createOrder = (data, actions) => {
-    //   return actions.order.create({
-    //     purchase_units: [
-    //       {
-    //         amount: {
-    //           value: '15.30'
-    //         }
-    //       }
-    //     ]
-    //   })
-    // }
-    
-    // const onApprove = (data, actions) => {
-    //   console.log('ORDER COMPLETE')
-    //   return actions.order.capture()
-    // }
-    
-    
     console.log('Add listing', id, 'to cart')
-    
-    // return (
-    //   <PayPalButton
-    //     createOrder={(data, actions) => createOrder(data, actions)}
-    //     onApprove={(data, actions) => onApprove(data, actions)}
-    //   />
-    // )
-
-    // <script src="https://www.paypal.com/sdk/js?client-id=AZ3bA7tCRrgjEKtw8kKPnOBP6TY3kVdLLo0pkuVWWSgTUGAZdEUf1mCbl99eKk1fJcS7P3RyffFs9Eei"></script>
-    // <script>paypal.Buttons().render('body');</script>
   }
   console.log(handleAddToCart)
 
+  
+  // For a list of options:
+  // https://developer.paypal.com/docs/business/javascript-sdk/javascript-sdk-configuration/
+  const initialOptions = {
+    // The REST API ID; determines where the funds will be paid to
+    'client-id': 'AZ3bA7tCRrgjEKtw8kKPnOBP6TY3kVdLLo0pkuVWWSgTUGAZdEUf1mCbl99eKk1fJcS7P3RyffFs9Eei',
+    'currency': 'AUD',
+    // intent 'authorize' will allow us to take the funds out at a later time (i.e. pending)
+    'intent': 'capture',
 
-  const createOrder = (data, actions) => {
-    return actions.order.create({
-      purchase_units: [
-        {
-          amount: {
-            // Order total (use variable for price/cart total)
-            value: '15.30',
-            description: 'This is a book'
-          }
-        }
-      ]
-    })
-  }
+    // the merchant for whom you are facilitating a transaction - used for sellers?
+    // 'merchant-id': 'AZ3bA7tCRrgjEKtw8kKPnOBP6TY3kVdLLo0pkuVWWSgTUGAZdEUf1mCbl99eKk1fJcS7P3RyffFs9Eei',
+    
+    // 'data-client-token': 'AZ3bA7tCRrgjEKtw8kKPnOBP6TY3kVdLLo0pkuVWWSgTUGAZdEUf1mCbl99eKk1fJcS7P3RyffFs9Eei',
 
-  const onApprove = (data, actions) => {
-    // TODO: Redirect user to purhcase success page
-    return actions.order.capture().then(console.log('PURCHASE SUCCESS!'))
+    // disable card payments
+    'disable-funding': 'card'
   }
 
   return <ListingInfoContainer>
@@ -102,25 +64,21 @@ const ListingInfo = ({ id, sellerId, price, isSwap, imageUrl, isPreowned, bookIs
       <ActionBox>
         {!isSwap && <h3>Buy {isPreowned ? 'preowned' : 'brand new'} for ${ price }</h3>}
         {isSwap && <h3>Swap with <em>{vendor?.username}</em> for another book</h3>}
-        <div className='paypal-button'>
-          <PayPalButton
-            createOrder={(data, actions) => createOrder(data, actions)}
-            onApprove={(data, actions) => onApprove(data, actions)}
-          />
-        </div>
-        <Button
-          onClick={(data, actions) => {
-            // { createOrder=(data, actions) => createOrder(data, actions)} 
-            // { onApprove=(data, actions) => onApprove(data, actions)} 
-            createOrder(data, actions)
-            onApprove(data, actions)
-          }
-          }
-        >{isSwap ? `Contact ${vendor?.username || 'seller'}` : 'Buy Now'}
-        </Button>
 
 
-        {/* <Button onClick={handleAddToCart}>{isSwap ? `Contact ${vendor?.username || 'seller'}` : 'Buy Now'}</Button> */}
+        <PayPalScriptProvider options={ initialOptions }>
+          <PayPalButtons className='paypal-button' forceReRender={13.30} style={{
+            layout: 'vertical',
+            color: 'black',
+            // color: '#3552B7',
+            // color: '$(p.theme.primary)',
+            height: 40,
+            shape: 'pill',
+            label: 'paypal',
+            tagline: false
+          }} />
+        </PayPalScriptProvider>
+
       </ActionBox>
     </div>
   </ListingInfoContainer>

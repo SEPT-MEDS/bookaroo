@@ -12,7 +12,7 @@ export const ListingInfoContainer = styled.div`
 
   .paypal-button {
     margin-top: 1rem;
-    width: 40%;
+    width: 265px;
   }
 
 `
