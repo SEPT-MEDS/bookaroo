@@ -45,10 +45,10 @@ spring:
             - Path=/api/listing/**
           filters:
             - name: JwtAuth
-        - id: ORDER-SERVICE
-          uri: lb://ORDER-SERVICE
+        - id: PURCHASE-SERVICE
+          uri: lb://PURCHASE-SERVICE
           predicates:
-            - Path=/api/order/**
+            - Path=/api/purchase/**
           filters:
             - name: JwtAuth
 

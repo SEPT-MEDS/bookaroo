@@ -12,31 +12,17 @@ public class PurchaseService {
   @Autowired
   private PurchaseRepository purchaseRepository;
 
-  public PurchaseService(PurchaseRepository purchaseRepository) {
-    this.purchaseRepository = purchaseRepository;
-  }
+  public PurchaseService(PurchaseRepository purchaseRepository) { this.purchaseRepository = purchaseRepository; }
 
-  public Purchase create(Purchase purchase) {
-    return purchaseRepository.save(purchase);
-  }
+  public Purchase create(Purchase purchase) { return purchaseRepository.save(purchase); }
 
-  public Purchase getByPurchaseId(Long purchaseId) {
-    return purchaseRepository.getById(purchaseId);
-  }
+  public Purchase getByPurchaseId(Long purchaseId) { return purchaseRepository.findById(purchaseId).orElse(null); }
 
-  public List<Purchase> getByBuyerId(Long buyerId) {
-    return purchaseRepository.findByBuyerId(buyerId);
-  }
+  public List<Purchase> getByBuyerId(Long buyerId) { return purchaseRepository.findByBuyerId(buyerId); }
 
-  public List<Purchase> getBySellerId(Long sellerId) {
-    return purchaseRepository.findBySellerId(sellerId);
-  }
+  public List<Purchase> getBySellerId(Long sellerId) { return purchaseRepository.findBySellerId(sellerId); }
 
-  public void delete(Long purchaseId) {
-    purchaseRepository.deletePurchaseById(purchaseId);
-  }
+  public void deleteByPurchaseId(Long purchaseId) { purchaseRepository.deletePurchaseById(purchaseId); }
 
-  public List<Purchase> getAll() {
-    return purchaseRepository.findAll();
-  }
+  public List<Purchase> getAll() { return purchaseRepository.findAll(); }
 }

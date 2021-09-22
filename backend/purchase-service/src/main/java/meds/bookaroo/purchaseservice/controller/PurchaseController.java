@@ -25,10 +25,9 @@ public class PurchaseController {
   @Autowired
   private ListingClient listingClient;
 
-  // Create an purchase
+  // Create a purchase
   @PostMapping("/api/purchase")
   public ResponseEntity<?> addPurchase(@RequestBody @Valid Purchase purchase) {
-    System.out.println("test");
     purchaseService.create(purchase);
     Listing listing = listingClient.getListing(purchase.getListingId());
     listing.setIsVisible(false);
@@ -40,9 +39,7 @@ public class PurchaseController {
   @GetMapping("/api/purchase/{purchaseid}")
   public ResponseEntity<?> getPurchaseById(@PathVariable Long purchaseid) {
     Purchase purchase = purchaseService.getByPurchaseId(purchaseid);
-    System.out.println("test");
     if (purchase != null) {
-      System.out.println("HEYYY");
       return ResponseEntity.ok(new GetPurchaseResponseDTO(true, purchase, ""));
     } else {
       return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new GetPurchaseResponseDTO(false, null, "No purchase with id " + purchaseid));
@@ -70,7 +67,7 @@ public class PurchaseController {
     return ResponseEntity.ok(new GetPurchasesResponseDTO(purchases));
   }
 
-  // Delete an purchase by its id
+  // Delete a purchase by its id
   @DeleteMapping("/api/purchase/{purchaseid}")
   public ResponseEntity<?> deletePurchaseById(@PathVariable Long purchaseid) {
     Purchase purchase = purchaseService.getByPurchaseId(purchaseid);
