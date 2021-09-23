@@ -30,7 +30,6 @@ const BookDetailPage = () => {
           {error && <Notification isError={true}>{error}</Notification>}
           {book && <BookInfo book={book} />}
           {book && <BookSellers book={book} />}
-
           {book && <BookReviews book={book} />}
         </>
       )}

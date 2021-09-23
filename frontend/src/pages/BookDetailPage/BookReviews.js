@@ -7,6 +7,10 @@ const BookReviews = ({book}) => {
 
   useEffect(() => {
     if (book) {
+<<<<<<< Updated upstream
+=======
+      // two children with same key?
+>>>>>>> Stashed changes
       getBookReviews(book.isbn)
         .then(reviews => setReviews(reviews))
     }
