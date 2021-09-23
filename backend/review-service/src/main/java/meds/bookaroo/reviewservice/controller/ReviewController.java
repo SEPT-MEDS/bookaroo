@@ -28,13 +28,13 @@ public class ReviewController {
   @GetMapping("/api/book/{isbn}/reviews")
   public ResponseEntity<?> getReviewByIsbn(@PathVariable Long isbn) {
     List<Review> bookReviews = reviewService.getByEntityID(isbn);
-    return ResponseEntity.ok(new GetReviewsResponseDTO(true, bookReviews, ""));
+    return ResponseEntity.ok(new GetReviewsResponseDTO(bookReviews));
   }
 
   // Get all reviews for a user
   @GetMapping("/api/user/{userid}/reviews")
   public ResponseEntity<?> getReviewByUserId(@PathVariable Long userid) {
     List<Review> userReviews = reviewService.getByEntityID(userid);
-    return ResponseEntity.ok(new GetReviewsResponseDTO(true, userReviews, ""));
+    return ResponseEntity.ok(new GetReviewsResponseDTO(userReviews));
   }
 }

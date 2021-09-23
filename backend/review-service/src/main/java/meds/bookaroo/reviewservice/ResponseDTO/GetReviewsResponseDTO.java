@@ -1,14 +1,13 @@
 package meds.bookaroo.reviewservice.ResponseDTO;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import meds.bookaroo.reviewservice.model.Review;
 
 import java.util.List;
 
-public class GetReviewsResponseDTO extends StdResponseDTO {
+@AllArgsConstructor
+@Data
+public class GetReviewsResponseDTO {
   List<Review> reviews;
-
-  public GetReviewsResponseDTO(boolean isSuccess, List<Review> reviews, String error) {
-    super(isSuccess, error);
-    this.reviews = reviews;
-  }
 }
