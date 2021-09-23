@@ -1,9 +1,7 @@
 package meds.bookaroo.userservice.responseDTO;
 
-import lombok.Data;
 import meds.bookaroo.userservice.model.User;
 
-@Data
 public class GetUserResponseDTO extends StdResponseDTO {
   User user;
 

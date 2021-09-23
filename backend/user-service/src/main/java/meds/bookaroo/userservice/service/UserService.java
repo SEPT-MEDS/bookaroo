@@ -9,10 +9,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-  @Autowired
-  private UserRepository userRepository;
-  @Autowired
-  private BCryptPasswordEncoder bCryptPasswordEncoder;
+  @Autowired private UserRepository userRepository;
+  @Autowired private BCryptPasswordEncoder bCryptPasswordEncoder;
 
   public UserService(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
     this.userRepository = userRepository;
@@ -28,7 +26,6 @@ public class UserService {
     return userRepository.save(user);
   }
 
-
   public void deleteById(Long id) {
     userRepository.deleteById(id);
   }
@@ -39,5 +36,9 @@ public class UserService {
 
   public User getByEmail(String email) {
     return userRepository.findByEmail(email).orElse(null);
+  }
+
+  public void save(User user) {
+    userRepository.save(user);
   }
 }
