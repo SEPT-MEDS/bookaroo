@@ -13,19 +13,20 @@ import java.util.Map;
 @Component
 public class JwtTokenProvider {
 
-  //Generate the token
+  // Generate the token
   public String generateToken(Authentication authentication) {
+    // Generate claim data
     CustomUserDetails user = (CustomUserDetails) authentication.getPrincipal();
     Date now = new Date(System.currentTimeMillis());
-
     Date expiryDate = new Date(now.getTime() + SecurityConstant.EXPIRATION_TIME);
-
     String userId = Long.toString(user.getId());
 
+    // Set token claims
     Map<String, Object> claims = new HashMap<>();
     claims.put("id", (Long.toString(user.getId())));
     claims.put("username", user.getUsername());
 
+    // Build JWT Token
     return Jwts.builder()
         .setSubject(userId)
         .setClaims(claims)
@@ -35,4 +36,3 @@ public class JwtTokenProvider {
         .compact();
   }
 }
-

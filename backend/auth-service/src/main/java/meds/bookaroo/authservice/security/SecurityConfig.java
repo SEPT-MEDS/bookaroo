@@ -15,22 +15,20 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(
-    securedEnabled = true,
-    jsr250Enabled = true,
-    prePostEnabled = true
-)
+@EnableGlobalMethodSecurity(securedEnabled = true, jsr250Enabled = true, prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-  @Autowired
-  private CustomUserDetailsService customUserDetailsService;
+  @Autowired private CustomUserDetailsService customUserDetailsService;
 
-  @Autowired
-  private BCryptPasswordEncoder bCryptPasswordEncoder;
+  @Autowired private BCryptPasswordEncoder bCryptPasswordEncoder;
 
   @Override
-  protected void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
-    authenticationManagerBuilder.userDetailsService(customUserDetailsService).passwordEncoder(bCryptPasswordEncoder);
+  protected void configure(AuthenticationManagerBuilder authenticationManagerBuilder)
+      throws Exception {
+    // Set authentication manager user details service to custom service
+    authenticationManagerBuilder
+        .userDetailsService(customUserDetailsService)
+        .passwordEncoder(bCryptPasswordEncoder);
   }
 
   @Override
@@ -41,7 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Override
   protected void configure(HttpSecurity http) throws Exception {
-    http.cors().and().csrf().disable()
-        .authorizeRequests().anyRequest().permitAll();
+    // Configure CSRF and CORS requirements and authenticate required routes
+    http.cors().and().csrf().disable().authorizeRequests().anyRequest().permitAll();
   }
 }
