@@ -24,8 +24,7 @@ public class ReviewRepositoryTest {
 
   private static Validator validator;
 
-  @Autowired
-  private ReviewRepository reviewRepository;
+  @Autowired private ReviewRepository reviewRepository;
 
   @BeforeAll
   static void setUp() {

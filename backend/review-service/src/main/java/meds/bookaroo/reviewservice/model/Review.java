@@ -18,9 +18,7 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 public class Review {
-  private @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  Long id;
+  private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
 
   @NotNull(message = "Entity id is required")
   private Long entityId;

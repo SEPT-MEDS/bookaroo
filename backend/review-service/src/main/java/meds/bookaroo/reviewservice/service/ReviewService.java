@@ -9,8 +9,7 @@ import java.util.List;
 
 @Service
 public class ReviewService {
-  @Autowired
-  private ReviewRepository reviewRepository;
+  @Autowired private ReviewRepository reviewRepository;
 
   public ReviewService(ReviewRepository reviewRepository) {
     this.reviewRepository = reviewRepository;

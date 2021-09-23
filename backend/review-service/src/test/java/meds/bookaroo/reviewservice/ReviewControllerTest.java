@@ -24,10 +24,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest({ReviewController.class})
 public class ReviewControllerTest {
 
-  @MockBean
-  ReviewService reviewService;
-  @Autowired
-  private MockMvc mockMvc;
+  @MockBean ReviewService reviewService;
+  @Autowired private MockMvc mockMvc;
 
   public static String asJsonString(final Object obj) {
     try {
@@ -43,9 +41,8 @@ public class ReviewControllerTest {
     List<Review> reviews = new ArrayList<>();
     reviews.add(review);
     when(reviewService.getByEntityID(any())).thenReturn(reviews);
-    mockMvc.perform(
-        MockMvcRequestBuilders.get("/api/book/1/reviews")
-    )
+    mockMvc
+        .perform(MockMvcRequestBuilders.get("/api/book/1/reviews"))
         .andExpect(status().isOk())
         .andExpect(content().string(asJsonString(new GetReviewsResponseDTO(true, reviews, ""))));
   }
@@ -56,9 +53,8 @@ public class ReviewControllerTest {
     List<Review> reviews = new ArrayList<>();
     reviews.add(review);
     when(reviewService.getByEntityID(any())).thenReturn(reviews);
-    mockMvc.perform(
-        MockMvcRequestBuilders.get("/api/user/1/reviews")
-    )
+    mockMvc
+        .perform(MockMvcRequestBuilders.get("/api/user/1/reviews"))
         .andExpect(status().isOk())
         .andExpect(content().string(asJsonString(new GetReviewsResponseDTO(true, reviews, ""))));
   }
@@ -67,9 +63,11 @@ public class ReviewControllerTest {
   public void createValidListing() throws Exception {
     Review review = new Review(1L, 1L, 1L, 1, "Review content");
     when(reviewService.create(any())).thenReturn(review);
-    mockMvc.perform(
-        MockMvcRequestBuilders.post("/api/review").content(asJsonString(review)).contentType("application/json")
-    )
+    mockMvc
+        .perform(
+            MockMvcRequestBuilders.post("/api/review")
+                .content(asJsonString(review))
+                .contentType("application/json"))
         .andExpect(status().isOk())
         .andExpect(content().string(asJsonString(new CreateReviewResponseDTO(true, ""))));
   }
@@ -78,9 +76,11 @@ public class ReviewControllerTest {
   public void createInvalidReviewNullEntity() throws Exception {
     Review review = new Review(1L, null, 1L, 1, "Review content");
     when(reviewService.create(any())).thenReturn(review);
-    mockMvc.perform(
-        MockMvcRequestBuilders.post("/api/review").content(asJsonString(review)).contentType("application/json")
-    )
+    mockMvc
+        .perform(
+            MockMvcRequestBuilders.post("/api/review")
+                .content(asJsonString(review))
+                .contentType("application/json"))
         .andExpect(status().isBadRequest());
   }
 
@@ -88,9 +88,11 @@ public class ReviewControllerTest {
   public void createInvalidReviewNullReviewer() throws Exception {
     Review review = new Review(1L, 1L, null, 1, "Review content");
     when(reviewService.create(any())).thenReturn(review);
-    mockMvc.perform(
-            MockMvcRequestBuilders.post("/api/review").content(asJsonString(review)).contentType("application/json")
-        )
+    mockMvc
+        .perform(
+            MockMvcRequestBuilders.post("/api/review")
+                .content(asJsonString(review))
+                .contentType("application/json"))
         .andExpect(status().isBadRequest());
   }
 
@@ -98,9 +100,11 @@ public class ReviewControllerTest {
   public void createInvalidReviewMinRating() throws Exception {
     Review review = new Review(1L, 1L, 1L, 0, "Review content");
     when(reviewService.create(any())).thenReturn(review);
-    mockMvc.perform(
-            MockMvcRequestBuilders.post("/api/review").content(asJsonString(review)).contentType("application/json")
-        )
+    mockMvc
+        .perform(
+            MockMvcRequestBuilders.post("/api/review")
+                .content(asJsonString(review))
+                .contentType("application/json"))
         .andExpect(status().isBadRequest());
   }
 
@@ -108,9 +112,11 @@ public class ReviewControllerTest {
   public void createInvalidReviewMaxRating() throws Exception {
     Review review = new Review(1L, 1L, 1L, 6, "Review content");
     when(reviewService.create(any())).thenReturn(review);
-    mockMvc.perform(
-            MockMvcRequestBuilders.post("/api/review").content(asJsonString(review)).contentType("application/json")
-        )
+    mockMvc
+        .perform(
+            MockMvcRequestBuilders.post("/api/review")
+                .content(asJsonString(review))
+                .contentType("application/json"))
         .andExpect(status().isBadRequest());
   }
 
@@ -118,9 +124,11 @@ public class ReviewControllerTest {
   public void createInvalidReviewNullContent() throws Exception {
     Review review = new Review(1L, 1L, 1L, 1, null);
     when(reviewService.create(any())).thenReturn(review);
-    mockMvc.perform(
-            MockMvcRequestBuilders.post("/api/review").content(asJsonString(review)).contentType("application/json")
-        )
+    mockMvc
+        .perform(
+            MockMvcRequestBuilders.post("/api/review")
+                .content(asJsonString(review))
+                .contentType("application/json"))
         .andExpect(status().isBadRequest());
   }
 
@@ -128,9 +136,11 @@ public class ReviewControllerTest {
   public void createInvalidReviewBlankContent() throws Exception {
     Review review = new Review(1L, 1L, 1L, 1, "");
     when(reviewService.create(any())).thenReturn(review);
-    mockMvc.perform(
-            MockMvcRequestBuilders.post("/api/review").content(asJsonString(review)).contentType("application/json")
-        )
+    mockMvc
+        .perform(
+            MockMvcRequestBuilders.post("/api/review")
+                .content(asJsonString(review))
+                .contentType("application/json"))
         .andExpect(status().isBadRequest());
   }
 }
