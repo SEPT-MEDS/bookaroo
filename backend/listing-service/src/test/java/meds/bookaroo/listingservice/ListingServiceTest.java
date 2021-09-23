@@ -21,8 +21,7 @@ public class ListingServiceTest {
 
   ListingService listingService;
 
-  @Mock
-  ListingRepository listingRepository;
+  @Mock ListingRepository listingRepository;
 
   @BeforeEach
   void initUseCase() {

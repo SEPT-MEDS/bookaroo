@@ -20,14 +20,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(MockitoExtension.class)
 @DataJpaTest
-
 public class ListingRepositoryTest {
-
 
   private static Validator validator;
 
-  @Autowired
-  private ListingRepository listingRepository;
+  @Autowired private ListingRepository listingRepository;
 
   @BeforeAll
   static void setUp() {

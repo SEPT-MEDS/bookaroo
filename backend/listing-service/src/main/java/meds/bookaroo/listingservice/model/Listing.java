@@ -14,9 +14,7 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 public class Listing {
-  private @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  Long id;
+  private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
 
   @NotNull(message = "ISBN is required")
   @Min(value = 1000000000, message = "ISBN must be 10 or more digits")

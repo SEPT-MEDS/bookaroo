@@ -9,8 +9,7 @@ import java.util.List;
 
 @Service
 public class ListingService {
-  @Autowired
-  private ListingRepository listingRepository;
+  @Autowired private ListingRepository listingRepository;
 
   public ListingService(ListingRepository listingRepository) {
     this.listingRepository = listingRepository;
@@ -18,6 +17,10 @@ public class ListingService {
 
   public Listing create(Listing listing) {
     return listingRepository.save(listing);
+  }
+
+  public void delete(long listingId) {
+    listingRepository.deleteById(listingId);
   }
 
   public Listing getByListingId(Long listingId) {
