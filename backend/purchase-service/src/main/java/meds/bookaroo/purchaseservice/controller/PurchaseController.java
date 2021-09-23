@@ -29,7 +29,7 @@ public class PurchaseController {
   @PostMapping("/api/purchase")
   public ResponseEntity<?> addPurchase(@RequestBody @Valid Purchase purchase) {
     purchaseService.create(purchase);
-    Listing listing = listingClient.getListing(purchase.getListingId());
+    Listing listing = listingClient.getListing(purchase.getListingId()).orElseThrow();
     listing.setIsVisible(false);
     listingClient.updateListing(listing);
     return ResponseEntity.ok(new CreatePurchaseResponseDTO(true, ""));
@@ -72,7 +72,7 @@ public class PurchaseController {
   public ResponseEntity<?> deletePurchaseById(@PathVariable Long purchaseid) {
     Purchase purchase = purchaseService.getByPurchaseId(purchaseid);
     if (purchase != null && purchase.getPurchaseCreationTime() > 1) {
-      Listing listing = listingClient.getListing(purchase.getListingId());
+      Listing listing = listingClient.getListing(purchase.getListingId()).orElseThrow();
       listing.setIsVisible(true);
       listingClient.updateListing(listing);
       return ResponseEntity.ok().build();
