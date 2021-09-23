@@ -3,6 +3,7 @@ package meds.bookaroo.authservice.responseDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+@Data
 public class JWTLoginResponseDTO extends StdResponseDTO {
   ResponseData data;
 
