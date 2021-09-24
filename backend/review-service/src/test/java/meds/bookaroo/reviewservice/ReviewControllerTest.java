@@ -47,7 +47,7 @@ public class ReviewControllerTest {
         MockMvcRequestBuilders.get("/api/book/1/reviews")
     )
         .andExpect(status().isOk())
-        .andExpect(content().string(asJsonString(new GetReviewsResponseDTO(true, reviews, ""))));
+        .andExpect(content().string(asJsonString(new GetReviewsResponseDTO(reviews))));
   }
 
   @Test
@@ -60,7 +60,7 @@ public class ReviewControllerTest {
         MockMvcRequestBuilders.get("/api/user/1/reviews")
     )
         .andExpect(status().isOk())
-        .andExpect(content().string(asJsonString(new GetReviewsResponseDTO(true, reviews, ""))));
+        .andExpect(content().string(asJsonString(new GetReviewsResponseDTO(reviews))));
   }
 
   @Test
