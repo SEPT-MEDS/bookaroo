@@ -30,3 +30,7 @@ services:
     image: review-service:0.0.1-SNAPSHOT
     depends_on:
       - discovery
+  purchase:
+    image: purchase-service:0.0.1-SNAPSHOT
+    depends_on:
+      - discovery
