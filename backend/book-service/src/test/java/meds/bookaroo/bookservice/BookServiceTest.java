@@ -33,7 +33,7 @@ public class BookServiceTest {
     Book book =
         new Book(
             12345678900L,
-            "Book Title",
+            "Review Title",
             "John Doe",
             "Very short blurb of the book.",
             314,
@@ -56,15 +56,15 @@ public class BookServiceTest {
     books.add(
         new Book(
             12345678900L,
-            "Book Title",
+            "Review Title",
             "John Doe",
             "Very short blurb of the book.",
             314,
             "https://www.booksite.com",
             5,
             "Comedy"));
-    when(bookRepository.findByTitleContaining("Book")).thenReturn(books);
-    assertEquals(books, bookService.getByContainingTitle("Book"));
+    when(bookRepository.findByTitleContaining("Review")).thenReturn(books);
+    assertEquals(books, bookService.getByContainingTitle("Review"));
   }
 
   @Test
@@ -79,7 +79,7 @@ public class BookServiceTest {
     books.add(
         new Book(
             12345678900L,
-            "Book Title",
+            "Review Title",
             "John Doe",
             "Very short blurb of the book.",
             314,
@@ -102,7 +102,7 @@ public class BookServiceTest {
     books.add(
         new Book(
             12345678900L,
-            "Book Title",
+            "Review Title",
             "John Doe",
             "Very short blurb of the book.",
             314,
@@ -125,7 +125,7 @@ public class BookServiceTest {
     books.add(
         new Book(
             12345678900L,
-            "Book Title",
+            "Review Title",
             "John Doe",
             "Very short blurb of the book.",
             314,
@@ -147,7 +147,7 @@ public class BookServiceTest {
     Book book =
         new Book(
             12345678900L,
-            "Book Title",
+            "Review Title",
             "John Doe",
             "Very short blurb of the book.",
             314,
