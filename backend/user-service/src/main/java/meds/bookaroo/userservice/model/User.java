@@ -1,6 +1,5 @@
 package meds.bookaroo.userservice.model;
 
-
 import lombok.*;
 
 import javax.persistence.*;
@@ -15,9 +14,7 @@ import javax.validation.constraints.NotBlank;
 @Setter
 @Data
 public class User {
-  private @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  Long id;
+  private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
 
   @Email(message = "Email needs to be a valid email")
   @NotBlank(message = "Email is required")

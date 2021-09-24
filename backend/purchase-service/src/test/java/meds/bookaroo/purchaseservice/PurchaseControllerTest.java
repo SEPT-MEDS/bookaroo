@@ -46,7 +46,7 @@ public class PurchaseControllerTest {
 
   @Test
   public void getPurchaseWithId() throws Exception {
-    Purchase purchase = new Purchase(1L, 1L, 1L, 1L, 1L, "status");
+    Purchase purchase = new Purchase(1L, 1L, 1L, 1L, 1L);
     when(purchaseService.getByPurchaseId(any())).thenReturn(purchase);
     mockMvc.perform(
             MockMvcRequestBuilders.get("/api/purchase/1")
@@ -67,7 +67,7 @@ public class PurchaseControllerTest {
 
   @Test
   public void createInvalidPurchaseBlankListingId() throws Exception {
-    Purchase purchase = new Purchase(1L, null, 1L, 1L, 1L, "status");
+    Purchase purchase = new Purchase(1L, null, 1L, 1L, 1L);
     when(purchaseService.create(any())).thenReturn(purchase);
     Listing listing = new Listing(1L, 1000000000L, 1L, 50, false, true, true, "url");
     when(listingClient.getListing(1L)).thenReturn(Optional.ofNullable(listing));
@@ -80,7 +80,7 @@ public class PurchaseControllerTest {
 
   @Test
   public void createInvalidPurchaseBlankBuyerId() throws Exception {
-    Purchase purchase = new Purchase(1L, 1L, null, 1L, 1L, "status");
+    Purchase purchase = new Purchase(1L, 1L, null, 1L, 1L);
     when(purchaseService.create(any())).thenReturn(purchase);
     Listing listing = new Listing(1L, 1000000000L, 1L, 50, false, true, true, "url");
     when(listingClient.getListing(1L)).thenReturn(Optional.ofNullable(listing));
@@ -93,7 +93,7 @@ public class PurchaseControllerTest {
 
   @Test
   public void createInvalidPurchaseBlankSellerId() throws Exception {
-    Purchase purchase = new Purchase(1L, 1L, 1L, null, 1L, "status");
+    Purchase purchase = new Purchase(1L, 1L, 1L, null, 1L);
     when(purchaseService.create(any())).thenReturn(purchase);
     Listing listing = new Listing(1L, 1000000000L, 1L, 50, false, true, true, "url");
     when(listingClient.getListing(1L)).thenReturn(Optional.ofNullable(listing));
@@ -106,20 +106,7 @@ public class PurchaseControllerTest {
 
   @Test
   public void createInvalidPurchaseBlankPurchaseCreationTimeId() throws Exception {
-    Purchase purchase = new Purchase(1L, 1L, 1L, 1L, null, "status");
-    when(purchaseService.create(any())).thenReturn(purchase);
-    Listing listing = new Listing(1L, 1000000000L, 1L, 50, false, true, true, "url");
-    when(listingClient.getListing(1L)).thenReturn(Optional.ofNullable(listing));
-    System.out.println(asJsonString(purchase));
-    mockMvc.perform(
-                    MockMvcRequestBuilders.post("/api/purchase").content(asJsonString(purchase)).contentType("application/json")
-            )
-            .andExpect(status().isBadRequest());
-  }
-
-  @Test
-  public void createInvalidPurchaseBlankStatus() throws Exception {
-    Purchase purchase = new Purchase(1L, 1L, 1L, 1L, 1L, null);
+    Purchase purchase = new Purchase(1L, 1L, 1L, 1L, null);
     when(purchaseService.create(any())).thenReturn(purchase);
     Listing listing = new Listing(1L, 1000000000L, 1L, 50, false, true, true, "url");
     when(listingClient.getListing(1L)).thenReturn(Optional.ofNullable(listing));
@@ -133,7 +120,7 @@ public class PurchaseControllerTest {
   @Test
   public void getPurchaseWithBuyerId() {
     List<Purchase> purchases = new ArrayList<>();
-    purchases.add(new Purchase(1L, 1L, 1L, 1L, 1L, "status"));
+    purchases.add(new Purchase(1L, 1L, 1L, 1L, 1L));
     when(purchaseService.getByBuyerId(1L)).thenReturn(purchases);
     assertEquals(purchases, purchaseService.getByBuyerId(1L));
   }
@@ -147,7 +134,7 @@ public class PurchaseControllerTest {
   @Test
   public void getPurchaseWithSellerId() {
     List<Purchase> purchases = new ArrayList<>();
-    purchases.add(new Purchase(1L, 1L, 1L, 1L, 1L, "status"));
+    purchases.add(new Purchase(1L, 1L, 1L, 1L, 1L));
     when(purchaseService.getBySellerId(1L)).thenReturn(purchases);
     assertEquals(purchases, purchaseService.getBySellerId(1L));
   }
@@ -161,7 +148,7 @@ public class PurchaseControllerTest {
   @Test
   public void getAllPurchases() {
     List<Purchase> purchases = new ArrayList<>();
-    purchases.add(new Purchase(1L, 1L, 1L, 1L, 1L, "status"));
+    purchases.add(new Purchase(1L, 1L, 1L, 1L, 1L));
     when(purchaseService.getAll()).thenReturn(purchases);
     assertEquals(purchases, purchaseService.getAll());
   }
@@ -171,5 +158,4 @@ public class PurchaseControllerTest {
     when(purchaseService.getAll()).thenReturn(new ArrayList<>());
     assertEquals(0, purchaseService.getAll().size());
   }
-
 }

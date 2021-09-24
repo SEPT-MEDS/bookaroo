@@ -30,7 +30,4 @@ public class Purchase {
 
   @NotNull(message = "User id is required")
   private Long purchaseCreationTime;
-
-  @NotNull(message = "Status is required")
-  private String status;
 }

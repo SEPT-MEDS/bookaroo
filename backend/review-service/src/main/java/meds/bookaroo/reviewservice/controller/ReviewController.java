@@ -14,8 +14,7 @@ import java.util.List;
 @RestController
 public class ReviewController {
 
-  @Autowired
-  private ReviewService reviewService;
+  @Autowired private ReviewService reviewService;
 
   // Create a new review
   @PostMapping("/api/review")

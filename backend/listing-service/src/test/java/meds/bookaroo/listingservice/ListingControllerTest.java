@@ -21,10 +21,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest({ListingController.class})
 public class ListingControllerTest {
 
-  @MockBean
-  ListingService listingService;
-  @Autowired
-  private MockMvc mockMvc;
+  @MockBean ListingService listingService;
+  @Autowired private MockMvc mockMvc;
 
   public static String asJsonString(final Object obj) {
     try {
@@ -38,21 +36,22 @@ public class ListingControllerTest {
   public void getListingWithId() throws Exception {
     Listing listing = new Listing(1L, 1000000000L, 1L, 50, false, true, true, "url");
     when(listingService.getByListingId(any())).thenReturn(listing);
-    mockMvc.perform(
-        MockMvcRequestBuilders.get("/api/listing/1")
-    )
+    mockMvc
+        .perform(MockMvcRequestBuilders.get("/api/listing/1"))
         .andExpect(status().isOk())
-        .andExpect(content().string(asJsonString(new GetListingResponseDTO(true, listing, ""))));
+        .andExpect(content().string(asJsonString(new GetListingResponseDTO(true, "", listing))));
   }
 
   @Test
   public void getInvalidListingWithId() throws Exception {
     when(listingService.getByListingId(any())).thenReturn(null);
-    mockMvc.perform(
-        MockMvcRequestBuilders.get("/api/listing/2")
-    )
+    mockMvc
+        .perform(MockMvcRequestBuilders.get("/api/listing/2"))
         .andExpect(status().isNotFound())
-        .andExpect(content().string(asJsonString(new GetListingResponseDTO(false, null, "No listing with id 2"))));
+        .andExpect(
+            content()
+                .string(
+                    asJsonString(new GetListingResponseDTO(false, "No listing with id 2", null))));
   }
 
   @Test
@@ -60,9 +59,11 @@ public class ListingControllerTest {
     Listing listing = new Listing(1L, null, 1L, 50, false, true, true, "url");
     when(listingService.create(any())).thenReturn(listing);
     System.out.println(asJsonString(listing));
-    mockMvc.perform(
-        MockMvcRequestBuilders.post("/api/listing").content(asJsonString(listing)).contentType("application/json")
-    )
+    mockMvc
+        .perform(
+            MockMvcRequestBuilders.post("/api/listing")
+                .content(asJsonString(listing))
+                .contentType("application/json"))
         .andExpect(status().isBadRequest());
   }
 
@@ -71,9 +72,11 @@ public class ListingControllerTest {
     Listing listing = new Listing(1L, 1L, 1L, 50, false, true, true, "url");
     when(listingService.create(any())).thenReturn(listing);
     System.out.println(asJsonString(listing));
-    mockMvc.perform(
-        MockMvcRequestBuilders.post("/api/listing").content(asJsonString(listing)).contentType("application/json")
-    )
+    mockMvc
+        .perform(
+            MockMvcRequestBuilders.post("/api/listing")
+                .content(asJsonString(listing))
+                .contentType("application/json"))
         .andExpect(status().isBadRequest());
   }
 
@@ -82,9 +85,11 @@ public class ListingControllerTest {
     Listing listing = new Listing(1L, 1000000000L, null, 50, false, true, true, "url");
     when(listingService.create(any())).thenReturn(listing);
     System.out.println(asJsonString(listing));
-    mockMvc.perform(
-        MockMvcRequestBuilders.post("/api/listing").content(asJsonString(listing)).contentType("application/json")
-    )
+    mockMvc
+        .perform(
+            MockMvcRequestBuilders.post("/api/listing")
+                .content(asJsonString(listing))
+                .contentType("application/json"))
         .andExpect(status().isBadRequest());
   }
 
@@ -93,9 +98,11 @@ public class ListingControllerTest {
     Listing listing = new Listing(1L, 1000000000L, 1L, 50, null, true, true, "url");
     when(listingService.create(any())).thenReturn(listing);
     System.out.println(asJsonString(listing));
-    mockMvc.perform(
-        MockMvcRequestBuilders.post("/api/listing").content(asJsonString(listing)).contentType("application/json")
-    )
+    mockMvc
+        .perform(
+            MockMvcRequestBuilders.post("/api/listing")
+                .content(asJsonString(listing))
+                .contentType("application/json"))
         .andExpect(status().isBadRequest());
   }
 
@@ -104,9 +111,11 @@ public class ListingControllerTest {
     Listing listing = new Listing(1L, 1000000000L, 1L, 50, true, null, true, "url");
     when(listingService.create(any())).thenReturn(listing);
     System.out.println(asJsonString(listing));
-    mockMvc.perform(
-        MockMvcRequestBuilders.post("/api/listing").content(asJsonString(listing)).contentType("application/json")
-    )
+    mockMvc
+        .perform(
+            MockMvcRequestBuilders.post("/api/listing")
+                .content(asJsonString(listing))
+                .contentType("application/json"))
         .andExpect(status().isBadRequest());
   }
 
@@ -115,9 +124,11 @@ public class ListingControllerTest {
     Listing listing = new Listing(1L, 1000000000L, 1L, 50, true, true, null, "url");
     when(listingService.create(any())).thenReturn(listing);
     System.out.println(asJsonString(listing));
-    mockMvc.perform(
-        MockMvcRequestBuilders.post("/api/listing").content(asJsonString(listing)).contentType("application/json")
-    )
+    mockMvc
+        .perform(
+            MockMvcRequestBuilders.post("/api/listing")
+                .content(asJsonString(listing))
+                .contentType("application/json"))
         .andExpect(status().isBadRequest());
   }
 
@@ -126,9 +137,11 @@ public class ListingControllerTest {
     Listing listing = new Listing(1L, 1000000000L, 1L, 50, true, true, true, "");
     when(listingService.create(any())).thenReturn(listing);
     System.out.println(asJsonString(listing));
-    mockMvc.perform(
-        MockMvcRequestBuilders.post("/api/listing").content(asJsonString(listing)).contentType("application/json")
-    )
+    mockMvc
+        .perform(
+            MockMvcRequestBuilders.post("/api/listing")
+                .content(asJsonString(listing))
+                .contentType("application/json"))
         .andExpect(status().isBadRequest());
   }
 
@@ -137,9 +150,11 @@ public class ListingControllerTest {
     Listing listing = new Listing(1L, 1000000000L, 1L, 50, true, true, true, null);
     when(listingService.create(any())).thenReturn(listing);
     System.out.println(asJsonString(listing));
-    mockMvc.perform(
-        MockMvcRequestBuilders.post("/api/listing").content(asJsonString(listing)).contentType("application/json")
-    )
+    mockMvc
+        .perform(
+            MockMvcRequestBuilders.post("/api/listing")
+                .content(asJsonString(listing))
+                .contentType("application/json"))
         .andExpect(status().isBadRequest());
   }
 
@@ -147,9 +162,11 @@ public class ListingControllerTest {
   public void createValidListing() throws Exception {
     Listing listing = new Listing(1L, 1000000000L, 1L, 50, true, true, true, "url");
     when(listingService.create(any())).thenReturn(listing);
-    mockMvc.perform(
-        MockMvcRequestBuilders.post("/api/listing").content(asJsonString(listing)).contentType("application/json")
-    )
+    mockMvc
+        .perform(
+            MockMvcRequestBuilders.post("/api/listing")
+                .content(asJsonString(listing))
+                .contentType("application/json"))
         .andExpect(status().isOk())
         .andExpect(content().string(asJsonString(new CreateListingResponseDTO(true, ""))));
   }

@@ -1,9 +1,8 @@
 package meds.bookaroo.purchaseservice.controller;
 
-import meds.bookaroo.purchaseservice.feignClients.Listing;
 import meds.bookaroo.purchaseservice.feignClients.ListingClient;
 import meds.bookaroo.purchaseservice.model.Purchase;
-import meds.bookaroo.purchaseservice.requestDTO.UpdateStatusDTO;
+import meds.bookaroo.purchaseservice.requestDTO.UpdateListingStatusDTO;
 import meds.bookaroo.purchaseservice.responseDTO.CreatePurchaseResponseDTO;
 import meds.bookaroo.purchaseservice.responseDTO.GetPurchaseResponseDTO;
 import meds.bookaroo.purchaseservice.responseDTO.GetPurchasesResponseDTO;
@@ -19,19 +18,17 @@ import java.util.List;
 @RestController
 public class PurchaseController {
 
-  @Autowired
-  private PurchaseService purchaseService;
+  @Autowired private PurchaseService purchaseService;
 
-  @Autowired
-  private ListingClient listingClient;
+  @Autowired private ListingClient listingClient;
 
   // Create a purchase
   @PostMapping("/api/purchase")
   public ResponseEntity<?> addPurchase(@RequestBody @Valid Purchase purchase) {
     purchaseService.create(purchase);
-    Listing listing = listingClient.getListing(purchase.getListingId()).orElseThrow();
-    listing.setIsVisible(false);
-    listingClient.updateListing(listing);
+    // Update the listing linked to the service as invisible
+    UpdateListingStatusDTO request = new UpdateListingStatusDTO(purchase.getListingId(), false);
+    listingClient.updateListing(request);
     return ResponseEntity.ok(new CreatePurchaseResponseDTO(true, ""));
   }
 
@@ -42,7 +39,8 @@ public class PurchaseController {
     if (purchase != null) {
       return ResponseEntity.ok(new GetPurchaseResponseDTO(true, purchase, ""));
     } else {
-      return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new GetPurchaseResponseDTO(false, null, "No purchase with id " + purchaseid));
+      return ResponseEntity.status(HttpStatus.NOT_FOUND)
+          .body(new GetPurchaseResponseDTO(false, null, "No purchase with id " + purchaseid));
     }
   }
 
@@ -71,25 +69,16 @@ public class PurchaseController {
   @DeleteMapping("/api/purchase/{purchaseid}")
   public ResponseEntity<?> deletePurchaseById(@PathVariable Long purchaseid) {
     Purchase purchase = purchaseService.getByPurchaseId(purchaseid);
+    // Ensure that x number of hours havent already passed
     if (purchase != null && purchase.getPurchaseCreationTime() > 1) {
-      Listing listing = listingClient.getListing(purchase.getListingId()).orElseThrow();
-      listing.setIsVisible(true);
-      listingClient.updateListing(listing);
-      return ResponseEntity.ok().build();
-    } else {
-      return ResponseEntity.badRequest().build();
-    }
-  }
-
-  @PatchMapping("/api/purchase/")
-  public ResponseEntity<?> updatePurchaseStatus(@RequestBody UpdateStatusDTO updateStatusDTO) {
-    Purchase purchase = purchaseService.getByPurchaseId(updateStatusDTO.getPurchaseId());
-    if (purchase != null) {
-      purchase.setStatus(updateStatusDTO.getStatus());
+      // Make the listing for the purchase invisible
+      UpdateListingStatusDTO request = new UpdateListingStatusDTO(purchase.getListingId(), true);
+      listingClient.updateListing(request);
+      // Remove the purchase from the DB
+      purchaseService.deleteByPurchaseId(purchaseid);
       return ResponseEntity.ok().build();
     } else {
       return ResponseEntity.badRequest().build();
     }
   }
 }
-
