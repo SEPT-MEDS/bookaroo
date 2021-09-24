@@ -1,26 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import { Reviews } from 'components'
-import { getBookReviews } from 'services'
+import { getUserReviews } from 'services'
 
-const BookReviews = ({book}) => {
+const UserReviews = ({user}) => {
   const [reviews, setReviews] = useState()
   const [isValid, setIsValid] = useState(false)
 
   useEffect(() => {
-    if (book) {
+    if (user) {
       // two children with same key?
-      getBookReviews(book.isbn)
+      getUserReviews(user.id)
         .then(reviews => setReviews(reviews))
         .then(() => setIsValid(true))
     }
-  },[book, isValid])
+  },[user, isValid])
 
   return <div>
     <h2>
-      Reviews of <em>{book.title}</em>
+      Reviews of <em>{user.username}</em>
     </h2>
-    <Reviews reviews={reviews} entityId={book.isbn} onPost={() => setIsValid(false)} />
+    <Reviews reviews={reviews} entityId={user.id} onPost={() => setIsValid(false)} />
   </div>
 }
 
-export default BookReviews
+export default UserReviews

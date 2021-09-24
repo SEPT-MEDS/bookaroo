@@ -18,8 +18,6 @@ import {
 const BookDetailPage = () => {
   const { isbn } = useParams()
   const {response: book, error, isLoading} = useAsync(() => getBook(isbn), [isbn])
-  // const {response: reviews } = useAsync(() => getReviews(isbn), [isbn])
-  // const { review } = 'This is an amazing book!'
 
   return (
     <Container>

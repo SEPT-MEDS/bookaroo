@@ -5,6 +5,7 @@ import { useAsync } from 'hooks'
 import { getListing, getBook, getUser } from 'services'
 import { Notification, Spinner, BookSummary, Rating, Button } from 'components'
 import { Container, ListingInfoContainer, ActionBox } from './listingDetailPageStyle'
+import UserReviews from './UserReviews'
 
 const ListingDetailPage = () => {
   const { id } = useParams()
@@ -44,6 +45,9 @@ const ListingInfo = ({ id, sellerId, price, isSwap, imageUrl, isPreowned, bookIs
         {isSwap && <h3>Swap with <em>{vendor?.username}</em> for another book</h3>}
         <Button onClick={handleAddToCart}>{isSwap ? `Contact ${vendor?.username || 'seller'}` : 'Buy Now'}</Button>
       </ActionBox>
+    </div>
+    <div className='reviews'>
+      {vendor && <UserReviews user={vendor} />}
     </div>
   </ListingInfoContainer>
 }

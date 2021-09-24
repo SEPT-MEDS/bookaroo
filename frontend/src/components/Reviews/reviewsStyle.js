@@ -1,20 +1,13 @@
 import styled from 'styled-components'
 
 export const ReviewSection = styled.div`
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 `
 
-export const ReviewInput = styled.form`
+export const ReviewInputForm = styled.form`
    // Position inputs nicely
    margin-top: 1rem;
    margin-bottom: 2rem;
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
    // Slightly round inputs and set border properties
    input[type=text], input[type=number] {
       padding: .4em;
@@ -27,10 +20,12 @@ export const ReviewInput = styled.form`
       margin-bottom: .25rem;
       width: 100%;
    }
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
+   input[type=number] {
+      width: 5rem;
+      margin-right: 1rem;
+   }
+
    // Button to follow style of the site
    input[type=submit] {
       float:right;
@@ -41,7 +36,8 @@ export const ReviewInput = styled.form`
       color: white;
       border-radius: .75rem;
       font-size: 1rem;
-      font-weight: bold;      background: ${p => p.theme.primary};
+      font-weight: bold;
+      background: ${p => p.theme.primary};
    }
 `
 
