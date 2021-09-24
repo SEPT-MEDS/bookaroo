@@ -49,6 +49,22 @@ spring:
           uri: lb://PURCHASE-SERVICE
           predicates:
             - Path=/api/purchase/**
+        - id: BOOK-REVIEW-SERVICE
+          uri: lb://REVIEW-SERVICE
+          predicates:
+            - Path=/api/book/*/reviews
+          filters:
+            - name: JwtAuth
+        - id: USER-REVIEW-SERVICE
+          uri: lb://REVIEW-SERVICE
+          predicates:
+            - Path=/api/user/*/reviews
+          filters:
+            - name: JwtAuth
+        - id: CREATE-REVIEW-SERVICE
+          uri: lb://REVIEW-SERVICE
+          predicates:
+            - Path=/api/review
           filters:
             - name: JwtAuth
 
