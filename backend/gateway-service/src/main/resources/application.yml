@@ -45,6 +45,10 @@ spring:
             - Path=/api/listing/**
           filters:
             - name: JwtAuth
+        - id: PURCHASE-SERVICE
+          uri: lb://PURCHASE-SERVICE
+          predicates:
+            - Path=/api/purchase/**
         - id: BOOK-REVIEW-SERVICE
           uri: lb://REVIEW-SERVICE
           predicates:

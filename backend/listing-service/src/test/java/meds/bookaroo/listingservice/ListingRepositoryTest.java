@@ -62,7 +62,7 @@ public class ListingRepositoryTest {
   void saveListingBlankISBN() {
     Listing listing = new Listing(1L, null, 1L, 50, false, true, false, "url");
     Set<ConstraintViolation<Listing>> violations = validator.validate(listing);
-    assertEquals(2, violations.size());
+    assertEquals(1, violations.size());
   }
 
   @Test

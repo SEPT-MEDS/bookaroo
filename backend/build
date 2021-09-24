@@ -6,4 +6,5 @@
 (cd discovery-service && mvn compile jib:dockerBuild) &
 (cd listing-service && mvn compile jib:dockerBuild) &
 (cd review-service && mvn compile jib:dockerBuild) &
+(cd purchase-service && mvn compile jib:dockerBuild) &
 wait
