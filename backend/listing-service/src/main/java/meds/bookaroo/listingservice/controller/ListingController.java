@@ -1,6 +1,7 @@
 package meds.bookaroo.listingservice.controller;
 
 import meds.bookaroo.listingservice.model.Listing;
+import meds.bookaroo.listingservice.requestDTO.UpdateListingStatusDTO;
 import meds.bookaroo.listingservice.responseDTO.CreateListingResponseDTO;
 import meds.bookaroo.listingservice.responseDTO.DeleteListingResponseDTO;
 import meds.bookaroo.listingservice.responseDTO.GetListingResponseDTO;
@@ -62,6 +63,19 @@ public class ListingController {
     } else {
       return ResponseEntity.status(HttpStatus.NOT_FOUND)
           .body(new DeleteListingResponseDTO(false, "No listing with id " + listingid));
+    }
+  }
+
+  // Replace a listing with a new listing
+  @PostMapping("/api/listing/visible")
+  public ResponseEntity<?> updateListingStatus(@RequestBody UpdateListingStatusDTO request) {
+    Listing listing = listingService.getByListingId(request.getListingId());
+    if (listing != null) {
+      listing.setIsVisible(request.isVisible());
+      listingService.create(listing);
+      return ResponseEntity.ok(true);
+    } else {
+      return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
   }
 }
