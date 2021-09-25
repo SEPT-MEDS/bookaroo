@@ -46,7 +46,7 @@ public class PurchaseControllerTest {
 
   @Test
   public void getPurchaseWithId() throws Exception {
-    Purchase purchase = new Purchase(1L, 1L, 1L, 1L, 1L);
+    Purchase purchase = new Purchase(1L, 1L, 1L, 1L, "paypalData", 1L);
     when(purchaseService.getByPurchaseId(any())).thenReturn(purchase);
     mockMvc.perform(
             MockMvcRequestBuilders.get("/api/purchase/1")
@@ -67,11 +67,10 @@ public class PurchaseControllerTest {
 
   @Test
   public void createInvalidPurchaseBlankListingId() throws Exception {
-    Purchase purchase = new Purchase(1L, null, 1L, 1L, 1L);
+    Purchase purchase = new Purchase(1L, null, 1L, 1L,"paypalData",  1L);
     when(purchaseService.create(any())).thenReturn(purchase);
     Listing listing = new Listing(1L, 1000000000L, 1L, 50, false, true, true, "url");
     when(listingClient.getListing(1L)).thenReturn(Optional.ofNullable(listing));
-    System.out.println(asJsonString(purchase));
     mockMvc.perform(
                     MockMvcRequestBuilders.post("/api/purchase").content(asJsonString(purchase)).contentType("application/json")
             )
@@ -80,11 +79,10 @@ public class PurchaseControllerTest {
 
   @Test
   public void createInvalidPurchaseBlankBuyerId() throws Exception {
-    Purchase purchase = new Purchase(1L, 1L, null, 1L, 1L);
+    Purchase purchase = new Purchase(1L, 1L, null, 1L, "paypalData", 1L);
     when(purchaseService.create(any())).thenReturn(purchase);
     Listing listing = new Listing(1L, 1000000000L, 1L, 50, false, true, true, "url");
     when(listingClient.getListing(1L)).thenReturn(Optional.ofNullable(listing));
-    System.out.println(asJsonString(purchase));
     mockMvc.perform(
                     MockMvcRequestBuilders.post("/api/purchase").content(asJsonString(purchase)).contentType("application/json")
             )
@@ -93,11 +91,10 @@ public class PurchaseControllerTest {
 
   @Test
   public void createInvalidPurchaseBlankSellerId() throws Exception {
-    Purchase purchase = new Purchase(1L, 1L, 1L, null, 1L);
+    Purchase purchase = new Purchase(1L, 1L, 1L, null, "paypalData", 1L);
     when(purchaseService.create(any())).thenReturn(purchase);
     Listing listing = new Listing(1L, 1000000000L, 1L, 50, false, true, true, "url");
     when(listingClient.getListing(1L)).thenReturn(Optional.ofNullable(listing));
-    System.out.println(asJsonString(purchase));
     mockMvc.perform(
                     MockMvcRequestBuilders.post("/api/purchase").content(asJsonString(purchase)).contentType("application/json")
             )
@@ -105,12 +102,23 @@ public class PurchaseControllerTest {
   }
 
   @Test
-  public void createInvalidPurchaseBlankPurchaseCreationTimeId() throws Exception {
-    Purchase purchase = new Purchase(1L, 1L, 1L, 1L, null);
+  public void createInvalidPurchaseBlankPayPalData() throws Exception {
+    Purchase purchase = new Purchase(1L, 1L, 1L, 1L, null, null);
     when(purchaseService.create(any())).thenReturn(purchase);
     Listing listing = new Listing(1L, 1000000000L, 1L, 50, false, true, true, "url");
     when(listingClient.getListing(1L)).thenReturn(Optional.ofNullable(listing));
-    System.out.println(asJsonString(purchase));
+    mockMvc.perform(
+            MockMvcRequestBuilders.post("/api/purchase").content(asJsonString(purchase)).contentType("application/json")
+        )
+        .andExpect(status().isBadRequest());
+  }
+
+  @Test
+  public void createInvalidPurchaseBlankPurchaseCreationTimeId() throws Exception {
+    Purchase purchase = new Purchase(1L, 1L, 1L, 1L, "paypalData", null);
+    when(purchaseService.create(any())).thenReturn(purchase);
+    Listing listing = new Listing(1L, 1000000000L, 1L, 50, false, true, true, "url");
+    when(listingClient.getListing(1L)).thenReturn(Optional.ofNullable(listing));
     mockMvc.perform(
                     MockMvcRequestBuilders.post("/api/purchase").content(asJsonString(purchase)).contentType("application/json")
             )
@@ -120,7 +128,7 @@ public class PurchaseControllerTest {
   @Test
   public void getPurchaseWithBuyerId() {
     List<Purchase> purchases = new ArrayList<>();
-    purchases.add(new Purchase(1L, 1L, 1L, 1L, 1L));
+    purchases.add(new Purchase(1L, 1L, 1L, 1L, "paypalData", 1L));
     when(purchaseService.getByBuyerId(1L)).thenReturn(purchases);
     assertEquals(purchases, purchaseService.getByBuyerId(1L));
   }
@@ -134,7 +142,7 @@ public class PurchaseControllerTest {
   @Test
   public void getPurchaseWithSellerId() {
     List<Purchase> purchases = new ArrayList<>();
-    purchases.add(new Purchase(1L, 1L, 1L, 1L, 1L));
+    purchases.add(new Purchase(1L, 1L, 1L, 1L,"paypalData",  1L));
     when(purchaseService.getBySellerId(1L)).thenReturn(purchases);
     assertEquals(purchases, purchaseService.getBySellerId(1L));
   }
@@ -148,7 +156,7 @@ public class PurchaseControllerTest {
   @Test
   public void getAllPurchases() {
     List<Purchase> purchases = new ArrayList<>();
-    purchases.add(new Purchase(1L, 1L, 1L, 1L, 1L));
+    purchases.add(new Purchase(1L, 1L, 1L, 1L,"paypalData",  1L));
     when(purchaseService.getAll()).thenReturn(purchases);
     assertEquals(purchases, purchaseService.getAll());
   }

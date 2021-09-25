@@ -41,42 +41,49 @@ public class PurchaseRepositoryTest {
 
     @Test
     void saveValidPurchase() {
-        Purchase purchase = new Purchase(1L, 1L, 1L, 1L, 1L);
+        Purchase purchase = new Purchase(1L, 1L, 1L, 1L, "data",1L);
         Set<ConstraintViolation<Purchase>> violations = validator.validate(purchase);
         assertEquals(0, violations.size());
     }
 
     @Test
     void savePurchaseBlankId() {
-        Purchase purchase = new Purchase(null, 1L, 1L, 1L, 1L);
+        Purchase purchase = new Purchase(null, 1L, 1L, 1L,"data", 1L);
         Set<ConstraintViolation<Purchase>> violations = validator.validate(purchase);
         assertEquals(0, violations.size());
     }
 
     @Test
     void savePurchaseBlankListingId() {
-        Purchase purchase = new Purchase(1L, null, 1L, 1L, 1L);
+        Purchase purchase = new Purchase(1L, null, 1L, 1L,"data", 1L);
         Set<ConstraintViolation<Purchase>> violations = validator.validate(purchase);
         assertEquals(1, violations.size());
     }
 
     @Test
     void savePurchaseBlankBuyerId() {
-        Purchase purchase = new Purchase(1L, 1L, null, 1L, 1L);
+        Purchase purchase = new Purchase(1L, 1L, null, 1L,"data", 1L);
         Set<ConstraintViolation<Purchase>> violations = validator.validate(purchase);
         assertEquals(1, violations.size());
     }
 
     @Test
     void savePurchaseBlankSellerId() {
-        Purchase purchase = new Purchase(1L, 1L, 1L, null, 1L);
+        Purchase purchase = new Purchase(1L, 1L, 1L, null, "data",1L);
+        Set<ConstraintViolation<Purchase>> violations = validator.validate(purchase);
+        assertEquals(1, violations.size());
+    }
+
+    @Test
+    void savePurchaseBlankPaypalData() {
+        Purchase purchase = new Purchase(1L, 1L, 1L, 1L, null,1L);
         Set<ConstraintViolation<Purchase>> violations = validator.validate(purchase);
         assertEquals(1, violations.size());
     }
 
     @Test
     void savePurchaseBlankPurchaseCreationTime() {
-        Purchase purchase = new Purchase(1L, 1L, 1L, 1L, null);
+        Purchase purchase = new Purchase(1L, 1L, 1L, 1L, "data",null);
         Set<ConstraintViolation<Purchase>> violations = validator.validate(purchase);
         assertEquals(1, violations.size());
     }
