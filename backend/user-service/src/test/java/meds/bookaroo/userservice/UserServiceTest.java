@@ -1,5 +1,6 @@
 package meds.bookaroo.userservice;
 
+import meds.bookaroo.userservice.feignClients.ReviewClient;
 import meds.bookaroo.userservice.model.User;
 import meds.bookaroo.userservice.model.UserType;
 import meds.bookaroo.userservice.repository.UserRepository;
@@ -22,9 +23,12 @@ public class UserServiceTest {
 
   @Mock UserRepository userRepository;
 
+  @Mock
+  ReviewClient userReviewClient;
+
   @BeforeEach
   void initUseCase() {
-    userService = new UserService(userRepository, bCryptPasswordEncoder);
+    userService = new UserService(userRepository, userReviewClient, bCryptPasswordEncoder);
   }
 
   @Test
@@ -39,10 +43,12 @@ public class UserServiceTest {
             UserType.CUSTOMER,
             "firstName",
             "lastName",
+            0,
             "",
             "",
             "");
     when(userRepository.findByUsername("username")).thenReturn(java.util.Optional.of(user));
+    when(userReviewClient.getAvgUserReviews(1L)).thenReturn(5);
     assertNotNull(userService.getByUsername("username"));
   }
 
@@ -58,10 +64,12 @@ public class UserServiceTest {
             UserType.CUSTOMER,
             "firstName",
             "lastName",
+            0,
             "",
             "",
             "");
     when(userRepository.findById(1L)).thenReturn(java.util.Optional.of(user));
+    when(userReviewClient.getAvgUserReviews(1L)).thenReturn(5);
     assertNotNull(userService.getById(1L));
   }
 
@@ -89,6 +97,7 @@ public class UserServiceTest {
             UserType.CUSTOMER,
             "firstName",
             "lastName",
+            0,
             "",
             "",
             "");

@@ -50,6 +50,7 @@ public class UserRepositoryTest {
             UserType.CUSTOMER,
             "firstName",
             "lastName",
+            0,
             "",
             "",
             "");
@@ -69,6 +70,7 @@ public class UserRepositoryTest {
             UserType.CUSTOMER,
             "firstName",
             "lastName",
+            0,
             "",
             "",
             "");
@@ -88,6 +90,7 @@ public class UserRepositoryTest {
             UserType.CUSTOMER,
             "firstName",
             "lastName",
+            0,
             "",
             "",
             "");
@@ -107,6 +110,7 @@ public class UserRepositoryTest {
             UserType.CUSTOMER,
             "firstName",
             "lastName",
+            0,
             "",
             "",
             "");
@@ -126,6 +130,7 @@ public class UserRepositoryTest {
             UserType.CUSTOMER,
             "firstName",
             "lastName",
+            0,
             "",
             "",
             "");
@@ -145,6 +150,7 @@ public class UserRepositoryTest {
             UserType.CUSTOMER,
             "",
             "lastName",
+            0,
             "",
             "",
             "");
@@ -164,6 +170,7 @@ public class UserRepositoryTest {
             UserType.CUSTOMER,
             "firstName",
             "",
+            0,
             "",
             "",
             "");
@@ -183,6 +190,7 @@ public class UserRepositoryTest {
             UserType.CUSTOMER,
             "firstName",
             "lastName",
+            0,
             "0438156612",
             "",
             "");

@@ -45,6 +45,7 @@ public class UserControllerTest {
             UserType.CUSTOMER,
             "firstName",
             "lastName",
+            0,
             "",
             "",
             "");
@@ -71,6 +72,7 @@ public class UserControllerTest {
             UserType.CUSTOMER,
             "firstName",
             "lastName",
+            0,
             "",
             "",
             "");
@@ -93,6 +95,7 @@ public class UserControllerTest {
             UserType.CUSTOMER,
             "firstName",
             "lastName",
+            0,
             "",
             "",
             "");

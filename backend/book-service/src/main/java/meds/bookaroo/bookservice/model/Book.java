@@ -37,7 +37,7 @@ public class Book {
   @NotBlank(message = "URL is required")
   private String url;
 
-  private int rating;
+  private Integer rating;
 
   @NotBlank(message = "Category is required")
   private String category;
