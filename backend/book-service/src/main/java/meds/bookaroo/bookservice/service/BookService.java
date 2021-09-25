@@ -14,8 +14,9 @@ public class BookService {
 
   @Autowired ReviewClient bookReviewClient;
 
-  public BookService(BookRepository bookRepository) {
+  public BookService(BookRepository bookRepository, ReviewClient reviewClient) {
     this.bookRepository = bookRepository;
+    this.bookReviewClient = reviewClient;
   }
 
   public Book getByIsbn(Long isbn) {
@@ -51,14 +52,18 @@ public class BookService {
   }
 
   private List<Book> averageAllReviews(List<Book> books) {
-    for (Book book : books) {
-      averageReview(book);
+    if (books != null) {
+      for (Book book : books) {
+        averageReview(book);
+      }
     }
     return books;
   }
 
   private Book averageReview(Book book) {
-    book.setRating(bookReviewClient.getAvgBookReviews(book.getIsbn()));
+    if (book != null) {
+      book.setRating(bookReviewClient.getAvgBookReviews(book.getIsbn()));
+    }
     return book;
   }
 }

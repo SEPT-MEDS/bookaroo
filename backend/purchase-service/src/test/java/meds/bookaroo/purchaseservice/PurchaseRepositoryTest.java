@@ -80,11 +80,4 @@ public class PurchaseRepositoryTest {
         Set<ConstraintViolation<Purchase>> violations = validator.validate(purchase);
         assertEquals(1, violations.size());
     }
-
-    @Test
-    void savePurchaseBlankStatus() {
-        Purchase purchase = new Purchase(1L, 1L, 1L, 1L, 1L);
-        Set<ConstraintViolation<Purchase>> violations = validator.validate(purchase);
-        assertEquals(1, violations.size());
-    }
 }
