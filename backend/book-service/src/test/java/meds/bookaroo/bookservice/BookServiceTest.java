@@ -39,7 +39,7 @@ public class BookServiceTest {
     Book book =
         new Book(
             12345678900L,
-            "Review Title",
+            "Book Title",
             "John Doe",
             "Very short blurb of the book.",
             314,
@@ -63,7 +63,7 @@ public class BookServiceTest {
     books.add(
         new Book(
             12345678900L,
-            "Review Title",
+            "Book Title",
             "John Doe",
             "Very short blurb of the book.",
             314,
@@ -87,7 +87,7 @@ public class BookServiceTest {
     books.add(
         new Book(
             12345678900L,
-            "Review Title",
+            "Book Title",
             "John Doe",
             "Very short blurb of the book.",
             314,
@@ -111,7 +111,7 @@ public class BookServiceTest {
     books.add(
         new Book(
             12345678900L,
-            "Review Title",
+            "Book Title",
             "John Doe",
             "Very short blurb of the book.",
             314,
@@ -135,7 +135,7 @@ public class BookServiceTest {
     books.add(
         new Book(
             12345678900L,
-            "Review Title",
+            "Book Title",
             "John Doe",
             "Very short blurb of the book.",
             314,
@@ -158,7 +158,7 @@ public class BookServiceTest {
     Book book =
         new Book(
             12345678900L,
-            "Review Title",
+            "Book Title",
             "John Doe",
             "Very short blurb of the book.",
             314,
