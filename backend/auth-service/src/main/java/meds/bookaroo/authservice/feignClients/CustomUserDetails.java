@@ -1,12 +1,16 @@
 package meds.bookaroo.authservice.feignClients;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
 @Getter
+@Setter
+@AllArgsConstructor
 public class CustomUserDetails implements UserDetails {
   private final Long id;
   private final String username;
@@ -19,20 +23,6 @@ public class CustomUserDetails implements UserDetails {
   private final String phoneNumber;
   private final String address;
   private final String ABN;
-
-  public CustomUserDetails(Long id, String username, String password, String email, Boolean isEnabled, String type, String firstName, String lastName, String phoneNumber, String address, String ABN) {
-    this.id = id;
-    this.username = username;
-    this.password = password;
-    this.email = email;
-    this.isEnabled = isEnabled;
-    this.type = type;
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.phoneNumber = phoneNumber;
-    this.address = address;
-    this.ABN = ABN;
-  }
 
   // Not applicable to user details
   @Override

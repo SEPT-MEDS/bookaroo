@@ -7,7 +7,7 @@ import meds.bookaroo.listingservice.model.Listing;
 public class GetListingResponseDTO extends StdResponseDTO {
   Listing listing;
 
-  public GetListingResponseDTO(boolean isSuccess, Listing listing, String error) {
+  public GetListingResponseDTO(boolean isSuccess, String error, Listing listing) {
     super(isSuccess, error);
     this.listing = listing;
   }

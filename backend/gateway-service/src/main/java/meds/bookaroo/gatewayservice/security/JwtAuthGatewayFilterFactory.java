@@ -11,10 +11,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.util.StringUtils;
 import reactor.core.publisher.Mono;
 
-public class JwtAuthGatewayFilterFactory extends AbstractGatewayFilterFactory<JwtAuthGatewayFilterFactory.Config> {
+public class JwtAuthGatewayFilterFactory
+    extends AbstractGatewayFilterFactory<JwtAuthGatewayFilterFactory.Config> {
 
-  @Autowired
-  private JwtTokenProvider tokenProvider;
+  @Autowired private JwtTokenProvider tokenProvider;
 
   public JwtAuthGatewayFilterFactory() {
     super(Config.class);
@@ -49,7 +49,14 @@ public class JwtAuthGatewayFilterFactory extends AbstractGatewayFilterFactory<Jw
         return chain.filter(exchange);
       } else {
         exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
-        exchange.getResponse().writeWith(Mono.just(exchange.getResponse().bufferFactory().wrap("{\"error\":\"Unauthorised\"}".getBytes())));
+        exchange
+            .getResponse()
+            .writeWith(
+                Mono.just(
+                    exchange
+                        .getResponse()
+                        .bufferFactory()
+                        .wrap("{\"error\":\"Unauthorised\"}".getBytes())));
         return exchange.getResponse().setComplete();
       }
     });
@@ -58,7 +65,5 @@ public class JwtAuthGatewayFilterFactory extends AbstractGatewayFilterFactory<Jw
   @NoArgsConstructor
   @Setter
   @Getter
-  public static class Config {
-
-  }
+  public static class Config {}
 }

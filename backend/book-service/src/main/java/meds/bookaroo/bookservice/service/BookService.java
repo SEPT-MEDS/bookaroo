@@ -1,5 +1,6 @@
 package meds.bookaroo.bookservice.service;
 
+import meds.bookaroo.bookservice.feignClients.ReviewClient;
 import meds.bookaroo.bookservice.model.Book;
 import meds.bookaroo.bookservice.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,35 +10,37 @@ import java.util.List;
 
 @Service
 public class BookService {
-  @Autowired
-  private BookRepository bookRepository;
+  @Autowired private BookRepository bookRepository;
 
-  public BookService(BookRepository bookRepository) {
+  @Autowired ReviewClient bookReviewClient;
+
+  public BookService(BookRepository bookRepository, ReviewClient reviewClient) {
     this.bookRepository = bookRepository;
+    this.bookReviewClient = reviewClient;
   }
 
   public Book getByIsbn(Long isbn) {
-    return bookRepository.findByIsbn(isbn);
+    return averageReview(bookRepository.findByIsbn(isbn));
   }
 
   public List<Book> getByContainingTitle(String title) {
-    return bookRepository.findByTitleContaining(title);
+    return averageAllReviews(bookRepository.findByTitleContaining(title));
   }
 
   public List<Book> getByContainingAuthor(String author) {
-    return bookRepository.findByAuthorContaining(author);
+    return averageAllReviews(bookRepository.findByAuthorContaining(author));
   }
 
   public List<Book> getByContainingIsbn(Long isbn) {
-    return bookRepository.findByIsbnContaining(isbn);
+    return averageAllReviews(bookRepository.findByIsbnContaining(isbn));
   }
 
   public List<Book> getByCategory(String category) {
-    return bookRepository.findByCategory(category);
+    return averageAllReviews(bookRepository.findByCategory(category));
   }
 
   public List<Book> getAll() {
-    return bookRepository.findAll();
+    return averageAllReviews(bookRepository.findAll());
   }
 
   public Book create(Book book) {
@@ -46,5 +49,21 @@ public class BookService {
 
   public void deleteByIsbn(Long isbn) {
     bookRepository.deleteByIsbn(isbn);
+  }
+
+  private List<Book> averageAllReviews(List<Book> books) {
+    if (books != null) {
+      for (Book book : books) {
+        averageReview(book);
+      }
+    }
+    return books;
+  }
+
+  private Book averageReview(Book book) {
+    if (book != null) {
+      book.setRating(bookReviewClient.getAvgBookReviews(book.getIsbn()));
+    }
+    return book;
   }
 }

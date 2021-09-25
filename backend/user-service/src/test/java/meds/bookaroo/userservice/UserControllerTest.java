@@ -22,10 +22,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest({UserController.class})
 public class UserControllerTest {
-  @MockBean
-  UserService userService;
-  @Autowired
-  private MockMvc mockMvc;
+  @MockBean UserService userService;
+  @Autowired private MockMvc mockMvc;
 
   public static String asJsonString(final Object obj) {
     try {
@@ -37,36 +35,73 @@ public class UserControllerTest {
 
   @Test
   public void saveUser() throws Exception {
-    User user = new User(null, "test@me.com", "username", "password", true, UserType.CUSTOMER, "firstName", "lastName", "", "", "");
+    User user =
+        new User(
+            null,
+            "test@me.com",
+            "username",
+            "password",
+            true,
+            UserType.CUSTOMER,
+            "firstName",
+            "lastName",
+            0,
+            "",
+            "",
+            "");
     when(userService.create(any())).thenReturn(user);
-    mockMvc.perform(
-        MockMvcRequestBuilders.post("/api/user/signup")
-            .content(asJsonString(user))
-            .contentType(MediaType.APPLICATION_JSON)
-            .accept(MediaType.APPLICATION_JSON)
-    )
+    mockMvc
+        .perform(
+            MockMvcRequestBuilders.post("/api/user/signup")
+                .content(asJsonString(user))
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
         .andExpect(content().string(asJsonString(new CreateUserResponseDTO(true, ""))));
   }
 
   @Test
   public void getUserWithId() throws Exception {
-    User user = new User(1L, "test@me.com", "username", "password", true, UserType.CUSTOMER, "firstName", "lastName", "", "", "");
+    User user =
+        new User(
+            1L,
+            "test@me.com",
+            "username",
+            "password",
+            true,
+            UserType.CUSTOMER,
+            "firstName",
+            "lastName",
+            0,
+            "",
+            "",
+            "");
     when(userService.getById(any())).thenReturn(user);
-    mockMvc.perform(
-        MockMvcRequestBuilders.get("/api/user/1")
-    )
+    mockMvc
+        .perform(MockMvcRequestBuilders.get("/api/user/1"))
         .andExpect(status().isOk())
         .andExpect(content().string(asJsonString(new GetUserResponseDTO(true, user, ""))));
   }
 
   @Test
   public void getUserWithUsername() throws Exception {
-    User user = new User(1L, "test@me.com", "username", "password", true, UserType.CUSTOMER, "firstName", "lastName", "", "", "");
+    User user =
+        new User(
+            1L,
+            "test@me.com",
+            "username",
+            "password",
+            true,
+            UserType.CUSTOMER,
+            "firstName",
+            "lastName",
+            0,
+            "",
+            "",
+            "");
     when(userService.getByUsername(any())).thenReturn(user);
-    mockMvc.perform(
-        MockMvcRequestBuilders.get("/api/user/byUsername/username")
-    )
+    mockMvc
+        .perform(MockMvcRequestBuilders.get("/api/user/byUsername/username"))
         .andExpect(status().isOk())
         .andExpect(content().string(asJsonString(user)));
   }
@@ -74,9 +109,8 @@ public class UserControllerTest {
   @Test
   public void getInvalidUserWithUsername() throws Exception {
     when(userService.getByUsername(any())).thenReturn(null);
-    mockMvc.perform(
-        MockMvcRequestBuilders.get("/api/user/byUsername/notusername")
-    )
+    mockMvc
+        .perform(MockMvcRequestBuilders.get("/api/user/byUsername/notusername"))
         .andExpect(status().isNotFound())
         .andExpect(content().string(""));
   }
@@ -84,10 +118,12 @@ public class UserControllerTest {
   @Test
   public void getInvalidUserWithId() throws Exception {
     when(userService.getById(any())).thenReturn(null);
-    mockMvc.perform(
-        MockMvcRequestBuilders.get("/api/user/2")
-    )
+    mockMvc
+        .perform(MockMvcRequestBuilders.get("/api/user/2"))
         .andExpect(status().isNotFound())
-        .andExpect(content().string(asJsonString(new GetUserResponseDTO(false, null, "No user with id 2 exists"))));
+        .andExpect(
+            content()
+                .string(
+                    asJsonString(new GetUserResponseDTO(false, null, "No user with id 2 exists"))));
   }
 }

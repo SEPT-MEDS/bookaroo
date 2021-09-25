@@ -21,33 +21,27 @@ import static meds.bookaroo.authservice.security.SecurityConstant.TOKEN_PREFIX;
 @RestController
 public class AuthController {
 
-  @Autowired
-  private MapValidationErrorService mapValidationErrorService;
+  @Autowired private MapValidationErrorService mapValidationErrorService;
 
-  @Autowired
-  private JwtTokenProvider tokenProvider;
+  @Autowired private JwtTokenProvider tokenProvider;
 
-  @Autowired
-  private AuthenticationManager authenticationManager;
+  @Autowired private AuthenticationManager authenticationManager;
 
-  @Autowired
-  private UserClient userClient;
+  @Autowired private UserClient userClient;
 
   // Login a user with a provided token
   @PostMapping("/api/auth/login")
-  public ResponseEntity<?> authenticateUser(@RequestBody LoginRequest loginRequest, BindingResult result) {
+  public ResponseEntity<?> authenticateUser(
+      @RequestBody LoginRequest loginRequest, BindingResult result) {
     ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
     if (errorMap != null) {
       return errorMap;
     }
-
     // Authenticate using password and manager
-    Authentication authentication = authenticationManager.authenticate(
-        new UsernamePasswordAuthenticationToken(
-            loginRequest.getUsername(),
-            loginRequest.getPassword()
-        )
-    );
+    Authentication authentication =
+        authenticationManager.authenticate(
+            new UsernamePasswordAuthenticationToken(
+                loginRequest.getUsername(), loginRequest.getPassword()));
 
     // Get user id using user client
     Long userId = userClient.getUserByUsername(loginRequest.getUsername()).orElseThrow().getId();

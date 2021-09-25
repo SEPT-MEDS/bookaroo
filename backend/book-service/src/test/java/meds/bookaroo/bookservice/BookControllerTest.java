@@ -25,10 +25,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest({BookController.class})
 public class BookControllerTest {
 
-  @MockBean
-  BookService bookService;
-  @Autowired
-  private MockMvc mockMvc;
+  @MockBean BookService bookService;
+  @Autowired private MockMvc mockMvc;
 
   public static String asJsonString(final Object obj) {
     try {
@@ -42,21 +40,23 @@ public class BookControllerTest {
   public void getBookWithISBN() throws Exception {
     Book book = new Book(1000000000L, "Title", "Author", "Blurb", 1, "", 0, "category");
     when(bookService.getByIsbn(any())).thenReturn(book);
-    mockMvc.perform(
-        MockMvcRequestBuilders.get("/api/book/1000000000")
-    )
+    mockMvc
+        .perform(MockMvcRequestBuilders.get("/api/book/1000000000"))
         .andExpect(status().isOk())
-        .andExpect(content().string(asJsonString(new GetBookResponseDTO(true, book, ""))));
+        .andExpect(content().string(asJsonString(new GetBookResponseDTO(true, "", book))));
   }
 
   @Test
   public void getInvalidBookWithISBN() throws Exception {
     when(bookService.getByIsbn(any())).thenReturn(null);
-    mockMvc.perform(
-        MockMvcRequestBuilders.get("/api/book/1")
-    )
+    mockMvc
+        .perform(MockMvcRequestBuilders.get("/api/book/1"))
         .andExpect(status().isNotFound())
-        .andExpect(content().string(asJsonString(new GetBookResponseDTO(false, null, "No book with isbn 1 exists"))));
+        .andExpect(
+            content()
+                .string(
+                    asJsonString(
+                        new GetBookResponseDTO(false, "No book with isbn 1 exists", null))));
   }
 
   @Test
@@ -64,9 +64,8 @@ public class BookControllerTest {
     List<Book> books = new ArrayList<>();
     books.add(new Book(1000000000L, "Title", "Author", "Blurb", 1, "", 0, "category"));
     when(bookService.getByContainingTitle(any())).thenReturn(books);
-    mockMvc.perform(
-        MockMvcRequestBuilders.get("/api/book/containingTitle/t")
-    )
+    mockMvc
+        .perform(MockMvcRequestBuilders.get("/api/book/containingTitle/t"))
         .andExpect(status().isOk())
         .andExpect(content().string(asJsonString(new GetBooksResponseDTO(books))));
   }
@@ -75,9 +74,8 @@ public class BookControllerTest {
   public void getInvalidBookWithPartialTitle() throws Exception {
     List<Book> books = new ArrayList<>();
     when(bookService.getByContainingTitle(any())).thenReturn(books);
-    mockMvc.perform(
-        MockMvcRequestBuilders.get("/api/book/containingTitle/title")
-    )
+    mockMvc
+        .perform(MockMvcRequestBuilders.get("/api/book/containingTitle/title"))
         .andExpect(status().isOk())
         .andExpect(content().string(asJsonString(new GetBooksResponseDTO(books))));
   }
@@ -87,9 +85,8 @@ public class BookControllerTest {
     List<Book> books = new ArrayList<>();
     books.add(new Book(1000000000L, "Title", "Author", "Blurb", 1, "", 0, "category"));
     when(bookService.getByContainingAuthor(any())).thenReturn(books);
-    mockMvc.perform(
-        MockMvcRequestBuilders.get("/api/book/containingAuthor/au")
-    )
+    mockMvc
+        .perform(MockMvcRequestBuilders.get("/api/book/containingAuthor/au"))
         .andExpect(status().isOk())
         .andExpect(content().string(asJsonString(new GetBooksResponseDTO(books))));
   }
@@ -97,9 +94,8 @@ public class BookControllerTest {
   @Test
   public void getInvalidBookWithPartialAuthor() throws Exception {
     when(bookService.getByContainingTitle(any())).thenReturn(null);
-    mockMvc.perform(
-        MockMvcRequestBuilders.get("/api/book/containingAuthor/ti")
-    )
+    mockMvc
+        .perform(MockMvcRequestBuilders.get("/api/book/containingAuthor/ti"))
         .andExpect(status().isOk())
         .andExpect(content().string(asJsonString(new GetBooksResponseDTO(new ArrayList<>()))));
   }
@@ -109,9 +105,8 @@ public class BookControllerTest {
     List<Book> books = new ArrayList<>();
     books.add(new Book(1000000000L, "Title", "Author", "Blurb", 1, "", 0, "category"));
     when(bookService.getByContainingIsbn(any())).thenReturn(books);
-    mockMvc.perform(
-        MockMvcRequestBuilders.get("/api/book/containingIsbn/100")
-    )
+    mockMvc
+        .perform(MockMvcRequestBuilders.get("/api/book/containingIsbn/100"))
         .andExpect(status().isOk())
         .andExpect(content().string(asJsonString(new GetBooksResponseDTO(books))));
   }
@@ -119,9 +114,8 @@ public class BookControllerTest {
   @Test
   public void getInvalidBookWithPartialIsbn() throws Exception {
     when(bookService.getByContainingTitle(any())).thenReturn(null);
-    mockMvc.perform(
-        MockMvcRequestBuilders.get("/api/book/containingIsbn/1091230")
-    )
+    mockMvc
+        .perform(MockMvcRequestBuilders.get("/api/book/containingIsbn/1091230"))
         .andExpect(status().isOk())
         .andExpect(content().string(asJsonString(new GetBooksResponseDTO(new ArrayList<>()))));
   }
@@ -130,9 +124,11 @@ public class BookControllerTest {
   public void createBook() throws Exception {
     Book book = new Book(1000000000L, "Title", "Author", "Blurb", 1, "Test", 1, "category");
     when(bookService.create(any())).thenReturn(book);
-    mockMvc.perform(
-        MockMvcRequestBuilders.post("/api/book").content(asJsonString(book)).contentType("application/json")
-    )
+    mockMvc
+        .perform(
+            MockMvcRequestBuilders.post("/api/book")
+                .content(asJsonString(book))
+                .contentType("application/json"))
         .andExpect(status().isOk())
         .andExpect(content().string(asJsonString(new CreateBookResponseDTO(true, ""))));
   }
@@ -142,9 +138,11 @@ public class BookControllerTest {
     Book book = new Book(null, "title", "author", "Blurb", 1, "Test", 1, "category");
     when(bookService.create(any())).thenReturn(book);
     System.out.println(asJsonString(book));
-    mockMvc.perform(
-        MockMvcRequestBuilders.post("/api/book").content(asJsonString(book)).contentType("application/json")
-    )
+    mockMvc
+        .perform(
+            MockMvcRequestBuilders.post("/api/book")
+                .content(asJsonString(book))
+                .contentType("application/json"))
         .andExpect(status().isBadRequest());
   }
 
@@ -153,9 +151,11 @@ public class BookControllerTest {
     Book book = new Book(1L, "title", "author", "Blurb", 1, "Test", 1, "category");
     when(bookService.create(any())).thenReturn(book);
     System.out.println(asJsonString(book));
-    mockMvc.perform(
-        MockMvcRequestBuilders.post("/api/book").content(asJsonString(book)).contentType("application/json")
-    )
+    mockMvc
+        .perform(
+            MockMvcRequestBuilders.post("/api/book")
+                .content(asJsonString(book))
+                .contentType("application/json"))
         .andExpect(status().isBadRequest());
   }
 
@@ -164,9 +164,11 @@ public class BookControllerTest {
     Book book = new Book(1000000000L, "", "Author", "Blurb", 1, "Test", 1, "category");
     when(bookService.create(any())).thenReturn(book);
     System.out.println(asJsonString(book));
-    mockMvc.perform(
-        MockMvcRequestBuilders.post("/api/book").content(asJsonString(book)).contentType("application/json")
-    )
+    mockMvc
+        .perform(
+            MockMvcRequestBuilders.post("/api/book")
+                .content(asJsonString(book))
+                .contentType("application/json"))
         .andExpect(status().isBadRequest());
   }
 
@@ -175,9 +177,11 @@ public class BookControllerTest {
     Book book = new Book(1000000000L, "title", "", "Blurb", 1, "Test", 1, "category");
     when(bookService.create(any())).thenReturn(book);
     System.out.println(asJsonString(book));
-    mockMvc.perform(
-        MockMvcRequestBuilders.post("/api/book").content(asJsonString(book)).contentType("application/json")
-    )
+    mockMvc
+        .perform(
+            MockMvcRequestBuilders.post("/api/book")
+                .content(asJsonString(book))
+                .contentType("application/json"))
         .andExpect(status().isBadRequest());
   }
 
@@ -186,9 +190,11 @@ public class BookControllerTest {
     Book book = new Book(1000000000L, "title", "author", "", 1, "Test", 1, "category");
     when(bookService.create(any())).thenReturn(book);
     System.out.println(asJsonString(book));
-    mockMvc.perform(
-        MockMvcRequestBuilders.post("/api/book").content(asJsonString(book)).contentType("application/json")
-    )
+    mockMvc
+        .perform(
+            MockMvcRequestBuilders.post("/api/book")
+                .content(asJsonString(book))
+                .contentType("application/json"))
         .andExpect(status().isBadRequest());
   }
 
@@ -197,9 +203,11 @@ public class BookControllerTest {
     Book book = new Book(1000000000L, "title", "author", "blurb", -1, "Test", 1, "category");
     when(bookService.create(any())).thenReturn(book);
     System.out.println(asJsonString(book));
-    mockMvc.perform(
-        MockMvcRequestBuilders.post("/api/book").content(asJsonString(book)).contentType("application/json")
-    )
+    mockMvc
+        .perform(
+            MockMvcRequestBuilders.post("/api/book")
+                .content(asJsonString(book))
+                .contentType("application/json"))
         .andExpect(status().isBadRequest());
   }
 
@@ -208,9 +216,11 @@ public class BookControllerTest {
     Book book = new Book(1000000000L, "title", "author", "blurb", -1, "", 1, "category");
     when(bookService.create(any())).thenReturn(book);
     System.out.println(asJsonString(book));
-    mockMvc.perform(
-        MockMvcRequestBuilders.post("/api/book").content(asJsonString(book)).contentType("application/json")
-    )
+    mockMvc
+        .perform(
+            MockMvcRequestBuilders.post("/api/book")
+                .content(asJsonString(book))
+                .contentType("application/json"))
         .andExpect(status().isBadRequest());
   }
 
@@ -219,9 +229,11 @@ public class BookControllerTest {
     Book book = new Book(1000000000L, "title", "author", "blurb", -1, "url", 1, "");
     when(bookService.create(any())).thenReturn(book);
     System.out.println(asJsonString(book));
-    mockMvc.perform(
-        MockMvcRequestBuilders.post("/api/book").content(asJsonString(book)).contentType("application/json")
-    )
+    mockMvc
+        .perform(
+            MockMvcRequestBuilders.post("/api/book")
+                .content(asJsonString(book))
+                .contentType("application/json"))
         .andExpect(status().isBadRequest());
   }
 }
