@@ -1,6 +1,5 @@
 package meds.bookaroo.userservice.feignClients;
 
-import meds.bookaroo.userservice.requestDTO.GetReviewsDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
