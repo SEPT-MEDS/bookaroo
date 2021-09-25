@@ -28,6 +28,9 @@ public class Purchase {
   @NotNull(message = "Seller id is required")
   private Long sellerId;
 
+  @NotNull(message = "Paypal data is required")
+  private String paypalData;
+
   @NotNull(message = "User id is required")
   private Long purchaseCreationTime;
 }

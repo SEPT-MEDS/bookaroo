@@ -31,7 +31,7 @@ public class PurchaseServiceTest {
 
     @Test
     public void getValidPurchaseById() {
-        Purchase purchase = new Purchase(1L, 1L, 1L, 1L, 1L);
+        Purchase purchase = new Purchase(1L, 1L, 1L, 1L, "paypal",1L);
         when(purchaseRepository.findById(1L)).thenReturn(java.util.Optional.of(purchase));
         assertEquals(purchase, purchaseService.getByPurchaseId(1L));
     }
@@ -45,7 +45,7 @@ public class PurchaseServiceTest {
     @Test
     public void getValidListingByBuyerId() {
         List<Purchase> purchases = new ArrayList<>();
-        purchases.add(new Purchase(1L, 1L, 1L, 1L, 1L));
+        purchases.add(new Purchase(1L, 1L, 1L, 1L, "paypal",1L));
         when(purchaseRepository.findByBuyerId(1L)).thenReturn(purchases);
         assertEquals(purchases, purchaseService.getByBuyerId(1L));
     }
@@ -59,7 +59,7 @@ public class PurchaseServiceTest {
     @Test
     public void getValidListingBySellerId() {
         List<Purchase> purchases = new ArrayList<>();
-        purchases.add(new Purchase(1L, 1L, 1L, 1L, 1L));
+        purchases.add(new Purchase(1L, 1L, 1L, 1L, "paypal",1L));
         when(purchaseRepository.findBySellerId(1L)).thenReturn(purchases);
         assertEquals(purchases, purchaseService.getBySellerId(1L));
     }
