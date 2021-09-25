@@ -39,6 +39,7 @@ public class UserServiceTest {
             UserType.CUSTOMER,
             "firstName",
             "lastName",
+            0,
             "",
             "",
             "");
@@ -58,6 +59,7 @@ public class UserServiceTest {
             UserType.CUSTOMER,
             "firstName",
             "lastName",
+            0,
             "",
             "",
             "");
@@ -89,6 +91,7 @@ public class UserServiceTest {
             UserType.CUSTOMER,
             "firstName",
             "lastName",
+            0,
             "",
             "",
             "");

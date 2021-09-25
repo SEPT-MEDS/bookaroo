@@ -37,6 +37,7 @@ public class User {
   @NotBlank(message = "Last name is required")
   private String lastName;
 
+  private Integer rating;
   private String phoneNumber;
   private String address;
   private String ABN;

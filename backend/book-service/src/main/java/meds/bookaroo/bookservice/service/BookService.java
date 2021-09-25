@@ -1,6 +1,5 @@
 package meds.bookaroo.bookservice.service;
 
-import meds.bookaroo.bookservice.feignClients.Review;
 import meds.bookaroo.bookservice.feignClients.ReviewClient;
 import meds.bookaroo.bookservice.model.Book;
 import meds.bookaroo.bookservice.repository.BookRepository;
@@ -13,8 +12,7 @@ import java.util.List;
 public class BookService {
   @Autowired private BookRepository bookRepository;
 
-  @Autowired
-  ReviewClient bookReviewClient;
+  @Autowired ReviewClient bookReviewClient;
 
   public BookService(BookRepository bookRepository) {
     this.bookRepository = bookRepository;
@@ -60,15 +58,7 @@ public class BookService {
   }
 
   private Book averageReview(Book book) {
-    int average = 0;
-    List<Review> reviews = bookReviewClient.getBookReviews(book.getIsbn()).getReviews();
-    System.out.println(reviews.size());
-    System.out.println("test");
-    for (Review review : reviews) {
-      System.out.println(review.getReviewerId());
-      average += review.getRating();
-    }
-    book.setRating(average/reviews.size());
+    book.setRating(bookReviewClient.getAvgBookReviews(book.getIsbn()));
     return book;
   }
 }

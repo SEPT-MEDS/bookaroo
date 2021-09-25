@@ -1,16 +1,21 @@
 package meds.bookaroo.userservice.service;
 
+import meds.bookaroo.userservice.feignClients.Review;
+import meds.bookaroo.userservice.feignClients.ReviewClient;
 import meds.bookaroo.userservice.model.User;
 import meds.bookaroo.userservice.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
 
   @Autowired private UserRepository userRepository;
   @Autowired private BCryptPasswordEncoder bCryptPasswordEncoder;
+  @Autowired private ReviewClient userReviewClient;
 
   public UserService(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
     this.userRepository = userRepository;
@@ -18,7 +23,11 @@ public class UserService {
   }
 
   public User getById(Long id) {
-    return userRepository.findById(id).orElse(null);
+    User user = userRepository.findById(id).orElse(null);
+    if (user != null) {
+      user.setRating(userReviewClient.getAvgUserReviews(user.getId()));
+    }
+    return user;
   }
 
   public User create(User user) {
@@ -31,11 +40,19 @@ public class UserService {
   }
 
   public User getByUsername(String username) {
-    return userRepository.findByUsername(username).orElse(null);
+    User user = userRepository.findByUsername(username).orElse(null);
+    if (user != null) {
+      user.setRating(userReviewClient.getAvgUserReviews(user.getId()));
+    }
+    return user;
   }
 
   public User getByEmail(String email) {
-    return userRepository.findByEmail(email).orElse(null);
+    User user = userRepository.findByEmail(email).orElse(null);
+    if (user != null) {
+      user.setRating(userReviewClient.getAvgUserReviews(user.getId()));
+    }
+    return user;
   }
 
   public void save(User user) {

@@ -22,4 +22,12 @@ public class ReviewService {
   public Review create(Review review) {
     return reviewRepository.save(review);
   }
+
+  public Integer getAvgByEntityId(Long entityId) {
+    Integer avgRating = reviewRepository.findAvgByEntityId(entityId);
+    if (avgRating == null) {
+      avgRating = 5;
+    }
+    return avgRating;
+  }
 }

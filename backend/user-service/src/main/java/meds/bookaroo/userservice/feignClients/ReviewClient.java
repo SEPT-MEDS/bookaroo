@@ -1,6 +1,6 @@
-package meds.bookaroo.bookservice.feignClients;
+package meds.bookaroo.userservice.feignClients;
 
-import meds.bookaroo.bookservice.requestDTO.GetReviewsDTO;
+import meds.bookaroo.userservice.requestDTO.GetReviewsDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,9 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(name = "REVIEW-SERVICE")
 @Service
 public interface ReviewClient {
-
-  // Get all reviews for a book
-  @GetMapping("/api/book/{isbn}/avgReview")
-  int getAvgBookReviews(@PathVariable Long isbn);
+  // Get average of reviews by userid
+  @GetMapping("/api/user/{userid}/avgReview")
+  Integer getAvgUserReviews(@PathVariable Long userid);
 }
 
