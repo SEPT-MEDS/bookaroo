@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 
 import { getUser, createReview } from 'services'
@@ -10,7 +11,7 @@ import { ReviewBlock, ReviewInputForm, ReviewSection } from './reviewsStyle'
 const Review = ({ review }) => {
   const { response: reviewer } = useAsync(() => getUser(review.reviewerId), [review.reviewerId])
   return <ReviewBlock key={review}>
-    <h3>{reviewer?.username || 'Reviewer'}</h3>
+    <h3><Link to={`/user/${review.reviewerId}`}>{reviewer?.username || 'Reviewer'}</Link></h3>
     <Rating rating={review.rating} />
     <p>{review.content}</p>
   </ReviewBlock>
