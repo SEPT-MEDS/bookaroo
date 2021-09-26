@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
 export const ReviewSection = styled.div`
+   a {
+      color: ${p => p.theme.primary};
+      text-decoration: inherit;
+   }
 `
 
 export const ReviewInputForm = styled.form`
