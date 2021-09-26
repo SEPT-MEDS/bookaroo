@@ -63,6 +63,7 @@
                 <configuration>
                     <container>
                         <ports>
+                            <port>9007</port>
                             <port>9006</port>
                             <port>9005</port>
                             <port>9004</port>

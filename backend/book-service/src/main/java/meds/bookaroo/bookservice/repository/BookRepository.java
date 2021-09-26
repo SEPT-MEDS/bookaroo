@@ -20,4 +20,3 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 
   void deleteByIsbn(Long isbn);
 }
-

@@ -20,14 +20,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(MockitoExtension.class)
 @DataJpaTest
-
 public class ListingRepositoryTest {
-
 
   private static Validator validator;
 
-  @Autowired
-  private ListingRepository listingRepository;
+  @Autowired private ListingRepository listingRepository;
 
   @BeforeAll
   static void setUp() {
@@ -65,7 +62,7 @@ public class ListingRepositoryTest {
   void saveListingBlankISBN() {
     Listing listing = new Listing(1L, null, 1L, 50, false, true, false, "url");
     Set<ConstraintViolation<Listing>> violations = validator.validate(listing);
-    assertEquals(2, violations.size());
+    assertEquals(1, violations.size());
   }
 
   @Test

@@ -5,4 +5,3 @@ public class DeleteUserResponseDTO extends StdResponseDTO {
     super(isSuccess, error);
   }
 }
-

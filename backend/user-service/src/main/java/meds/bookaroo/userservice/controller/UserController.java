@@ -1,6 +1,7 @@
 package meds.bookaroo.userservice.controller;
 
 import meds.bookaroo.userservice.model.User;
+import meds.bookaroo.userservice.requestDTO.UpdateUserStatusDTO;
 import meds.bookaroo.userservice.responseDTO.CreateUserResponseDTO;
 import meds.bookaroo.userservice.responseDTO.DeleteUserResponseDTO;
 import meds.bookaroo.userservice.responseDTO.GetUserResponseDTO;
@@ -13,8 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class UserController {
 
-  @Autowired
-  private UserService userService;
+  @Autowired private UserService userService;
 
   // Get users with a given user ID
   @GetMapping("/api/user/{id}")
@@ -23,7 +23,8 @@ public class UserController {
 
     // Ensure user was able to be retrieved and respond appropriately
     if (user == null) {
-      return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new GetUserResponseDTO(false, null, "No user with id " + id + " exists"));
+      return ResponseEntity.status(HttpStatus.NOT_FOUND)
+          .body(new GetUserResponseDTO(false, null, "No user with id " + id + " exists"));
     } else {
       return ResponseEntity.ok(new GetUserResponseDTO(true, user, ""));
     }
@@ -52,7 +53,8 @@ public class UserController {
       userService.deleteById(id);
       return ResponseEntity.ok(new DeleteUserResponseDTO(true, ""));
     } else {
-      return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new DeleteUserResponseDTO(false, "No user with id " + id + " exists"));
+      return ResponseEntity.status(HttpStatus.NOT_FOUND)
+          .body(new DeleteUserResponseDTO(false, "No user with id " + id + " exists"));
     }
   }
 
@@ -60,13 +62,31 @@ public class UserController {
   public ResponseEntity<?> signupUser(@RequestBody User user) {
     // Ensure user doesnt already exist
     if (userService.getByUsername(user.getUsername()) != null) {
-      return ResponseEntity.status(HttpStatus.CONFLICT).body(new CreateUserResponseDTO(false, "User with that username already exists"));
+      return ResponseEntity.status(HttpStatus.CONFLICT)
+          .body(new CreateUserResponseDTO(false, "User with that username already exists"));
     } else if (userService.getByEmail(user.getEmail()) != null) {
-      return ResponseEntity.status(HttpStatus.CONFLICT).body(new CreateUserResponseDTO(false, "User with that email already exists"));
+      return ResponseEntity.status(HttpStatus.CONFLICT)
+          .body(new CreateUserResponseDTO(false, "User with that email already exists"));
     }
 
     // Create user
     userService.create(user);
     return ResponseEntity.ok().body(new CreateUserResponseDTO(true, ""));
+  }
+
+  @PatchMapping("/api/user/status")
+  public ResponseEntity<?> updateStatus(@RequestBody UpdateUserStatusDTO updateUserStatusDTO) {
+    User user = userService.getById(updateUserStatusDTO.getUserId());
+    // Ensure user to be updated exists
+    if (user != null) {
+      user.setIsEnabled(updateUserStatusDTO.getIsEnabled());
+      userService.save(user);
+      return ResponseEntity.ok(true);
+    } else {
+      return ResponseEntity.status(HttpStatus.NOT_FOUND)
+          .body(
+              new DeleteUserResponseDTO(
+                  false, "No user with id " + updateUserStatusDTO.getUserId() + " exists"));
+    }
   }
 }

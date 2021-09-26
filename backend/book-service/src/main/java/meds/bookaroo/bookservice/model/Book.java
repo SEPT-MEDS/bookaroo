@@ -16,12 +16,10 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 public class Book {
-
   @NotNull(message = "ISBN is required")
   @Min(value = 1000000000, message = "ISBN must be 10 or more digits")
   @Column(unique = true)
-  private @Id
-  Long isbn;
+  private @Id Long isbn;
 
   @NotBlank(message = "Title is required")
   private String title;
@@ -39,7 +37,8 @@ public class Book {
   @NotBlank(message = "URL is required")
   private String url;
 
-  private int rating;
+  private Integer rating;
+
   @NotBlank(message = "Category is required")
   private String category;
 }

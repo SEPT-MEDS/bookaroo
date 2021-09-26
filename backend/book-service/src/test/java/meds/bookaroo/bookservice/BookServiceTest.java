@@ -1,6 +1,6 @@
 package meds.bookaroo.bookservice;
 
-
+import meds.bookaroo.bookservice.feignClients.ReviewClient;
 import meds.bookaroo.bookservice.model.Book;
 import meds.bookaroo.bookservice.repository.BookRepository;
 import meds.bookaroo.bookservice.service.BookService;
@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,17 +25,29 @@ public class BookServiceTest {
   BookService bookService;
 
   @Mock
-  BookRepository bookRepository;
+  ReviewClient bookReviewClient;
+
+  @Mock BookRepository bookRepository;
 
   @BeforeEach
   void initUseCase() {
-    bookService = new BookService(bookRepository);
+    bookService = new BookService(bookRepository, bookReviewClient);
   }
 
   @Test
   public void getValidBookByIsbn() {
-    Book book = new Book(12345678900L, "Book Title", "John Doe", "Very short blurb of the book.", 314, "https://www.booksite.com", 5, "Comedy");
+    Book book =
+        new Book(
+            12345678900L,
+            "Book Title",
+            "John Doe",
+            "Very short blurb of the book.",
+            314,
+            "https://www.booksite.com",
+            5,
+            "Comedy");
     when(bookRepository.findByIsbn(12345678900L)).thenReturn(book);
+    when(bookReviewClient.getAvgBookReviews(12345678900L)).thenReturn(5);
     assertEquals(book, bookService.getByIsbn(12345678900L));
   }
 
@@ -46,9 +60,19 @@ public class BookServiceTest {
   @Test
   public void getValidBookByPartialTitle() {
     List<Book> books = new ArrayList<>();
-    books.add(new Book(12345678900L, "Book Title", "John Doe", "Very short blurb of the book.", 314, "https://www.booksite.com", 5, "Comedy"));
-    when(bookRepository.findByTitleContaining("Book")).thenReturn(books);
-    assertEquals(books, bookService.getByContainingTitle("Book"));
+    books.add(
+        new Book(
+            12345678900L,
+            "Book Title",
+            "John Doe",
+            "Very short blurb of the book.",
+            314,
+            "https://www.booksite.com",
+            5,
+            "Comedy"));
+    when(bookRepository.findByTitleContaining("Review")).thenReturn(books);
+    when(bookReviewClient.getAvgBookReviews(12345678900L)).thenReturn(5);
+    assertEquals(books, bookService.getByContainingTitle("Review"));
   }
 
   @Test
@@ -60,8 +84,18 @@ public class BookServiceTest {
   @Test
   public void getValidBookByPartialAuthor() {
     List<Book> books = new ArrayList<>();
-    books.add(new Book(12345678900L, "Book Title", "John Doe", "Very short blurb of the book.", 314, "https://www.booksite.com", 5, "Comedy"));
+    books.add(
+        new Book(
+            12345678900L,
+            "Book Title",
+            "John Doe",
+            "Very short blurb of the book.",
+            314,
+            "https://www.booksite.com",
+            5,
+            "Comedy"));
     when(bookRepository.findByAuthorContaining("John")).thenReturn(books);
+    when(bookReviewClient.getAvgBookReviews(12345678900L)).thenReturn(5);
     assertEquals(books, bookService.getByContainingAuthor("John"));
   }
 
@@ -74,8 +108,18 @@ public class BookServiceTest {
   @Test
   public void getValidBookByPartialIsbn() {
     List<Book> books = new ArrayList<>();
-    books.add(new Book(12345678900L, "Book Title", "John Doe", "Very short blurb of the book.", 314, "https://www.booksite.com", 5, "Comedy"));
+    books.add(
+        new Book(
+            12345678900L,
+            "Book Title",
+            "John Doe",
+            "Very short blurb of the book.",
+            314,
+            "https://www.booksite.com",
+            5,
+            "Comedy"));
     when(bookRepository.findByIsbnContaining(123L)).thenReturn(books);
+    when(bookReviewClient.getAvgBookReviews(12345678900L)).thenReturn(5);
     assertEquals(books, bookService.getByContainingIsbn(123L));
   }
 
@@ -88,8 +132,18 @@ public class BookServiceTest {
   @Test
   public void getValidBookByCategory() {
     List<Book> books = new ArrayList<>();
-    books.add(new Book(12345678900L, "Book Title", "John Doe", "Very short blurb of the book.", 314, "https://www.booksite.com", 5, "Comedy"));
+    books.add(
+        new Book(
+            12345678900L,
+            "Book Title",
+            "John Doe",
+            "Very short blurb of the book.",
+            314,
+            "https://www.booksite.com",
+            5,
+            "Comedy"));
     when(bookRepository.findByCategory("Comedy")).thenReturn(books);
+    when(bookReviewClient.getAvgBookReviews(12345678900L)).thenReturn(5);
     assertEquals(books, bookService.getByCategory("Comedy"));
   }
 
@@ -101,7 +155,16 @@ public class BookServiceTest {
 
   @Test
   public void createBook() {
-    Book book = new Book(12345678900L, "Book Title", "John Doe", "Very short blurb of the book.", 314, "https://www.booksite.com", 5, "Comedy");
+    Book book =
+        new Book(
+            12345678900L,
+            "Book Title",
+            "John Doe",
+            "Very short blurb of the book.",
+            314,
+            "https://www.booksite.com",
+            5,
+            "Comedy");
     when(bookRepository.save(book)).thenReturn(book);
     assertEquals(book, bookService.create(book));
   }

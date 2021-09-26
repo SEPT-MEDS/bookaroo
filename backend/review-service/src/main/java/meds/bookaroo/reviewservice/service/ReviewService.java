@@ -9,8 +9,7 @@ import java.util.List;
 
 @Service
 public class ReviewService {
-  @Autowired
-  private ReviewRepository reviewRepository;
+  @Autowired private ReviewRepository reviewRepository;
 
   public ReviewService(ReviewRepository reviewRepository) {
     this.reviewRepository = reviewRepository;
@@ -22,5 +21,13 @@ public class ReviewService {
 
   public Review create(Review review) {
     return reviewRepository.save(review);
+  }
+
+  public Integer getAvgByEntityId(Long entityId) {
+    Integer avgRating = reviewRepository.findAvgByEntityId(entityId);
+    if (avgRating == null) {
+      avgRating = 5;
+    }
+    return avgRating;
   }
 }

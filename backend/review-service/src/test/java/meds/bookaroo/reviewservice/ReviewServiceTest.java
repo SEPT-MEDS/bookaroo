@@ -20,8 +20,7 @@ public class ReviewServiceTest {
 
   ReviewService reviewService;
 
-  @Mock
-  ReviewRepository reviewRepository;
+  @Mock ReviewRepository reviewRepository;
 
   @BeforeEach
   void initUserCase() {

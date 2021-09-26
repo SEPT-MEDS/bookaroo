@@ -24,8 +24,7 @@ public class BookRepositoryTest {
 
   private static Validator validator;
 
-  @Autowired
-  private BookRepository bookRepository;
+  @Autowired private BookRepository bookRepository;
 
   @BeforeAll
   static void setUp() {
@@ -40,7 +39,8 @@ public class BookRepositoryTest {
 
   @Test
   void saveValidBook() {
-    Book book = new Book(1000000000L, "Title", "Author", "Blurb", 1, "http://url.com", 0, "category");
+    Book book =
+        new Book(1000000000L, "Title", "Author", "Blurb", 1, "http://url.com", 0, "category");
     Set<ConstraintViolation<Book>> violations = validator.validate(book);
     assertEquals(0, violations.size());
   }
@@ -82,7 +82,8 @@ public class BookRepositoryTest {
 
   @Test
   void saveBookNegativePages() {
-    Book book = new Book(1000000000L, "Title", "Author", "Blurb", -1, "http://url.com", 0, "category");
+    Book book =
+        new Book(1000000000L, "Title", "Author", "Blurb", -1, "http://url.com", 0, "category");
     Set<ConstraintViolation<Book>> violations = validator.validate(book);
     assertEquals(1, violations.size());
   }

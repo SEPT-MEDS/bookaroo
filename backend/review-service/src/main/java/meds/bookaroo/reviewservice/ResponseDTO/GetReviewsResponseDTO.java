@@ -1,13 +1,15 @@
 package meds.bookaroo.reviewservice.ResponseDTO;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import meds.bookaroo.reviewservice.model.Review;
 
 import java.util.List;
 
+@Getter
+@Setter
 @AllArgsConstructor
-@Data
 public class GetReviewsResponseDTO {
   List<Review> reviews;
 }
