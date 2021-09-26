@@ -67,10 +67,10 @@ public class PurchaseController {
     return ResponseEntity.ok(new GetPurchasesResponseDTO(purchases));
   }
 
-  // Cancel a purchase by its id
-  @PostMapping("/api/purchase/{purchaseId}/cancel")
-  public ResponseEntity<?> cancelPurchaseById(@PathVariable Long purchaseId) {
-    // Get purchase using service
+  // Delete a purchase by its id
+  @DeleteMapping("/api/purchase/{purchaseid}")
+  public ResponseEntity<?> deletePurchaseById(@PathVariable Long purchaseid) {
+    // Get purchase from service
     Purchase purchase = purchaseService.getByPurchaseId(purchaseid);
     
     // Purchase must exist
@@ -84,29 +84,12 @@ public class PurchaseController {
       return ResponseEntity.badRequest().build();
     }
 
-    // Ensure that x number of hours havent already passed
-    purchase.setIsCancelled(true);
-    purchaseService.create(purchase);
-    return ResponseEntity.ok(true);
-  }
-
-  // Delete a purchase by its id
-  @DeleteMapping("/api/purchase/{purchaseid}")
-  public ResponseEntity<?> deletePurchaseById(@PathVariable Long purchaseid) {
-    // Get purchase from service
-    Purchase purchase = purchaseService.getByPurchaseId(purchaseid);
+    // Make the listing for the purchase visible
+    UpdateListingStatusDTO request = new UpdateListingStatusDTO(purchase.getListingId(), true);
+    listingClient.updateListing(request);
     
-    // Ensure that x number of hours havent already passed
-    if (purchase != null) {
-      // Make the listing for the purchase invisible
-      UpdateListingStatusDTO request = new UpdateListingStatusDTO(purchase.getListingId(), true);
-      listingClient.updateListing(request);
-      
-      // Remove the purchase from the DB
-      purchaseService.deleteByPurchaseId(purchaseid);
-      return ResponseEntity.ok().build();
-    } else {
-      return ResponseEntity.status(HTTPStatus.NOT_FOUND).build();
-    }
+    // Remove the purchase from the DB
+    purchaseService.deleteByPurchaseId(purchaseid);
+    return ResponseEntity.ok().build();
   }
 }

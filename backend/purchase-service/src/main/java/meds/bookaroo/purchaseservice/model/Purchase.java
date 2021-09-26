@@ -33,7 +33,4 @@ public class Purchase {
 
   @NotNull(message = "Purchase creation time is required")
   private Long purchaseCreationTime;
-
-  @NotNull(message = "Cancelled status is required") 
-  private Boolean isCancelled = false;
 }
