@@ -22,6 +22,8 @@ public class PurchaseController {
 
   @Autowired private ListingClient listingClient;
 
+  final Long MAX_CANCEL_TIME_MILLIS = 2 /* hrs */ * 60 /* mins */ * 60 /* s */ * 1000 /* ms */
+
   // Create a purchase
   @PostMapping("/api/purchase")
   public ResponseEntity<?> addPurchase(@RequestBody @Valid Purchase purchase) {
@@ -68,17 +70,26 @@ public class PurchaseController {
   // Delete a purchase by its id
   @DeleteMapping("/api/purchase/{purchaseid}")
   public ResponseEntity<?> deletePurchaseById(@PathVariable Long purchaseid) {
+    // Get purchase from service
     Purchase purchase = purchaseService.getByPurchaseId(purchaseid);
+    
+    // Purchase must exist
+    if (purchase != null) {
+      return ResponseEntity.status(HTTPStatus.NOT_FOUND).build();
+    }
+
     // Ensure that x number of hours havent already passed
-    if (purchase != null && purchase.getPurchaseCreationTime() > 1) {
-      // Make the listing for the purchase invisible
-      UpdateListingStatusDTO request = new UpdateListingStatusDTO(purchase.getListingId(), true);
-      listingClient.updateListing(request);
-      // Remove the purchase from the DB
-      purchaseService.deleteByPurchaseId(purchaseid);
-      return ResponseEntity.ok().build();
-    } else {
+    Long timeElapsedSincePurchase = System.currentTimeMillis() - purchase.getPurchaseCreationTime();
+    if (timeElapsedSincePurchase <= MAX_CANCEL_TIME_MILLIS) {
       return ResponseEntity.badRequest().build();
     }
+
+    // Make the listing for the purchase visible
+    UpdateListingStatusDTO request = new UpdateListingStatusDTO(purchase.getListingId(), true);
+    listingClient.updateListing(request);
+    
+    // Remove the purchase from the DB
+    purchaseService.deleteByPurchaseId(purchaseid);
+    return ResponseEntity.ok().build();
   }
 }

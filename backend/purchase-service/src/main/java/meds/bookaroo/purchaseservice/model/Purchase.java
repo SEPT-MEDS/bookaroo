@@ -31,6 +31,6 @@ public class Purchase {
   @NotNull(message = "Paypal data is required")
   private String paypalData;
 
-  @NotNull(message = "User id is required")
+  @NotNull(message = "Purchase creation time is required")
   private Long purchaseCreationTime;
 }
