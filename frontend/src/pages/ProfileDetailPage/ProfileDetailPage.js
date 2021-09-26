@@ -9,10 +9,10 @@ import { Container, ListingContainer } from './profileDetailPageStyle'
 
 const ProfileDetailPage = () => {
   const { id } = useParams()
+  const [reviewsValid, setReviewsValid] = useState(false)
   const { response: user, isLoading, error } = useAsync(() => getUser(id), [id])
   const { response: listings } = useAsync(() => getListingsBySeller(id), [user])
-  const { response: reviews } = useAsync(() => getUserReviews(id).then(reviews => { setIsValid(true); return reviews }), [user, isValid])
-  const [isValid, setIsValid] = useState(false)
+  const { response: reviews } = useAsync(() => getUserReviews(id).then(reviews => { setReviewsValid(true); return reviews }), [user, reviewsValid])
 
   return isLoading && !(user || error) ? (
     <Spinner />
@@ -36,7 +36,7 @@ const ProfileDetailPage = () => {
           </section>
           <section>
             <h2> Reviews of {user?.username}</h2>
-            <Reviews reviews={reviews} onPost={() => setIsValid(false)} />
+            <Reviews reviews={reviews} onPost={() => setReviewsValid(false)} />
           </section>
         </>
       )}
