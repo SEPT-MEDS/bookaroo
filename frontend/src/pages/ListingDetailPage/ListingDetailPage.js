@@ -1,15 +1,18 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useState } from 'react'
+import { useParams, useHistory } from 'react-router-dom'
 
 import { useAsync } from 'hooks'
 import { getListing, getBook, getUser } from 'services'
-import { Notification, Spinner, BookSummary, Rating, Button } from 'components'
+import { Button, Notification, Spinner, BookSummary, Rating} from 'components'
+
+import PurchaseSuccess from './PurchaseSuccess'
+import PurchaseButton from './PurchaseButton'
 import { Container, ListingInfoContainer, ActionBox } from './listingDetailPageStyle'
 import UserReviews from './UserReviews'
 
 const ListingDetailPage = () => {
   const { id } = useParams()
-  const {response: listing, error, isLoading} = useAsync(() => getListing(id), [id])
+  const { response: listing, error, isLoading } = useAsync(() => getListing(id), [id])
   
   return (
     <Container>
@@ -26,12 +29,20 @@ const ListingDetailPage = () => {
 }
 
 const ListingInfo = ({ id, sellerId, price, isSwap, imageUrl, isPreowned, bookIsbn }) => {
+  const history = useHistory()
+  const [purchaseSuccess, setPurchaseSuccess] = useState(false)
+  const [purchaseError, setPurchaseError] = useState()
   const { response: vendor } = useAsync(() => getUser(sellerId))
   const { response: book } = useAsync(() => getBook(bookIsbn))
 
-  const handleAddToCart = () => {
-    // TODO
-    console.log('Add listing', id, 'to cart')
+  // If the purchase was succesfull we show the success info instead
+  if (purchaseSuccess) {
+    return <PurchaseSuccess {...{id, bookIsbn, sellerId, price, imageUrl}}/>
+  }
+
+  // Redirect to user page when press 'contact' on a swap listing
+  const handleContact = () => {
+    history.push(`/user/${sellerId}#contact`)
   }
 
   return <ListingInfoContainer>
@@ -43,7 +54,13 @@ const ListingInfo = ({ id, sellerId, price, isSwap, imageUrl, isPreowned, bookIs
       <ActionBox>
         {!isSwap && <h3>Buy {isPreowned ? 'preowned' : 'brand new'} for ${ price }</h3>}
         {isSwap && <h3>Swap with <em>{vendor?.username}</em> for another book</h3>}
-        <Button onClick={handleAddToCart}>{isSwap ? `Contact ${vendor?.username || 'seller'}` : 'Buy Now'}</Button>
+        {purchaseError && <Notification isError={true}>{String(purchaseError)}</Notification>}
+        {!isSwap && <PurchaseButton
+          listingId={id}
+          price={price}
+          onPurchase={() => setPurchaseSuccess(true)}
+          onError={err => setPurchaseError(err)} />}
+        {isSwap && <Button onClick={handleContact}> Contact Seller </Button>}
       </ActionBox>
     </div>
     <div className='reviews'>

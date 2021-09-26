@@ -1,10 +1,12 @@
 import React from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 import { BrowserRouter as Router } from 'react-router-dom'
+import { PayPalScriptProvider } from '@paypal/react-paypal-js'
 
-import styles from './styles'
-import Pages from './pages'
-import { useIsDarkScheme } from './hooks'
+import payPalConfig from 'config/paypal'
+import styles from 'styles'
+import Pages from 'pages'
+import { useIsDarkScheme } from 'hooks'
 
 const Main = styled.main`
   background: ${p => p.theme.background};
@@ -20,9 +22,11 @@ const App = () => {
         <ThemeProvider
           theme={{ ...styles, ...styles[isDarkTheme ? 'dark' : 'light'] }}
         >
-          <Main>
-            <Pages />
-          </Main>
+          <PayPalScriptProvider options={payPalConfig}>
+            <Main>
+              <Pages />
+            </Main>
+          </PayPalScriptProvider>
         </ThemeProvider>
       </Router>
     </>
