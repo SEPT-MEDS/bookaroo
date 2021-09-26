@@ -40,8 +40,8 @@ const ProfileMenu = ({ profile }) => {
         onClick={e => e.stopPropagation()}
         ref={menuRef}
       >
-        <Link to='#'>My Profile</Link>
-        <Link to='#'>View Cart</Link>
+        <Link to={`/user/${profile.id}`}>My Profile</Link>
+        <Link to='#'>Order History</Link>
         <Link to='#'>Settings</Link>
         <LogoutButton onClick={handleLogout}>Logout</LogoutButton>
         <SiteInfoContainer>
