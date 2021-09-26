@@ -32,7 +32,7 @@ const Reviews = ({ reviews, entityId, onPost = () => { } }) => {
 
   return <ReviewSection>
     <ReviewInputForm onSubmit={handleSubmit(onCreateReview)}>
-      <input type="text" placeholder="Write a review" {...register('content', {required: true})} />
+      <input type="text" maxLength="255" placeholder="Write a review" {...register('content', {required: true})} />
       <input type="number" min="1" max="5" placeholder="Rating" {...register('rating', {required: true, min: 1, max: 5})}/>
       <Rating rating={watchRating} />
       <input type="submit" value="Submit" />
