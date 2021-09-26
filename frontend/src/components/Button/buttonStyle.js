@@ -1,19 +1,24 @@
 import styled from 'styled-components'
 
 export const StyledButton = styled.button`
-  padding: 1em;
-  margin-top: .5em;
+  padding: .5em;
+  margin-top: .6em;
+  margin-left: .3em;
 
+  box-shadow: 0px 3px 5px -1px #00000040;
+  border: none;
   background: ${p => p.theme.primary};
-  color: ${p => p.theme.invertedText};
-  border-radius: 1em;
-  border: 2px solid transparent;
+  font-size: 1rem;
   cursor: pointer;
+  color: ${p => p.theme.invertedText};
+  border-radius: .7em;
+  border: 2px solid transparent;
 
   &:hover {
     background: ${p => p.theme.background};
-    color: ${p => p.theme.text};
+    color: ${p => p.theme.primary};
     border: 2px solid ${p => p.theme.primary};
+    cursor: pointer;
   }
 `
 
