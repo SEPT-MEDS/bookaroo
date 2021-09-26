@@ -6,6 +6,7 @@ import { getBook } from 'services'
 import { useAsync } from 'hooks'
 
 import BookSellers from './BookSellers'
+import BookReviews from './BookReviews'
 
 import {
   Container,
@@ -26,7 +27,8 @@ const BookDetailPage = () => {
         <>
           {error && <Notification isError={true}>{error}</Notification>}
           {book && <BookInfo book={book} />}
-          {book && <BookSellers book={book}/>}
+          {book && <BookSellers book={book} />}
+          {book && <BookReviews book={book} />}
         </>
       )}
     </Container>
