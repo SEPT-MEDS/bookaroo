@@ -8,6 +8,7 @@ import { Button, Notification, Spinner, BookSummary, Rating} from 'components'
 import PurchaseSuccess from './PurchaseSuccess'
 import PurchaseButton from './PurchaseButton'
 import { Container, ListingInfoContainer, ActionBox } from './listingDetailPageStyle'
+import UserReviews from './UserReviews'
 
 const ListingDetailPage = () => {
   const { id } = useParams()
@@ -61,6 +62,9 @@ const ListingInfo = ({ id, sellerId, price, isSwap, imageUrl, isPreowned, bookIs
           onError={err => setPurchaseError(err)} />}
         {isSwap && <Button onClick={handleContact}> Contact Seller </Button>}
       </ActionBox>
+    </div>
+    <div className='reviews'>
+      {vendor && <UserReviews user={vendor} />}
     </div>
   </ListingInfoContainer>
 }

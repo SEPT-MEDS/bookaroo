@@ -10,11 +10,12 @@ export const ListingInfoContainer = styled.div`
   column-gap: 2em;
   min-height: 30em;
 
-  .paypal-button {
-    margin-top: 1rem;
-    width: 265px;
+  .reviews {
+    margin: auto;
+    grid-column: span 2;
+    width: clamp(70vw, 20em, 250em);
+    margin-top: 5em;
   }
-
 `
 
 export const PurchaseButtonContainer = styled.div`
@@ -25,6 +26,7 @@ export const PurchaseButtonContainer = styled.div`
 export const ActionBox = styled.div`
   margin-top: 2em;
 `
+
 const spin = keyframes`
 	from {
 		transform: rotate(0);
@@ -33,6 +35,7 @@ const spin = keyframes`
 		transform: rotate(360deg);
 	}
 `
+
 export const PurchaseSuccessContainer = styled.div`
   display: flex;
   flex-direction: column;
