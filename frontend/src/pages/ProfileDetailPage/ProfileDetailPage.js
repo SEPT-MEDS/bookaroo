@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
 import { useAsync } from 'hooks'
-import { getUser, getBook, getListingsBySeller } from 'services'
-import { Spinner, Notification } from 'components'
+import { getUser, getUserReviews, getBook, getListingsBySeller } from 'services'
+import { Reviews, Spinner, Notification } from 'components'
 
 import { Container, ListingContainer } from './profileDetailPageStyle'
 
@@ -11,6 +11,8 @@ const ProfileDetailPage = () => {
   const { id } = useParams()
   const { response: user, isLoading, error } = useAsync(() => getUser(id), [id])
   const { response: listings } = useAsync(() => getListingsBySeller(id), [user])
+  const { response: reviews } = useAsync(() => getUserReviews(id).then(reviews => { setIsValid(true); return reviews }), [user, isValid])
+  const [isValid, setIsValid] = useState(false)
 
   return isLoading && !(user || error) ? (
     <Spinner />
@@ -34,7 +36,7 @@ const ProfileDetailPage = () => {
           </section>
           <section>
             <h2> Reviews of {user?.username}</h2>
-            <div>{'Get prankt - this isn\'t done yet 😈'}</div>
+            <Reviews reviews={reviews} onPost={() => setIsValid(false)} />
           </section>
         </>
       )}
