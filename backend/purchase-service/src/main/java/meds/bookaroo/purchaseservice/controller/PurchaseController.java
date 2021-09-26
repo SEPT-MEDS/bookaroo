@@ -22,7 +22,7 @@ public class PurchaseController {
 
   @Autowired private ListingClient listingClient;
 
-  final Long MAX_CANCEL_TIME_MILLIS = 2 /* hrs */ * 60 /* mins */ * 60 /* s */ * 1000 /* ms */
+  final Long MAX_CANCEL_TIME_MILLIS = 2 /* hrs */ * 60 /* mins */ * 60 /* s */ * 1000 /* ms */;
 
   // Create a purchase
   @PostMapping("/api/purchase")
