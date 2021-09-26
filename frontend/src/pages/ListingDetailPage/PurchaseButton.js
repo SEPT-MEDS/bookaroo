@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js'
 
 import { createPurchase } from 'services'
 import { Notification } from 'components'
 import { useCurrentProfile } from 'hooks'
+
+import { PurchaseButtonContainer } from './listingDetailPageStyle'
 
 const buttonStyle = {
   'layout': 'vertical',
@@ -15,11 +16,10 @@ const buttonStyle = {
   'tagline': false,
 }
 
-const PurchaseButton = ({ listingId, price, redirect }) => {
+const PurchaseButton = ({ listingId, price, onPurchase, onError }) => {
   const [{ isResolved }] = usePayPalScriptReducer()
   const profile = useCurrentProfile()
   const [error, setError] = useState()
-  const history = useHistory()
 
   const createOrder = (data, actions) => {
     console.log(data, actions)
@@ -31,15 +31,19 @@ const PurchaseButton = ({ listingId, price, redirect }) => {
   }
 
   // Handler for purchase approved
-  const handleApprove = (profile, history) => async (data, actions) => {
+  const handleApprove = profile => async (data, actions) => {
     const capture = await actions.order.capture()
-    await createPurchase({
+    createPurchase({
       listingId,
       buyerId: profile.id,
       paypalData: btoa(JSON.stringify({ captureId: capture.id })) // Send paypal data as base64 encoded JSON
+    }).then(() => {
+      if (onPurchase)
+        onPurchase()
+    }).catch(e => {
+      if (onError)
+        onError(e)
     })
-    alert('Purchase Successful!')
-    if (redirect) history.push(redirect)
   }
 
   // Handler for purchase failed
@@ -48,14 +52,14 @@ const PurchaseButton = ({ listingId, price, redirect }) => {
     setError(String(error)) 
   }
 
-  return <>
+  return <PurchaseButtonContainer>
     {profile && <PayPalButtons
       style={buttonStyle}
       createOrder={createOrder}
-      onApprove={handleApprove(profile, history)}
+      onApprove={handleApprove(profile)}
       onError={handleError} disabled={!isResolved} />}
     {error && <Notification isError={true}>{error}</Notification>}
-  </>
+  </PurchaseButtonContainer>
 }
 
 export default PurchaseButton
