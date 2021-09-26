@@ -1,18 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 
 import { useAsync } from 'hooks'
-import { getUser, getUserReviews, getBook, getListingsBySeller } from 'services'
-import { Reviews, Spinner, Notification } from 'components'
+import { getUser, getBook, getListingsBySeller } from 'services'
+import { Spinner, Notification, UserReviews } from 'components'
 
 import { Container, ListingContainer } from './profileDetailPageStyle'
 
 const ProfileDetailPage = () => {
   const { id } = useParams()
-  const [reviewsValid, setReviewsValid] = useState(false)
   const { response: user, isLoading, error } = useAsync(() => getUser(id), [id])
   const { response: listings } = useAsync(() => getListingsBySeller(id), [user])
-  const { response: reviews } = useAsync(() => getUserReviews(id).then(reviews => { setReviewsValid(true); return reviews }), [user, reviewsValid])
 
   return isLoading && !(user || error) ? (
     <Spinner />
@@ -26,7 +24,7 @@ const ProfileDetailPage = () => {
           </h1>
           <section>
             <h2> Listings by {user?.username}</h2>
-            <div>
+            <div className="listings">
               {!listings ? (
                 <span>This user has no listings</span>
               ) : (
@@ -35,8 +33,7 @@ const ProfileDetailPage = () => {
             </div>
           </section>
           <section>
-            <h2> Reviews of {user?.username}</h2>
-            <Reviews reviews={reviews} onPost={() => setReviewsValid(false)} />
+            <UserReviews user={user}></UserReviews>
           </section>
         </>
       )}

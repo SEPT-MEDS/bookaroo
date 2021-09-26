@@ -3,12 +3,12 @@ import { useParams, useHistory } from 'react-router-dom'
 
 import { useAsync } from 'hooks'
 import { getListing, getBook, getUser } from 'services'
-import { Button, Notification, Spinner, BookSummary, Rating} from 'components'
+import { Button, Notification, Spinner, BookSummary, Rating, UserReviews} from 'components'
 
 import PurchaseSuccess from './PurchaseSuccess'
 import PurchaseButton from './PurchaseButton'
 import { Container, ListingInfoContainer, ActionBox } from './listingDetailPageStyle'
-import UserReviews from './UserReviews'
+// import UserReviews from './UserReviews'
 
 const ListingDetailPage = () => {
   const { id } = useParams()
