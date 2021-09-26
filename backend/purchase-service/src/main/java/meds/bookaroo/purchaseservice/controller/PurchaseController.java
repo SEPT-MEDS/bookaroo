@@ -80,7 +80,7 @@ public class PurchaseController {
 
     // Ensure that x number of hours havent already passed
     Long timeElapsedSincePurchase = System.currentTimeMillis() - purchase.getPurchaseCreationTime();
-    if (timeElapsedSincePurchase = MAX_CANCEL_TIME_MILLIS) {
+    if (timeElapsedSincePurchase <= MAX_CANCEL_TIME_MILLIS) {
       return ResponseEntity.badRequest().build();
     }
 
