@@ -42,7 +42,17 @@ export const ReviewInputForm = styled.form`
       font-size: 1rem;
       font-weight: bold;
       background: ${p => p.theme.primary};
+
+      &:hover {
+         background: white;
+         color: ${p => p.theme.primary};
+         // Using box shadow to put the outline inside the box rather than outside
+         // Using border causes the shape of the button to shift slightly to the bottom left
+         box-shadow: inset 0px 0px 0px 2px ${p => p.theme.primary};
+         cursor: pointer;
+      }
    }
+
 `
 
 export const ReviewBlock = styled.div`
