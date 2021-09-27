@@ -1,10 +1,13 @@
 import React from 'react'
 import { RatingText } from './ratingStyle'
 
-const Rating = ({ rating, maxRating=5 }) => {
+const clamp = (v, min, max) => Math.min(Math.max(v, min), max)
+
+const Rating = ({ rating, maxRating = 5 }) => {
+  const clampedRating = clamp(rating, 0, maxRating)
   return <RatingText>
-    {'⭐️'.repeat(Math.floor(rating))}
-    <span className='unfilled'>{'⭐️'.repeat(maxRating-Math.floor(rating))}</span>
+    <span className='filled'>{'⭐️'.repeat(clampedRating)}</span>
+    <span className='unfilled'>{'⭐️'.repeat(maxRating-clampedRating)}</span>
     ({rating})
   </RatingText>
 }
