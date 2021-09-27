@@ -32,7 +32,7 @@ const LoginPage = () => {
     // Ensure confirm password is the same as password
     if (password == confirmPassword) {
       // Signup
-      signup({ firstName, lastName, email, phoneNumber, username, password, address, abn, type, isEnabled })
+      signup({ firstName, lastName, email, phoneNumber, username, password, address, abn, type, isEnabled, rating: 0 })
         .then( success  => {
           if (success) {
             history.push('/login')
