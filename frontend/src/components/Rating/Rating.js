@@ -4,10 +4,10 @@ import { RatingText } from './ratingStyle'
 const clamp = (v, min, max) => Math.min(Math.max(v, min), max)
 
 const Rating = ({ rating, maxRating = 5 }) => {
-  {rating = clamp(rating, 0, maxRating)}
+  const clampedRating = clamp(rating, 0, maxRating)
   return <RatingText>
-    <span className='filled'>{'⭐️'.repeat(rating)}</span>
-    <span className='unfilled'>{'⭐️'.repeat(maxRating-rating)}</span>
+    <span className='filled'>{'⭐️'.repeat(clampedRating)}</span>
+    <span className='unfilled'>{'⭐️'.repeat(maxRating-clampedRating)}</span>
     ({rating})
   </RatingText>
 }
