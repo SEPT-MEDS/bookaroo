@@ -8,7 +8,7 @@ export const Container = styled.div`
     margin-top: 2em;
     margin-left: 2em;
 
-    > div {
+    .listings {
       padding: 1em;
     }
   }
