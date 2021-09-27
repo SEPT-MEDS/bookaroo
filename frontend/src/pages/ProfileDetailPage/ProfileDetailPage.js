@@ -27,16 +27,16 @@ const ProfileDetailPage = () => {
           <section>
             <h2> Listings by {user?.username}</h2>
             <div>
-              {!listings ? (
-                <span>This user has no listings</span>
-              ) : (
+              {listings?.length ? (
                 listings.map(listing => <Listing key={listing.id} {...listing} />)
+              ) : (
+                <span>This user has no listings</span>
               )}
             </div>
           </section>
           <section>
             <h2> Reviews of {user?.username}</h2>
-            <Reviews reviews={reviews} onPost={() => setReviewsValid(false)} />
+            <Reviews reviews={reviews} entityId={user?.id} onPost={() => setReviewsValid(false)} />
           </section>
         </>
       )}
