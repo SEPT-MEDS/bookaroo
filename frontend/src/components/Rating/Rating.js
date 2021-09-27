@@ -8,7 +8,7 @@ const Rating = ({ rating, maxRating = 5 }) => {
   return <RatingText>
     <span className='filled'>{'⭐️'.repeat(clampedRating)}</span>
     <span className='unfilled'>{'⭐️'.repeat(maxRating-clampedRating)}</span>
-    ({rating})
+    ({clampedRating})
   </RatingText>
 }
 
