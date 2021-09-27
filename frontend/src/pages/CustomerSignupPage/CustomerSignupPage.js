@@ -52,6 +52,10 @@ const CustomerSignupPage = () => {
           Are you a business owner?
           <Link to='/signup/business'>Signup Here Instead</Link>
         </Notification>
+        <Notification>
+          Already have an account?
+          <Link to='/'>Log in</Link>
+        </Notification>
         <FieldsContainer>
           <InputGroup>
             <InputContainer>

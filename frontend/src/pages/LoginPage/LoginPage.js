@@ -70,7 +70,7 @@ const LoginPage = () => {
           </InputContainer>
           <LinkContainer>
             {'Don\'t have an account? '}
-            <Link to='/signup/customer'>signup here</Link>
+            <Link to='/signup/customer'>Signup here</Link>
           </LinkContainer>
         </FieldsContainer>
         <input type="submit" value="Login" />
