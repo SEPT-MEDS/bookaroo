@@ -24,11 +24,11 @@ const ProfileDetailPage = () => {
           </h1>
           <section>
             <h2> Listings by {user?.username}</h2>
-            <div className="listings">
-              {!listings ? (
-                <span>This user has no listings</span>
-              ) : (
+            <div>
+              {listings?.length ? (
                 listings.map(listing => <Listing key={listing.id} {...listing} />)
+              ) : (
+                <span>This user has no listings</span>
               )}
             </div>
           </section>
