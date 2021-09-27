@@ -50,11 +50,15 @@ const LoginPage = () => {
   return (
     <Container>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <Heading>Signup</Heading>
+        <Heading>Business Signup</Heading>
         {error && <Notification isError={true}>{error}</Notification>}
         <Notification>
           Not a business owner?
           <Link to='/signup/customer'>Signup Here Instead</Link>
+        </Notification>
+        <Notification>
+          Already have an account?
+          <Link to='/'>Log in</Link>
         </Notification>
         <FieldsContainer>
           <InputContainer>
