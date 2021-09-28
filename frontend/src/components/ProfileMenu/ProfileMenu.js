@@ -41,7 +41,7 @@ const ProfileMenu = ({ profile }) => {
         ref={menuRef}
       >
         <Link to={`/user/${profile.id}`}>My Profile</Link>
-        <Link to='#'>Order History</Link>
+        <Link to='/transactions'>Order History</Link>
         <Link to='#'>Settings</Link>
         <LogoutButton onClick={handleLogout}>Logout</LogoutButton>
         <SiteInfoContainer>
