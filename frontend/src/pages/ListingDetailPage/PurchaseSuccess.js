@@ -16,7 +16,7 @@ const PurchaseSuccess = ({ bookIsbn, sellerId, price }) => {
     <FontAwesomeIcon icon={faCheckCircle} />
     <h2> Your purchase {book ? 'of' : ''} {book && <Link to={`/book/${bookIsbn}`}>{book.title} </Link>}
       from <Link to={`/user/${sellerId}`}>{seller ? seller.username : 'the seller'}</Link> was successful. </h2>
-    <marquee> Thank you for your ${price} purchase.</marquee>
+    <marquee scrollAmount={9}> Thank you for your ${price} purchase.</marquee>
     <h3><Link to={'/'}>Back to homepage</Link></h3>
   </PurchaseSuccessContainer>
 }

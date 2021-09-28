@@ -14,11 +14,15 @@ export const StyledButton = styled.button`
   border-radius: .7em;
   border: 2px solid transparent;
 
-  &:hover {
+  &:hover:not([disabled]) {
     background: ${p => p.theme.background};
     color: ${p => p.theme.primary};
     border: 2px solid ${p => p.theme.primary};
     cursor: pointer;
+  }
+
+  &[disabled] {
+    background: ${p => p.theme.primary}44;
   }
 `
 
