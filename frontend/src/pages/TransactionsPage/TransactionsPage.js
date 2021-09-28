@@ -59,7 +59,7 @@ const TransactionsPage = () => {
 
   return <Container>
     <h1>{heading}</h1>
-    {transactions ?
+    {transactions?.length ?
       <TransactionsContainer>
         {error && <Notification isError={true}>{error}</Notification>}
         {transactions
