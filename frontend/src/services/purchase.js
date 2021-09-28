@@ -26,3 +26,8 @@ export const getAllPurchases = async () => {
   const { data } = await api.get('/purchases')
   return data.purchases
 }
+
+export const cancelPurchase = async purchaseId => {
+  const { data } = await api.delete(`/purchase/${purchaseId}`)
+  return data
+}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 
 import { useCurrentProfile, useAsync } from 'hooks'
 import { Button, BookCover, BookSummary, Notification } from 'components'
@@ -10,6 +10,7 @@ import {
   getBook, 
   getListing,
   getUser,
+  cancelPurchase,
 } from 'services'
 
 import { Container, TransactionsContainer, TransactionContainer } from './transactionsPageStyle'
@@ -61,7 +62,9 @@ const TransactionsPage = () => {
     {transactions ?
       <TransactionsContainer>
         {error && <Notification isError={true}>{error}</Notification>}
-        {transactions.map(transaction => <Transaction key={transaction.id} {...transaction}/>)}
+        {transactions
+          .map((v,i,a) => a[a.length - 1 - i]) // reverse
+          .map(transaction => <Transaction key={transaction.id} {...transaction}/>)}
       </TransactionsContainer> : (
         'There are no transactions'
       )}
@@ -69,14 +72,20 @@ const TransactionsPage = () => {
 }
 
 const Transaction = ({ id, listingId, purchaseCreationTime, buyerId, sellerId }) => {
+  const history = useHistory()
   const { response: listing, error: listingError } = useAsync(() => getListing(listingId), [listingId])
   const { response: book, error: bookError } = useAsync(() => listing && getBook(listing?.bookIsbn), [listing])
   const { response: seller, error: sellerError } = useAsync(() => listing && getUser(listing?.sellerId), [listing])
 
+  // Can this transaction be cancelled?
+  // Only can be cancelled if new enough
   const canCancel = (Date.now() - purchaseCreationTime) <= MAX_CANCEL_TIME
 
+  // Handle cancelling
   const handleCancel = () => {
-    window.alert('Banana Boat! 🍌🚢')
+    if (window.confirm('Are you sure? This action cannot be undone.'))
+      cancelPurchase(id)
+        .then(() => history.go(0))
   }
 
   return <TransactionContainer>
