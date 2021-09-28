@@ -63,6 +63,7 @@ const Pages = () => {
         <PrivateRoute path="/admin/reports" exact component={ReportsPage} />
         <PrivateRoute path="/listing/:id" exact component={ListingDetailPage} />
         <PrivateRoute path="/user/:id" exact component={ProfileDetailPage} />
+        <PrivateRoute path="/transactions" exact component={TransactionsPage} />
         <Route path="/login" exact component={LoginPage} />
         <Route path="/contact" exact component={ContactPage} />
         <Route path="/about" exact component={AboutPage} />

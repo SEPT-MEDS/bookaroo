@@ -11,3 +11,18 @@ export const createPurchase = async fields => {
   const { data } = await api.post('/purchase', { ...fields, sellerId, purchaseCreationTime })
   return data.purchase
 }
+
+export const getPurchasesBySeller = async sellerId => {
+  const { data } = await api.get(`/purchase/bySellerId/${sellerId}`)
+  return data.purchases
+}
+
+export const getPurchasesByBuyer = async buyerId => {
+  const { data } = await api.get(`/purchase/byBuyerId/${buyerId}`)
+  return data.purchases
+}
+
+export const getAllPurchases = async () => {
+  const { data } = await api.get('/purchases')
+  return data.purchases
+}
