@@ -43,7 +43,7 @@ const TransactionsPage = () => {
       if (userType === 'BUSINESS')
         request = getPurchasesBySeller(profile.id)
       if (userType === 'ADMIN')
-        request = getAllPurchases
+        request = getAllPurchases()
         
       // Wait for results and update state
       try {

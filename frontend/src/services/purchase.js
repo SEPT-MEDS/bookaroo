@@ -23,7 +23,7 @@ export const getPurchasesByBuyer = async buyerId => {
 }
 
 export const getAllPurchases = async () => {
-  const { data } = await api.get('/purchases')
+  const { data } = await api.get('/purchase')
   return data.purchases
 }
 
