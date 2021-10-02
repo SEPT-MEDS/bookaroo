@@ -10,6 +10,7 @@ import meds.bookaroo.purchaseservice.service.PurchaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -70,6 +71,7 @@ public class PurchaseController {
   }
 
   // Delete a purchase by its id
+  @Transactional
   @DeleteMapping("/api/purchase/{purchaseid}")
   public ResponseEntity<?> deletePurchaseById(@PathVariable Long purchaseid) {
     // Get purchase from service
