@@ -69,5 +69,4 @@ public class PurchaseServiceTest {
         when(purchaseRepository.findBySellerId(1L)).thenReturn(new ArrayList<>());
         assertEquals(purchaseRepository.findBySellerId(1L).size(), 0);
     }
-
 }
