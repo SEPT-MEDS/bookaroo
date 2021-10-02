@@ -12,7 +12,9 @@ import org.springframework.web.reactive.config.WebFluxConfigurer;
 public class CORSConfiguration implements WebFluxConfigurer {
   @Override
   public void addCorsMappings(CorsRegistry registry) {
-    registry.addMapping("/**")
+    // Add allowances to Cors mappings
+    registry
+        .addMapping("/**")
         .allowCredentials(true)
         .allowedOriginPatterns("*")
         .allowedHeaders("*")

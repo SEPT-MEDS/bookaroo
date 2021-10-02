@@ -26,7 +26,8 @@ export const ListingContainer = styled.div`
   overflow: hidden;
 
   a {
-    color: inherit;
+    color: ${p => p.theme.primary};
+    text-decoration: inherit;
   }
 
   > div:first-child {

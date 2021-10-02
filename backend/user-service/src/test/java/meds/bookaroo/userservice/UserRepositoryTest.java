@@ -25,9 +25,7 @@ public class UserRepositoryTest {
 
   private static Validator validator;
 
-  @Autowired
-  private UserRepository userRepository;
-
+  @Autowired private UserRepository userRepository;
 
   @BeforeAll
   static void setUp() {
@@ -42,57 +40,160 @@ public class UserRepositoryTest {
 
   @Test
   void saveValidUser() {
-    User user = new User(1L, "test", "username", "password", true, UserType.CUSTOMER, "firstName", "lastName", "", "", "");
+    User user =
+        new User(
+            1L,
+            "test",
+            "username",
+            "password",
+            true,
+            UserType.CUSTOMER,
+            "firstName",
+            "lastName",
+            0,
+            "",
+            "",
+            "");
     Set<ConstraintViolation<User>> violations = validator.validate(user);
     assertEquals(1, violations.size());
   }
 
-
   @Test
   void saveUserInvalidEmail() {
-    User user = new User(1L, "email", "username", "password", true, UserType.CUSTOMER, "firstName", "lastName", "", "", "");
+    User user =
+        new User(
+            1L,
+            "email",
+            "username",
+            "password",
+            true,
+            UserType.CUSTOMER,
+            "firstName",
+            "lastName",
+            0,
+            "",
+            "",
+            "");
     Set<ConstraintViolation<User>> violations = validator.validate(user);
     assertEquals(1, violations.size());
   }
 
   @Test
   void saveUserInvalidBlankEmail() {
-    User user = new User(1L, "", "username", "password", true, UserType.CUSTOMER, "firstName", "lastName", "", "", "");
+    User user =
+        new User(
+            1L,
+            "",
+            "username",
+            "password",
+            true,
+            UserType.CUSTOMER,
+            "firstName",
+            "lastName",
+            0,
+            "",
+            "",
+            "");
     Set<ConstraintViolation<User>> violations = validator.validate(user);
     assertEquals(1, violations.size());
   }
 
   @Test
   void saveUserInvalidBlankUsername() {
-    User user = new User(1L, "test@me.com", "", "password", true, UserType.CUSTOMER, "firstName", "lastName", "", "", "");
+    User user =
+        new User(
+            1L,
+            "test@me.com",
+            "",
+            "password",
+            true,
+            UserType.CUSTOMER,
+            "firstName",
+            "lastName",
+            0,
+            "",
+            "",
+            "");
     Set<ConstraintViolation<User>> violations = validator.validate(user);
     assertEquals(1, violations.size());
   }
 
   @Test
   void saveUserInvalidBlankPassword() {
-    User user = new User(1L, "test@me.com", "username", "", true, UserType.CUSTOMER, "firstName", "lastName", "", "", "");
+    User user =
+        new User(
+            1L,
+            "test@me.com",
+            "username",
+            "",
+            true,
+            UserType.CUSTOMER,
+            "firstName",
+            "lastName",
+            0,
+            "",
+            "",
+            "");
     Set<ConstraintViolation<User>> violations = validator.validate(user);
     assertEquals(1, violations.size());
   }
 
   @Test
   void saveUserInvalidBlankFirstName() {
-    User user = new User(1L, "test@me.com", "username", "password", true, UserType.CUSTOMER, "", "lastName", "", "", "");
+    User user =
+        new User(
+            1L,
+            "test@me.com",
+            "username",
+            "password",
+            true,
+            UserType.CUSTOMER,
+            "",
+            "lastName",
+            0,
+            "",
+            "",
+            "");
     Set<ConstraintViolation<User>> violations = validator.validate(user);
     assertEquals(1, violations.size());
   }
 
   @Test
   void saveUserInvalidBlankLastName() {
-    User user = new User(1L, "test@me.com", "username", "password", true, UserType.CUSTOMER, "firstName", "", "", "", "");
+    User user =
+        new User(
+            1L,
+            "test@me.com",
+            "username",
+            "password",
+            true,
+            UserType.CUSTOMER,
+            "firstName",
+            "",
+            0,
+            "",
+            "",
+            "");
     Set<ConstraintViolation<User>> violations = validator.validate(user);
     assertEquals(1, violations.size());
   }
 
   @Test
   void deleteUser() {
-    User user = new User(1L, "test@me.com", "username", "password", true, UserType.CUSTOMER, "firstName", "lastName", "0438156612", "", "");
+    User user =
+        new User(
+            1L,
+            "test@me.com",
+            "username",
+            "password",
+            true,
+            UserType.CUSTOMER,
+            "firstName",
+            "lastName",
+            0,
+            "0438156612",
+            "",
+            "");
     userRepository.save(user);
     userRepository.deleteById(1L);
     assertEquals(0, userRepository.findAll().size());

@@ -41,5 +41,7 @@ export * from './user'
 export * from './book'
 export * from './listing'
 export * from './openlibrary'
+export * from './purchase'
+export * from './reviews'
 
 export default api

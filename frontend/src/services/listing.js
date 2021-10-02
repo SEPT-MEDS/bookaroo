@@ -10,6 +10,11 @@ export const getBookListings = async isbn => {
   return data.listings
 }
 
+export const getListingsBySeller = async id => {
+  const { data } = await api.get(`/user/${id}/listings`)
+  return data.listings
+}
+
 export const createListing = async fields => {
   console.log('Creating a listing with', fields)
   const { data } = await api.post('/listing', fields)

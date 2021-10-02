@@ -1,13 +1,15 @@
 package meds.bookaroo.listingservice.responseDTO;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import meds.bookaroo.listingservice.model.Listing;
 
 import java.util.List;
 
+@Getter
+@Setter
 @AllArgsConstructor
-@Data
 public class GetListingsResponseDTO {
   List<Listing> listings;
 }

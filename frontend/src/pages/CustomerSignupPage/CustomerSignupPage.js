@@ -29,7 +29,7 @@ const CustomerSignupPage = () => {
     // Ensure confirm password is the same as password
     if (password == confirmPassword) {
       // Signup
-      signup({firstName, lastName, email, phoneNumber, username, password, address, type, isEnabled} )
+      signup({firstName, lastName, email, phoneNumber, username, password, address, type, isEnabled, rating: 0} )
         .then(success => {
           if (success) {
             history.push('/login')
@@ -51,6 +51,10 @@ const CustomerSignupPage = () => {
         <Notification>
           Are you a business owner?
           <Link to='/signup/business'>Signup Here Instead</Link>
+        </Notification>
+        <Notification>
+          Already have an account?
+          <Link to='/'>Log in</Link>
         </Notification>
         <FieldsContainer>
           <InputGroup>
