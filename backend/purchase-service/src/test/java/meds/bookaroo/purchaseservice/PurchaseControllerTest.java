@@ -6,6 +6,7 @@ import meds.bookaroo.purchaseservice.feignClients.Listing;
 import meds.bookaroo.purchaseservice.feignClients.ListingClient;
 import meds.bookaroo.purchaseservice.model.Purchase;
 import meds.bookaroo.purchaseservice.responseDTO.GetPurchaseResponseDTO;
+import meds.bookaroo.purchaseservice.responseDTO.GetPurchasesResponseDTO;
 import meds.bookaroo.purchaseservice.service.PurchaseService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -126,44 +127,57 @@ public class PurchaseControllerTest {
   }
 
   @Test
-  public void getPurchaseWithBuyerId() {
+  public void getPurchaseWithBuyerId() throws Exception {
     List<Purchase> purchases = new ArrayList<>();
     purchases.add(new Purchase(1L, 1L, 1L, 1L, "paypalData", 1L));
     when(purchaseService.getByBuyerId(1L)).thenReturn(purchases);
-    assertEquals(purchases, purchaseService.getByBuyerId(1L));
+    mockMvc.perform(
+        MockMvcRequestBuilders.get("/api/purchase/byBuyerId/1").content(asJsonString(new GetPurchasesResponseDTO(purchases))).contentType("application/json")
+    ).andExpect(status().isOk());
   }
 
   @Test
-  public void getInvalidPurchaseWithBuyerId() {
+  public void getInvalidPurchaseWithBuyerId() throws Exception {
     when(purchaseService.getByBuyerId(1L)).thenReturn(new ArrayList<>());
-    assertEquals(0, purchaseService.getByBuyerId(1L).size());
+    mockMvc.perform(
+        MockMvcRequestBuilders.get("/api/purchase/byBuyerId/1").content(asJsonString(new GetPurchasesResponseDTO(new ArrayList<>()))).contentType("application/json")
+    ).andExpect(status().isOk());
   }
 
   @Test
-  public void getPurchaseWithSellerId() {
+  public void getPurchaseWithSellerId() throws Exception {
     List<Purchase> purchases = new ArrayList<>();
-    purchases.add(new Purchase(1L, 1L, 1L, 1L,"paypalData",  1L));
+    purchases.add(new Purchase(1L, 1L, 1L, 1L, "paypalData", 1L));
     when(purchaseService.getBySellerId(1L)).thenReturn(purchases);
-    assertEquals(purchases, purchaseService.getBySellerId(1L));
+    mockMvc.perform(
+        MockMvcRequestBuilders.get("/api/purchase/bySellerId/1").content(asJsonString(new GetPurchasesResponseDTO(purchases))).contentType("application/json")
+    ).andExpect(status().isOk());
   }
 
   @Test
-  public void getInvalidPurchaseWithSellerId() {
+  public void getInvalidPurchaseWithSellerId() throws Exception {
     when(purchaseService.getBySellerId(1L)).thenReturn(new ArrayList<>());
-    assertEquals(0, purchaseService.getBySellerId(1L).size());
+    mockMvc.perform(
+        MockMvcRequestBuilders.get("/api/purchase/byBuyerId/1").content(asJsonString(new GetPurchasesResponseDTO(new ArrayList<>()))).contentType("application/json")
+    ).andExpect(status().isOk());
   }
 
   @Test
-  public void getAllPurchases() {
+  public void getAllPurchases() throws Exception {
     List<Purchase> purchases = new ArrayList<>();
     purchases.add(new Purchase(1L, 1L, 1L, 1L,"paypalData",  1L));
     when(purchaseService.getAll()).thenReturn(purchases);
-    assertEquals(purchases, purchaseService.getAll());
+    mockMvc.perform(
+        MockMvcRequestBuilders.get("/api/purchase").content(asJsonString(new GetPurchasesResponseDTO(purchases))).contentType("application/json")
+    ).andExpect(status().isOk());
   }
 
   @Test
-  public void getInvalidAllPurchases() {
+  public void getInvalidAllPurchases() throws Exception {
+    List<Purchase> purchases = new ArrayList<>();
     when(purchaseService.getAll()).thenReturn(new ArrayList<>());
-    assertEquals(0, purchaseService.getAll().size());
+    mockMvc.perform(
+        MockMvcRequestBuilders.get("/api/purchase").content(asJsonString(new GetPurchasesResponseDTO(new ArrayList<>()))).contentType("application/json")
+    ).andExpect(status().isOk());
   }
 }

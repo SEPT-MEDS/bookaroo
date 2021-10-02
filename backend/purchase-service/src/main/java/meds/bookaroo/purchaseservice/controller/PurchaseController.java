@@ -61,7 +61,7 @@ public class PurchaseController {
   }
 
   // Get all purchases
-  @GetMapping("/api/purchases")
+  @GetMapping("/api/purchase")
   public ResponseEntity<?> getAllPurchases() {
     List<Purchase> purchases = purchaseService.getAll();
     return ResponseEntity.ok(new GetPurchasesResponseDTO(purchases));
@@ -72,7 +72,7 @@ public class PurchaseController {
   public ResponseEntity<?> deletePurchaseById(@PathVariable Long purchaseid) {
     // Get purchase from service
     Purchase purchase = purchaseService.getByPurchaseId(purchaseid);
-    
+
     // Purchase must exist
     if (purchase != null) {
       return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
@@ -87,7 +87,7 @@ public class PurchaseController {
     // Make the listing for the purchase visible
     UpdateListingStatusDTO request = new UpdateListingStatusDTO(purchase.getListingId(), true);
     listingClient.updateListing(request);
-    
+
     // Remove the purchase from the DB
     purchaseService.deleteByPurchaseId(purchaseid);
     return ResponseEntity.ok().build();
