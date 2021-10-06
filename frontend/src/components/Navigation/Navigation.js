@@ -11,7 +11,7 @@ const Navigation = () => {
 
   return (
     <NavBar>
-      <NavLink to="/">
+      <NavLink to={isAdmin ? '/admin' : '/'}>
         <Logo />
       </NavLink>
       <NavItems>
