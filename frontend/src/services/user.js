@@ -21,3 +21,8 @@ export const getAllUsers = async () => {
   const { data } = await api.get('/user/')
   return data
 }
+
+export const setAccountStatus = async (userId, isEnabled) => {
+  const response = await api.patch('/user/status', { userId, isEnabled })
+  return response
+}
