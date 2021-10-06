@@ -16,3 +16,8 @@ export const signup = async fields => {
   const response = await api.post('/user/signup', fields)
   return response
 }
+
+export const getAllUsers = async () => {
+  const { data } = await api.get('/user/')
+  return data
+}
