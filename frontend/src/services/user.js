@@ -18,8 +18,9 @@ export const signup = async fields => {
 }
 
 export const getAllUsers = async () => {
-  const { data } = await api.get('/user/')
-  return data
+  const { data } = await api.get('/user')
+  console.log(data)
+  return data.users
 }
 
 export const setAccountStatus = async (userId, isEnabled) => {

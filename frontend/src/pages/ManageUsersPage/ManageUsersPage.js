@@ -1,6 +1,7 @@
-import ManageUsersTable from 'components/Table/ManageUsersTable'
 import React from 'react'
+
 import { Container } from './manageUsersPageStyle'
+import ManageUsersTable from './ManageUsersTable'
 
 const ManageUsersPage = () => {
   return <Container>
