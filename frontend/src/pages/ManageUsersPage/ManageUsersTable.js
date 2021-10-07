@@ -4,6 +4,7 @@ import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 import { getAllUsers, setAccountStatus } from 'services'
 import { useAsync } from 'hooks'
+import { Spinner } from 'components'
 
 import { TableContainer, TableRow, SymbolButton, UserLink } from './manageUsersPageStyle'
 
@@ -27,7 +28,7 @@ const ManageUsersTable = () => {
   console.log(allUsers)
 
   if (isLoading)
-    return <TableContainer><em>Loading them users for u...</em></TableContainer>
+    return <Spinner />
 
   return <TableContainer>
     <thead>
