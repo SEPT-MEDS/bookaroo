@@ -1,11 +1,13 @@
 import React, { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 
-import { useAsync } from 'hooks'
-import { getUser } from 'services'
+import { useAsync, useCurrentProfile } from 'hooks'
+import { getUser, removeListing } from 'services'
 import { Rating, Spinner, Notification } from 'components'
 import { getBookListings } from 'services'
-import { BookSellersContainer, ListingContainer } from './bookDetailPageStyle'
+import { BookSellersContainer, ListingContainer, DeleteButton } from './bookDetailPageStyle'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 const BookSellers = ({ book }) => {
   const { response: listings, error, isLoading } = useAsync(() =>
@@ -46,6 +48,7 @@ const BookSellers = ({ book }) => {
 
 const Listing = ({ id, sellerId, price, imageUrl, isPreowned, isSwap }) => {
   const { response: vendor } = useAsync(() => getUser(sellerId))
+  const currProfile = useCurrentProfile()
 
   return (
     <ListingContainer>
@@ -60,6 +63,11 @@ const Listing = ({ id, sellerId, price, imageUrl, isPreowned, isSwap }) => {
         {isSwap && <div><em>This listing is a swap</em></div>}
         {!isSwap && <div>{`$${price}`} {isPreowned && <em> (preowned)</em>}</div>}
       </div>
+      <div className='delete-button'>
+        {vendor?.id === currProfile?.id ? 
+          <DeleteButton to='#' onClick={() => removeListing(id)}><FontAwesomeIcon icon={faTrashAlt} /></DeleteButton> : undefined}
+      </div>
+
     </ListingContainer>
   )
 }
