@@ -56,7 +56,7 @@ const Listing = ({ id, sellerId, price, imageUrl, isPreowned, isSwap }) => {
             {vendor ? `${vendor.firstName} ${vendor.lastName}` : 'Vendor'}
           </Link>
         </h3>
-        <Rating rating={3 /* TO DO */} />
+        <Rating rating={vendor ? vendor.rating : 0} />
         {isSwap && <div><em>This listing is a swap</em></div>}
         {!isSwap && <div>{`$${price}`} {isPreowned && <em> (preowned)</em>}</div>}
       </div>
