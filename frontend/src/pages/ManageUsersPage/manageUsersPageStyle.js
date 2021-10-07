@@ -25,9 +25,7 @@ export const TableContainer = styled.table`
 export const TableRow = styled.tr`
   td {
     align-items: center;
-    /* padding: 1rem; */
     padding: 1rem .5rem;
-    /* padding-left: 2rem; */
     border-bottom: 1px solid ${p => p.theme.greyText}55;
   }
 `
@@ -49,6 +47,7 @@ export const SymbolButton = styled.span`
   font-size: 1.5rem;
 
   :hover {
+    cursor: pointer;
     color: ${p => p.theme.text};
   }
 `

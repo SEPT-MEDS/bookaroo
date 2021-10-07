@@ -14,6 +14,7 @@ const TABLE_HEADERS = [
   'Last Name',
   'Phone Number',
   'Email',
+  'Address',
   'ABN',
   'User Type',
   'Status',
@@ -44,8 +45,13 @@ const ManageUsersTable = () => {
 
 const UserTableRow = ({ user, onUpdate }) => {
   const handleUpdateStatus = newStatus => async () => {
-    await setAccountStatus(user.id, newStatus)
-    onUpdate()
+    const message = newStatus
+      ? 'Are you sure you would like to enable ' + user.username + '?'
+      : 'Are you sure you would like to disable ' + user.username + '?'
+    if (confirm(message)) {
+      await setAccountStatus(user.id, newStatus)
+      onUpdate()
+    }
   }
 
   return <TableRow>
@@ -59,7 +65,8 @@ const UserTableRow = ({ user, onUpdate }) => {
     <td>{user.type.charAt(0) + user.type.substring(1).toLowerCase()}</td>
     <td>{user.isEnabled ? 'Enabled' : 'Disabled'}</td>
     <td>
-      <SymbolButton onClick={handleUpdateStatus(true)}>
+      <SymbolButton onClick={
+        handleUpdateStatus(true)}>
         <FontAwesomeIcon icon={faCheck} />
       </SymbolButton>
     </td>
