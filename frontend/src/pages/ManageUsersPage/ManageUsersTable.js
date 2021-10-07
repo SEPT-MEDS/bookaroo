@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 import { getAllUsers, setAccountStatus } from 'services'
-import { useAsync } from 'hooks'
-import { Spinner } from 'components'
+// import { useAsync } from 'hooks'
+// import { Spinner } from 'components'
 
 import { TableContainer, TableRow, SymbolButton, UserLink } from './manageUsersPageStyle'
 
@@ -24,10 +24,13 @@ const TABLE_HEADERS = [
 
 const ManageUsersTable = () => {
   const [isValid, setIsValid] = useState(false)
-  const { response: allUsers, isLoading } = useAsync(() => getAllUsers(), [ isValid ])
+  const [allUsers, setAllUsers] = useState()
 
-  if (isLoading)
-    return <Spinner />
+  useEffect(() => {
+    getAllUsers()
+      .then(users => setAllUsers(users))
+      .then(() => setIsValid(true))
+  },[allUsers, isValid])
 
   return <TableContainer>
     <thead>
@@ -63,8 +66,7 @@ const UserTableRow = ({ user, onUpdate }) => {
     <td>{user.type.charAt(0) + user.type.substring(1).toLowerCase()}</td>
     <td>{user.isEnabled ? 'Enabled' : 'Disabled'}</td>
     <td>
-      <SymbolButton onClick={
-        handleUpdateStatus(true)}>
+      <SymbolButton onClick={handleUpdateStatus(true)}>
         <FontAwesomeIcon icon={faCheck} />
       </SymbolButton>
     </td>
