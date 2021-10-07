@@ -26,8 +26,6 @@ const ManageUsersTable = () => {
   const [isValid, setIsValid] = useState(false)
   const { response: allUsers, isLoading } = useAsync(() => getAllUsers(), [ isValid ])
 
-  console.log(allUsers)
-
   if (isLoading)
     return <Spinner />
 
