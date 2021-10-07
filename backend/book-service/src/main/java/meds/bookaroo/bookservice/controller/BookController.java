@@ -1,10 +1,7 @@
 package meds.bookaroo.bookservice.controller;
 
 import meds.bookaroo.bookservice.model.Book;
-import meds.bookaroo.bookservice.responseDTO.CreateBookResponseDTO;
-import meds.bookaroo.bookservice.responseDTO.DeleteBookResponseDTO;
-import meds.bookaroo.bookservice.responseDTO.GetBookResponseDTO;
-import meds.bookaroo.bookservice.responseDTO.GetBooksResponseDTO;
+import meds.bookaroo.bookservice.responseDTO.*;
 import meds.bookaroo.bookservice.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -92,5 +89,17 @@ public class BookController {
   public ResponseEntity<?> getBookByCategory(@PathVariable String category) {
     List<Book> books = bookService.getByCategory(category);
     return ResponseEntity.ok(new GetBooksResponseDTO(books));
+  }
+
+  // Update/edit a book
+  @PatchMapping("/api/book/{isbn}")
+  public ResponseEntity<?> updateBook(@RequestBody @Valid Book updatedBook) {
+    if (updatedBook != null) {
+      bookService.save(updatedBook);
+      return ResponseEntity.ok(true);
+    } else {
+      return ResponseEntity.status(HttpStatus.NOT_FOUND)
+              .body(new EditBookResponseDTO(false, "Cannot update book with value null"));
+    }
   }
 }

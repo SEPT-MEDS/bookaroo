@@ -66,4 +66,8 @@ public class BookService {
     }
     return book;
   }
+
+  public void save(Book book) {
+    bookRepository.save(book);
+  }
 }
