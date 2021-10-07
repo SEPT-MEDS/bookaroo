@@ -53,7 +53,7 @@ const FinaliseListingPage = () => {
             </InputContainer>
             <InputContainer>
               <label htmlFor='imageUrl'>Image URL</label>
-              <input type='text' {...register('imageUrl')} />
+              <input type='text' maxLength="255" {...register('imageUrl')} />
             </InputContainer>
             <InputContainer>
               <label htmlFor='condition'>Condition</label>
