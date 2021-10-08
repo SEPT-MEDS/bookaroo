@@ -25,7 +25,7 @@ const CreateListingPage = () => {
     ? 'Welcome to the book creation page. As an admin you are able to add new books to the Bookaroo system! If you attempt to add a book with an ISBN that already exists within the system, you will be unable to continue.'
     : 'Welcome to the book listing process! The first step is to enter the ISBN of your book. If we find that this book already exists within our system, you will be redirected to enter your vendor information, otherwise you will need to provide information about the book itself.'
 
-
+  // Ensure ISBN is consistent with requirements (exists and correct length)
   const onSubmit = e => {
     e.preventDefault()
     setError()
@@ -36,17 +36,23 @@ const CreateListingPage = () => {
 
     setLoading(true)
     getBook(isbn)
+      // Book (ISBN) exists within the system
       .then(() => {
         profile?.type === 'ADMIN'
-          ? (setLoading(false),
-          setError('You cannot create new listings as an admin (this ISBN already exists)')
+          ? (
+            // Admin user cannot create listings - warn them
+            setLoading(false),
+            setError('You cannot create new listings as an admin (this ISBN already exists)')
           ) : (
+            // Continue to the next part of the listing creation
             setLoading(false),
             history.push(`/listing/new/${isbn}`)
           )
       })
+      // Book (ISBN) does not exist within the system
       .catch (e => {
         if (e?.response?.status == 404) {
+          // Take the user to the new book creation page
           history.push(`/book/new/${isbn}`)
         }
       })

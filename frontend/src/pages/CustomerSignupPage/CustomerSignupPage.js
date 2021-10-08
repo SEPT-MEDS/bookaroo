@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Link, useHistory } from 'react-router-dom'
 
-import { signup } from '../../services'
+import { Notification } from 'components'
+import { signup } from 'services'
+
 import {
   Container,
   Form,
@@ -11,8 +13,8 @@ import {
   FieldsContainer,
   InputGroup
 } from './customerSignupPageStyle'
-import { Notification } from '../../components'
-  
+
+// Sign up page for customers
 const CustomerSignupPage = () => {
   const history = useHistory()
   const [error, setError] = useState(null)
@@ -56,6 +58,8 @@ const CustomerSignupPage = () => {
           Already have an account?
           <Link to='/'>Log in</Link>
         </Notification>
+
+        {/* Fields for user to fill in */}
         <FieldsContainer>
           <InputGroup>
             <InputContainer>
@@ -107,6 +111,8 @@ const CustomerSignupPage = () => {
               {errors.confirmPassword && 'This field is required'}
             </InputContainer>
           </InputGroup>
+
+          {/* Indicates to the system that the user is a regular customer and their account should be enabled */}
           <input type="hidden" {...register('type')} value="CUSTOMER"/>
           <input type="hidden" {...register('isEnabled')} value="true"/>
         </FieldsContainer>

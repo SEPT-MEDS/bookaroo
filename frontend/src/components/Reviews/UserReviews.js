@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { Reviews } from 'components'
 import { getUserReviews } from 'services'
 
+// Used for reviews on a user profile - Extension of Reviews component
 const UserReviews = ({user}) => {
   const [reviews, setReviews] = useState()
   const [isValid, setIsValid] = useState(false)
 
+  // Ensures the reviews are always up to date with the system
   useEffect(() => {
     if (user) {
-      // two children with same key?
       getUserReviews(user.id)
         .then(reviews => setReviews(reviews))
         .then(() => setIsValid(true))

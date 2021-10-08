@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { Reviews } from 'components'
 import { getBookReviews } from 'services'
 
+// All reviews of a given book
 const BookReviews = ({book}) => {
   const [reviews, setReviews] = useState()
   const [isValid, setIsValid] = useState(false)
 
+  // Ensure reviews remain up to date with the system itself
   useEffect(() => {
     if (book) {
-      // two children with same key?
       getBookReviews(book.isbn)
         .then(reviews => setReviews(reviews))
         .then(() => setIsValid(true))

@@ -6,6 +6,7 @@ import { useDebounce } from 'hooks'
 
 import { Container, ControlsContainer, CatSelectContainer, SearchBar } from './bookPageStyle'
 
+// Main book page
 const BookPage = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [filter, setFilter] = useState('')
@@ -14,6 +15,7 @@ const BookPage = () => {
   const [category, setCategory] = useState('')
   const [categories, setCategories] = useState([])
 
+  // Extract distinct categories from all books
   useEffect(() => {
     getAllBooks().then(books => {
       const categories = !books
@@ -27,6 +29,7 @@ const BookPage = () => {
     })
   }, [])
 
+  // Filter books according to category 
   useEffect(() => {
     setIsLoading(true)
     getAllBooks(debouncedFilter, category !== 'All' && category)
@@ -37,12 +40,14 @@ const BookPage = () => {
   return (
     <Container>
       <ControlsContainer>
+        {/* Search bar */}
         <SearchBar
           placeholder="Search for a book"
           value={filter}
           onChange={({ target: { value } }) => setFilter(value)}
         />
         
+        {/* Category selector (dropdown box) */}
         <CatSelectContainer>
           <label htmlFor='category'>Category</label>
           <select
@@ -58,6 +63,7 @@ const BookPage = () => {
           </select>
         </CatSelectContainer>
       </ControlsContainer>
+      {/* Grid of books */}
       {isLoading ? <Spinner /> : <BookGrid books={books} />}
     </Container>
   )

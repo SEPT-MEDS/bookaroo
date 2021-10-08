@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faCheck, faTimes, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
-import { getAllUsers, setAccountStatus } from 'services'
-// import { useAsync } from 'hooks'
-// import { Spinner } from 'components'
+import { deleteUser, getAllUsers, setAccountStatus } from 'services'
 
 import { TableContainer, TableRow, SymbolButton, UserLink } from './manageUsersPageStyle'
 
+// Define headers of the manage users table
 const TABLE_HEADERS = [
   'Username',
   'First Name',
@@ -19,6 +18,7 @@ const TABLE_HEADERS = [
   'User Type',
   'Status',
   '',
+  '',
   ''
 ]
 
@@ -26,16 +26,20 @@ const ManageUsersTable = () => {
   const [isValid, setIsValid] = useState(false)
   const [allUsers, setAllUsers] = useState()
 
+  // Update table when it is out of date
   useEffect(() => {
     getAllUsers()
       .then(users => setAllUsers(users))
       .then(() => setIsValid(true))
+      .catch(() => { })
   },[allUsers, isValid])
 
   return <TableContainer>
+    {/* Map each of the headers in the table */}
     <thead>
       <tr>{TABLE_HEADERS.map((header, i) => <th key={i}>{header}</th>)}</tr>
     </thead>
+    {/* Map each user into the table */}
     <tbody>
       {allUsers?.map(user =>
         <UserTableRow user={user} key={user.id} onUpdate={() => setIsValid(false) } />
@@ -44,13 +48,23 @@ const ManageUsersTable = () => {
   </TableContainer>
 }
 
+// Single row within the table
 const UserTableRow = ({ user, onUpdate }) => {
   const handleUpdateStatus = newStatus => async () => {
-    const message = newStatus
+    // Confirm with user that they would like to enable/disable the user
+    const CONFIRMATION_MESSAGE = newStatus
       ? 'Are you sure you would like to enable ' + user.username + '?'
       : 'Are you sure you would like to disable ' + user.username + '?'
-    if (confirm(message)) {
+    if (confirm(CONFIRMATION_MESSAGE)) {
+      // Set the user to the new status and re-render table
       await setAccountStatus(user.id, newStatus)
+      onUpdate()
+    }
+  }
+
+  const handleDelete = () => async () => {
+    if (confirm('Are you sure you would like to delete ' + user.username + '? THIS ACTION CANNOT BE REVERSED!')) {
+      await deleteUser(user.id)
       onUpdate()
     }
   }
@@ -73,6 +87,11 @@ const UserTableRow = ({ user, onUpdate }) => {
     <td>
       <SymbolButton onClick={handleUpdateStatus(false)}>
         <FontAwesomeIcon icon={faTimes} />
+      </SymbolButton>
+    </td>
+    <td>
+      <SymbolButton onClick={handleDelete()}>
+        <FontAwesomeIcon icon={faTrashAlt} />
       </SymbolButton>
     </td>
   </TableRow>

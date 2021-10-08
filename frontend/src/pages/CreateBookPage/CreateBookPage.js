@@ -15,8 +15,10 @@ import {
   Columns,
 } from './createBookPageStyle'
 
+// Message at the top of the screen to assist the user
 const HELP_MESSAGE = 'Next, we require some general information about the book you are attempting to list. This information will be shown to users searching for this book, so make sure there are no errors!'
 
+// Page to fill in details of a book
 const CreateBookPage = () => {
   const history = useHistory()
   const [isLoading, setIsLoading] = useState(false)
@@ -25,7 +27,7 @@ const CreateBookPage = () => {
   const { response: apiRes } = useAsync(() => getOLBookDetails(isbn))
   const profile = useCurrentProfile()
 
-
+  // Pre-fill fields with information from OpenLibrary API (if applicable)
   useEffect(() => {
     if (apiRes) {
       setValue('title', apiRes.title)
@@ -37,18 +39,20 @@ const CreateBookPage = () => {
     }
   }, [apiRes])
 
+  // Create a book with the provided information
   const onSubmit = ({ summary, author, num_pages, title, category, url }) => {
     setIsLoading(true)
     createBook({
       isbn,
       blurb: summary,
       author,
-      num_pages,
+      numPages: num_pages,
       title,
       category,
       url,
       rating: 0
     }).then(() => {
+      // Admin taken to home page, other users are taken to create a listing
       profile.type === 'ADMIN'
         ? history.push('/')
         : history.push(`/listing/new/${isbn}`)
@@ -61,12 +65,19 @@ const CreateBookPage = () => {
         <Spinner />
       ) : (
         <Form onSubmit={handleSubmit(onSubmit)}>
+          {/* Change heading based on user type */}
           <Heading>{profile?.type === 'ADMIN' ? 'Create a Book' : 'Sell a Book'}</Heading>
+
+          {/* Display help message */}
           <P>{HELP_MESSAGE}</P>
           <Columns>
+
+            {/* Cover image for the book */}
             <div>
               <BookCover isbn={isbn} />
             </div>
+
+            {/* Inputs for the book creation */}
             <InputsContainer>
               <InputWrapper>
                 <label htmlFor="title">Title</label>

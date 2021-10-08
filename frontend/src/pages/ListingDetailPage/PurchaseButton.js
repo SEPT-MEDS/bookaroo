@@ -16,13 +16,14 @@ const buttonStyle = {
   'tagline': false,
 }
 
+// Paypal button
 const PurchaseButton = ({ listingId, price, onPurchase, onError }) => {
   const [{ isResolved }] = usePayPalScriptReducer()
   const profile = useCurrentProfile()
   const [error, setError] = useState()
 
+  // Create an order with the given price
   const createOrder = (data, actions) => {
-    console.log(data, actions)
     return actions.order.create({
       purchase_units: [
         { amount: { value: price } }

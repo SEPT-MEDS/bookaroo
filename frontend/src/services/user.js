@@ -26,3 +26,8 @@ export const setAccountStatus = async (userId, isEnabled) => {
   const response = await api.patch('/user/status', { userId, isEnabled })
   return response
 }
+
+export const deleteUser = async userId => {
+  const response = await api.delete(`user/${userId}`)
+  return response
+}

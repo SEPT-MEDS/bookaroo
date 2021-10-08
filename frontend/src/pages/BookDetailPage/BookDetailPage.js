@@ -15,6 +15,7 @@ import {
   BookInfoDetails
 } from './bookDetailPageStyle'
 
+// Book page with book information, sellers/listings, and reviews of that book
 const BookDetailPage = () => {
   const { isbn } = useParams()
   const {response: book, error, isLoading} = useAsync(() => getBook(isbn), [isbn])
@@ -35,8 +36,10 @@ const BookDetailPage = () => {
   )
 }
 
+// Primary component of page - Includes image, information about the book, and buttons for admins
 const BookInfo = ({ book }) => {
   const history = useHistory()
+  const profile = useCurrentProfile()
 
   const editButtonHandler = () => {
     // Redirect to edit page
@@ -49,7 +52,6 @@ const BookInfo = ({ book }) => {
         .then(history.push('/'))
   }
 
-  const profile = useCurrentProfile()
   return (
     <BookInfoContainer>
       <BookSummary book={book} />
@@ -66,7 +68,7 @@ const BookInfo = ({ book }) => {
             <BookInfoPara>{book.category || <em>No Category</em>}</BookInfoPara>
           </div>
         </BookInfoDetails>
-        {profile && profile.type === 'ADMIN' && <>
+        {profile?.type === 'ADMIN' && <>
           <Button onClick={() => editButtonHandler()}>Edit Book</Button>
           <Button onClick={() => deleteButtonHandler()}>Delete Book</Button>
         </>}

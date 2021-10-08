@@ -6,6 +6,7 @@ import { ListingCard, Spinner, Notification, Button } from 'components'
 import { getBookListings } from 'services'
 import { BookSellersContainer } from './bookDetailPageStyle'
 
+// Component to list sellers of a particular book
 const BookSellers = ({ book }) => {
   const { response: listings, error, isLoading } = useAsync(() =>
     getBookListings(book.isbn)
@@ -25,8 +26,11 @@ const BookSellers = ({ book }) => {
 
   return (
     <BookSellersContainer>
+      {/* Sellers of <book title> */}
       <h2>
-        Sellers of <em>{book.title}</em> {profile?.type !== 'ADMIN' &&
+        Sellers of <em>{book.title}</em>
+        {/* Create new listing button if the user is not an admin */}
+        {profile?.type !== 'ADMIN' &&
           <Button onClick={() => handleNewListing(book.isbn)} >Create a Listing</Button>}
       </h2>
       <div>
@@ -35,15 +39,12 @@ const BookSellers = ({ book }) => {
         ) : (
           <>
             {error && <Notification isError={true}>{error}</Notification>}
-            {!listings?.length && (
-              <h3>
-                <em>No current sellers</em>
-              </h3>
-            )}
-            {listings?.length > 0 &&
-              sortedListings.map(listing => (
+            {/* Put all listings for current book into ListingCard components */}
+            {listings?.length
+              ? sortedListings.map(listing => (
                 <ListingCard {...listing} cardStyle={ListingCard.VENDOR_FOCUS} key={listing.id} />
-              ))}
+              ))
+              : <h3><em>No current sellers</em></h3>}
           </>
         )}
       </div>

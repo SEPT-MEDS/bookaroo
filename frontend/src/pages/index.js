@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {
   Switch,
   Route,
@@ -18,7 +18,6 @@ import BookDetailPage from './BookDetailPage/BookDetailPage'
 import AdminPage from './AdminPage/AdminPage'
 import ManageUsersPage from './ManageUsersPage/ManageUsersPage'
 import TransactionsPage from './TransactionsPage/TransactionsPage'
-import ReportsPage from './ReportsPage/ReportsPage'
 import ListingDetailPage from './ListingDetailPage/ListingDetailPage'
 import CreateListingPage from './CreateListingPage/CreateListingPage'
 import FinaliseListingPage from './FinaliseListingPage/FinaliseListingPage'
@@ -28,10 +27,6 @@ import EditBookPage from './EditBookPage/EditBookPage'
 
 const PrivateRoute = props => {
   const { isLoggedIn } = useAuth()
-
-  useEffect(() => {
-    // some auth observer that calls setIsLoggedIn()
-  })
 
   return isLoggedIn ? (
     <Route {...props} />
@@ -59,8 +54,6 @@ const Pages = () => {
         <PrivateRoute path="/listing/new" exact component={CreateListingPage} />
         <PrivateRoute path="/admin" exact component={AdminPage} />
         <PrivateRoute path="/admin/manage-users" exact component={ManageUsersPage} />
-        <PrivateRoute path="/admin/transactions" exact component={TransactionsPage} />
-        <PrivateRoute path="/admin/reports" exact component={ReportsPage} />
         <PrivateRoute path="/listing/:id" exact component={ListingDetailPage} />
         <PrivateRoute path="/user/:id" exact component={ProfileDetailPage} />
         <PrivateRoute path="/transactions" exact component={TransactionsPage} />
