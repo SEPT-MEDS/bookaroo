@@ -5,11 +5,14 @@ import meds.bookaroo.userservice.requestDTO.UpdateUserStatusDTO;
 import meds.bookaroo.userservice.responseDTO.CreateUserResponseDTO;
 import meds.bookaroo.userservice.responseDTO.DeleteUserResponseDTO;
 import meds.bookaroo.userservice.responseDTO.GetUserResponseDTO;
+import meds.bookaroo.userservice.responseDTO.GetUsersResponseDTO;
 import meds.bookaroo.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class UserController {
@@ -28,6 +31,13 @@ public class UserController {
     } else {
       return ResponseEntity.ok(new GetUserResponseDTO(true, user, ""));
     }
+  }
+
+  // Get all users
+  @GetMapping("/api/user")
+  public ResponseEntity<?> getAllUsers() {
+    List<User> allUsers = userService.getAll();
+    return ResponseEntity.ok(new GetUsersResponseDTO(allUsers));
   }
 
   // Get a user by a given username
