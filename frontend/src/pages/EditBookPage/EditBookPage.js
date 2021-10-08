@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 
+import { useAsync } from 'hooks'
 import { patchBook, getBook } from 'services'
 import { Spinner, BookCover } from 'components'
 import {
@@ -17,37 +18,48 @@ const EditBookPage = () => {
   const history = useHistory()
   const [isLoading, setIsLoading] = useState(false)
   const { isbn } = useParams()
-  const { register, handleSubmit } = useForm()
-  const book = getBook(isbn).then(b => console.log(b.title))
-  console.log( book)
-  // console.log(book?.title)
+  const { register, handleSubmit, setValue } = useForm()
+  const { response: book } = useAsync(() => getBook(isbn))
 
-  const onSubmit = ({ summary, author, num_pages, title, category }) => {
+  const onSubmit = ({ summary, author, num_pages, title, category, url }) => {
     setIsLoading(true)
     patchBook(isbn,
       {
         isbn,
         blurb: summary,
         author,
-        num_pages,
+        numPages: num_pages,
         title,
         category,
-        url: 'null',
+        url,
         rating: 0
       })
       .then(() => history.push(`/book/${isbn}`))
   }
 
+
+  useEffect(() => {
+    // Pre-fill edit page fields
+    if (book) {
+      setValue('title', book.title)
+      setValue('num_pages', book.numPages)
+      setValue('category', book.category)
+      setValue('author', book.author)
+      setValue('url', book.url)
+      setValue('summary', book.blurb)
+    }
+  }, [book])
+  
   return (
     <Container>
       {isLoading || !book ? (
         <Spinner />
       ) : (
-        <Form onSubmit={() => handleSubmit(onSubmit)}>
+        <Form onSubmit={handleSubmit(onSubmit)}>
           <Heading> Edit a Book </Heading>
           <Columns>
             <div>
-              <BookCover isbn={isbn} />
+              <BookCover isbn={isbn} imageUrl={book?.url}/>
             </div>
             <InputsContainer>
               <InputWrapper>
@@ -74,6 +86,10 @@ const EditBookPage = () => {
                   type="number"
                   {...register('num_pages', { required: true })}
                 />
+              </InputWrapper>
+              <InputWrapper>
+                <label htmlFor="url">Image URL</label>
+                <input type="text" {...register('url', { required: true })} />
               </InputWrapper>
               <InputWrapper>
                 <label htmlFor="summary">Summary</label>

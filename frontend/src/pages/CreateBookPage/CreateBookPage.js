@@ -24,7 +24,6 @@ const CreateBookPage = () => {
   const { isbn } = useParams()
   const { register, handleSubmit, setValue } = useForm()
   const { response: apiRes } = useAsync(() => getOLBookDetails(isbn))
-  console.log('isbn = ', isbn)
 
   useEffect(() => {
     if (apiRes) {

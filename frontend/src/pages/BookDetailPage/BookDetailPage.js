@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 
 import { Spinner, Notification, BookSummary, Button } from 'components'
-import { deleteBook, getBook, patchBook } from 'services'
+import { deleteBook, getBook } from 'services'
 import { useAsync, useCurrentProfile } from 'hooks'
 
 import BookSellers from './BookSellers'
@@ -37,14 +37,10 @@ const BookDetailPage = () => {
 
 const BookInfo = ({ book }) => {
   const history = useHistory()
+
   const editButtonHandler = () => {
-    // redirect to edit page
+    // Redirect to edit page
     history.push(`/book/edit/${book.isbn}`)
-    console.log('Editing ' + book.title)
-    console.log(book)
-    console.log(book.numPages += 1)
-    console.log(book)
-    patchBook(book.isbn, {book})
   }
 
   const deleteButtonHandler = () => {
