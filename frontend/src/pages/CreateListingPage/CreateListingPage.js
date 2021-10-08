@@ -18,7 +18,6 @@ const CreateListingPage = () => {
   const onSubmit = e => {
     e.preventDefault()
     setError()
-    console.log(isbn, isbn?.length)
     if (!isbn || isbn?.length < 10) {
       setError('ISBN is required')
       return
