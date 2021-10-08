@@ -11,7 +11,7 @@ const Navigation = () => {
 
   return (
     <NavBar>
-      <NavLink to="/">
+      <NavLink to={isAdmin ? '/admin' : '/'}>
         <Logo />
       </NavLink>
       <NavItems>
@@ -22,7 +22,9 @@ const Navigation = () => {
   )
 }
 
-const AdminFields = () => <></>
+const AdminFields = () => <>
+  <NavLink to='/listing/new'>Add a book</NavLink>
+</>
 
 const CustomerFields = () => <>
   <NavLink to='/listing/new'>Sell a Book</NavLink>

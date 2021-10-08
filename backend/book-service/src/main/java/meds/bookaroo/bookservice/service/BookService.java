@@ -48,7 +48,7 @@ public class BookService {
   }
 
   public void deleteByIsbn(Long isbn) {
-    bookRepository.deleteByIsbn(isbn);
+    bookRepository.delete(bookRepository.findByIsbn(isbn));
   }
 
   private List<Book> averageAllReviews(List<Book> books) {
@@ -65,5 +65,9 @@ public class BookService {
       book.setRating(bookReviewClient.getAvgBookReviews(book.getIsbn()));
     }
     return book;
+  }
+
+  public void save(Book book) {
+    bookRepository.save(book);
   }
 }

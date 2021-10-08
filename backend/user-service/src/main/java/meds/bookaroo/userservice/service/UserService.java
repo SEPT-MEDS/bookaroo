@@ -31,6 +31,8 @@ public class UserService {
     return user;
   }
 
+  public List<User> getAll() { return userRepository.findAll(); }
+
   public User create(User user) {
     user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
     return userRepository.save(user);

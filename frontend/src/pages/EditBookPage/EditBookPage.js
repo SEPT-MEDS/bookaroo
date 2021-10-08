@@ -2,69 +2,64 @@ import React, { useState, useEffect } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 
-import { useAsync, useCurrentProfile } from 'hooks'
-import { createBook, getOLBookDetails } from 'services'
+import { useAsync } from 'hooks'
+import { patchBook, getBook } from 'services'
 import { Spinner, BookCover } from 'components'
 import {
   Heading,
-  P,
   InputWrapper,
   Container,
   Form,
   InputsContainer,
   Columns,
-} from './createBookPageStyle'
+} from './editBookPageStyle'
 
-const HELP_MESSAGE =
-  'Next, we require some general information about the book you are attempting to list. This information will be shown to users searching for this book, so make sure there are no errors!'
-
-const CreateBookPage = () => {
+const EditBookPage = () => {
   const history = useHistory()
   const [isLoading, setIsLoading] = useState(false)
   const { isbn } = useParams()
   const { register, handleSubmit, setValue } = useForm()
-  const { response: apiRes } = useAsync(() => getOLBookDetails(isbn))
-  const profile = useCurrentProfile()
+  const { response: book } = useAsync(() => getBook(isbn))
 
-  useEffect(() => {
-    if (apiRes) {
-      setValue('title', apiRes.title)
-      setValue('num_pages', apiRes.number_of_pages)
-      setValue('category', apiRes.subjects && apiRes.subjects[0])
-      setValue('summary', apiRes?.description?.value)
-      setValue('author', apiRes?.author?.name)
-    }
-  }, [apiRes])
-
-  const onSubmit = ({ summary, author, num_pages, title, category }) => {
+  const onSubmit = ({ summary, author, num_pages, title, category, url }) => {
     setIsLoading(true)
-    createBook({
-      isbn,
-      blurb: summary,
-      author,
-      num_pages,
-      title,
-      category,
-      url: 'null',
-      rating: 0
-    }).then(() => {
-      profile.type === 'ADMIN'
-        ? history.push('/')
-        : history.push(`/listing/new/${isbn}`)
-    })
+    patchBook(isbn,
+      {
+        isbn,
+        blurb: summary,
+        author,
+        numPages: num_pages,
+        title,
+        category,
+        url,
+        rating: 0
+      })
+      .then(() => history.push(`/book/${isbn}`))
   }
 
+
+  useEffect(() => {
+    // Pre-fill edit page fields
+    if (book) {
+      setValue('title', book.title)
+      setValue('num_pages', book.numPages)
+      setValue('category', book.category)
+      setValue('author', book.author)
+      setValue('url', book.url)
+      setValue('summary', book.blurb)
+    }
+  }, [book])
+  
   return (
     <Container>
-      {isLoading ? (
+      {isLoading || !book ? (
         <Spinner />
       ) : (
         <Form onSubmit={handleSubmit(onSubmit)}>
-          <Heading>{profile?.type === 'ADMIN' ? 'Create a Book' : 'Sell a Book'}</Heading>
-          <P>{HELP_MESSAGE}</P>
+          <Heading> Edit a Book </Heading>
           <Columns>
             <div>
-              <BookCover isbn={isbn} />
+              <BookCover isbn={isbn} imageUrl={book?.url}/>
             </div>
             <InputsContainer>
               <InputWrapper>
@@ -93,12 +88,16 @@ const CreateBookPage = () => {
                 />
               </InputWrapper>
               <InputWrapper>
+                <label htmlFor="url">Image URL</label>
+                <input type="text" {...register('url', { required: true })} />
+              </InputWrapper>
+              <InputWrapper>
                 <label htmlFor="summary">Summary</label>
                 <textarea
                   {...register('summary', { required: true })}
                 ></textarea>
               </InputWrapper>
-              <input type="submit" value={profile?.type === 'ADMIN' ? 'Create Book' : 'Next'} />
+              <input type="submit" value="Update Book" />
             </InputsContainer>
           </Columns>
         </Form>
@@ -107,4 +106,4 @@ const CreateBookPage = () => {
   )
 }
 
-export default CreateBookPage
+export default EditBookPage

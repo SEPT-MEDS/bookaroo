@@ -26,7 +26,7 @@ public class ReviewService {
   public Integer getAvgByEntityId(Long entityId) {
     Integer avgRating = reviewRepository.findAvgByEntityId(entityId);
     if (avgRating == null) {
-      avgRating = 5;
+      avgRating = 0;
     }
     return avgRating;
   }

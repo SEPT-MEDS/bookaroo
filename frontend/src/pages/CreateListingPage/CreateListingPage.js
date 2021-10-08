@@ -5,6 +5,7 @@ import { Spinner } from 'components'
 import { getBook } from 'services'
 
 import { P, Form, Container, Heading, InputContainer } from './createListingPageStyle'
+import { useCurrentProfile } from 'hooks'
 
 const HELP_MESSAGE =
   'Welcome to the book listing process! The first step is to enter the ISBN of your book. If we find that this book already exists within our system, you will be redirected to enter your vendor information, otherwise you will need to provide information about the book itself.'
@@ -14,11 +15,11 @@ const CreateListingPage = () => {
   const [error, setError] = useState()
   const [loading, setLoading] = useState(false)
   const history = useHistory()
+  const profile = useCurrentProfile()
 
   const onSubmit = e => {
     e.preventDefault()
     setError()
-    console.log(isbn, isbn?.length)
     if (!isbn || isbn?.length < 10) {
       setError('ISBN is required')
       return
@@ -27,10 +28,16 @@ const CreateListingPage = () => {
     setLoading(true)
     getBook(isbn)
       .then(() => {
-        setLoading(false)
-        history.push(`/listing/new/${isbn}`)
+        profile.type === 'ADMIN'
+          ? (setLoading(false),
+          setError('You cannot create new listings as an admin (this ISBN already exists)')
+          ) : (
+            setLoading(false),
+            history.push(`/listing/new/${isbn}`)
+          )
       })
-      .catch(e => {
+      .catch (e => {
+        console.log('LERHWLKHKLSHFLKSHDLKAHLKH')
         if (e?.response?.status == 404) {
           history.push(`/book/new/${isbn}`)
         }
