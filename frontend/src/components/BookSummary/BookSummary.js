@@ -5,8 +5,8 @@ import {BookCover, Rating} from 'components'
 
 import {Author} from './bookSummaryStyle'
 
-const BookSummary = ({ book, imageUrl, showCover=true, showLink=false }) => <div>
-  {showCover && <BookCover isbn={book?.isbn} imageUrl={imageUrl} />}
+const BookSummary = ({ book, showCover=true, showLink=false }) => <div>
+  {showCover && <BookCover isbn={book?.isbn} imageUrl={book?.url} />}
   <h1>
     {showLink && <Link to={`/book/${book?.isbn}`}>{book?.title || 'Book'}</Link> }
     {!showLink && (book?.title || 'Book')}

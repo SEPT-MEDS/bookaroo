@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom'
 import { CardContainer, Details, Author } from './bookCardStyle'
 import { BookCover, Rating } from 'components'
 
-const BookCard = ({ title, author, rating, isbn }) => {
+const BookCard = ({ title, author, rating, isbn, url }) => {
   return (
     <CardContainer as={Link} to={`/book/${isbn}`}>
-      <BookCover isbn={isbn} />
+      <BookCover isbn={isbn} imageUrl={url} />
       <Details>
         <h2>{title}</h2>
         <Author>{author}</Author>
