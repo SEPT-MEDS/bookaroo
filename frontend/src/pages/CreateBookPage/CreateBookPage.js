@@ -60,7 +60,7 @@ const CreateBookPage = () => {
         <Spinner />
       ) : (
         <Form onSubmit={handleSubmit(onSubmit)}>
-          <Heading> Sell a Book </Heading>
+          <Heading>{profile?.type === 'ADMIN' ? 'Create a Book' : 'Sell a Book'}</Heading>
           <P>{HELP_MESSAGE}</P>
           <Columns>
             <div>
@@ -98,7 +98,7 @@ const CreateBookPage = () => {
                   {...register('summary', { required: true })}
                 ></textarea>
               </InputWrapper>
-              <input type="submit" value="Next" />
+              <input type="submit" value={profile?.type === 'ADMIN' ? 'Create Book' : 'Next'} />
             </InputsContainer>
           </Columns>
         </Form>
