@@ -18,7 +18,6 @@ import BookDetailPage from './BookDetailPage/BookDetailPage'
 import AdminPage from './AdminPage/AdminPage'
 import ManageUsersPage from './ManageUsersPage/ManageUsersPage'
 import TransactionsPage from './TransactionsPage/TransactionsPage'
-import ManageBooksPage from './ManageBooksPage/ManageBooksPage'
 import ReportsPage from './ReportsPage/ReportsPage'
 import ListingDetailPage from './ListingDetailPage/ListingDetailPage'
 import CreateListingPage from './CreateListingPage/CreateListingPage'
@@ -61,7 +60,6 @@ const Pages = () => {
         <PrivateRoute path="/admin" exact component={AdminPage} />
         <PrivateRoute path="/admin/manage-users" exact component={ManageUsersPage} />
         <PrivateRoute path="/admin/transactions" exact component={TransactionsPage} />
-        <PrivateRoute path="/admin/manage-books" exact component={ManageBooksPage} />
         <PrivateRoute path="/admin/reports" exact component={ReportsPage} />
         <PrivateRoute path="/listing/:id" exact component={ListingDetailPage} />
         <PrivateRoute path="/user/:id" exact component={ProfileDetailPage} />

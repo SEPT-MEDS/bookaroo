@@ -64,14 +64,14 @@ const TransactionsPage = () => {
         {error && <Notification isError={true}>{error}</Notification>}
         {transactions
           .map((v,i,a) => a[a.length - 1 - i]) // reverse
-          .map(transaction => <Transaction key={transaction.id} {...transaction}/>)}
+          .map(transaction => <Transaction key={transaction.id} userType={userType} {...transaction}/>)}
       </TransactionsContainer> : (
         'There are no transactions'
       )}
   </Container>
 }
 
-const Transaction = ({ id, listingId, purchaseCreationTime, buyerId, sellerId }) => {
+const Transaction = ({ id, listingId, purchaseCreationTime, buyerId, sellerId, userType }) => {
   const history = useHistory()
   const { response: listing, error: listingError } = useAsync(() => getListing(listingId), [listingId])
   const { response: book, error: bookError } = useAsync(() => listing && getBook(listing?.bookIsbn), [listing])
@@ -101,7 +101,7 @@ const Transaction = ({ id, listingId, purchaseCreationTime, buyerId, sellerId })
         {' '} from <Link to={`/user/${listing?.sellerId}`}>{seller?.username}</Link>
       </div>
       <div>Purchased on {new Date(purchaseCreationTime).toLocaleDateString()}</div>
-      <Button disabled={!canCancel} onClick={handleCancel}>Cancel</Button>
+      {userType !== 'ADMIN' && <Button disabled={!canCancel} onClick={handleCancel}>Cancel</Button>}
     </div>
   </TransactionContainer>
 }

@@ -15,13 +15,11 @@ const AdminPage = () => {
         <FontAwesomeIcon icon={faDollarSign} />
         Transactions
       </AdminLink>
-      <AdminLink to='/admin/manage-books'>
-
+      <AdminLink to='/'>
         <FontAwesomeIcon icon={faBook} />
         Manage Books
       </AdminLink>
       <AdminLink to='/admin/reports'>
-
         <FontAwesomeIcon icon={faFile} />
         Reports
       </AdminLink>

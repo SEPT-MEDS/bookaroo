@@ -16,7 +16,6 @@ const BookPage = () => {
 
   useEffect(() => {
     getAllBooks().then(books => {
-      // TODO, do this on the backend
       const categories = !books
         ? []
         : books

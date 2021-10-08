@@ -15,8 +15,7 @@ import {
   Columns,
 } from './createBookPageStyle'
 
-const HELP_MESSAGE =
-  'Next, we require some general information about the book you are attempting to list. This information will be shown to users searching for this book, so make sure there are no errors!'
+const HELP_MESSAGE = 'Next, we require some general information about the book you are attempting to list. This information will be shown to users searching for this book, so make sure there are no errors!'
 
 const CreateBookPage = () => {
   const history = useHistory()
@@ -26,17 +25,19 @@ const CreateBookPage = () => {
   const { response: apiRes } = useAsync(() => getOLBookDetails(isbn))
   const profile = useCurrentProfile()
 
+
   useEffect(() => {
     if (apiRes) {
       setValue('title', apiRes.title)
       setValue('num_pages', apiRes.number_of_pages)
       setValue('category', apiRes.subjects && apiRes.subjects[0])
       setValue('summary', apiRes?.description?.value)
+      setValue('url', `https://covers.openlibrary.org/b/isbn/${isbn}-L.jpg`)
       setValue('author', apiRes?.author?.name)
     }
   }, [apiRes])
 
-  const onSubmit = ({ summary, author, num_pages, title, category }) => {
+  const onSubmit = ({ summary, author, num_pages, title, category, url }) => {
     setIsLoading(true)
     createBook({
       isbn,
@@ -45,7 +46,7 @@ const CreateBookPage = () => {
       num_pages,
       title,
       category,
-      url: 'null',
+      url,
       rating: 0
     }).then(() => {
       profile.type === 'ADMIN'
@@ -90,6 +91,14 @@ const CreateBookPage = () => {
                 <input
                   type="number"
                   {...register('num_pages', { required: true })}
+                />
+              </InputWrapper>
+              <InputWrapper>
+                <label htmlFor="url">Image URL</label>
+                <input
+                  type="text"
+                  onChange={() => console.log(this.value)}
+                  {...register('url', { required: false })}
                 />
               </InputWrapper>
               <InputWrapper>

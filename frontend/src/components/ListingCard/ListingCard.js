@@ -29,6 +29,13 @@ const Listing = ({ id, price, imageUrl, isPreowned, isSwap, bookIsbn, sellerId, 
     ? (book ? book.rating : 0)
     : (vendor ? vendor.rating : 0)
 
+  const handleDeleteListing = () => {
+    if (window.confirm('Are you sure you would like to remove your listing of ' + book.title + '? This action cannot be undone.')) {
+      removeListing(id)
+      // TODO remove listing from view
+    }
+  }
+
   return (
     <ListingContainer>
       <div style={{ backgroundImage: `url(${imageUrl})` }} />
@@ -50,7 +57,7 @@ const Listing = ({ id, price, imageUrl, isPreowned, isSwap, bookIsbn, sellerId, 
       </div>
       <DeleteButtonContainer>
         {profile && vendor?.id === profile?.id && 
-          <DeleteButton onClick={() => removeListing(id)}>
+          <DeleteButton onClick={() => handleDeleteListing()}>
             <FontAwesomeIcon icon={faTrashAlt} />
           </DeleteButton>}
       </DeleteButtonContainer>

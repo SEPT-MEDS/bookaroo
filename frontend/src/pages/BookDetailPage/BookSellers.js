@@ -1,7 +1,8 @@
 import React, { useMemo } from 'react'
+import { useHistory } from 'react-router-dom'
 
-import { useAsync } from 'hooks'
-import { ListingCard, Spinner, Notification } from 'components'
+import { useAsync, useCurrentProfile } from 'hooks'
+import { ListingCard, Spinner, Notification, Button } from 'components'
 import { getBookListings } from 'services'
 import { BookSellersContainer } from './bookDetailPageStyle'
 
@@ -15,10 +16,18 @@ const BookSellers = ({ book }) => {
     [listings]
   )
 
+  const history = useHistory()
+  const handleNewListing = isbn => {
+    history.push(`/listing/new/${isbn}`)
+  }
+
+  const profile = useCurrentProfile()
+
   return (
     <BookSellersContainer>
       <h2>
-        Sellers of <em>{book.title}</em>
+        Sellers of <em>{book.title}</em> {profile?.type !== 'ADMIN' &&
+          <Button onClick={() => handleNewListing(book.isbn)} >Create a Listing</Button>}
       </h2>
       <div>
         {isLoading ? (
@@ -41,31 +50,5 @@ const BookSellers = ({ book }) => {
     </BookSellersContainer>
   )
 }
-
-// const Listing = ({ id, sellerId, price, imageUrl, isPreowned, isSwap }) => {
-//   const { response: vendor } = useAsync(() => getUser(sellerId))
-//   const currProfile = useCurrentProfile()
-
-//   return (
-//     <ListingContainer>
-//       <div style={{ backgroundImage: `url(${imageUrl})` }} />
-//       <div>
-//         <h3>
-//           <Link to={`/listing/${id}`}>
-//             {vendor ? `${vendor.firstName} ${vendor.lastName}` : 'Vendor'}
-//           </Link>
-//         </h3>
-//         <Rating rating={3 /* TO DO */} />
-//         {isSwap && <div><em>This listing is a swap</em></div>}
-//         {!isSwap && <div>{`$${price}`} {isPreowned && <em> (preowned)</em>}</div>}
-//       </div>
-//       <div className='delete-button'>
-//         {vendor?.id === currProfile?.id ? 
-//           <DeleteButton to='#' onClick={() => removeListing(id)}><FontAwesomeIcon icon={faTrashAlt} /></DeleteButton> : undefined}
-//       </div>
-
-//     </ListingContainer>
-//   )
-// }
 
 export default BookSellers
