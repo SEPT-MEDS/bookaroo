@@ -22,3 +22,8 @@ export const createListing = async fields => {
   return data.listing
 }
 
+export const removeListing = async id => {
+  const data = await api.delete(`/listing/${id}`)
+  return data
+}
+

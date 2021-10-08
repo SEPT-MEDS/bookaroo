@@ -1,11 +1,9 @@
 import React, { useMemo } from 'react'
-import { Link } from 'react-router-dom'
 
 import { useAsync } from 'hooks'
-import { getUser } from 'services'
-import { Rating, Spinner, Notification } from 'components'
+import { ListingCard, Spinner, Notification } from 'components'
 import { getBookListings } from 'services'
-import { BookSellersContainer, ListingContainer } from './bookDetailPageStyle'
+import { BookSellersContainer } from './bookDetailPageStyle'
 
 const BookSellers = ({ book }) => {
   const { response: listings, error, isLoading } = useAsync(() =>
@@ -35,7 +33,7 @@ const BookSellers = ({ book }) => {
             )}
             {listings?.length > 0 &&
               sortedListings.map(listing => (
-                <Listing {...listing} key={listing.id} />
+                <ListingCard {...listing} cardStyle={ListingCard.VENDOR_FOCUS} key={listing.id} />
               ))}
           </>
         )}
@@ -44,24 +42,30 @@ const BookSellers = ({ book }) => {
   )
 }
 
-const Listing = ({ id, sellerId, price, imageUrl, isPreowned, isSwap }) => {
-  const { response: vendor } = useAsync(() => getUser(sellerId))
+// const Listing = ({ id, sellerId, price, imageUrl, isPreowned, isSwap }) => {
+//   const { response: vendor } = useAsync(() => getUser(sellerId))
+//   const currProfile = useCurrentProfile()
 
-  return (
-    <ListingContainer>
-      <div style={{ backgroundImage: `url(${imageUrl})` }} />
-      <div>
-        <h3>
-          <Link to={`/listing/${id}`}>
-            {vendor ? `${vendor.firstName} ${vendor.lastName}` : 'Vendor'}
-          </Link>
-        </h3>
-        <Rating rating={3 /* TO DO */} />
-        {isSwap && <div><em>This listing is a swap</em></div>}
-        {!isSwap && <div>{`$${price}`} {isPreowned && <em> (preowned)</em>}</div>}
-      </div>
-    </ListingContainer>
-  )
-}
+//   return (
+//     <ListingContainer>
+//       <div style={{ backgroundImage: `url(${imageUrl})` }} />
+//       <div>
+//         <h3>
+//           <Link to={`/listing/${id}`}>
+//             {vendor ? `${vendor.firstName} ${vendor.lastName}` : 'Vendor'}
+//           </Link>
+//         </h3>
+//         <Rating rating={3 /* TO DO */} />
+//         {isSwap && <div><em>This listing is a swap</em></div>}
+//         {!isSwap && <div>{`$${price}`} {isPreowned && <em> (preowned)</em>}</div>}
+//       </div>
+//       <div className='delete-button'>
+//         {vendor?.id === currProfile?.id ? 
+//           <DeleteButton to='#' onClick={() => removeListing(id)}><FontAwesomeIcon icon={faTrashAlt} /></DeleteButton> : undefined}
+//       </div>
+
+//     </ListingContainer>
+//   )
+// }
 
 export default BookSellers
