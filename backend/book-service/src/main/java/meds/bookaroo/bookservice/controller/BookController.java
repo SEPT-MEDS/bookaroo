@@ -25,7 +25,7 @@ public class BookController {
     // Ensure book doesn't already exist with same ISBN
     if (bookService.getByIsbn(book.getIsbn()) != null) {
       return ResponseEntity.status(HttpStatus.CONFLICT)
-          .body(new CreateBookResponseDTO(false, "Review with that ISBN already exists"));
+          .body(new CreateBookResponseDTO(false, "Book with that ISBN already exists"));
     } else {
       bookService.create(book);
       return ResponseEntity.ok(new CreateBookResponseDTO(true, ""));

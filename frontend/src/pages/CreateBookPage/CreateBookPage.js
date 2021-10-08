@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 
-import { useAsync } from 'hooks'
+import { useAsync, useCurrentProfile } from 'hooks'
 import { createBook, getOLBookDetails } from 'services'
 import { Spinner, BookCover } from 'components'
 import {
@@ -24,6 +24,7 @@ const CreateBookPage = () => {
   const { isbn } = useParams()
   const { register, handleSubmit, setValue } = useForm()
   const { response: apiRes } = useAsync(() => getOLBookDetails(isbn))
+  const profile = useCurrentProfile()
 
   useEffect(() => {
     if (apiRes) {
@@ -45,7 +46,12 @@ const CreateBookPage = () => {
       title,
       category,
       url: 'null',
-    }).then(() => history.push(`/listing/new/${isbn}`))
+      rating: 0
+    }).then(() => {
+      profile.type === 'ADMIN'
+        ? history.push('/')
+        : history.push(`/listing/new/${isbn}`)
+    })
   }
 
   return (
@@ -54,7 +60,7 @@ const CreateBookPage = () => {
         <Spinner />
       ) : (
         <Form onSubmit={handleSubmit(onSubmit)}>
-          <Heading> Sell a Book </Heading>
+          <Heading>{profile?.type === 'ADMIN' ? 'Create a Book' : 'Sell a Book'}</Heading>
           <P>{HELP_MESSAGE}</P>
           <Columns>
             <div>
@@ -92,7 +98,7 @@ const CreateBookPage = () => {
                   {...register('summary', { required: true })}
                 ></textarea>
               </InputWrapper>
-              <input type="submit" value="Next" />
+              <input type="submit" value={profile?.type === 'ADMIN' ? 'Create Book' : 'Next'} />
             </InputsContainer>
           </Columns>
         </Form>
