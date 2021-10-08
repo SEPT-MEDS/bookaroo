@@ -54,6 +54,7 @@ public class BookController {
   public ResponseEntity<?> deleteBookWithIsbn(@PathVariable Long isbn) {
     Book book = bookService.getByIsbn(isbn);
     // Ensure book was able to be found in database
+
     if (book != null) {
       bookService.deleteByIsbn(isbn);
       return ResponseEntity.ok(new DeleteBookResponseDTO(true, ""));

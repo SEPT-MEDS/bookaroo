@@ -48,7 +48,7 @@ public class BookService {
   }
 
   public void deleteByIsbn(Long isbn) {
-    bookRepository.deleteByIsbn(isbn);
+    bookRepository.delete(bookRepository.findByIsbn(isbn));
   }
 
   private List<Book> averageAllReviews(List<Book> books) {
