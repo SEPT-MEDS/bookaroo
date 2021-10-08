@@ -41,3 +41,13 @@ export const getAllBooks = async (filter, category) => {
     return []
   }
 }
+
+export const deleteBook = async isbn => {
+  const { data } = await api.delete(`/book/${isbn}`)
+  return data
+}
+
+export const patchBook = async (isbn, book) => {
+  const { data } = await api.patch(`/book/${isbn}`, book)
+  return data
+}

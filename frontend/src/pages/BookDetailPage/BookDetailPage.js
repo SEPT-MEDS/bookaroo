@@ -1,9 +1,9 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 
-import { Spinner, Notification, BookSummary } from 'components'
-import { getBook } from 'services'
-import { useAsync } from 'hooks'
+import { Spinner, Notification, BookSummary, Button } from 'components'
+import { deleteBook, getBook } from 'services'
+import { useAsync, useCurrentProfile } from 'hooks'
 
 import BookSellers from './BookSellers'
 import BookReviews from './BookReviews'
@@ -36,6 +36,20 @@ const BookDetailPage = () => {
 }
 
 const BookInfo = ({ book }) => {
+  const history = useHistory()
+
+  const editButtonHandler = () => {
+    // Redirect to edit page
+    history.push(`/book/edit/${book.isbn}`)
+  }
+
+  const deleteButtonHandler = () => {
+    if (confirm('Are you sure you would like to delete ' + book?.title + '? THIS ACTION CANNOT BE REVERSED!'))
+      deleteBook(book.isbn)
+        .then(history.push('/'))
+  }
+
+  const profile = useCurrentProfile()
   return (
     <BookInfoContainer>
       <BookSummary book={book} />
@@ -52,6 +66,10 @@ const BookInfo = ({ book }) => {
             <BookInfoPara>{book.category || <em>No Category</em>}</BookInfoPara>
           </div>
         </BookInfoDetails>
+        {profile && profile.type === 'ADMIN' && <>
+          <Button onClick={() => editButtonHandler()}>Edit Book</Button>
+          <Button onClick={() => deleteButtonHandler()}>Delete Book</Button>
+        </>}
       </div>
     </BookInfoContainer>
   )
