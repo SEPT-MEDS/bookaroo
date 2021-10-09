@@ -10,7 +10,7 @@ export const CardContainer = styled.a`
   background: ${p => p.theme.backgroundSecondary};
   border-radius: .5rem;
   overflow: hidden;
-  box-shadow: 0px 2px 4px 0px #808080e0;
+  box-shadow: 0px 2px 4px 0px hsla(0deg 0% 0% / 50%);
   color: ${p => p.theme.text};
 `
 
