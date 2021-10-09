@@ -31,6 +31,9 @@ const ProtectedRoute = props => {
   const { isLoggedIn } = useAuth()
   const profile = useCurrentProfile()
 
+  if (!profile)
+    return <Spinner />
+
   return (isLoggedIn  && profile?.type === 'ADMIN') ? (
     <Route {...props} />
   ) : (

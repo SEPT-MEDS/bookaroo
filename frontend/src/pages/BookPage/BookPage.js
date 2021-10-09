@@ -29,7 +29,7 @@ const BookPage = () => {
     })
   }, [])
 
-  // Filter books according to category 
+  // Filter books according to search bar filter and category 
   useEffect(() => {
     setIsLoading(true)
     getAllBooks(debouncedFilter, category !== 'All' && category)

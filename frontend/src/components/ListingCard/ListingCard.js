@@ -15,7 +15,7 @@ const CARD_STYLES = {
 }
 
 // Component used to display a listing
-const Listing = ({ id, price, imageUrl, isPreowned, isSwap, bookIsbn, sellerId, cardStyle=CARD_STYLES.BOOK_FOCUS }) => {
+const ListingCard = ({ id, price, imageUrl, isPreowned, isSwap, bookIsbn, sellerId, cardStyle=CARD_STYLES.BOOK_FOCUS }) => {
   const { response: book } = useAsync(() => getBook(bookIsbn), [bookIsbn])
   const { response: vendor } = useAsync(() => getUser(sellerId), [sellerId])
   const profile = useCurrentProfile()
@@ -74,10 +74,10 @@ const Listing = ({ id, price, imageUrl, isPreowned, isSwap, bookIsbn, sellerId, 
   )
 }
 
-// Declare variables to be used globally
-Listing.BOOK_FOCUS = CARD_STYLES.BOOK_FOCUS
-Listing.VENDOR_FOCUS = CARD_STYLES.VENDOR_FOCUS
+// Store card styled enum on ListingCard component
+ListingCard.BOOK_FOCUS = CARD_STYLES.BOOK_FOCUS
+ListingCard.VENDOR_FOCUS = CARD_STYLES.VENDOR_FOCUS
 
-export default Listing
+export default ListingCard
 
 
