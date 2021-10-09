@@ -7,7 +7,7 @@ import { useAsync, useCurrentProfile } from 'hooks'
 import { getBook, getUser, removeListing } from 'services'
 
 import { ListingContainer, DeleteButton, DeleteButtonContainer } from './listingCardStyle'
-import { Rating } from 'components'
+import { Price, Rating } from 'components'
 
 const CARD_STYLES = {
   'BOOK_FOCUS':0,
@@ -59,7 +59,7 @@ const ListingCard = ({ id, price, imageUrl, isPreowned, isSwap, bookIsbn, seller
         )}
         {!isSwap && (
           <div>
-            {`$${price}`} {isPreowned && <em> (preowned)</em>}
+            <Price price={price}/>{isPreowned && <em> (preowned)</em>}
           </div>
         )}
       </div>

@@ -3,7 +3,7 @@ import { useParams, useHistory } from 'react-router-dom'
 
 import { useAsync } from 'hooks'
 import { getListing, getBook, getUser } from 'services'
-import { Button, Notification, Spinner, BookSummary, Rating, UserReviews} from 'components'
+import { Button, Notification, Spinner, BookSummary, Rating, UserReviews, Price } from 'components'
 
 import PurchaseSuccess from './PurchaseSuccess'
 import PurchaseButton from './PurchaseButton'
@@ -56,7 +56,7 @@ const ListingInfo = ({ id, sellerId, price, isSwap, imageUrl, isPreowned, bookIs
       
       {/* Describe status of listing (e.g. condition, is swap, price) */}
       <ActionBox>
-        {!isSwap && <h3>Buy {isPreowned ? 'preowned' : 'brand new'} for ${ price }</h3>}
+        {!isSwap && <h3>Buy {isPreowned ? 'preowned' : 'brand new'} for <Price price={price}/></h3>}
         {isSwap && <h3>Swap with <em>{vendor?.username}</em> for another book</h3>}
         {purchaseError && <Notification isError={true}>{String(purchaseError)}</Notification>}
         {!isSwap && <PurchaseButton
