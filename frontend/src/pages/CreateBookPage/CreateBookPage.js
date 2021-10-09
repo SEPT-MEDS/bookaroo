@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 
-import { useAsync, useCurrentProfile } from 'hooks'
+import { useDebounce, useAsync, useCurrentProfile } from 'hooks'
 import { createBook, getOLBookDetails } from 'services'
 import { Spinner, BookCover } from 'components'
 import {
@@ -23,9 +23,11 @@ const CreateBookPage = () => {
   const history = useHistory()
   const [isLoading, setIsLoading] = useState(false)
   const { isbn } = useParams()
-  const { register, handleSubmit, setValue } = useForm()
+  const { register, handleSubmit, setValue, watch } = useForm()
   const { response: apiRes } = useAsync(() => getOLBookDetails(isbn))
   const profile = useCurrentProfile()
+  const watchUrl = watch('url', '')
+  const debouncedImageUrl = useDebounce(watchUrl, 300)
 
   // Pre-fill fields with information from OpenLibrary API (if applicable)
   useEffect(() => {
@@ -74,7 +76,7 @@ const CreateBookPage = () => {
 
             {/* Cover image for the book */}
             <div>
-              <BookCover isbn={isbn} />
+              <BookCover isbn={isbn} imageUrl={debouncedImageUrl !== '' && debouncedImageUrl}/>
             </div>
 
             {/* Inputs for the book creation */}
