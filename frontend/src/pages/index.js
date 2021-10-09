@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom'
 
 import { useAuth, useCurrentProfile } from 'hooks'
-import { Navigation } from 'components'
+import { Spinner, Navigation } from 'components'
 
 import BookPage from './BookPage/BookPage'
 import LoginPage from './LoginPage/LoginPage'
@@ -48,6 +48,18 @@ const PrivateRoute = props => {
   )
 }
 
+const HomePage = () => {
+  const profile = useCurrentProfile()
+
+  if (!profile)
+    return <Spinner />
+  
+  if (profile.type === 'ADMIN')
+    return <AdminPage />
+  else
+    return <BookPage />
+}
+
 const Pages = () => {
   const location = useLocation()
   const pagesWithoutNav = ['login', 'signup']
@@ -59,17 +71,17 @@ const Pages = () => {
       ) && <Navigation />}
 
       <Switch>
-        <PrivateRoute path="/" exact component={BookPage} />
+        <PrivateRoute path="/" exact component={HomePage} />
+        <PrivateRoute path="/book" exact component={BookPage} />
         <PrivateRoute path="/book/:isbn" exact component={BookDetailPage} />
         <PrivateRoute path="/book/new/:isbn" exact component={CreateBookPage} />
         <PrivateRoute path="/book/edit/:isbn" exact component={EditBookPage} />
         <PrivateRoute path="/listing/new/:isbn" exact component={FinaliseListingPage} />
         <PrivateRoute path="/listing/new" exact component={CreateListingPage} />
-        <ProtectedRoute path="/admin" exact component={AdminPage} />
-        <ProtectedRoute path="/admin/manage-users" exact component={ManageUsersPage} />
         <PrivateRoute path="/listing/:id" exact component={ListingDetailPage} />
         <PrivateRoute path="/user/:id" exact component={ProfileDetailPage} />
         <PrivateRoute path="/transactions" exact component={TransactionsPage} />
+        <ProtectedRoute path="/admin/manage-users" exact component={ManageUsersPage} />
         <Route path="/login" exact component={LoginPage} />
         <Route path="/contact" exact component={ContactPage} />
         <Route path="/about" exact component={AboutPage} />

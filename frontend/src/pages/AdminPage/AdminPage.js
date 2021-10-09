@@ -19,7 +19,7 @@ const AdminPage = () => {
     Transactions
       </AdminLink>
 
-      <AdminLink to='/'>
+      <AdminLink to='/book'>
         <FontAwesomeIcon icon={faBook} />
     Manage Books
       </AdminLink>
