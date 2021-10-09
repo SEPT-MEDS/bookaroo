@@ -6,8 +6,9 @@ import {
   useLocation,
 } from 'react-router-dom'
 
-import { useAuth } from '../hooks'
-import { Navigation } from '../components'
+import { useAuth, useCurrentProfile } from 'hooks'
+import { Navigation } from 'components'
+
 import BookPage from './BookPage/BookPage'
 import LoginPage from './LoginPage/LoginPage'
 import ContactPage from './ContactPage/ContactPage'
@@ -24,6 +25,18 @@ import FinaliseListingPage from './FinaliseListingPage/FinaliseListingPage'
 import CreateBookPage from './CreateBookPage/CreateBookPage'
 import ProfileDetailPage from './ProfileDetailPage/ProfileDetailPage'
 import EditBookPage from './EditBookPage/EditBookPage'
+
+const ProtectedRoute = props => { 
+  const { isLoggedIn } = useAuth()
+  const profile = useCurrentProfile()
+
+  return (isLoggedIn  && profile?.type === 'ADMIN') ? (
+    <Route {...props} />
+  ) : (
+    isLoggedIn ? <Redirect to='/' /> :
+      <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
+  )
+}
 
 const PrivateRoute = props => {
   const { isLoggedIn } = useAuth()
@@ -52,8 +65,8 @@ const Pages = () => {
         <PrivateRoute path="/book/edit/:isbn" exact component={EditBookPage} />
         <PrivateRoute path="/listing/new/:isbn" exact component={FinaliseListingPage} />
         <PrivateRoute path="/listing/new" exact component={CreateListingPage} />
-        <PrivateRoute path="/admin" exact component={AdminPage} />
-        <PrivateRoute path="/admin/manage-users" exact component={ManageUsersPage} />
+        <ProtectedRoute path="/admin" exact component={AdminPage} />
+        <ProtectedRoute path="/admin/manage-users" exact component={ManageUsersPage} />
         <PrivateRoute path="/listing/:id" exact component={ListingDetailPage} />
         <PrivateRoute path="/user/:id" exact component={ProfileDetailPage} />
         <PrivateRoute path="/transactions" exact component={TransactionsPage} />
