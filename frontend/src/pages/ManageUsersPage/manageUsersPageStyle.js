@@ -12,10 +12,6 @@ export const Container = styled.div`
   }
 `
 
-export const UserTable = styled.table`
-
-`
-
 export const TableContainer = styled.table`
   th {
     background-color: ${p => p.theme.backgroundSecondary}
