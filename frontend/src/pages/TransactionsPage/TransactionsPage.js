@@ -62,22 +62,23 @@ const TransactionsPage = () => {
     {transactions?.length ?
       <TransactionsContainer>
         {error && <Notification isError={true}>{error}</Notification>}
+        {/* Display transactions based on user type */}
         {transactions
-          .map((v,i,a) => a[a.length - 1 - i]) // reverse
-          .map(transaction => <Transaction key={transaction.id} {...transaction}/>)}
+          .map((v,i,a) => a[a.length - 1 - i]) // reverse - display most recent on top
+          .map(transaction => <Transaction key={transaction.id} userType={userType} {...transaction}/>)}
       </TransactionsContainer> : (
         'There are no transactions'
       )}
   </Container>
 }
 
-const Transaction = ({ id, listingId, purchaseCreationTime, buyerId, sellerId }) => {
+// Single transaction
+const Transaction = ({ id, listingId, purchaseCreationTime, buyerId, sellerId, userType }) => {
   const history = useHistory()
   const { response: listing, error: listingError } = useAsync(() => getListing(listingId), [listingId])
   const { response: book, error: bookError } = useAsync(() => listing && getBook(listing?.bookIsbn), [listing])
   const { response: seller, error: sellerError } = useAsync(() => listing && getUser(listing?.sellerId), [listing])
 
-  // Can this transaction be cancelled?
   // Only can be cancelled if new enough
   const canCancel = (Date.now() - purchaseCreationTime) <= MAX_CANCEL_TIME
 
@@ -92,16 +93,23 @@ const Transaction = ({ id, listingId, purchaseCreationTime, buyerId, sellerId })
     {listingError && <Notification isError={true}>{listingError}</Notification>}
     {bookError && <Notification isError={true}>{bookError}</Notification>}
     {sellerError && <Notification isError={true}>{sellerError}</Notification>}
+
+    {/* Image of book */}
     <BookCover imageUrl={listing?.imageUrl} />
     <div>
+      {/* General information of book in question */}
       <BookSummary showLink={true} showCover={false} book={book}/>
+      {/* Purchase ID */}
       <div>Purchase #{hex(id)}-{hex(sellerId)}-{hex(buyerId)}</div>
+      {/* Purchase price */}
       <div>
         Purchased for ${listing?.price || 0}
         {' '} from <Link to={`/user/${listing?.sellerId}`}>{seller?.username}</Link>
       </div>
+      {/* Purchase date */}
       <div>Purchased on {new Date(purchaseCreationTime).toLocaleDateString()}</div>
-      <Button disabled={!canCancel} onClick={handleCancel}>Cancel</Button>
+      {/* Change cancel button respective to the user type */}
+      {userType !== 'ADMIN' && <Button disabled={!canCancel} onClick={handleCancel}>Cancel</Button>}
     </div>
   </TransactionContainer>
 }

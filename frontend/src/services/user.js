@@ -6,13 +6,11 @@ export const getUser = async id => {
 }
 
 export const login = async (username, password) => {
-  // TODO Catch error
   const response = await api.post('/auth/login', { username, password })
   return response.data.data
 }
 
 export const signup = async fields => {
-  // TODO Catch error
   const response = await api.post('/user/signup', fields)
   return response
 }
@@ -24,5 +22,10 @@ export const getAllUsers = async () => {
 
 export const setAccountStatus = async (userId, isEnabled) => {
   const response = await api.patch('/user/status', { userId, isEnabled })
+  return response
+}
+
+export const deleteUser = async userId => {
+  const response = await api.delete(`user/${userId}`)
   return response
 }

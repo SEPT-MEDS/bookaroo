@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 
+// Determines if a mouse click is outside an object
 const useOnOutsideClick = (ref, cb) => {
   useEffect(() => {
     const handleClickOutside = e =>

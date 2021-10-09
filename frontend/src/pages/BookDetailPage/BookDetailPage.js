@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams, useHistory, Link } from 'react-router-dom'
 
 import { Spinner, Notification, BookSummary, Button } from 'components'
 import { deleteBook, getBook } from 'services'
@@ -15,6 +15,7 @@ import {
   BookInfoDetails
 } from './bookDetailPageStyle'
 
+// Book page with book information, sellers/listings, and reviews of that book
 const BookDetailPage = () => {
   const { isbn } = useParams()
   const {response: book, error, isLoading} = useAsync(() => getBook(isbn), [isbn])
@@ -35,13 +36,10 @@ const BookDetailPage = () => {
   )
 }
 
+// Primary component of page - Includes image, information about the book, and buttons for admins
 const BookInfo = ({ book }) => {
   const history = useHistory()
-
-  const editButtonHandler = () => {
-    // Redirect to edit page
-    history.push(`/book/edit/${book.isbn}`)
-  }
+  const profile = useCurrentProfile()
 
   const deleteButtonHandler = () => {
     if (confirm('Are you sure you would like to delete ' + book?.title + '? THIS ACTION CANNOT BE REVERSED!'))
@@ -49,7 +47,6 @@ const BookInfo = ({ book }) => {
         .then(history.push('/'))
   }
 
-  const profile = useCurrentProfile()
   return (
     <BookInfoContainer>
       <BookSummary book={book} />
@@ -66,8 +63,8 @@ const BookInfo = ({ book }) => {
             <BookInfoPara>{book.category || <em>No Category</em>}</BookInfoPara>
           </div>
         </BookInfoDetails>
-        {profile && profile.type === 'ADMIN' && <>
-          <Button onClick={() => editButtonHandler()}>Edit Book</Button>
+        {profile?.type === 'ADMIN' && <>
+          <Button as={Link} to={`/book/edit/${book?.isbn}`}>Edit Book</Button>
           <Button onClick={() => deleteButtonHandler()}>Delete Book</Button>
         </>}
       </div>

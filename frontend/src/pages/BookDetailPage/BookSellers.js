@@ -1,24 +1,34 @@
 import React, { useMemo } from 'react'
+import { Link } from 'react-router-dom'
 
-import { useAsync } from 'hooks'
-import { ListingCard, Spinner, Notification } from 'components'
+import { useAsync, useCurrentProfile } from 'hooks'
+import { ListingCard, Spinner, Notification, Button } from 'components'
 import { getBookListings } from 'services'
 import { BookSellersContainer } from './bookDetailPageStyle'
 
+// Component to list sellers of a particular book
 const BookSellers = ({ book }) => {
+  // Get listings from backend
   const { response: listings, error, isLoading } = useAsync(() =>
     getBookListings(book.isbn)
   )
 
+  // Sort listings into preowned and not preowned
   const sortedListings = useMemo(
     () => listings?.sort((a, b) => +a.isPreowned - +b.isPreowned),
     [listings]
   )
 
+  const profile = useCurrentProfile()
+
   return (
     <BookSellersContainer>
+      {/* Sellers of <book title> */}
       <h2>
         Sellers of <em>{book.title}</em>
+        {/* Create new listing button if the user is not an admin */}
+        {profile?.type !== 'ADMIN' &&
+          <Button as={Link} to={`/listing/new/${book.isbn}`}>Create a Listing</Button>}
       </h2>
       <div>
         {isLoading ? (
@@ -26,46 +36,17 @@ const BookSellers = ({ book }) => {
         ) : (
           <>
             {error && <Notification isError={true}>{error}</Notification>}
-            {!listings?.length && (
-              <h3>
-                <em>No current sellers</em>
-              </h3>
-            )}
-            {listings?.length > 0 &&
-              sortedListings.map(listing => (
+            {/* Put all listings for current book into ListingCard components */}
+            {listings?.length
+              ? sortedListings.map(listing => (
                 <ListingCard {...listing} cardStyle={ListingCard.VENDOR_FOCUS} key={listing.id} />
-              ))}
+              ))
+              : <h3><em>No current sellers</em></h3>}
           </>
         )}
       </div>
     </BookSellersContainer>
   )
 }
-
-// const Listing = ({ id, sellerId, price, imageUrl, isPreowned, isSwap }) => {
-//   const { response: vendor } = useAsync(() => getUser(sellerId))
-//   const currProfile = useCurrentProfile()
-
-//   return (
-//     <ListingContainer>
-//       <div style={{ backgroundImage: `url(${imageUrl})` }} />
-//       <div>
-//         <h3>
-//           <Link to={`/listing/${id}`}>
-//             {vendor ? `${vendor.firstName} ${vendor.lastName}` : 'Vendor'}
-//           </Link>
-//         </h3>
-//         <Rating rating={3 /* TO DO */} />
-//         {isSwap && <div><em>This listing is a swap</em></div>}
-//         {!isSwap && <div>{`$${price}`} {isPreowned && <em> (preowned)</em>}</div>}
-//       </div>
-//       <div className='delete-button'>
-//         {vendor?.id === currProfile?.id ? 
-//           <DeleteButton to='#' onClick={() => removeListing(id)}><FontAwesomeIcon icon={faTrashAlt} /></DeleteButton> : undefined}
-//       </div>
-
-//     </ListingContainer>
-//   )
-// }
 
 export default BookSellers

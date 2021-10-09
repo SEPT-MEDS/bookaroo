@@ -9,6 +9,7 @@ import {
 
 import { ContactPointContainer } from './contactPointStyle'
 
+// Contains numerous contact points, each of which include an image and contact information
 const ContactPoint = ({ contactType }) => {
 
   if (contactType === 'envelope')

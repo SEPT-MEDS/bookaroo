@@ -4,6 +4,10 @@ export const Container = styled.div`
   display: grid;
   row-gap: 5em;
   padding: 2em;
+
+  a {
+    margin-left: .5em;
+  }
 `
 
 export const BookSellersContainer = styled.section`

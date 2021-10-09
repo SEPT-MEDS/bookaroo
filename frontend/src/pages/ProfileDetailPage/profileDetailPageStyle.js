@@ -14,6 +14,11 @@ export const Container = styled.div`
   }
 `
 
+export const RatingContainer = styled.div`
+  font-size: 1.3rem;
+  margin-top: .5rem;
+`
+
 export const ListingsContainer = styled.div`
   display: flex;
   flex-direction: column;

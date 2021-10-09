@@ -16,9 +16,7 @@ export const getListingsBySeller = async id => {
 }
 
 export const createListing = async fields => {
-  console.log('Creating a listing with', fields)
   const { data } = await api.post('/listing', fields)
-  console.log('Received data:', data)
   return data.listing
 }
 

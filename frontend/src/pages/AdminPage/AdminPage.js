@@ -3,28 +3,32 @@ import { Heading, Container, AdminLinkContainer, AdminLink } from './adminPageSt
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faDollarSign, faBook, faFile } from '@fortawesome/free-solid-svg-icons'
 
+// Admin dashboard page - Links to other features within Bookaroo
 const AdminPage = () => {
   return <Container>
     <Heading>Admin Dashboard</Heading>
+
     <AdminLinkContainer>
       <AdminLink to='/admin/manage-users'>
         <FontAwesomeIcon icon={faUser} />
-        Manage Users
+    Manage Users
       </AdminLink>
-      <AdminLink to='/admin/transactions'>
+
+      <AdminLink to='/transactions'>
         <FontAwesomeIcon icon={faDollarSign} />
-        Transactions
+    Transactions
       </AdminLink>
-      <AdminLink to='/admin/manage-books'>
 
+      <AdminLink to='/book'>
         <FontAwesomeIcon icon={faBook} />
-        Manage Books
+    Manage Books
       </AdminLink>
-      <AdminLink to='/admin/reports'>
 
+      <AdminLink to='/admin/reports'>
         <FontAwesomeIcon icon={faFile} />
-        Reports
+    Reports
       </AdminLink>
+
     </AdminLinkContainer>
   </Container>
 }

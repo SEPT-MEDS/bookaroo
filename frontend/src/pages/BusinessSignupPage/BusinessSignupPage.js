@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Link, useHistory } from 'react-router-dom'
 
-import { signup } from '../../services'
+import { Notification } from 'components'
+import { signup } from 'services'
 
 import {
   Container,
@@ -12,7 +13,6 @@ import {
   FieldsContainer,
 } from './businessSignupPageStyle'
 
-import { Notification } from '../../components'
 
 
 const LoginPage = () => {
@@ -24,7 +24,6 @@ const LoginPage = () => {
     formState: { errors },
   } = useForm()
 
-   
   const onSubmit = ({ firstName, lastName, email, phoneNumber, username, password, confirmPassword, address, abn, type, isEnabled}) => {
     // Clear error
     setError()
@@ -50,6 +49,8 @@ const LoginPage = () => {
   return (
     <Container>
       <Form onSubmit={handleSubmit(onSubmit)}>
+
+        {/* General redirects for ease of use */}
         <Heading>Business Signup</Heading>
         {error && <Notification isError={true}>{error}</Notification>}
         <Notification>
@@ -60,52 +61,64 @@ const LoginPage = () => {
           Already have an account?
           <Link to='/'>Log in</Link>
         </Notification>
+
+        {/* Signup fields */}
         <FieldsContainer>
           <InputContainer>
             <label>First Name</label>
             <input type="text" {...register('firstName', { required: true })} />
             {errors.firstName && 'This field is required'}
           </InputContainer>
+
           <InputContainer>
             <label>Last Name</label>
             <input type="text" {...register('lastName', { required: true })} />
             {errors.lastName && 'This field is required'}
           </InputContainer>
+
           <InputContainer>
             <label>Email</label>
             <input type="email" {...register('email', { required: true })} />
             {errors.email && 'This field is required'}
           </InputContainer>
+
           <InputContainer>
             <label>Phone Number</label>
             <input type="text" {...register('phoneNumber', { required: true })} />
             {errors.phoneNumber && 'This field is required'}
           </InputContainer>
+
           <InputContainer>
             <label>Username</label>
             <input type="username" {...register('username', { required: true })} />
             {errors.username && 'This field is required'}
           </InputContainer>
+
           <InputContainer>
             <label>Postal Address</label>
             <input type="text" {...register('address', { required: true })} />
             {errors.address && 'This field is required'}
           </InputContainer>
+
           <InputContainer>
             <label>Password</label>
             <input type="password" {...register('password', { required: true })} />
             {errors.password && 'This field is required'}
           </InputContainer>
+
           <InputContainer>
             <label>Confirm Password</label>
             <input type="password" {...register('confirmPassword', { required: true })} />
             {errors.username && 'This field is required'}
           </InputContainer>
+
           <InputContainer>
             <label>ABN</label>
             <input type="text" {...register('abn', { required: true })} />
             {errors.abn && 'This field is required'}
           </InputContainer>
+
+          {/* Indicate to the system that a business is signing up - should be disabled by default */}
           <input type="hidden" {...register('type')} value="BUSINESS" />
           <input type="hidden" {...register('isEnabled')} value="false"/>
 
