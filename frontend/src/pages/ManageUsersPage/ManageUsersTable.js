@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck, faTimes, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 import { deleteUser, getAllUsers, setAccountStatus } from 'services'
+import { useAsync } from 'hooks'
 
 import { TableContainer, TableRow, SymbolButton, UserLink } from './manageUsersPageStyle'
 
@@ -23,16 +24,7 @@ const TABLE_HEADERS = [
 ]
 
 const ManageUsersTable = () => {
-  const [isValid, setIsValid] = useState(false)
-  const [allUsers, setAllUsers] = useState()
-
-  // Update table when it is out of date
-  useEffect(() => {
-    getAllUsers()
-      .then(users => setAllUsers(users))
-      .then(() => setIsValid(true))
-      .catch(() => { })
-  },[allUsers, isValid])
+  const { response: allUsers, invalidate } = useAsync(() => getAllUsers())
 
   return <TableContainer>
     {/* Map each of the headers in the table */}
@@ -42,7 +34,7 @@ const ManageUsersTable = () => {
     {/* Map each user into the table */}
     <tbody>
       {allUsers?.map(user =>
-        <UserTableRow user={user} key={user.id} onUpdate={() => setIsValid(false) } />
+        <UserTableRow user={user} key={user.id} onUpdate={() => invalidate() } />
       )}
     </tbody>
   </TableContainer>
