@@ -15,7 +15,7 @@ const CARD_STYLES = {
 }
 
 // Component used to display a listing
-const ListingCard = ({ id, price, imageUrl, isPreowned, isSwap, bookIsbn, sellerId, cardStyle=CARD_STYLES.BOOK_FOCUS }) => {
+const ListingCard = ({ id, price, imageUrl, isPreowned, isSwap, bookIsbn, sellerId, cardStyle=CARD_STYLES.BOOK_FOCUS, onDelete }) => {
   const { response: book } = useAsync(() => getBook(bookIsbn), [bookIsbn])
   const { response: vendor } = useAsync(() => getUser(sellerId), [sellerId])
   const profile = useCurrentProfile()
@@ -35,7 +35,7 @@ const ListingCard = ({ id, price, imageUrl, isPreowned, isSwap, bookIsbn, seller
   const handleDeleteListing = () => {
     if (window.confirm('Are you sure you would like to remove your listing? This action cannot be undone.')) {
       removeListing(id)
-      // TODO remove listing from view
+      if (onDelete) onDelete()
     }
   }
 
