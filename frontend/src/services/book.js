@@ -1,4 +1,5 @@
 import intersectionBy from 'lodash.intersectionby'
+import { getBookListings, removeListing } from './listing'
 import api from './'
 
 export const createBook = async fields => {
@@ -44,6 +45,13 @@ export const getAllBooks = async (filter, category) => {
 
 export const deleteBook = async isbn => {
   const { data } = await api.delete(`/book/${isbn}`)
+
+  // Also delete associated listings
+  const listings = await getBookListings(isbn)
+  await Promise.all(
+    listings.map(listing => removeListing(listing.id))
+  )
+
   return data
 }
 
