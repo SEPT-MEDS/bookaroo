@@ -26,6 +26,7 @@ import FinaliseListingPage from './FinaliseListingPage/FinaliseListingPage'
 import CreateBookPage from './CreateBookPage/CreateBookPage'
 import ProfileDetailPage from './ProfileDetailPage/ProfileDetailPage'
 import EditBookPage from './EditBookPage/EditBookPage'
+import PageNotFoundPage from './PageNotFoundPage/PageNotFoundPage'
 
 const PrivateRoute = props => {
   const { isLoggedIn } = useAuth()
@@ -71,6 +72,7 @@ const Pages = () => {
         <Route path="/about" exact component={AboutPage} />
         <Route path="/signup/business" exact component={BusinessSignupPage} />
         <Route path="/signup/customer" exact component={CustomerSignupPage} />
+        <Route path="/" component={PageNotFoundPage} />
       </Switch>
     </>
   )
