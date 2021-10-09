@@ -24,6 +24,10 @@ export const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: .2em;
+
+  textarea {
+    height: 6em;
+  }
 `
 
 export const Heading = styled.h2`

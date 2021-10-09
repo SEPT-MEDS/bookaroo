@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 
-import { useAsync, useCurrentProfile } from 'hooks'
+import { useDebounce, useAsync, useCurrentProfile } from 'hooks'
 import { patchBook, getBook } from 'services'
 import { Spinner, BookCover } from 'components'
 
@@ -20,9 +20,11 @@ const EditBookPage = () => {
   const history = useHistory()
   const [isLoading, setIsLoading] = useState(false)
   const { isbn } = useParams()
-  const { register, handleSubmit, setValue } = useForm()
+  const { register, handleSubmit, setValue, watch } = useForm()
   const { response: book } = useAsync(() => getBook(isbn))
   const profile = useCurrentProfile()
+  const watchUrl = watch('url', '')
+  const debouncedImageUrl = useDebounce(watchUrl, 300)
 
   // Patch (update) the book with the new information
   const onSubmit = ({ summary, author, num_pages, title, category, url }) => {
@@ -66,7 +68,7 @@ const EditBookPage = () => {
           <Heading> Edit a Book </Heading>
           <Columns>
             <div>
-              <BookCover isbn={isbn} imageUrl={book?.url}/>
+              <BookCover isbn={isbn} imageUrl={debouncedImageUrl !== '' && debouncedImageUrl}/>
             </div>
             {/* Forms with book information */}
             <InputsContainer>
