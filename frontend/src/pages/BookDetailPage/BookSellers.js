@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import { useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import { useAsync, useCurrentProfile } from 'hooks'
 import { ListingCard, Spinner, Notification, Button } from 'components'
@@ -8,19 +8,16 @@ import { BookSellersContainer } from './bookDetailPageStyle'
 
 // Component to list sellers of a particular book
 const BookSellers = ({ book }) => {
+  // Get listings from backend
   const { response: listings, error, isLoading } = useAsync(() =>
     getBookListings(book.isbn)
   )
 
+  // Sort listings into preowned and not preowned
   const sortedListings = useMemo(
     () => listings?.sort((a, b) => +a.isPreowned - +b.isPreowned),
     [listings]
   )
-
-  const history = useHistory()
-  const handleNewListing = isbn => {
-    history.push(`/listing/new/${isbn}`)
-  }
 
   const profile = useCurrentProfile()
 
@@ -31,7 +28,7 @@ const BookSellers = ({ book }) => {
         Sellers of <em>{book.title}</em>
         {/* Create new listing button if the user is not an admin */}
         {profile?.type !== 'ADMIN' &&
-          <Button onClick={() => handleNewListing(book.isbn)} >Create a Listing</Button>}
+          <Button as={Link} to={`/listing/new/${book.isbn}`}>Create a Listing</Button>}
       </h2>
       <div>
         {isLoading ? (

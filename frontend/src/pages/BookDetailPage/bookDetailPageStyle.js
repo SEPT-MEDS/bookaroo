@@ -5,8 +5,8 @@ export const Container = styled.div`
   row-gap: 5em;
   padding: 2em;
 
-  Button {
-    margin-left: 1.5rem;
+  a {
+    margin-left: .5em;
   }
 `
 

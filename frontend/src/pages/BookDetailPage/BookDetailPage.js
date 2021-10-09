@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams, useHistory, Link } from 'react-router-dom'
 
 import { Spinner, Notification, BookSummary, Button } from 'components'
 import { deleteBook, getBook } from 'services'
@@ -41,11 +41,6 @@ const BookInfo = ({ book }) => {
   const history = useHistory()
   const profile = useCurrentProfile()
 
-  const editButtonHandler = () => {
-    // Redirect to edit page
-    history.push(`/book/edit/${book.isbn}`)
-  }
-
   const deleteButtonHandler = () => {
     if (confirm('Are you sure you would like to delete ' + book?.title + '? THIS ACTION CANNOT BE REVERSED!'))
       deleteBook(book.isbn)
@@ -69,7 +64,7 @@ const BookInfo = ({ book }) => {
           </div>
         </BookInfoDetails>
         {profile?.type === 'ADMIN' && <>
-          <Button onClick={() => editButtonHandler()}>Edit Book</Button>
+          <Button as={Link} to={`/book/edit/${book?.isbn}`}>Edit Book</Button>
           <Button onClick={() => deleteButtonHandler()}>Delete Book</Button>
         </>}
       </div>
