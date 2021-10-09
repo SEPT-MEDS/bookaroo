@@ -12,8 +12,8 @@ const Navigation = () => {
 
   return (
     <NavBar>
-      {/* Navigate different users to different pages on click of logo */}
-      <NavLink to={isAdmin ? '/admin' : '/'}>
+      {/* Navigate different users to different pages on click of logo - this is handled by pages/index.js */}
+      <NavLink to='/'>
         <Logo />
       </NavLink>
       {/* Include appropriate fields depending on user type */}
