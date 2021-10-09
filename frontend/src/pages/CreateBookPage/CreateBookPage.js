@@ -108,8 +108,7 @@ const CreateBookPage = () => {
                 <label htmlFor="url">Image URL</label>
                 <input
                   type="text"
-                  onChange={() => console.log(this.value)}
-                  {...register('url', { required: false })}
+                  {...register('url', { required: true })}
                 />
               </InputWrapper>
               <InputWrapper>
