@@ -5,6 +5,9 @@ const useAsync = (promise, dependencies = []) => {
   const [isLoading, setIsLoading] = useState(false)
   const [isMounted, setIsMounted] = useState(true)
   const [response, setResponse] = useState()
+  const [isValid, setIsValid] = useState(false)
+
+  const invalidate = () => setIsValid(false)
 
   useEffect(() => {
     if (promise) {
@@ -14,13 +17,14 @@ const useAsync = (promise, dependencies = []) => {
         ?.then(() => setIsLoading(false))
         ?.catch(err => {
           setIsLoading(false)
+          setIsValid(true)
           setError(err.message)
         })
     }
     return () => setIsMounted(false)
-  }, dependencies)
+  }, [...dependencies, isValid])
 
-  return {response, isLoading, error}
+  return {response, isLoading, error, invalidate}
 }
 
 export default useAsync
