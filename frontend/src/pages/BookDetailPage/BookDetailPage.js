@@ -20,6 +20,8 @@ const BookDetailPage = () => {
   const { isbn } = useParams()
   const {response: book, error, isLoading} = useAsync(() => getBook(isbn), [isbn])
 
+  console.log('BDP rerender')
+
   return (
     <Container>
       {isLoading ? (

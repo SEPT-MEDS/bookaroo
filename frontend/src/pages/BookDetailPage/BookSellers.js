@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { } from 'react'
 import { Link } from 'react-router-dom'
 
 import { useAsync, useCurrentProfile } from 'hooks'
@@ -11,11 +11,14 @@ const BookSellers = ({ book }) => {
   const profile = useCurrentProfile()
   const { response: listings, error, isLoading, invalidate } = useAsync(() => getBookListings(book.isbn), [book])
 
+  console.log(listings)
+
   // Sort listings into preowned and not preowned
-  const sortedListings = useMemo(
-    () => listings?.sort((a, b) => +a.isPreowned - +b.isPreowned),
-    [listings]
-  )
+  const sortedListings = listings
+  // useMemo(
+  //   () => listings?.sort((a, b) => +a.isPreowned - +b.isPreowned),
+  //   [listings]
+  // )
 
   return (
     <BookSellersContainer>
