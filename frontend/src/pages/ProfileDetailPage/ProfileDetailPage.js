@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useParams } from 'react-router-dom'
 
 import { useAsync } from 'hooks'
@@ -9,10 +9,9 @@ import { Container, ListingsContainer, RatingContainer } from './profileDetailPa
 
 // Profile page for users
 const ProfileDetailPage = () => {
-  const [listingsAreValid, setListingsAreValid] = useState(false)
   const { id } = useParams()
   const { response: user, isLoading, error } = useAsync(() => getUser(id), [id])
-  const { response: listings } = useAsync(() => getListingsBySeller(id).then(l => {setListingsAreValid(true); return l}), [user, listingsAreValid])
+  const { response: listings, invalidate: invalidateListings } = useAsync(() => getListingsBySeller(id), [id])
 
   return isLoading && !(user || error) ? (
     <Spinner />
@@ -32,7 +31,7 @@ const ProfileDetailPage = () => {
             <h2> Listings by <em>{user?.username}</em></h2>
             <ListingsContainer>
               {listings?.length ? (
-                listings.map(listing => <ListingCard key={listing.id} cardStyle={ListingCard.BOOK_FOCUS} {...listing} onDelete={() => setListingsAreValid(false)} />)
+                listings.map(listing => <ListingCard key={listing.id} cardStyle={ListingCard.BOOK_FOCUS} {...listing} onDelete={invalidateListings} />)
               ) : (
                 <span>This user has no listings</span>
               )}

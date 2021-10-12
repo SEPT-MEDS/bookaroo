@@ -32,9 +32,9 @@ const ListingCard = ({ id, price, imageUrl, isPreowned, isSwap, bookIsbn, seller
     : (vendor ? vendor.rating : 0)
 
   // Asks for confimation of deletion before removing the listing
-  const handleDeleteListing = () => {
+  const handleDeleteListing = async () => {
     if (window.confirm('Are you sure you would like to remove your listing? This action cannot be undone.')) {
-      removeListing(id)
+      await removeListing(id)
       if (onDelete) onDelete()
     }
   }

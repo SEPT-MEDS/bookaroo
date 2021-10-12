@@ -15,6 +15,7 @@ const useAsync = (promise, dependencies = []) => {
       promise()
         ?.then(response => isMounted && setResponse(response))
         ?.then(() => setIsLoading(false))
+        ?.then(() => setIsValid(true))
         ?.catch(err => {
           setIsLoading(false)
           setIsValid(true)
