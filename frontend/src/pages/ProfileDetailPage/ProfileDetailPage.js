@@ -11,7 +11,7 @@ import { Container, ListingsContainer, RatingContainer } from './profileDetailPa
 const ProfileDetailPage = () => {
   const { id } = useParams()
   const { response: user, isLoading, error } = useAsync(() => getUser(id), [id])
-  const { response: listings } = useAsync(() => getListingsBySeller(id), [user])
+  const { response: listings, invalidate: invalidateListings } = useAsync(() => getListingsBySeller(id), [id])
 
   return isLoading && !(user || error) ? (
     <Spinner />
@@ -31,7 +31,7 @@ const ProfileDetailPage = () => {
             <h2> Listings by <em>{user?.username}</em></h2>
             <ListingsContainer>
               {listings?.length ? (
-                listings.map(listing => <ListingCard key={listing.id} cardStyle={ListingCard.BOOK_FOCUS} {...listing}  />)
+                listings.map(listing => <ListingCard key={listing.id} cardStyle={ListingCard.BOOK_FOCUS} {...listing} onDelete={invalidateListings} />)
               ) : (
                 <span>This user has no listings</span>
               )}

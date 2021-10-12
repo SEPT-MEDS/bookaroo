@@ -11,10 +11,16 @@ const useAsync = (promise, dependencies = []) => {
 
   useEffect(() => {
     if (promise) {
+      setIsMounted(true)
       setIsLoading(true)
       promise()
-        ?.then(response => isMounted && setResponse(response))
-        ?.then(() => setIsLoading(false))
+        ?.then(response => {
+          if (isMounted) {
+            setResponse(response)
+            setIsLoading(false)
+            setIsValid(true)
+          }
+        })
         ?.catch(err => {
           setIsLoading(false)
           setIsValid(true)
