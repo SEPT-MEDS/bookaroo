@@ -51,7 +51,7 @@ const BookInfo = ({ book }) => {
 
   return (
     <BookInfoContainer>
-      <BookSummary book={book} />
+      <BookSummary book={book} showLink={false}/>
       <div>
         <h2>Blurb</h2>
         <BookInfoPara>{book.blurb || <em>No Blurb Provided</em>}</BookInfoPara>
