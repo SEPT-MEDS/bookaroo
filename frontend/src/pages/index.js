@@ -26,18 +26,20 @@ import CreateBookPage from './CreateBookPage/CreateBookPage'
 import ProfileDetailPage from './ProfileDetailPage/ProfileDetailPage'
 import EditBookPage from './EditBookPage/EditBookPage'
 import PageNotFoundPage from './PageNotFoundPage/PageNotFoundPage'
+import AccessForbiddenPage from './AccessForbiddenPage/AccessForbiddenPage'
 
-const ProtectedRoute = props => { 
+const ProtectedRoute = ({userTypes=['ADMIN'], ...props}) => { 
   const { isLoggedIn } = useAuth()
   const profile = useCurrentProfile()
 
   if (!profile)
     return <Spinner />
 
-  return (isLoggedIn  && profile?.type === 'ADMIN') ? (
+  console.log(userTypes)
+  return (isLoggedIn  && userTypes.includes(profile?.type)) ? (
     <Route {...props} />
   ) : (
-    isLoggedIn ? <Redirect to='/' /> :
+    isLoggedIn ? <AccessForbiddenPage /> :
       <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
   )
 }
@@ -80,7 +82,7 @@ const Pages = () => {
         <PrivateRoute path="/book/:isbn" exact component={BookDetailPage} />
         <PrivateRoute path="/book/new/:isbn" exact component={CreateBookPage} />
         <PrivateRoute path="/book/edit/:isbn" exact component={EditBookPage} />
-        <PrivateRoute path="/listing/new/:isbn" exact component={FinaliseListingPage} />
+        <ProtectedRoute userTypes={['CUSTOMER', 'BUSINESS']} path="/listing/new/:isbn" exact component={FinaliseListingPage} />
         <PrivateRoute path="/listing/new" exact component={CreateListingPage} />
         <PrivateRoute path="/listing/:id" exact component={ListingDetailPage} />
         <PrivateRoute path="/user/:id" exact component={ProfileDetailPage} />

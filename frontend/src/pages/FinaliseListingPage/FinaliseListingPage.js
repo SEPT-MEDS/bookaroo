@@ -20,7 +20,7 @@ const FinaliseListingPage = () => {
   const { register, handleSubmit, watch } = useForm()
   const watchIsSwap = watch('swap', false)
   const profile = useCurrentProfile()
-  const isCustomer = profile?.type == 'CUSTOMER'
+  const isCustomer = profile?.type === 'CUSTOMER'
 
   // Create a listing with the provided information
   const onSubmit = ({ swap, price, condition, imageUrl }) => {
