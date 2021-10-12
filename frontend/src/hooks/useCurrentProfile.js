@@ -13,8 +13,8 @@ export const useUserStore = create(set => ({
 const useCurrentProfile = () => {
   const { isLoggedIn, userId } = useAuth()
   const { user: cachedUser, setUser: setCachedUser } = useUserStore()
-  const { response: user } = useAsync(() => (
-    (!cachedUser || cachedUser?.id !== userId) && isLoggedIn) ? getUser(userId) : null
+  const { response: user } = useAsync(() =>
+    ((!cachedUser || cachedUser?.id !== userId) && isLoggedIn) ? getUser(userId) : null
   , [isLoggedIn, userId])
 
   // Update cache with requested user
