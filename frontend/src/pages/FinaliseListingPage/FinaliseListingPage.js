@@ -20,7 +20,8 @@ const FinaliseListingPage = () => {
   const { register, handleSubmit, watch } = useForm()
   const watchIsSwap = watch('swap', false)
   const profile = useCurrentProfile()
-  const isCustomer = profile?.type == 'CUSTOMER'
+  const isCustomer = profile?.type === 'CUSTOMER'
+  const isAdmin = profile?.type === 'ADMIN'
 
   // Create a listing with the provided information
   const onSubmit = ({ swap, price, condition, imageUrl }) => {
@@ -43,6 +44,7 @@ const FinaliseListingPage = () => {
       {loading ? (
         <Spinner />
       ) : (
+        !isAdmin &&
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Heading> Almost Done! </Heading>
           <P>{HELP_MESSAGE}</P>
