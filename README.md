@@ -22,6 +22,7 @@ There are three user types; customer, business, and admin, each of which with th
   - Contact page - list of contact details of Bookaroo, input form to send us an email
   - About us page - general information about Bookaroo itself
   - 404 page not found page - error page displayed on pages without configured routes
+  - 403 no access page - error page displayed on pages when the user does not have access
 
 - Sign up/registration
   - Sign up as customer - limited functionality, account instantly accessible
