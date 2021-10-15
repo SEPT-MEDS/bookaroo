@@ -58,7 +58,7 @@ const ListingInfo = ({ id, sellerId, price, isSwap, imageUrl, isPreowned, bookIs
       {/* Describe status of listing (e.g. condition, is swap, price) */}
       {vendor?.id === profile?.id
         ? <ActionBox><h3>This is your listing</h3></ActionBox>
-        : (
+        : (profile.type !== 'ADMIN' &&
           <ActionBox>
             {isSwap
               ? <h3>Swap with <em>vendor?.username</em> for another book</h3>
