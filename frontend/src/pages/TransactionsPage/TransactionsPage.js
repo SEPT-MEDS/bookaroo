@@ -94,14 +94,11 @@ const Transaction = ({ id, listingId, purchaseCreationTime, buyerId, sellerId, u
   }
 
   return <TransactionContainer>
-    {bookError && <Notification isError={true}>{bookError}</Notification>}
-    {sellerError && <Notification isError={true}>{sellerError}</Notification>}
-
     {/* Image of book */}
     <BookCover imageUrl={listing?.imageUrl || ERROR_BOOK.url} />
     <div>
       {/* General information of book in question */}
-      {!listingError
+      {!listingError && !bookError
         ? <BookSummary showLink={true} showCover={false} book={book}/>
         : <BookSummary showLink={false} showCover={false} book={ERROR_BOOK}/>
       }
@@ -109,9 +106,9 @@ const Transaction = ({ id, listingId, purchaseCreationTime, buyerId, sellerId, u
       <div>Purchase #{hex(id)}-{hex(sellerId)}-{hex(buyerId)}</div>
       {/* Purchase price */}
       {!listingError
-        ? <div>
+        ? < div >
         Purchased for {<Price price={listing?.price} /> || 0}
-          {' '} from <Link to={`/user/${listing?.sellerId}`}>{seller?.username}</Link>
+          {' '} from {!sellerError ? <Link to={`/user/${listing?.sellerId}`}>{seller?.username}</Link> : 'seller'}
         </div>
         : <div>Could not load purchase price information</div>
       }
