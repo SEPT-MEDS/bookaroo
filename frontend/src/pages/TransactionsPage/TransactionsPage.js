@@ -94,10 +94,8 @@ const Transaction = ({ id, listingId, purchaseCreationTime, buyerId, sellerId, u
   }
 
   return <TransactionContainer>
-    {/* {listingError && <Notification isError={true}>{listingError}</Notification>} */}
     {bookError && <Notification isError={true}>{bookError}</Notification>}
     {sellerError && <Notification isError={true}>{sellerError}</Notification>}
-    {console.log(listingError, bookError, sellerError)}
 
     {/* Image of book */}
     <BookCover imageUrl={listing?.imageUrl || ERROR_BOOK.url} />
