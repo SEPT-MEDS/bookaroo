@@ -1,4 +1,5 @@
 import api from './'
+import { getListingsBySeller, removeListing } from './listing'
 
 export const getUser = async id => {
   const { data } = await api.get(`/user/${id}`)
@@ -27,5 +28,12 @@ export const setAccountStatus = async (userId, isEnabled) => {
 
 export const deleteUser = async userId => {
   const response = await api.delete(`user/${userId}`)
+
+  // Also delete associated listings
+  const listings = await getListingsBySeller(userId)
+  await Promise.all(
+    listings.map(listing => removeListing(listing.id))
+  )
+  
   return response
 }

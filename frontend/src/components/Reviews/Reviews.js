@@ -13,10 +13,9 @@ const Review = ({ review }) => {
   const { response: reviewer } = useAsync(() => getUser(review.reviewerId), [review.reviewerId])
   return <ReviewBlock key={review}>
     {/* Name - Links to their profile */}
-    <h3><Link to={`/user/${review.reviewerId}`}>
-      {reviewer
-        ? (`${reviewer.firstName} ${reviewer.lastName} (${reviewer.username})`)
-        : 'Reviewer'}</Link>
+    <h3>{reviewer
+      ? <Link to={`/user/${review.reviewerId}`}>{`${reviewer.firstName} ${reviewer.lastName} (${reviewer.username})`}</Link>
+      : 'Reviewer'}
     </h3>
     {/* Star rating */}
     <Rating rating={review.rating} />
