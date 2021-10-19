@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useHistory, Link } from 'react-router-dom'
 
 import { useCurrentProfile, useAsync } from 'hooks'
-import { Button, BookCover, BookSummary, Notification } from 'components'
+import { Button, BookCover, BookSummary, Notification, Price } from 'components'
 import { 
   getAllPurchases, 
   getPurchasesBySeller, 
@@ -88,24 +88,30 @@ const Transaction = ({ id, listingId, purchaseCreationTime, buyerId, sellerId, u
       cancelPurchase(id)
         .then(() => history.go(0))
   }
+  const ERROR_BOOK = {
+    title: 'Null book',
+    url: 'https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg'
+  }
 
   return <TransactionContainer>
-    {listingError && <Notification isError={true}>{listingError}</Notification>}
-    {bookError && <Notification isError={true}>{bookError}</Notification>}
-    {sellerError && <Notification isError={true}>{sellerError}</Notification>}
-
     {/* Image of book */}
-    <BookCover imageUrl={listing?.imageUrl} />
+    <BookCover imageUrl={listing?.imageUrl || ERROR_BOOK.url} />
     <div>
       {/* General information of book in question */}
-      <BookSummary showLink={true} showCover={false} book={book}/>
+      {!listingError && !bookError
+        ? <BookSummary showLink={true} showCover={false} book={book}/>
+        : <BookSummary showLink={false} showCover={false} book={ERROR_BOOK}/>
+      }
       {/* Purchase ID */}
       <div>Purchase #{hex(id)}-{hex(sellerId)}-{hex(buyerId)}</div>
       {/* Purchase price */}
-      <div>
-        Purchased for ${listing?.price || 0}
-        {' '} from <Link to={`/user/${listing?.sellerId}`}>{seller?.username}</Link>
-      </div>
+      {!listingError
+        ? < div >
+        Purchased for {<Price price={listing?.price} /> || 0}
+          {' '} from {!sellerError ? <Link to={`/user/${listing?.sellerId}`}>{seller?.username}</Link> : 'seller'}
+        </div>
+        : <div>Could not load purchase price information</div>
+      }
       {/* Purchase date */}
       <div>Purchased on {new Date(purchaseCreationTime).toLocaleDateString()}</div>
       {/* Change cancel button respective to the user type */}
