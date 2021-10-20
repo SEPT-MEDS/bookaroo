@@ -153,7 +153,16 @@ The previous releases of Bookaroo can be found [here](https://github.com/SEPT-ME
 
 **v1.0.0**
 
-- TBA
+- Admin approve shop owner accounts
+- Admin decline shop owner accounts
+- Admin suspend user
+- Admin unsuspend user
+- Admin delete user
+- Admin add book (without creating listing)
+- Admin edit book
+- Admin delete book
+- Shop owner remove listing
+- Customer remove listing
 
 
 
