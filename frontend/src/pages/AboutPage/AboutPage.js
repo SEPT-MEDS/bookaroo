@@ -6,6 +6,7 @@ import {
 } from './aboutPageStyle'
 import { ContactPoint } from '../../components'
 
+// Static page with information about Bookaroo
 const AboutPage = () => {
   return (
     <Container>
@@ -21,11 +22,12 @@ const AboutPage = () => {
   )
 }
 
+// Icon and contact information for given platform
 const ContactPoints = () =>
   <ContactPointsContainer>
-    <ContactPoint contactType = 'facebook'></ContactPoint>
-    <ContactPoint contactType = 'twitter'></ContactPoint>
-    <ContactPoint contactType = 'instagram'></ContactPoint>
+    <ContactPoint contactType = 'facebook' />
+    <ContactPoint contactType = 'twitter' />
+    <ContactPoint contactType = 'instagram' />
   </ContactPointsContainer>
 
 export default AboutPage

@@ -14,6 +14,7 @@ import {
 } from './loginPageStyle'
 import { Notification } from '../../components'
 
+// Log in page
 const LoginPage = () => {
   const location = useLocation()
   const history = useHistory()
@@ -32,13 +33,16 @@ const LoginPage = () => {
     // Login
     login(username, password)
       .then(({ token, userId }) => {
+        // Successful login - Take user to home page (book list)
         if (token && userId) {
           authLogin(token, userId)
           history.push(location?.state?.from?.pathname || '/')
+        // Unsuccessful login - Display error
         } else {
           setError('Something went wrong logging you in')
         }
       })
+      // Credentials are wrong or account is disabled
       .catch(err => {
         if (err?.response?.status == 403 || err?.response?.status == 401) {
           setError('Incorrect username or password')
@@ -54,12 +58,15 @@ const LoginPage = () => {
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Heading>Login</Heading>
         {error && <Notification isError={true}>{error}</Notification>}
+
+        {/* Username and password fields */}
         <FieldsContainer>
           <InputContainer>
             <label>Username</label>
             <input type="username" {...register('username', { required: true })} />
             {errors.username && 'This field is required'}
           </InputContainer>
+
           <InputContainer>
             <label>Password</label>
             <input
@@ -68,6 +75,7 @@ const LoginPage = () => {
             />
             {errors.password && 'This field is required'}
           </InputContainer>
+
           <LinkContainer>
             {'Don\'t have an account? '}
             <Link to='/signup/customer'>Signup here</Link>

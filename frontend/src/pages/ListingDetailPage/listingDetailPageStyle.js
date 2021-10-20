@@ -1,4 +1,5 @@
 import styled, {keyframes} from 'styled-components'
+import { Link } from 'react-router-dom'
 
 export const Container = styled.div`
   padding: 2em;
@@ -16,6 +17,15 @@ export const ListingInfoContainer = styled.div`
     width: clamp(70vw, 20em, 250em);
     margin-top: 5em;
   }
+`
+
+export const UserLink = styled(Link)`
+  color: ${p => p.theme.primary};
+  text-decoration: none;
+`
+
+export const RatingContainer = styled.div`
+  font-size: 1.3rem;
 `
 
 export const PurchaseButtonContainer = styled.div`

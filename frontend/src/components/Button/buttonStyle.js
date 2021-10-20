@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const StyledButton = styled.button`
   padding: .5em;
   margin-top: .6em;
-  margin-left: .3em;
+  margin-left: 1em;
 
   box-shadow: 0px 3px 5px -1px #00000040;
   border: none;
@@ -13,6 +13,8 @@ export const StyledButton = styled.button`
   color: ${p => p.theme.invertedText};
   border-radius: .7em;
   border: 2px solid transparent;
+  text-decoration: none;
+  display: inline-block;
 
   &:hover:not([disabled]) {
     background: ${p => p.theme.background};

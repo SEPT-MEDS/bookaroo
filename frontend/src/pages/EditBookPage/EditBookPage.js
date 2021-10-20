@@ -3,88 +3,80 @@ import { useParams, useHistory } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 
 import { useDebounce, useAsync, useCurrentProfile } from 'hooks'
-import { createBook, getOLBookDetails } from 'services'
+import { patchBook, getBook } from 'services'
 import { Spinner, BookCover } from 'components'
+
 import {
   Heading,
-  P,
   InputWrapper,
   Container,
   Form,
   InputsContainer,
   Columns,
-} from './createBookPageStyle'
+} from './editBookPageStyle'
 
-// Message at the top of the screen to assist the user
-const HELP_MESSAGE = 'Next, we require some general information about the book you are attempting to list. This information will be shown to users searching for this book, so make sure there are no errors!'
-
-// Page to fill in details of a book
-const CreateBookPage = () => {
+// Page used for editing books - Similar to book creation page
+const EditBookPage = () => {
   const history = useHistory()
   const [isLoading, setIsLoading] = useState(false)
   const { isbn } = useParams()
   const { register, handleSubmit, setValue, watch } = useForm()
-  const { response: apiRes } = useAsync(() => getOLBookDetails(isbn))
+  const { response: book } = useAsync(() => getBook(isbn))
   const profile = useCurrentProfile()
   const watchUrl = watch('url', '')
   const debouncedImageUrl = useDebounce(watchUrl, 300)
 
-  // Pre-fill fields with information from OpenLibrary API (if applicable)
-  useEffect(() => {
-    if (apiRes) {
-      setValue('title', apiRes.title)
-      setValue('num_pages', apiRes.number_of_pages)
-      setValue('category', apiRes.subjects && apiRes.subjects[0])
-      setValue('summary', apiRes?.description?.value)
-      setValue('url', `https://covers.openlibrary.org/b/isbn/${isbn}-L.jpg`)
-      setValue('author', apiRes?.author?.name)
-    }
-  }, [apiRes])
-
-  // Create a book with the provided information
+  // Patch (update) the book with the new information
   const onSubmit = ({ summary, author, num_pages, title, category, url }) => {
     setIsLoading(true)
-    createBook({
-      isbn,
-      blurb: summary,
-      author,
-      numPages: num_pages,
-      title,
-      category,
-      url,
-      rating: 0
-    }).then(() => {
-      // Admin taken to home page, other users are taken to create a listing
-      profile.type === 'ADMIN'
-        ? history.push('/')
-        : history.push(`/listing/new/${isbn}`)
-    })
+    patchBook(isbn,
+      {
+        isbn,
+        blurb: summary,
+        author,
+        numPages: num_pages,
+        title,
+        category,
+        url,
+        rating: 0
+      })
+      // Take the admin back to the book page
+      .then(() => history.push(`/book/${isbn}`))
   }
 
+
+  // Pre-fill edit page fields with current book information
+  useEffect(() => {
+    if (book) {
+      setValue('title', book.title)
+      setValue('num_pages', book.numPages)
+      setValue('category', book.category)
+      setValue('author', book.author)
+      setValue('url', book.url)
+      setValue('summary', book.blurb)
+    }
+  }, [book])
+  
   return (
     <Container>
-      {isLoading ? (
+      {isLoading || !book ? (
         <Spinner />
-      ) : (
+
+      // Restrict page to admin only
+      ) : (profile?.type === 'ADMIN' &&
         <Form onSubmit={handleSubmit(onSubmit)}>
-          {/* Change heading based on user type */}
-          <Heading>{profile?.type === 'ADMIN' ? 'Create a Book' : 'Sell a Book'}</Heading>
-
-          {/* Display help message */}
-          <P>{HELP_MESSAGE}</P>
+          <Heading> Edit a Book </Heading>
           <Columns>
-
-            {/* Cover image for the book */}
             <div>
               <BookCover isbn={isbn} imageUrl={debouncedImageUrl !== '' && debouncedImageUrl}/>
             </div>
-
-            {/* Inputs for the book creation */}
+            {/* Forms with book information */}
             <InputsContainer>
               <InputWrapper>
                 <label htmlFor="title">Title</label>
                 <input type="text" {...register('title', { required: true })} />
               </InputWrapper>
+
               <InputWrapper>
                 <label htmlFor="author">Author</label>
                 <input
@@ -92,6 +84,7 @@ const CreateBookPage = () => {
                   {...register('author', { required: true })}
                 />
               </InputWrapper>
+
               <InputWrapper>
                 <label htmlFor="author">Category</label>
                 <input
@@ -99,6 +92,7 @@ const CreateBookPage = () => {
                   {...register('category', { required: true })}
                 />
               </InputWrapper>
+
               <InputWrapper>
                 <label htmlFor="num_pages">Number of Pages</label>
                 <input
@@ -106,20 +100,20 @@ const CreateBookPage = () => {
                   {...register('num_pages', { required: true })}
                 />
               </InputWrapper>
+
               <InputWrapper>
                 <label htmlFor="url">Image URL</label>
-                <input
-                  type="text"
-                  {...register('url', { required: true })}
-                />
+                <input type="text" {...register('url', { required: true })} />
               </InputWrapper>
+
               <InputWrapper>
                 <label htmlFor="summary">Summary</label>
                 <textarea
                   {...register('summary', { required: true })}
                 ></textarea>
               </InputWrapper>
-              <input type="submit" value={profile?.type === 'ADMIN' ? 'Create Book' : 'Next'} />
+              
+              <input type="submit" value="Update Book" />
             </InputsContainer>
           </Columns>
         </Form>
@@ -128,4 +122,4 @@ const CreateBookPage = () => {
   )
 }
 
-export default CreateBookPage
+export default EditBookPage

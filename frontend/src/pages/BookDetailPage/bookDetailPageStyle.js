@@ -16,29 +16,6 @@ width: 100%;
 }
 `
 
-export const ListingContainer = styled.div`
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  column-gap: 1rem;
-  border: 2px solid ${p => p.theme.backgroundSecondary};
-  border-radius: .5rem;
-  min-height: 15em;
-  overflow: hidden;
-
-  a {
-    color: ${p => p.theme.primary};
-    text-decoration: inherit;
-  }
-
-  > div:first-child {
-    background-size: cover;
-  }
-
-  > div:not(:first-child) {
-    padding: .5em;
-  }
-`
-
 export const BookInfoContainer = styled.section`
 display: grid;
 grid-template-columns: 1fr 2fr;

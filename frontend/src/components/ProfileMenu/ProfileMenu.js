@@ -10,6 +10,7 @@ import {
   SiteInfoContainer,
 } from './profileMenuStyle'
 
+// Menu that appears after clicking name/profile image in the top right of navbar
 const ProfileMenu = ({ profile }) => {
   const openRef = useRef(null)
   const menuRef = useRef(null)
@@ -17,11 +18,13 @@ const ProfileMenu = ({ profile }) => {
   const { authLogout } = useAuth()
   const history = useHistory()
 
+  // Log out functionality
   const handleLogout = () => {
     authLogout()
     history.push('/login')
   }
 
+  // Remove menu when clicking outside it (i.e. somewhere else on the page)
   useOnOutsideClick(menuRef, e => {
     if (e.target.parentNode !== openRef.current)
       setIsOpen(false)
@@ -40,6 +43,7 @@ const ProfileMenu = ({ profile }) => {
         onClick={e => e.stopPropagation()}
         ref={menuRef}
       >
+        {/* Individual links within menu */}
         <Link to={`/user/${profile.id}`}>My Profile</Link>
         <Link to='/transactions'>Order History</Link>
         <Link to='#'>Settings</Link>

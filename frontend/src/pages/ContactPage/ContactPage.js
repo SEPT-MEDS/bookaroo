@@ -13,20 +13,22 @@ import {
 
 import { ContactPoint } from '../../components'
 
+// Static page for contacting Bookaroo
 const ContactPage = () => {
   const {
     register,
     handleSubmit
   } = useForm()
 
+  // Use default mail application and pre-fill with subject and message
   const onSubmit = ({ subject, message }) => {
-    console.log(subject, message)
     window.location.assign(`mailto:contact@bookaroo.com?subject=${subject}&body=${message}`)
   }
 
   return (
     <Container>
       <EmailForm onSubmit={handleSubmit(onSubmit)}>
+        {/* Forms for inputting your contact information and query */}
         <FieldGroup>
           <Field>
             <RequiredLabel htmlFor="fname">First Name</RequiredLabel>

@@ -1,17 +1,19 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 import {BookCover, Rating} from 'components'
 
-import {Author} from './bookSummaryStyle'
+import {Author, Title} from './bookSummaryStyle'
 
-const BookSummary = ({ book, imageUrl, showCover=true, showLink=false }) => <div>
-  {showCover && <BookCover isbn={book?.isbn} imageUrl={imageUrl} />}
-  <h1>
-    {showLink && <Link to={`/book/${book?.isbn}`}>{book?.title || 'Book'}</Link> }
-    {!showLink && (book?.title || 'Book')}
-  </h1>
+// Book information including image, title, author, rating - used whenever a book listing is displayed
+const BookSummary = ({ book, showCover=true, showLink=true }) => <div>
+  {/* Image */}
+  {showCover && <BookCover isbn={book?.isbn} imageUrl={book?.url} />}
+  {/* Name */}
+  {showLink && <Title to={`/book/${book?.isbn}`}>{book?.title || 'Book'}</Title>}
+  {!showLink && <h1>{book?.title || 'Book'}</h1>}
+  {/* Author */}
   <Author>{book?.author || 'Author'}</Author>
+  {/* Rating */}
   <Rating rating={book?.rating || 0} />
 </div>
 

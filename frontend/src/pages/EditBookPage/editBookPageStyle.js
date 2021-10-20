@@ -10,8 +10,9 @@ export const Container = styled.div`
 
 export const Columns = styled.div`
   display: grid;
-  grid-template-columns: 2fr 3fr;
+  grid-template-columns: 2.5fr 3fr;
   gap: 2em;
+  width: 70vw;
 `
 
 export const InputsContainer = styled.div`
@@ -32,10 +33,6 @@ export const InputWrapper = styled.div`
 
 export const Heading = styled.h2`
   text-align: center;
-`
-
-export const P = styled.p`
-  max-width: 70vw;
 `
 
 export const Form = styled.form`

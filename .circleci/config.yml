@@ -30,6 +30,12 @@ parameters:
   listing-service:
     type: boolean
     default: true
+  purchase-service:
+    type: boolean
+    default: true
+  review-service:
+    type: boolean
+    default: true
 
 executors:
   jdk:
@@ -112,3 +118,17 @@ workflows:
       - build:
           name: listing-service-build
           package_name: listing-service
+
+  purchase-service:
+    when: << pipeline.parameters.purchase-service >>
+    jobs:
+      - build:
+          name: purchase-service-build
+          package_name: purchase-service
+
+  review-service:
+    when: << pipeline.parameters.review-service >>
+    jobs:
+      - build:
+          name: review-service-build
+          package_name: review-service
