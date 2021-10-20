@@ -1,0 +1,297 @@
+[
+    {
+        "client_msg_id": "bd46c0ac-4e3a-4ac3-8770-3da481d1b167",
+        "type": "message",
+        "text": "Hey team we should have a meeting tonight",
+        "user": "U0280JWD9AB",
+        "ts": "1629169056.000200",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "NXSh",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Hey team we should have a meeting tonight"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "a7a62da0-7e10-4296-836b-de68189e6566",
+        "type": "message",
+        "text": "<https:\/\/crab.fit\/sprint-meeting-196256>",
+        "user": "U0280JWD9AB",
+        "ts": "1629169111.000400",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "attachments": [
+            {
+                "title": "Crab Fit",
+                "title_link": "https:\/\/crab.fit\/sprint-meeting-196256",
+                "text": "Enter your availability to find a time that works for everyone!",
+                "fallback": "Crab Fit",
+                "from_url": "https:\/\/crab.fit\/sprint-meeting-196256",
+                "service_icon": "https:\/\/crab.fit\/logo192.png",
+                "service_name": "crab.fit",
+                "id": 1,
+                "original_url": "https:\/\/crab.fit\/sprint-meeting-196256"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "Awt",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "link",
+                                "url": "https:\/\/crab.fit\/sprint-meeting-196256"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "f10f9f7f-be53-417e-a9da-b31c61462016",
+        "type": "message",
+        "text": "<!everyone>",
+        "user": "U0280JWD9AB",
+        "ts": "1629173586.000700",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "JfUH",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "broadcast",
+                                "range": "everyone"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "text": "",
+        "files": [
+            {
+                "id": "F02BKT0K2LU",
+                "created": 1629180454,
+                "timestamp": 1629180454,
+                "name": "image.png",
+                "title": "image.png",
+                "mimetype": "image\/png",
+                "filetype": "png",
+                "pretty_type": "PNG",
+                "user": "U028FAFCKGS",
+                "editable": false,
+                "size": 43442,
+                "mode": "hosted",
+                "is_external": false,
+                "external_type": "",
+                "is_public": true,
+                "public_url_shared": false,
+                "display_as_bot": false,
+                "username": "",
+                "url_private": "https:\/\/files.slack.com\/files-pri\/T028U023WM7-F02BKT0K2LU\/image.png?t=xoxe-2300002132721-2491962007047-2512898018532-73e6b43ec1fed45e8a8c9993e678c6c2",
+                "url_private_download": "https:\/\/files.slack.com\/files-pri\/T028U023WM7-F02BKT0K2LU\/download\/image.png?t=xoxe-2300002132721-2491962007047-2512898018532-73e6b43ec1fed45e8a8c9993e678c6c2",
+                "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T028U023WM7-F02BKT0K2LU-e3e28154f6\/image_64.png?t=xoxe-2300002132721-2491962007047-2512898018532-73e6b43ec1fed45e8a8c9993e678c6c2",
+                "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T028U023WM7-F02BKT0K2LU-e3e28154f6\/image_80.png?t=xoxe-2300002132721-2491962007047-2512898018532-73e6b43ec1fed45e8a8c9993e678c6c2",
+                "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T028U023WM7-F02BKT0K2LU-e3e28154f6\/image_360.png?t=xoxe-2300002132721-2491962007047-2512898018532-73e6b43ec1fed45e8a8c9993e678c6c2",
+                "thumb_360_w": 360,
+                "thumb_360_h": 94,
+                "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T028U023WM7-F02BKT0K2LU-e3e28154f6\/image_480.png?t=xoxe-2300002132721-2491962007047-2512898018532-73e6b43ec1fed45e8a8c9993e678c6c2",
+                "thumb_480_w": 480,
+                "thumb_480_h": 125,
+                "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T028U023WM7-F02BKT0K2LU-e3e28154f6\/image_160.png?t=xoxe-2300002132721-2491962007047-2512898018532-73e6b43ec1fed45e8a8c9993e678c6c2",
+                "thumb_720": "https:\/\/files.slack.com\/files-tmb\/T028U023WM7-F02BKT0K2LU-e3e28154f6\/image_720.png?t=xoxe-2300002132721-2491962007047-2512898018532-73e6b43ec1fed45e8a8c9993e678c6c2",
+                "thumb_720_w": 720,
+                "thumb_720_h": 188,
+                "thumb_800": "https:\/\/files.slack.com\/files-tmb\/T028U023WM7-F02BKT0K2LU-e3e28154f6\/image_800.png?t=xoxe-2300002132721-2491962007047-2512898018532-73e6b43ec1fed45e8a8c9993e678c6c2",
+                "thumb_800_w": 800,
+                "thumb_800_h": 208,
+                "original_w": 925,
+                "original_h": 241,
+                "thumb_tiny": "AwAMADDQPWilI5\/+tSY\/zimIBn\/Ip3zeo\/KkHHejn1NAC\/N6j8qUZ703n1NAznrQM\/\/Z",
+                "permalink": "https:\/\/septgrouphq.slack.com\/files\/U028FAFCKGS\/F02BKT0K2LU\/image.png",
+                "permalink_public": "https:\/\/slack-files.com\/T028U023WM7-F02BKT0K2LU-fa6889c931",
+                "is_starred": false,
+                "has_rich_preview": false
+            }
+        ],
+        "upload": false,
+        "user": "U028FAFCKGS",
+        "display_as_bot": false,
+        "ts": "1629180455.000800"
+    },
+    {
+        "client_msg_id": "05a3bf8a-7687-41aa-9d5c-0ee28a26ef0e",
+        "type": "message",
+        "text": ":flushed:",
+        "user": "U028FAFCKGS",
+        "ts": "1629180459.001200",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "gbfedd2176f7",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/bfedd2176f791dc62aae8e423cb5ce70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "Thomas Dib",
+            "display_name": "Thomas Dib",
+            "team": "T028U023WM7",
+            "name": "s3838765",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "wXkl",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "emoji",
+                                "name": "flushed"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "65c42790-3456-4e38-b2e1-bf0de6776a57",
+        "type": "message",
+        "text": "wait wot lol",
+        "user": "U02951CDYSU",
+        "ts": "1629181401.001400",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "ffa7a480c015",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-18\/2287356082482_ffa7a480c0158de4de4d_72.jpg",
+            "first_name": "",
+            "real_name": "Ewan Breakey",
+            "display_name": "Ewan Breakey",
+            "team": "T028U023WM7",
+            "name": "ebreakey",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "i5WS",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "wait wot lol"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "3fe9994a-bb0c-429a-985a-a7490efe4833",
+        "type": "message",
+        "text": "we'll stick to jira but that's on one of the module pages lmao",
+        "user": "U028FAFCKGS",
+        "ts": "1629181419.001800",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "gbfedd2176f7",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/bfedd2176f791dc62aae8e423cb5ce70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "Thomas Dib",
+            "display_name": "Thomas Dib",
+            "team": "T028U023WM7",
+            "name": "s3838765",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "Xzz",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "we'll stick to jira but that's on one of the module pages lmao"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

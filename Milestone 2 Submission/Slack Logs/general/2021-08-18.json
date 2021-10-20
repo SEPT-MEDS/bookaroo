@@ -1,0 +1,144 @@
+[
+    {
+        "client_msg_id": "cfa5ac0e-413f-4d2d-bfc3-120ca1921998",
+        "type": "message",
+        "text": "<https:\/\/start.spring.io\/#!type=maven-project&amp;language=java&amp;platformVersion=2.5.3&amp;packaging=jar&amp;jvmVersion=11&amp;groupId=meds.bookaroo&amp;artifactId=book-service&amp;name=book-service&amp;description=Book%20service%20for%20Bookaroo&amp;packageName=meds.bookaroo.book-service&amp;dependencies=data-jpa,devtools,mysql,web|https:\/\/start.spring.io\/#!type=maven-project&amp;language=java&amp;platformVersion=2.5.3&amp;pack[…]okaroo.book-service&amp;dependencies=data-jpa,devtools,mysql,web>",
+        "user": "U0280JWD9AB",
+        "ts": "1629288249.000800",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "6MO",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "link",
+                                "url": "https:\/\/start.spring.io\/#!type=maven-project&language=java&platformVersion=2.5.3&packaging=jar&jvmVersion=11&groupId=meds.bookaroo&artifactId=book-service&name=book-service&description=Book%20service%20for%20Bookaroo&packageName=meds.bookaroo.book-service&dependencies=data-jpa,devtools,mysql,web",
+                                "text": "https:\/\/start.spring.io\/#!type=maven-project&language=java&platformVersion=2.5.3&pack[…]okaroo.book-service&dependencies=data-jpa,devtools,mysql,web"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "58dde0b3-54b8-428f-b8e6-5a6128947c19",
+        "type": "message",
+        "text": "OUR SERVICES",
+        "user": "U0280JWD9AB",
+        "ts": "1629340126.000200",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "cqg\/q",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "OUR SERVICES"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "dcb81fc8-6964-4f9d-ad2f-b0421d8d71ac",
+        "type": "message",
+        "text": "THEY ARE MICRO",
+        "user": "U0280JWD9AB",
+        "ts": "1629340129.000500",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "zb+",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "THEY ARE MICRO"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U029512CCV6",
+                    "U02951CDYSU",
+                    "U028FAFCKGS"
+                ],
+                "count": 3
+            },
+            {
+                "name": "partying_face",
+                "users": [
+                    "U029512CCV6",
+                    "U028FAFCKGS"
+                ],
+                "count": 2
+            },
+            {
+                "name": "tada",
+                "users": [
+                    "U029512CCV6",
+                    "U028FAFCKGS"
+                ],
+                "count": 2
+            }
+        ]
+    }
+]

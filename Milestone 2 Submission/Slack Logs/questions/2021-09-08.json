@@ -1,0 +1,40 @@
+[
+    {
+        "client_msg_id": "b6978748-0760-4489-a4a5-6233e7f9addd",
+        "type": "message",
+        "text": "Are 2 meeting minutes a week enough? (Homy said it was in the lecture)",
+        "user": "U029512CCV6",
+        "ts": "1631091199.002600",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "dc3dba1c239b",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-18\/2300002178689_dc3dba1c239b262b6feb_72.jpg",
+            "first_name": "",
+            "real_name": "Sefanur Erciyas",
+            "display_name": "Sefanur",
+            "team": "T028U023WM7",
+            "name": "sefanur.erciyas",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "fn2n",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Are 2 meeting minutes a week enough? (Homy said it was in the lecture)"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

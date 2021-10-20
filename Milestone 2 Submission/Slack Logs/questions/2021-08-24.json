@@ -1,0 +1,40 @@
+[
+    {
+        "client_msg_id": "ed8e6fdb-5361-46cc-beb9-14058590807c",
+        "type": "message",
+        "text": "Can we create tasks on Jira as they are discovered rather than guessing in advanced",
+        "user": "U0280JWD9AB",
+        "ts": "1629861201.000400",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "ALsgD",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Can we create tasks on Jira as they are discovered rather than guessing in advanced"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

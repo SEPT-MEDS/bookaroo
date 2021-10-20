@@ -1,0 +1,48 @@
+[
+    {
+        "client_msg_id": "a596b03b-e6fd-4b99-b8c9-93b4fe139ae2",
+        "type": "message",
+        "text": "<!everyone> the old drive folder has been replaced. Here's the link to the new one which you all should have received emails for when I added you: <https:\/\/drive.google.com\/drive\/u\/1\/folders\/1nq9OXxwAca8R42IfshmrsIM88oyN5Qvr>",
+        "user": "U029512CCV6",
+        "ts": "1631145500.001000",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "dc3dba1c239b",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-18\/2300002178689_dc3dba1c239b262b6feb_72.jpg",
+            "first_name": "",
+            "real_name": "Sefanur Erciyas",
+            "display_name": "Sefanur",
+            "team": "T028U023WM7",
+            "name": "sefanur.erciyas",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "LB\/",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "broadcast",
+                                "range": "everyone"
+                            },
+                            {
+                                "type": "text",
+                                "text": " the old drive folder has been replaced. Here's the link to the new one which you all should have received emails for when I added you: "
+                            },
+                            {
+                                "type": "link",
+                                "url": "https:\/\/drive.google.com\/drive\/u\/1\/folders\/1nq9OXxwAca8R42IfshmrsIM88oyN5Qvr"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

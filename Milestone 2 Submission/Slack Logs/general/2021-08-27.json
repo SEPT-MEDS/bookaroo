@@ -1,0 +1,52 @@
+[
+    {
+        "client_msg_id": "62b98445-2ef0-4a90-ba55-adeea8e3dff9",
+        "type": "message",
+        "text": "Hey <@U02951CDYSU> I've made a new PR that updates the return values of the DTO's of the user and auth api's. Ill do the book API next. The front end will need to be updated in order to display it to the user but wasnt sure where you wanted that. :slightly_smiling_face:",
+        "user": "U0280JWD9AB",
+        "ts": "1630064031.001200",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "pX\/",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Hey "
+                            },
+                            {
+                                "type": "user",
+                                "user_id": "U02951CDYSU"
+                            },
+                            {
+                                "type": "text",
+                                "text": " I've made a new PR that updates the return values of the DTO's of the user and auth api's. Ill do the book API next. The front end will need to be updated in order to display it to the user but wasnt sure where you wanted that. "
+                            },
+                            {
+                                "type": "emoji",
+                                "name": "slightly_smiling_face"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

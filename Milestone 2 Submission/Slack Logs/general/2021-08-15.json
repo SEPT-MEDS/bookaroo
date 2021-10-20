@@ -1,0 +1,40 @@
+[
+    {
+        "client_msg_id": "44f2bd46-faa3-4da6-819b-9dedc8fe5d6b",
+        "type": "message",
+        "text": "Hey base code is out",
+        "user": "U0280JWD9AB",
+        "ts": "1629096321.000200",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "T2kv",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Hey base code is out"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
