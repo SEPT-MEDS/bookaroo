@@ -151,7 +151,7 @@ The previous releases of Bookaroo can be found [here](https://github.com/SEPT-ME
 
 - Database configuration for unit tests on new services
 
-**v1.0.0**
+**v1.0.0** - Oct 20 2021
 
 - Admin approve shop owner accounts
 - Admin decline shop owner accounts
