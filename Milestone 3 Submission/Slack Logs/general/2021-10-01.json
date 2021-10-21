@@ -1,0 +1,245 @@
+[
+    {
+        "client_msg_id": "895b2126-ba3b-4eb2-a464-9a7aa8790798",
+        "type": "message",
+        "text": "Great job guys. The development for this sprint is done!",
+        "user": "U029512CCV6",
+        "ts": "1633149591.000700",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "dc3dba1c239b",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-18\/2300002178689_dc3dba1c239b262b6feb_72.jpg",
+            "first_name": "",
+            "real_name": "Sefanur Erciyas",
+            "display_name": "Sefanur",
+            "team": "T028U023WM7",
+            "name": "sefanur.erciyas",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "2JgMZ",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Great job guys. The development for this sprint is done!"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "text": "Which user stories should have a high and medium priority for the next sprint?",
+        "files": [
+            {
+                "id": "F02GEUBM6CB",
+                "created": 1633149603,
+                "timestamp": 1633149603,
+                "name": "image.png",
+                "title": "image.png",
+                "mimetype": "image\/png",
+                "filetype": "png",
+                "pretty_type": "PNG",
+                "user": "U029512CCV6",
+                "editable": false,
+                "size": 28337,
+                "mode": "hosted",
+                "is_external": false,
+                "external_type": "",
+                "is_public": true,
+                "public_url_shared": false,
+                "display_as_bot": false,
+                "username": "",
+                "url_private": "https:\/\/files.slack.com\/files-pri\/T028U023WM7-F02GEUBM6CB\/image.png?t=xoxe-2300002132721-2618418740758-2637754295809-25d2dd93bc79584c4146258a7f6fc397",
+                "url_private_download": "https:\/\/files.slack.com\/files-pri\/T028U023WM7-F02GEUBM6CB\/download\/image.png?t=xoxe-2300002132721-2618418740758-2637754295809-25d2dd93bc79584c4146258a7f6fc397",
+                "media_display_type": "unknown",
+                "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T028U023WM7-F02GEUBM6CB-5ff7862bd2\/image_64.png?t=xoxe-2300002132721-2618418740758-2637754295809-25d2dd93bc79584c4146258a7f6fc397",
+                "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T028U023WM7-F02GEUBM6CB-5ff7862bd2\/image_80.png?t=xoxe-2300002132721-2618418740758-2637754295809-25d2dd93bc79584c4146258a7f6fc397",
+                "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T028U023WM7-F02GEUBM6CB-5ff7862bd2\/image_360.png?t=xoxe-2300002132721-2618418740758-2637754295809-25d2dd93bc79584c4146258a7f6fc397",
+                "thumb_360_w": 360,
+                "thumb_360_h": 207,
+                "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T028U023WM7-F02GEUBM6CB-5ff7862bd2\/image_480.png?t=xoxe-2300002132721-2618418740758-2637754295809-25d2dd93bc79584c4146258a7f6fc397",
+                "thumb_480_w": 480,
+                "thumb_480_h": 276,
+                "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T028U023WM7-F02GEUBM6CB-5ff7862bd2\/image_160.png?t=xoxe-2300002132721-2618418740758-2637754295809-25d2dd93bc79584c4146258a7f6fc397",
+                "original_w": 556,
+                "original_h": 320,
+                "thumb_tiny": "AwAbADDR2+x\/OjHsfzoGPajj2oAMex\/Ol\/Cm8f7NB24520AKSfT9aBn+7+tNO3\/Y\/KlU9l2\/gKYDvzoz9aZijAosIdk+\/wCVKvTnP40zAowKLASUUzGKKLAf\/9k=",
+                "permalink": "https:\/\/septgrouphq.slack.com\/files\/U029512CCV6\/F02GEUBM6CB\/image.png",
+                "permalink_public": "https:\/\/slack-files.com\/T028U023WM7-F02GEUBM6CB-de8d621013",
+                "is_starred": false,
+                "has_rich_preview": false
+            }
+        ],
+        "upload": false,
+        "user": "U029512CCV6",
+        "display_as_bot": false,
+        "ts": "1633149633.001200",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "RjUD",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Which user stories should have a high and medium priority for the next sprint?"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "client_msg_id": "8117d3c8-6a35-4a71-9856-5636890bbfcc"
+    },
+    {
+        "client_msg_id": "37929154-0f21-4899-9227-e3d442951dd1",
+        "type": "message",
+        "text": "1. Approving shop owners (high)\n2. Declining shop owners (high)\n3. Suspending accounts (high)\n4. Unsuspending accounts (high)\n5. Adding books (med)\n6. Editing books (med)\n7. Removing listings (low)",
+        "user": "U028FAFCKGS",
+        "ts": "1633150341.002400",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "gbfedd2176f7",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/bfedd2176f791dc62aae8e423cb5ce70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "Thomas Dib",
+            "display_name": "Thomas Dib",
+            "team": "T028U023WM7",
+            "name": "s3838765",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "Nnm",
+                "elements": [
+                    {
+                        "type": "rich_text_list",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "Approving shop owners (high)"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "Declining shop owners (high)"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "Suspending accounts (high)"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "Unsuspending accounts (high)"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "Adding books (med)"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "Editing books (med)"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "Removing listings (low)"
+                                    }
+                                ]
+                            }
+                        ],
+                        "style": "ordered",
+                        "indent": 0,
+                        "border": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "ba86fd9a-27a3-410b-b735-0bb5c74df73b",
+        "type": "message",
+        "text": "imo",
+        "user": "U028FAFCKGS",
+        "ts": "1633150342.002600",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "gbfedd2176f7",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/bfedd2176f791dc62aae8e423cb5ce70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "Thomas Dib",
+            "display_name": "Thomas Dib",
+            "team": "T028U023WM7",
+            "name": "s3838765",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "B74z",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "imo"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
