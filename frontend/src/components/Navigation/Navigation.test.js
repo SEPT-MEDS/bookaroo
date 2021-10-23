@@ -3,8 +3,8 @@ import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import useCurrentProfile from 'hooks/useCurrentProfile'
 import { wrapWithRouter } from 'utils'
-
 import Navigation from './Navigation'
+
 
 // Mock useCurrentProfile to control logged in user type
 jest.mock('hooks/useCurrentProfile', () => jest.fn())

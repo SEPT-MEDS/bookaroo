@@ -2,7 +2,6 @@ import React from 'react'
 import {render, screen} from '@testing-library/react'
 import '@testing-library/jest-dom'
 import { wrapWithRouter } from 'utils'
-
 import BookCard from './BookCard'
 
 const testBook = {
@@ -12,6 +11,7 @@ const testBook = {
   isbn: '0000000000000',
   url: ''
 }
+
 
 it('Renders a link to the book', () => {
   render(wrapWithRouter(<BookCard {...testBook} />))
