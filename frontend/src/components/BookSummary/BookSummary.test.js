@@ -14,7 +14,22 @@ const testBook = {
 
 
 it('Renders Book title', () => {
-  const { container } = render(wrapWithRouter(<BookSummary book={testBook} />))
-  expect(screen.getByRole('heading').textContent).toBe(testBook.title)
+  render(wrapWithRouter(<BookSummary book={testBook} />))
+  expect(screen.getByRole('heading', { level: 1 }).textContent).toBe(testBook.title)
 })
 
+it('Renders Book author', () => {
+  render(wrapWithRouter(<BookSummary book={testBook} />))
+  expect(screen.getByRole('heading', { level: 3 }).textContent).toBe(testBook.author)
+})
+
+it('Renders a link if showLink is set', () => {
+  render(wrapWithRouter(<BookSummary book={testBook} showLink={true} />))
+  expect(screen.queryByRole('link')).toBeTruthy()
+  expect(screen.queryByRole('link').href).toMatch(testBook.isbn)
+})
+
+it('Doesn\'t render a link if showLink is not set', () => {
+  render(wrapWithRouter(<BookSummary book={testBook} showLink={false} />))
+  expect(screen.queryByRole('link')).toBeFalsy()
+})
