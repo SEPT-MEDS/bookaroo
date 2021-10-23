@@ -1,0 +1,547 @@
+[
+    {
+        "client_msg_id": "9d017659-80ab-467f-aa91-1579e47cdb4b",
+        "type": "message",
+        "text": "not sure if this is an issue at all but when the ratings are being sent to the DB, they are being sent as strings rather than integers. It all works fine but yeah just thought I'd point it out in case it is an issue",
+        "user": "U028FAFCKGS",
+        "ts": "1632664962.018000",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "gbfedd2176f7",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/bfedd2176f791dc62aae8e423cb5ce70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "Thomas Dib",
+            "display_name": "Thomas Dib",
+            "team": "T028U023WM7",
+            "name": "s3838765",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "DBH",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "not sure if this is an issue at all but when the ratings are being sent to the DB, they are being sent as strings rather than integers. It all works fine but yeah just thought I'd point it out in case it is an issue"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "f77b8969-2f72-42ae-96dd-fd23fb13a50f",
+        "type": "message",
+        "text": "is anyones ipv4 172.31.18.203?",
+        "user": "U028FAFCKGS",
+        "ts": "1632718800.000600",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "gbfedd2176f7",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/bfedd2176f791dc62aae8e423cb5ce70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "Thomas Dib",
+            "display_name": "Thomas Dib",
+            "team": "T028U023WM7",
+            "name": "s3838765",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "Fh3",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "is anyones ipv4 172.31.18.203?"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "reactions": [
+            {
+                "name": "woman-gesturing-no",
+                "users": [
+                    "U029512CCV6"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "client_msg_id": "eda6304c-97e9-4b67-b9df-ddb85aa0948a",
+        "type": "message",
+        "text": "Don't close that",
+        "user": "U0280JWD9AB",
+        "ts": "1632722467.001100",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "4aZi",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Don't close that"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "d56ff1b7-b85d-4ca3-992c-c748237998c2",
+        "type": "message",
+        "text": "rip what is it",
+        "user": "U028FAFCKGS",
+        "ts": "1632722478.001300",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "gbfedd2176f7",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/bfedd2176f791dc62aae8e423cb5ce70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "Thomas Dib",
+            "display_name": "Thomas Dib",
+            "team": "T028U023WM7",
+            "name": "s3838765",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "mRLE=",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "rip what is it"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "18db9216-409d-4a80-950c-bfb2bab7f8d8",
+        "type": "message",
+        "text": "it takes up all the connections",
+        "user": "U028FAFCKGS",
+        "ts": "1632722484.001700",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "gbfedd2176f7",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/bfedd2176f791dc62aae8e423cb5ce70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "Thomas Dib",
+            "display_name": "Thomas Dib",
+            "team": "T028U023WM7",
+            "name": "s3838765",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "pT1Ev",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "it takes up all the connections"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "6531d707-81e8-4fef-b41e-0a5da017cf52",
+        "type": "message",
+        "text": "Its the dev server",
+        "user": "U0280JWD9AB",
+        "ts": "1632722489.001800",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "hpyIb",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Its the dev server"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "974852ce-724e-4a2f-9b1a-31f9930e4bf0",
+        "type": "message",
+        "text": "hmm",
+        "user": "U0280JWD9AB",
+        "ts": "1632722491.002000",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "Clf",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "hmm"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "527c78f2-82b3-44f9-a2ae-2101f199b09d",
+        "type": "message",
+        "text": "like legitimately all of them",
+        "user": "U028FAFCKGS",
+        "ts": "1632722500.002400",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "gbfedd2176f7",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/bfedd2176f791dc62aae8e423cb5ce70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "Thomas Dib",
+            "display_name": "Thomas Dib",
+            "team": "T028U023WM7",
+            "name": "s3838765",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "gg+",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "like legitimately all of them"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "008fa044-50c6-463f-b443-92cf237da8f3",
+        "type": "message",
+        "text": "I mean its fine, it should try reconnect?",
+        "user": "U0280JWD9AB",
+        "ts": "1632722505.002500",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "G3NJB",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "I mean its fine, it should try reconnect?"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "2dcc4d7f-d0e4-4b81-b2a6-ad561dde8615",
+        "type": "message",
+        "text": "give it a go",
+        "user": "U0280JWD9AB",
+        "ts": "1632722508.002700",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "3=Ecm",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "give it a go"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "743b2569-6089-49e4-bbba-340a9988269c",
+        "type": "message",
+        "text": "and hope for the best",
+        "user": "U0280JWD9AB",
+        "ts": "1632722512.002900",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "9ils1",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "and hope for the best"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "48637f0d-4932-4803-96c2-a4e7226af2b7",
+        "type": "message",
+        "text": "but i dont like your chances",
+        "user": "U0280JWD9AB",
+        "ts": "1632722527.003100",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "aBtee",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "but i dont like your chances"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "c918a1d3-9191-4e2d-86db-06ce1bae0597",
+        "type": "message",
+        "text": "i've been shutting 172 down the whole time it works fine :slightly_smiling_face:",
+        "user": "U028FAFCKGS",
+        "ts": "1632723132.003500",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "gbfedd2176f7",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/bfedd2176f791dc62aae8e423cb5ce70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "Thomas Dib",
+            "display_name": "Thomas Dib",
+            "team": "T028U023WM7",
+            "name": "s3838765",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "9jOf",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "i've been shutting 172 down the whole time it works fine "
+                            },
+                            {
+                                "type": "emoji",
+                                "name": "slightly_smiling_face"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "91f74944-4654-4951-ae1a-1a518334241e",
+        "type": "message",
+        "text": "but like i don't understand how it can legitimately just take like 60 connections it's cooked",
+        "user": "U028FAFCKGS",
+        "ts": "1632723159.003900",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "gbfedd2176f7",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/bfedd2176f791dc62aae8e423cb5ce70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "Thomas Dib",
+            "display_name": "Thomas Dib",
+            "team": "T028U023WM7",
+            "name": "s3838765",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "0qV",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "but like i don't understand how it can legitimately just take like 60 connections it's cooked"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

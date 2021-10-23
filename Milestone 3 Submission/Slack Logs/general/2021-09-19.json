@@ -1,0 +1,520 @@
+[
+    {
+        "client_msg_id": "00ae666e-9cea-4ea9-8f8a-5603985f101f",
+        "type": "message",
+        "text": "Hey yall, check out the email we just got",
+        "user": "U0280JWD9AB",
+        "ts": "1632108152.000300",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "HVQ+",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Hey yall, check out the email we just got"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "be7118cc-bb81-428e-a0b0-25b6a2761435",
+        "type": "message",
+        "text": "Reckon we should ask about just matching out sprints to the size of the sprints in M2?",
+        "user": "U0280JWD9AB",
+        "ts": "1632108170.000900",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "NWCd",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Reckon we should ask about just matching out sprints to the size of the sprints in M2?"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "41084270-ef1b-484c-9c35-ca813158d608",
+        "type": "message",
+        "text": "Rather than having a week long sprint?",
+        "user": "U0280JWD9AB",
+        "ts": "1632108177.001300",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "lkl",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Rather than having a week long sprint?"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "2bfd5281-e9d0-409b-8a99-05274d7b91d8",
+        "type": "message",
+        "text": "Yeah, i think that'll be better",
+        "user": "U029512CCV6",
+        "ts": "1632108495.001500",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "dc3dba1c239b",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-18\/2300002178689_dc3dba1c239b262b6feb_72.jpg",
+            "first_name": "",
+            "real_name": "Sefanur Erciyas",
+            "display_name": "Sefanur",
+            "team": "T028U023WM7",
+            "name": "sefanur.erciyas",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "J84",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Yeah, i think that'll be better"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "7e1a2148-34f5-4e4a-aeb2-c67703941e9c",
+        "type": "message",
+        "text": "(means less scrum docs to do)",
+        "user": "U029512CCV6",
+        "ts": "1632108522.002200",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "dc3dba1c239b",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-18\/2300002178689_dc3dba1c239b262b6feb_72.jpg",
+            "first_name": "",
+            "real_name": "Sefanur Erciyas",
+            "display_name": "Sefanur",
+            "team": "T028U023WM7",
+            "name": "sefanur.erciyas",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "9l1c",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "(means less scrum docs to do)"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "6265a4b4-ed27-4b62-a157-96b42cf8a4d4",
+        "type": "message",
+        "text": "But we are good students (dale). It would mainly match our existing sprint length",
+        "user": "U0280JWD9AB",
+        "ts": "1632111208.003000",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "NGI",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "But we are good students (dale). It would mainly match our existing sprint length"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "0dd55c3a-c89c-4434-9eeb-7cdd36b75c89",
+        "type": "message",
+        "text": "Hey <@U029512CCV6>",
+        "user": "U0280JWD9AB",
+        "ts": "1632117956.003400",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "\/qyj",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Hey "
+                            },
+                            {
+                                "type": "user",
+                                "user_id": "U029512CCV6"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "1c704b37-785e-480b-9b8b-bb5d00d94976",
+        "type": "message",
+        "text": "any idea if we need to do anything for this",
+        "user": "U0280JWD9AB",
+        "ts": "1632117963.003700",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "UrSUA",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "any idea if we need to do anything for this"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "text": "",
+        "files": [
+            {
+                "id": "F02F4RPKG76",
+                "created": 1632117963,
+                "timestamp": 1632117963,
+                "name": "image.png",
+                "title": "image.png",
+                "mimetype": "image\/png",
+                "filetype": "png",
+                "pretty_type": "PNG",
+                "user": "U0280JWD9AB",
+                "editable": false,
+                "size": 23813,
+                "mode": "hosted",
+                "is_external": false,
+                "external_type": "",
+                "is_public": true,
+                "public_url_shared": false,
+                "display_as_bot": false,
+                "username": "",
+                "url_private": "https:\/\/files.slack.com\/files-pri\/T028U023WM7-F02F4RPKG76\/image.png?t=xoxe-2300002132721-2618418740758-2637754295809-25d2dd93bc79584c4146258a7f6fc397",
+                "url_private_download": "https:\/\/files.slack.com\/files-pri\/T028U023WM7-F02F4RPKG76\/download\/image.png?t=xoxe-2300002132721-2618418740758-2637754295809-25d2dd93bc79584c4146258a7f6fc397",
+                "media_display_type": "unknown",
+                "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T028U023WM7-F02F4RPKG76-6359d896c9\/image_64.png?t=xoxe-2300002132721-2618418740758-2637754295809-25d2dd93bc79584c4146258a7f6fc397",
+                "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T028U023WM7-F02F4RPKG76-6359d896c9\/image_80.png?t=xoxe-2300002132721-2618418740758-2637754295809-25d2dd93bc79584c4146258a7f6fc397",
+                "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T028U023WM7-F02F4RPKG76-6359d896c9\/image_360.png?t=xoxe-2300002132721-2618418740758-2637754295809-25d2dd93bc79584c4146258a7f6fc397",
+                "thumb_360_w": 360,
+                "thumb_360_h": 154,
+                "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T028U023WM7-F02F4RPKG76-6359d896c9\/image_480.png?t=xoxe-2300002132721-2618418740758-2637754295809-25d2dd93bc79584c4146258a7f6fc397",
+                "thumb_480_w": 480,
+                "thumb_480_h": 206,
+                "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T028U023WM7-F02F4RPKG76-6359d896c9\/image_160.png?t=xoxe-2300002132721-2618418740758-2637754295809-25d2dd93bc79584c4146258a7f6fc397",
+                "original_w": 656,
+                "original_h": 281,
+                "thumb_tiny": "AwAUADDRJwe350bj7fnSt6DrSYb\/ACaADcfalz7ijB\/yaMH\/ACaADn1FLSYP+TS0AGOaKKKACiiigAooooA\/\/9k=",
+                "permalink": "https:\/\/septgrouphq.slack.com\/files\/U0280JWD9AB\/F02F4RPKG76\/image.png",
+                "permalink_public": "https:\/\/slack-files.com\/T028U023WM7-F02F4RPKG76-dc2a4eacb5",
+                "is_starred": false,
+                "has_rich_preview": false
+            }
+        ],
+        "upload": false,
+        "user": "U0280JWD9AB",
+        "display_as_bot": false,
+        "ts": "1632117966.003800"
+    },
+    {
+        "client_msg_id": "7f332bdb-527a-456f-816f-928d92df79a3",
+        "type": "message",
+        "text": "Sounds like i should just add a comment saying all the files we needed to submit can be found in the shared google drive folder",
+        "user": "U029512CCV6",
+        "ts": "1632118157.004900",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "dc3dba1c239b",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-18\/2300002178689_dc3dba1c239b262b6feb_72.jpg",
+            "first_name": "",
+            "real_name": "Sefanur Erciyas",
+            "display_name": "Sefanur",
+            "team": "T028U023WM7",
+            "name": "sefanur.erciyas",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "jX88",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Sounds like i should just add a comment saying all the files we needed to submit can be found in the shared google drive folder"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "ffda0127-73cf-44c2-b30f-2da5f87c3ead",
+        "type": "message",
+        "text": "right?",
+        "user": "U029512CCV6",
+        "ts": "1632118159.005200",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "dc3dba1c239b",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-18\/2300002178689_dc3dba1c239b262b6feb_72.jpg",
+            "first_name": "",
+            "real_name": "Sefanur Erciyas",
+            "display_name": "Sefanur",
+            "team": "T028U023WM7",
+            "name": "sefanur.erciyas",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "Ni7\/L",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "right?"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "93d5ada7-116a-4b3c-9991-39d12f66f505",
+        "type": "message",
+        "text": "<@U0280JWD9AB>",
+        "user": "U029512CCV6",
+        "ts": "1632118282.005400",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "dc3dba1c239b",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-18\/2300002178689_dc3dba1c239b262b6feb_72.jpg",
+            "first_name": "",
+            "real_name": "Sefanur Erciyas",
+            "display_name": "Sefanur",
+            "team": "T028U023WM7",
+            "name": "sefanur.erciyas",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "e5Y",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "user",
+                                "user_id": "U0280JWD9AB"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "f478ad2d-2cde-4d74-a67f-8edbb9403467",
+        "type": "message",
+        "text": "yea should be fine",
+        "user": "U0280JWD9AB",
+        "ts": "1632118653.005600",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "Z7fEm",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "yea should be fine"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U029512CCV6"
+                ],
+                "count": 1
+            }
+        ]
+    }
+]

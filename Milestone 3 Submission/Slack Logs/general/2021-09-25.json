@@ -1,0 +1,1739 @@
+[
+    {
+        "client_msg_id": "0e1635b0-a79f-48f2-bf78-0566333a4653",
+        "type": "message",
+        "text": "<@U028FAFCKGS>",
+        "user": "U0280JWD9AB",
+        "ts": "1632553468.000200",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "R6BZB",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "user",
+                                "user_id": "U028FAFCKGS"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "e342a2ae-14f6-43d3-a93a-8fe554de3296",
+        "type": "message",
+        "text": "Did you end up testing that with thefront end btw",
+        "user": "U0280JWD9AB",
+        "ts": "1632553474.000700",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "lIZcw",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Did you end up testing that with thefront end btw"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "dbf295f9-f190-4ff8-8c58-9abc9bca158a",
+        "type": "message",
+        "text": "ja",
+        "user": "U028FAFCKGS",
+        "ts": "1632553475.000900",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "gbfedd2176f7",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/bfedd2176f791dc62aae8e423cb5ce70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "Thomas Dib",
+            "display_name": "Thomas Dib",
+            "team": "T028U023WM7",
+            "name": "s3838765",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "aSg",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "ja"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "cccc415b-011b-484d-bf49-609ebee21959",
+        "type": "message",
+        "text": "oh uh",
+        "user": "U028FAFCKGS",
+        "ts": "1632553478.001200",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "gbfedd2176f7",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/bfedd2176f791dc62aae8e423cb5ce70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "Thomas Dib",
+            "display_name": "Thomas Dib",
+            "team": "T028U023WM7",
+            "name": "s3838765",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "NeH",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "oh uh"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "f30ca018-56de-42cf-bdfc-feed55c430b3",
+        "type": "message",
+        "text": "Holy crap that was fast for a repsonse",
+        "user": "U0280JWD9AB",
+        "ts": "1632553479.001300",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "\/Iv7P",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Holy crap that was fast for a repsonse"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "58db73c2-4ba8-47d6-be46-ce215426fac2",
+        "type": "message",
+        "text": "like acceptance testing?",
+        "user": "U028FAFCKGS",
+        "ts": "1632553493.001800",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "gbfedd2176f7",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/bfedd2176f791dc62aae8e423cb5ce70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "Thomas Dib",
+            "display_name": "Thomas Dib",
+            "team": "T028U023WM7",
+            "name": "s3838765",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "Xe10",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "like acceptance testing?"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "5158864e-7911-41ab-9217-9e5ec78e7246",
+        "type": "message",
+        "text": "I mean, yall are gonna work on this later anyway so its fine",
+        "user": "U0280JWD9AB",
+        "ts": "1632553495.001900",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "cNlAW",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "I mean, yall are gonna work on this later anyway so its fine"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "81b1e79e-d577-4964-a950-0bcb9e6bab36",
+        "type": "message",
+        "text": "Nah",
+        "user": "U0280JWD9AB",
+        "ts": "1632553496.002200",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "E5kB5",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Nah"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "d7d310d5-67d5-47af-94fb-d0a1ea8812bc",
+        "type": "message",
+        "text": "I'm down to vc when yall are working on purchasing",
+        "user": "U0280JWD9AB",
+        "ts": "1632553524.002700",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "yXoNI",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "I'm down to vc when yall are working on purchasing"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "3ca3d94b-c555-41b4-b6db-a80ab45aa528",
+        "type": "message",
+        "text": "righto",
+        "user": "U028FAFCKGS",
+        "ts": "1632553533.002900",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "gbfedd2176f7",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/bfedd2176f791dc62aae8e423cb5ce70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "Thomas Dib",
+            "display_name": "Thomas Dib",
+            "team": "T028U023WM7",
+            "name": "s3838765",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "5foR",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "righto"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "e897675a-5a5f-4c7f-9c32-e09d8c11811c",
+        "type": "message",
+        "text": "Yo <@U028FAFCKGS> <@U02951CDYSU>, when you set up the 2 hour time out of canceling, can you update the backend to set the time it checks for when you post to cancel",
+        "user": "U0280JWD9AB",
+        "ts": "1632568993.004000",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "7AO",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Yo "
+                            },
+                            {
+                                "type": "user",
+                                "user_id": "U028FAFCKGS"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "user",
+                                "user_id": "U02951CDYSU"
+                            },
+                            {
+                                "type": "text",
+                                "text": ", when you set up the 2 hour time out of canceling, can you update the backend to set the time it checks for when you post to cancel"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "fbd605c2-a7d3-4bf3-bb98-f1c571ca7a5e",
+        "type": "message",
+        "text": "don't know what that means but sure",
+        "user": "U028FAFCKGS",
+        "ts": "1632569028.004300",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "gbfedd2176f7",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/bfedd2176f791dc62aae8e423cb5ce70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "Thomas Dib",
+            "display_name": "Thomas Dib",
+            "team": "T028U023WM7",
+            "name": "s3838765",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "SaUt",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "don't know what that means but sure"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "43c3f15b-8a74-4732-8854-877655e13f44",
+        "type": "message",
+        "text": "purchaseService controller has an if statement",
+        "user": "U0280JWD9AB",
+        "ts": "1632569048.004500",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "MDO",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "purchaseService controller has an if statement"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "b446a3c8-6753-4216-93d6-dc5b1e8821b0",
+        "type": "message",
+        "text": "ah righto",
+        "user": "U028FAFCKGS",
+        "ts": "1632569100.004700",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "gbfedd2176f7",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/bfedd2176f791dc62aae8e423cb5ce70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "Thomas Dib",
+            "display_name": "Thomas Dib",
+            "team": "T028U023WM7",
+            "name": "s3838765",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "6RQ",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "ah righto"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "6ec17e5d-ac71-459e-abbe-172075da8bce",
+        "type": "message",
+        "text": "When did we want to do another meeting, I dont think we have much to review but just so everyone knows where everyone is at",
+        "user": "U0280JWD9AB",
+        "ts": "1632572437.005200",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "nbKx",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "When did we want to do another meeting, I dont think we have much to review but just so everyone knows where everyone is at"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "6ea60688-4ea6-4fb9-84ea-036f6e9a2302",
+        "type": "message",
+        "text": "whenever",
+        "user": "U028FAFCKGS",
+        "ts": "1632572916.005400",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "gbfedd2176f7",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/bfedd2176f791dc62aae8e423cb5ce70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "Thomas Dib",
+            "display_name": "Thomas Dib",
+            "team": "T028U023WM7",
+            "name": "s3838765",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "yOY4Q",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "whenever"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "b57ee8bb-5c27-45ae-a362-3a428d3530b9",
+        "type": "message",
+        "text": "ah crap was supposed to ask today, since we don't have a dedicated customer\/business profile page where you can leave\/see reviews, when one of their listings is bought there's not really any way to review them is there?",
+        "user": "U028FAFCKGS",
+        "ts": "1632583415.006400",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "gbfedd2176f7",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/bfedd2176f791dc62aae8e423cb5ce70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "Thomas Dib",
+            "display_name": "Thomas Dib",
+            "team": "T028U023WM7",
+            "name": "s3838765",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "lim",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "ah crap was supposed to ask today, since we don't have a dedicated customer\/business profile page where you can leave\/see reviews, when one of their listings is bought there's not really any way to review them is there?"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "e34bd7b6-e474-48b0-ad03-5876a5b9a51a",
+        "type": "message",
+        "text": "Hmm",
+        "user": "U0280JWD9AB",
+        "ts": "1632619208.006600",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "rYxq",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Hmm"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "d537f057-d29c-410c-b84e-dfa2eb71869e",
+        "type": "message",
+        "text": "good point there dib",
+        "user": "U0280JWD9AB",
+        "ts": "1632619213.006800",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "=\/S",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "good point there dib"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "79f7ad1a-1d0e-4a07-9041-fe03414c9249",
+        "type": "message",
+        "text": "wait",
+        "user": "U0280JWD9AB",
+        "ts": "1632619220.007000",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "=hO",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "wait"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "d1bb905f-f98f-442b-9a15-72bbb269b931",
+        "type": "message",
+        "text": "Ewan said that creating a profile page would be very easy so lets just have a simple profile page with name and list of reviews",
+        "user": "U0280JWD9AB",
+        "ts": "1632619238.007500",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "wB8n=",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Ewan said that creating a profile page would be very easy so lets just have a simple profile page with name and list of reviews"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "e045b9fd-b460-469d-af33-caefddc51482",
+        "type": "message",
+        "text": "only issue I see with that is how someone can leave a review",
+        "user": "U0280JWD9AB",
+        "ts": "1632619249.007800",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "bVo",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "only issue I see with that is how someone can leave a review"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "f5448537-6aae-47ec-8431-4ed0b98f1edd",
+        "type": "message",
+        "text": "hmm",
+        "user": "U0280JWD9AB",
+        "ts": "1632619265.008000",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "hfwN",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "hmm"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "18be9c26-1d09-40a5-9fb2-3936a97b7d0a",
+        "type": "message",
+        "text": "An idea is letting reviews go into purchase history",
+        "user": "U0280JWD9AB",
+        "ts": "1632619525.008400",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "Xg+=p",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "An idea is letting reviews go into purchase history"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "63b1ca90-e91d-49c9-a505-6d1e250c94b3",
+        "type": "message",
+        "text": "Are any user stories ready to be tested?",
+        "user": "U029512CCV6",
+        "ts": "1632622463.008900",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "dc3dba1c239b",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-18\/2300002178689_dc3dba1c239b262b6feb_72.jpg",
+            "first_name": "",
+            "real_name": "Sefanur Erciyas",
+            "display_name": "Sefanur",
+            "team": "T028U023WM7",
+            "name": "sefanur.erciyas",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "44BQZ",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Are any user stories ready to be tested?"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "87e43085-e310-486d-a6d8-39b19f83dbd4",
+        "type": "message",
+        "text": "leaving reviews on books i believe",
+        "user": "U0280JWD9AB",
+        "ts": "1632622477.009200",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "0kg",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "leaving reviews on books i believe"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "16b597d5-4369-40f7-8d91-16693795c778",
+        "type": "message",
+        "text": "hasn't been merged into develop yet so i guess not",
+        "user": "U029512CCV6",
+        "ts": "1632622940.009600",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "dc3dba1c239b",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-18\/2300002178689_dc3dba1c239b262b6feb_72.jpg",
+            "first_name": "",
+            "real_name": "Sefanur Erciyas",
+            "display_name": "Sefanur",
+            "team": "T028U023WM7",
+            "name": "sefanur.erciyas",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "\/HKKZ",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "hasn't been merged into develop yet so i guess not"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "acc73d48-afdb-47a0-994e-6a74684ef9c5",
+        "type": "message",
+        "text": "I thought they had, thats weird",
+        "user": "U0280JWD9AB",
+        "ts": "1632622963.009800",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "hrbP",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "I thought they had, thats weird"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "f4a45f85-8091-4e86-b8a5-48fa535dc8e9",
+        "type": "message",
+        "text": "<@U028FAFCKGS>",
+        "user": "U0280JWD9AB",
+        "ts": "1632622970.010200",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "5wT",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "user",
+                                "user_id": "U028FAFCKGS"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "6b8aabbc-392f-43ee-a800-772f93b86bf2",
+        "type": "message",
+        "text": "haven't actually gone through it with the review service just yet",
+        "user": "U028FAFCKGS",
+        "ts": "1632633023.010500",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "gbfedd2176f7",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/bfedd2176f791dc62aae8e423cb5ce70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "Thomas Dib",
+            "display_name": "Thomas Dib",
+            "team": "T028U023WM7",
+            "name": "s3838765",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "uy\/8y",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "haven't actually gone through it with the review service just yet"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "ae8c1e8b-656f-4936-95e9-5b06e35837ed",
+        "type": "message",
+        "text": "also should we just keep the reviews on the listing page rather than creating a new page entirely for profiles",
+        "user": "U028FAFCKGS",
+        "ts": "1632633039.011100",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "gbfedd2176f7",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/bfedd2176f791dc62aae8e423cb5ce70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "Thomas Dib",
+            "display_name": "Thomas Dib",
+            "team": "T028U023WM7",
+            "name": "s3838765",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "o8xb",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "also should we just keep the reviews on the listing page rather than creating a new page entirely for profiles"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "925a11aa-ad01-4244-afb9-6d0f5cc923fc",
+        "type": "message",
+        "text": "The listing page cant be accessed after a purchase",
+        "user": "U0280JWD9AB",
+        "ts": "1632633054.011600",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "UQpeV",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "The listing page cant be accessed after a purchase"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "fa00f914-86e4-482d-9802-5e7d74218dd0",
+        "type": "message",
+        "text": "bc like you said it'll be difficult to actually write a review regardless",
+        "user": "U028FAFCKGS",
+        "ts": "1632633056.011800",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "gbfedd2176f7",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/bfedd2176f791dc62aae8e423cb5ce70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "Thomas Dib",
+            "display_name": "Thomas Dib",
+            "team": "T028U023WM7",
+            "name": "s3838765",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "RVt+B",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "bc like you said it'll be difficult to actually write a review regardless"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "07501b83-efcb-4b12-890b-1b9aaf4a56d2",
+        "type": "message",
+        "text": "hmmmm i just think doing it along with transactions will be difficult",
+        "user": "U028FAFCKGS",
+        "ts": "1632633091.012600",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "gbfedd2176f7",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/bfedd2176f791dc62aae8e423cb5ce70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "Thomas Dib",
+            "display_name": "Thomas Dib",
+            "team": "T028U023WM7",
+            "name": "s3838765",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "HTfJ",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "hmmmm i just think doing it along with transactions will be difficult"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "865d2d6f-4cae-4fe8-be94-8ccc22bf838a",
+        "type": "message",
+        "text": "actually it could be alright ill discuss with ewan",
+        "user": "U028FAFCKGS",
+        "ts": "1632633106.013100",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "gbfedd2176f7",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/bfedd2176f791dc62aae8e423cb5ce70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "Thomas Dib",
+            "display_name": "Thomas Dib",
+            "team": "T028U023WM7",
+            "name": "s3838765",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "YR5N",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "actually it could be alright ill discuss with ewan"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "876e8e88-c8f5-489a-b5a1-6c8abbcbfe08",
+        "type": "message",
+        "text": "If we have a list of transactions on a user to show order history",
+        "user": "U0280JWD9AB",
+        "ts": "1632633123.013600",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "iGqK",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "If we have a list of transactions on a user to show order history"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "9b7c3821-834a-4a51-8054-205a32b1f75f",
+        "type": "message",
+        "text": "here could just be a button that says leave review",
+        "user": "U0280JWD9AB",
+        "ts": "1632633132.014100",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "Hk6",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "here could just be a button that says leave review"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "2493e36c-c06c-4fdb-aff7-d8a181b5840a",
+        "type": "message",
+        "text": "im thinking bc the transaction would contain the user id it should be simple to link them to a page",
+        "user": "U028FAFCKGS",
+        "ts": "1632633147.014700",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "gbfedd2176f7",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/bfedd2176f791dc62aae8e423cb5ce70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "Thomas Dib",
+            "display_name": "Thomas Dib",
+            "team": "T028U023WM7",
+            "name": "s3838765",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "PKxQ",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "im thinking bc the transaction would contain the user id it should be simple to link them to a page"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "6a9a196e-8bb3-471c-88b5-9099ccec1fae",
+        "type": "message",
+        "text": "and from there super easy to leave a review",
+        "user": "U028FAFCKGS",
+        "ts": "1632633153.015200",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "gbfedd2176f7",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/bfedd2176f791dc62aae8e423cb5ce70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "Thomas Dib",
+            "display_name": "Thomas Dib",
+            "team": "T028U023WM7",
+            "name": "s3838765",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "ngYp",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "and from there super easy to leave a review"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "685eeeb0-e727-4552-8e12-3ffc7fde6924",
+        "type": "message",
+        "text": "Yea",
+        "user": "U0280JWD9AB",
+        "ts": "1632633153.015300",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "LGObh",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Yea"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "42ad3c8c-7ab6-4990-b838-26464945fd8b",
+        "type": "message",
+        "text": "It contains buyer and seller",
+        "user": "U0280JWD9AB",
+        "ts": "1632633160.015700",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "zJbG",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "It contains buyer and seller"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "ae10c78f-e22f-4aac-a5a6-b987ceb36116",
+        "type": "message",
+        "text": "i reckon that way",
+        "user": "U028FAFCKGS",
+        "ts": "1632633161.015800",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "gbfedd2176f7",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/bfedd2176f791dc62aae8e423cb5ce70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "Thomas Dib",
+            "display_name": "Thomas Dib",
+            "team": "T028U023WM7",
+            "name": "s3838765",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "46K",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "i reckon that way"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "96b3220b-fb49-4525-9f5f-8a80ed4f4f63",
+        "type": "message",
+        "text": "Sounds good",
+        "user": "U0280JWD9AB",
+        "ts": "1632633166.016100",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "p0p",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Sounds good"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "ae81a175-d383-4f3c-9149-c23088c20806",
+        "type": "message",
+        "text": "okay so would we not be able to leave reviews on listings themselves?",
+        "user": "U028FAFCKGS",
+        "ts": "1632633175.016300",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "gbfedd2176f7",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/bfedd2176f791dc62aae8e423cb5ce70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "Thomas Dib",
+            "display_name": "Thomas Dib",
+            "team": "T028U023WM7",
+            "name": "s3838765",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "5gm1",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "okay so would we not be able to leave reviews on listings themselves?"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "ac218195-2530-41eb-8b38-76b9e3f1855e",
+        "type": "message",
+        "text": "like not *for* the listings but for the user of the listing",
+        "user": "U028FAFCKGS",
+        "ts": "1632633191.016700",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "gbfedd2176f7",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/bfedd2176f791dc62aae8e423cb5ce70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "Thomas Dib",
+            "display_name": "Thomas Dib",
+            "team": "T028U023WM7",
+            "name": "s3838765",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "GAE",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "like not "
+                            },
+                            {
+                                "type": "text",
+                                "text": "for",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": " the listings but for the user of the listing"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

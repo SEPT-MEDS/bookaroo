@@ -1,0 +1,250 @@
+[
+    {
+        "client_msg_id": "53fbf4d5-5378-4f1d-979e-2fd4ea264c3f",
+        "type": "message",
+        "text": "Hey <!everyone> just a friendly reminder that tomorrow is the last day of this sprint, please make sure that you have completed your assigned tasks and they have been updated with their progress. If something hasn't been assigned that you can do please give it a go. Thanks!",
+        "user": "U0280JWD9AB",
+        "ts": "1630143576.001100",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "FRA",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Hey "
+                            },
+                            {
+                                "type": "broadcast",
+                                "range": "everyone"
+                            },
+                            {
+                                "type": "text",
+                                "text": " just a friendly reminder that tomorrow is the last day of this sprint, please make sure that you have completed your assigned tasks and they have been updated with their progress. If something hasn't been assigned that you can do please give it a go. Thanks!"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "1f7d505e-2ac5-4c31-9ef0-e55020bb64a4",
+        "type": "message",
+        "text": "would a user be able to search a partial isbn? e.g. if the isbn = 12345, will 123 return the book or will isbn be a case of exact match?",
+        "user": "U028FAFCKGS",
+        "ts": "1630166701.002000",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "gbfedd2176f7",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/bfedd2176f791dc62aae8e423cb5ce70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "Thomas Dib",
+            "display_name": "Thomas Dib",
+            "team": "T028U023WM7",
+            "name": "s3838765",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "Mfz3r",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "would a user be able to search a partial isbn? e.g. if the isbn = 12345, will 123 return the book or will isbn be a case of exact match?"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "7da15e35-ff18-456e-ae93-3618c852570e",
+        "type": "message",
+        "text": "i reckon exact match makes the most sense",
+        "user": "U029512CCV6",
+        "ts": "1630197719.000300",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "dc3dba1c239b",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-18\/2300002178689_dc3dba1c239b262b6feb_72.jpg",
+            "first_name": "",
+            "real_name": "Sefanur Erciyas",
+            "display_name": "Sefanur",
+            "team": "T028U023WM7",
+            "name": "sefanur.erciyas",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "U=NVi",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "i reckon exact match makes the most sense"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "a1a03233-f177-40a8-89cd-9ccb6d4cdea8",
+        "type": "message",
+        "text": "Hey everyone is anyone comfortable making a search bar for the books page?",
+        "user": "U0280JWD9AB",
+        "ts": "1630204509.001000",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "rHyyf",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Hey everyone is anyone comfortable making a search bar for the books page?"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "1166f7f6-4b4a-4004-b891-5cc4f6005b11",
+        "type": "message",
+        "text": "Pref <@U028FAFCKGS> <@U029512CCV6>",
+        "user": "U0280JWD9AB",
+        "ts": "1630204587.001400",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "aq+PD",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Pref "
+                            },
+                            {
+                                "type": "user",
+                                "user_id": "U028FAFCKGS"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "user",
+                                "user_id": "U029512CCV6"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "f9db81d3-b292-4104-9fe9-736b38fb0268",
+        "type": "message",
+        "text": "can give it a shot",
+        "user": "U028FAFCKGS",
+        "ts": "1630206869.000300",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "gbfedd2176f7",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/bfedd2176f791dc62aae8e423cb5ce70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "Thomas Dib",
+            "display_name": "Thomas Dib",
+            "team": "T028U023WM7",
+            "name": "s3838765",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "XZW",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "can give it a shot"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

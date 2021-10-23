@@ -1,0 +1,411 @@
+[
+    {
+        "client_msg_id": "f3f09535-436c-44af-9a64-c7eaad4600f7",
+        "type": "message",
+        "text": "Hey everyone I've created a doc for the submission with the lists of tasks everyone has done but I may have missed stuff",
+        "user": "U0280JWD9AB",
+        "ts": "1631343861.009000",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "CgW",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Hey everyone I've created a doc for the submission with the lists of tasks everyone has done but I may have missed stuff"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "f12a8ce4-a1a9-4944-a19d-81a0ce8e665a",
+        "type": "message",
+        "text": "Great burndown charts <@U029512CCV6>",
+        "user": "U0280JWD9AB",
+        "ts": "1631349785.009300",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "Zhs",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Great burndown charts "
+                            },
+                            {
+                                "type": "user",
+                                "user_id": "U029512CCV6"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "39657ccb-e0c5-40c7-b23e-8b94ba5f3011",
+        "type": "message",
+        "text": "Great job with sprint 1 docs, just reviewed and made a few quick changes",
+        "user": "U0280JWD9AB",
+        "ts": "1631350782.009800",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "370t9",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Great job with sprint 1 docs, just reviewed and made a few quick changes"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "35bd1590-e5d0-4b21-8b6c-cb7d2c9a50a6",
+        "type": "message",
+        "text": "Thanks! and awesome",
+        "user": "U029512CCV6",
+        "ts": "1631350956.010500",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "dc3dba1c239b",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-18\/2300002178689_dc3dba1c239b262b6feb_72.jpg",
+            "first_name": "",
+            "real_name": "Sefanur Erciyas",
+            "display_name": "Sefanur",
+            "team": "T028U023WM7",
+            "name": "sefanur.erciyas",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "dyrb",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Thanks! and awesome"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "6bebdb0a-f4e2-4113-a78d-1ee7a81191b9",
+        "type": "message",
+        "text": "• Hey yall so just a mid sprint update. I believe the backend has been completely implemented (including some of the review stuff since I thought it was this sprint). From what I know, the main things we are currently pending is the front end for both the creation and viewing on book listings. The scrum documentation also needs to be done for sprint 2 that shouldnt be too hard. I may need to add some additional unit testing for the discovery and gateway service however ill have to see if I can find something that actually needs to be tested. I also believe the acceptance testing needs to be completed aswell. The due date is *Sat September 18, 11.59PM.* ",
+        "user": "U0280JWD9AB",
+        "ts": "1631352907.013300",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "\/6Mu",
+                "elements": [
+                    {
+                        "type": "rich_text_list",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "Hey yall so just a mid sprint update. I believe the backend has been completely implemented (including some of the review stuff since I thought it was this sprint). From what I know, the main things we are currently pending is the front end for both the creation and viewing on book listings. The scrum documentation also needs to be done for sprint 2 that shouldnt be too hard. I may need to add some additional unit testing for the discovery and gateway service however ill have to see if I can find something that actually needs to be tested. I also believe the acceptance testing needs to be completed aswell. The due date is "
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": "Sat September 18, 11.59PM. ",
+                                        "style": {
+                                            "bold": true
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
+                        "style": "bullet",
+                        "indent": 0,
+                        "border": 0
+                    }
+                ]
+            }
+        ],
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U029512CCV6"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "client_msg_id": "2295366e-c980-4a04-a1e1-5fe5d2617ca5",
+        "type": "message",
+        "text": "Looks like we are on track :slightly_smiling_face:",
+        "user": "U0280JWD9AB",
+        "ts": "1631352913.013500",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "IlB",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Looks like we are on track "
+                            },
+                            {
+                                "type": "emoji",
+                                "name": "slightly_smiling_face"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "cfb75e7b-fdae-4a5e-be87-7291080fe4a0",
+        "type": "message",
+        "text": "Just wanted to get everything in one spot",
+        "user": "U0280JWD9AB",
+        "ts": "1631352923.013700",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "DWO",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Just wanted to get everything in one spot"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "reactions": [
+            {
+                "name": "ok_hand",
+                "users": [
+                    "U029512CCV6"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "client_msg_id": "6eb90257-b2f0-4fc5-afbc-a61b3de43b34",
+        "type": "message",
+        "text": "<@U02951CDYSU> Test data for books and listings have been made. Books with listings include: Bad hair, demon dentist (with the most listings), pride &amp; prejudice and lone star",
+        "user": "U029512CCV6",
+        "ts": "1631353733.015200",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "dc3dba1c239b",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-18\/2300002178689_dc3dba1c239b262b6feb_72.jpg",
+            "first_name": "",
+            "real_name": "Sefanur Erciyas",
+            "display_name": "Sefanur",
+            "team": "T028U023WM7",
+            "name": "sefanur.erciyas",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "63O",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "user",
+                                "user_id": "U02951CDYSU"
+                            },
+                            {
+                                "type": "text",
+                                "text": " Test data for books and listings have been made. Books with listings include: Bad hair, demon dentist (with the most listings), pride & prejudice and lone star"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U02951CDYSU"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "client_msg_id": "0b088e30-647e-4bed-9e1c-6b4ed0a459bd",
+        "type": "message",
+        "text": "Cool, cheers :thumbsup:",
+        "user": "U02951CDYSU",
+        "ts": "1631353751.015500",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "ffa7a480c015",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-18\/2287356082482_ffa7a480c0158de4de4d_72.jpg",
+            "first_name": "",
+            "real_name": "Ewan Breakey",
+            "display_name": "Ewan Breakey",
+            "team": "T028U023WM7",
+            "name": "ebreakey",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "xrI0h",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Cool, cheers "
+                            },
+                            {
+                                "type": "emoji",
+                                "name": "thumbsup"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U029512CCV6"
+                ],
+                "count": 1
+            }
+        ]
+    }
+]

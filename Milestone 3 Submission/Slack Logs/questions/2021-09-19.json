@@ -1,0 +1,40 @@
+[
+    {
+        "client_msg_id": "4a22dfde-4030-4ba3-a9ea-c7e219fcee7a",
+        "type": "message",
+        "text": "Question for dale, are we allowed to set up just CI since it demonstrates we have the ability but we are having issues with the number of deployments allotted to our circle CI each week.",
+        "user": "U0280JWD9AB",
+        "ts": "1632114852.000900",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "0icz",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Question for dale, are we allowed to set up just CI since it demonstrates we have the ability but we are having issues with the number of deployments allotted to our circle CI each week."
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

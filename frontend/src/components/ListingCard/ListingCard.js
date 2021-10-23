@@ -19,7 +19,6 @@ const ListingCard = ({ id, price, imageUrl, isPreowned, isSwap, bookIsbn, seller
   const { response: book } = useAsync(() => getBook(bookIsbn), [bookIsbn])
   const { response: vendor } = useAsync(() => getUser(sellerId), [sellerId])
   const profile = useCurrentProfile()
-  
 
   // Determine what to show for title (either vendor name + username or book title)
   const title = cardStyle === CARD_STYLES.BOOK_FOCUS

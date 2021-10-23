@@ -1,0 +1,40 @@
+[
+    {
+        "client_msg_id": "991794bd-c0e0-4004-b2d2-605a91ae9f5e",
+        "type": "message",
+        "text": "can we turn off circleci? i definitely think we'll be running out of credit if it stays up for any longer",
+        "user": "U028FAFCKGS",
+        "ts": "1633610774.000900",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "gbfedd2176f7",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/bfedd2176f791dc62aae8e423cb5ce70.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "Thomas Dib",
+            "display_name": "Thomas Dib",
+            "team": "T028U023WM7",
+            "name": "s3838765",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "zuiBn",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "can we turn off circleci? i definitely think we'll be running out of credit if it stays up for any longer"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

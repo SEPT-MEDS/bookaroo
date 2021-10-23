@@ -1,0 +1,174 @@
+[
+    {
+        "client_msg_id": "232f723b-22ab-4ff2-be8c-2457c0dae249",
+        "type": "message",
+        "text": "<https:\/\/docs.google.com\/document\/d\/14UnV4a-YbCsOUf8DYkKm4oBNcSmVhgJT\/edit?usp=sharing&amp;ouid=107863490594802047601&amp;rtpof=true&amp;sd=true> Sprint 1 retro is complete, someone proof read please. Feel free to change or add anything",
+        "user": "U029512CCV6",
+        "ts": "1630228848.001500",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "dc3dba1c239b",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-18\/2300002178689_dc3dba1c239b262b6feb_72.jpg",
+            "first_name": "",
+            "real_name": "Sefanur Erciyas",
+            "display_name": "Sefanur",
+            "team": "T028U023WM7",
+            "name": "sefanur.erciyas",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "g9Z",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "link",
+                                "url": "https:\/\/docs.google.com\/document\/d\/14UnV4a-YbCsOUf8DYkKm4oBNcSmVhgJT\/edit?usp=sharing&ouid=107863490594802047601&rtpof=true&sd=true"
+                            },
+                            {
+                                "type": "text",
+                                "text": " Sprint 1 retro is complete, someone proof read please. Feel free to change or add anything"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "reactions": [
+            {
+                "name": "pray",
+                "users": [
+                    "U028FAFCKGS"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "client_msg_id": "387ef6ee-a877-4b9d-bfa8-8a381b5d663a",
+        "type": "message",
+        "text": "<@U02951CDYSU>",
+        "user": "U0280JWD9AB",
+        "ts": "1630239208.002000",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "zdu7d",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "user",
+                                "user_id": "U02951CDYSU"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "client_msg_id": "0378dbfc-113b-4284-822d-dedc2a3fb63c",
+        "type": "message",
+        "text": "Should this not be part of sprint 1 and instead be viewing the list of all books on the site",
+        "user": "U0280JWD9AB",
+        "ts": "1630239223.002400",
+        "team": "T028U023WM7",
+        "user_team": "T028U023WM7",
+        "source_team": "T028U023WM7",
+        "user_profile": {
+            "avatar_hash": "6dd984ffcdcb",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2021-07-22\/2301122026195_6dd984ffcdcbf74e65a1_72.png",
+            "first_name": "Maxwell",
+            "real_name": "Maxwell Reid",
+            "display_name": "Max",
+            "team": "T028U023WM7",
+            "name": "contact",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "U+ipZ",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Should this not be part of sprint 1 and instead be viewing the list of all books on the site"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "text": "",
+        "files": [
+            {
+                "id": "F02CQ6XS5NW",
+                "created": 1630239223,
+                "timestamp": 1630239223,
+                "name": "image.png",
+                "title": "image.png",
+                "mimetype": "image\/png",
+                "filetype": "png",
+                "pretty_type": "PNG",
+                "user": "U0280JWD9AB",
+                "editable": false,
+                "size": 8113,
+                "mode": "hosted",
+                "is_external": false,
+                "external_type": "",
+                "is_public": true,
+                "public_url_shared": false,
+                "display_as_bot": false,
+                "username": "",
+                "url_private": "https:\/\/files.slack.com\/files-pri\/T028U023WM7-F02CQ6XS5NW\/image.png?t=xoxe-2300002132721-2491962007047-2512898018532-73e6b43ec1fed45e8a8c9993e678c6c2",
+                "url_private_download": "https:\/\/files.slack.com\/files-pri\/T028U023WM7-F02CQ6XS5NW\/download\/image.png?t=xoxe-2300002132721-2491962007047-2512898018532-73e6b43ec1fed45e8a8c9993e678c6c2",
+                "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T028U023WM7-F02CQ6XS5NW-818e7bd064\/image_64.png?t=xoxe-2300002132721-2491962007047-2512898018532-73e6b43ec1fed45e8a8c9993e678c6c2",
+                "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T028U023WM7-F02CQ6XS5NW-818e7bd064\/image_80.png?t=xoxe-2300002132721-2491962007047-2512898018532-73e6b43ec1fed45e8a8c9993e678c6c2",
+                "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T028U023WM7-F02CQ6XS5NW-818e7bd064\/image_360.png?t=xoxe-2300002132721-2491962007047-2512898018532-73e6b43ec1fed45e8a8c9993e678c6c2",
+                "thumb_360_w": 312,
+                "thumb_360_h": 145,
+                "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T028U023WM7-F02CQ6XS5NW-818e7bd064\/image_160.png?t=xoxe-2300002132721-2491962007047-2512898018532-73e6b43ec1fed45e8a8c9993e678c6c2",
+                "original_w": 312,
+                "original_h": 145,
+                "thumb_tiny": "AwAWADC+7bT1H40gJIyMGlbOeCB9aB05INMQnze1Hz+i06imAgz3x+FO6rg0xnVcbmAzwM1IOlJgIUyc8UBMdMU6ikMbtNG006ii4ETwK+NwBxUnalpDQB\/\/2Q==",
+                "permalink": "https:\/\/septgrouphq.slack.com\/files\/U0280JWD9AB\/F02CQ6XS5NW\/image.png",
+                "permalink_public": "https:\/\/slack-files.com\/T028U023WM7-F02CQ6XS5NW-3b280286af",
+                "is_starred": false,
+                "has_rich_preview": false
+            }
+        ],
+        "upload": false,
+        "user": "U0280JWD9AB",
+        "display_as_bot": false,
+        "ts": "1630239227.002500"
+    }
+]

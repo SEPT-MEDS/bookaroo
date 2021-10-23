@@ -1,13 +1,18 @@
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
 
 export const Author = styled.h3`
   color: ${p => p.theme.greyText};
 `
 
-export const Title = styled(Link)`
-  text-decoration: none;
-  color: ${p => p.theme.primary};
+export const Title = styled.h1`
+  display: inline-block;
   font-size: 1.5rem;
   font-weight: bold;
+  margin-top: .3em;
+  color: ${p => p.theme.primary};
+
+  >a[href] {
+    text-decoration: none;
+    color: inherit;
+  }
 `
