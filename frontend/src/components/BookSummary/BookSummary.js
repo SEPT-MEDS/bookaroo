@@ -10,8 +10,12 @@ const BookSummary = ({ book, showCover=true, showLink=true }) => <div>
   {/* Image */}
   {showCover && <BookCover isbn={book?.isbn} imageUrl={book?.url} />}
   {/* Name */}
-  {showLink && <Title as={Link} to={`/book/${book?.isbn}`}>{book?.title || 'Book'}</Title>}
-  {!showLink && <Title>{book?.title || 'Book'}</Title>}
+  <Title>
+    {showLink && <Link to={`/book/${book?.isbn}`}>
+      {book?.title || 'Book'}
+    </Link>}
+    {!showLink && (book?.title || 'Book')}
+  </Title>
   {/* Author */}
   <Author>{book?.author || 'Author'}</Author>
   {/* Rating */}
