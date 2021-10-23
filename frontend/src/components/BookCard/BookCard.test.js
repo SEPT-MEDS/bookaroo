@@ -1,15 +1,9 @@
 import React from 'react'
 import {render, screen} from '@testing-library/react'
 import '@testing-library/jest-dom'
-import { Router } from 'react-router-dom'
-import { createMemoryHistory } from 'history'
+import { wrapWithRouter } from 'utils'
 
 import BookCard from './BookCard'
-
-const wrapWithRouter = comp =>
-  <Router history={createMemoryHistory()}>
-    {comp}
-  </Router>
 
 const testBook = {
   title: 'TestTitle',
