@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import {BookCover, Rating} from 'components'
 
@@ -9,8 +10,12 @@ const BookSummary = ({ book, showCover=true, showLink=true }) => <div>
   {/* Image */}
   {showCover && <BookCover isbn={book?.isbn} imageUrl={book?.url} />}
   {/* Name */}
-  {showLink && <Title to={`/book/${book?.isbn}`}>{book?.title || 'Book'}</Title>}
-  {!showLink && <h1>{book?.title || 'Book'}</h1>}
+  <Title>
+    {showLink && <Link to={`/book/${book?.isbn}`}>
+      {book?.title || 'Book'}
+    </Link>}
+    {!showLink && (book?.title || 'Book')}
+  </Title>
   {/* Author */}
   <Author>{book?.author || 'Author'}</Author>
   {/* Rating */}

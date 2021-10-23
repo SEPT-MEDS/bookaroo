@@ -1,8 +1,7 @@
 import React from 'react'
-import { RatingText } from './ratingStyle'
 
-// Function to clamp the rating between 1 and 5 (inclusive)
-const clamp = (v, min, max) => Math.min(Math.max(v, min), max)
+import { clamp } from 'utils'
+import { RatingText } from './ratingStyle'
 
 // Component to render stars based on provided rating
 const Rating = ({ rating, maxRating = 5 }) => {

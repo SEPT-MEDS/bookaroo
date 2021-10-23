@@ -33,8 +33,11 @@ export const DeleteButtonContainer = styled.div`
   font-size: 1.35rem;
 `
 
-export const DeleteButton = styled.div`
+export const DeleteButton = styled.button`
+  background: none;
+  border: none;
   color: ${p => p.theme.primary};
+  font-size: 1.4rem;
 
   :hover {
     cursor: pointer;

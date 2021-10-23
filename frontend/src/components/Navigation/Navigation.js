@@ -9,7 +9,6 @@ import { NavBar, NavItems } from './navigationStyle'
 const Navigation = () => {
   const profile = useCurrentProfile()
   const isAdmin = profile?.type == 'ADMIN'
-
   return (
     <NavBar>
       {/* Navigate different users to different pages on click of logo - this is handled by pages/index.js */}

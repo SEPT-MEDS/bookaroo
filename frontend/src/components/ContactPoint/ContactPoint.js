@@ -42,6 +42,7 @@ const ContactPoint = ({ contactType }) => {
       <span>@bookaroo</span>
     </ContactPointContainer>
 
+  return <>Invalid Contact Type</>
 }
 
 export default ContactPoint
